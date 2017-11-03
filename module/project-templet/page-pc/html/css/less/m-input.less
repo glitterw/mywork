@@ -1,0 +1,60 @@
+/**
+*@action 输入框的封装
+*@author wpx
+*@date   2017/9/18
+**/
+//引入颜色常量
+@import url(var-color.less);
+//引入字体大小常量
+@import url(var-fontsize.less); 
+
+/* 文本输入框(大尺寸)*/ 
+.m-input-l {
+   box-sizing: border-box;
+   display: inline-block;
+   border: 1px solid @border-color;
+   border-radius: 3px;
+   min-width: 20em;
+   font-size: @l-fontsize;
+   height: @l-fontsize*2.5;
+   line-height: @l-fontsize*2.5;
+   padding: 0 1em;
+} 
+/* 文本输入框(中等尺寸)*/ 
+.m-input-m {
+   box-sizing: border-box;
+   display: inline-block;
+   border: 1px solid @border-color;
+   border-radius: 3px;
+   min-width: 20em;
+   font-size: @m-fontsize;
+   height: @m-fontsize*2.5;
+   line-height: @m-fontsize*2.5;
+   padding: 0 1em;
+}
+/* 文本输入框(小尺寸)*/ 
+.m-input-s {
+   box-sizing: border-box;
+   display: inline-block;
+   border: 1px solid @border-color;
+   border-radius: 3px;
+   min-width: 20em;
+   font-size: @s-fontsize;
+   height: @s-fontsize*2.5;
+   line-height: @s-fontsize*2.5;
+   padding: 0 1em;
+}
+
+.m-input-l:hover,
+.m-input-m:hover,
+.m-input-s:hover {
+    border-color: @light-color; 
+}
+.m-input-l:focus,
+.m-input-m:focus,
+.m-input-s:focus {
+    border-color: @duck-color; 
+}
+
+
+

@@ -1,0 +1,8 @@
+@charset "UTF-8";
+.test-jdk {
+    margin: .2rem  0;
+    padding: 0 .3rem;
+}
+.test-jdk .m-button-l{
+    border: none;
+}

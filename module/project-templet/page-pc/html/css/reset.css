@@ -1,0 +1,112 @@
+@charset "utf-8";
+/**
+* @action: 初始化样式表
+* @author：wpx
+* @date: 2017/9/13
+*/
+
+/* 清除所有元素外边距内边距 所有元素的宽、高包括内边距 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/** 定义全局的字体大小、字体、字体颜色 
+* 微软雅黑：microsoft yahei、西文：Arial(支持所有系统)、宋体：SimSun、黑体：SimHei
+* 儷黑 Pro：LiHei Pro Medium(mac os)、无衬线体:sans-serif
+**/
+body { 
+	font-size:12px; 
+	font-family:"microsoft yahei","SimSun","SimHei","LiHei Pro Medium","Arial","sans-serif"; 
+	color:#000;
+}
+/* 定义语义化标签为块元素 */
+header,
+footer,
+nav,
+section,
+wrap { 
+	display:block;
+}
+/* 清空列表属性 */
+ul {
+	list-style:none;
+}
+/* a标签去掉文本修饰、字体颜色、鼠标手型 */
+a {
+	text-decoration:none;
+	color:#000;
+	cursor:pointer;
+}
+/* a标签鼠标覆盖字体颜色 */
+a:hover {
+	color:#07f;
+}
+/* 图片去掉边框，IE强制浏览器缩放图片的时候失真, 火狐3.6及以上图片缩放不在失真*/
+img {
+	border:none; 
+	-ms-interpolation-mode: bicubic;   /* Internet Explorer 7.0; default in IE8+ */
+    image-rendering: optimizeQuality;  /* Firefox 3.6+; default behavior is identical, no need to specify */ 
+}
+
+/* table标签边框会合并为一个单一的边框。会忽略 border-spacing 和 empty-cells 属性。*/
+table {
+	border-collapse:collapse;
+}
+
+/* i,b,em字体风格按标准显示*/
+i,
+b,
+em {
+	font-style:normal;
+}
+
+/* 设置各种类型的标题字体大小继承父类、字体粗细正常*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size:100%; 
+	font-weight:normal;
+}
+
+/* 设置各种类型的标题字体大小继承父类、字体粗细正常*/
+button,
+input,
+select,
+textarea {
+	font-size:100%; 
+	font-family:"microsoft yahei","SimSun","SimHei","LiHei Pro Medium","Arial","sans-serif";
+}
+/* 设置去掉默认边框 */
+input,
+button {
+	border: none;
+}
+/* 设置以下标签鼠标手型*/
+label,
+button,
+input[type="button"],
+input[type="submit"] {
+	cursor:pointer
+}
+
+/* 设置iframe无边框，无轮廓 */ 
+iframe { 
+	border: 0; 
+	outline: none;
+}
+/* 输入框placeholder字体颜色 */
+::-webkit-input-placeholder { color:#ddd;}
+:-moz-placeholder { color:#ddd;}
+::-moz-placeholder { color:#ddd;}
+:-ms-input-placeholder { color:#ddd;}
+
+/*一条线*/
+hr {
+	height: 0;
+	border: none; 
+	border-bottom: 1px solid #ccc;
+}

@@ -1,0 +1,65 @@
+/**
+*@action 输入框的封装
+*@author wpx
+*@date   2017/9/18
+**/
+/**
+*@action 风格颜色的定义
+*@author wpx
+*@date   2017/9/15
+**/
+/* 主题色 */
+/* 辅助色 */
+/* 点缀色 */
+/* 中性色 常用于文本、背景、边框、阴影等 */
+/**
+*@action 字体大小的定义
+*@author wpx
+*@date   2017/9/15
+**/
+/* 文本输入框(大尺寸)*/
+.m-input-l {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  min-width: 20em;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 1em;
+}
+/* 文本输入框(中等尺寸)*/
+.m-input-m {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  min-width: 20em;
+  font-size: 14px;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 1em;
+}
+/* 文本输入框(小尺寸)*/
+.m-input-s {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  min-width: 20em;
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 1em;
+}
+.m-input-l:hover,
+.m-input-m:hover,
+.m-input-s:hover {
+  border-color: #5299ff;
+}
+.m-input-l:focus,
+.m-input-m:focus,
+.m-input-s:focus {
+  border-color: #3777d3;
+}

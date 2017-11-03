@@ -1,0 +1,141 @@
+/**
+*@action 按钮的封装
+*@author wpx
+*@date   2017/9/15
+**/
+//引入颜色常量
+@import url(var-color.less);
+@import url(var-fontsize.less);
+/* 直角按钮(中号) */
+.m-button-m {
+	box-sizing: border-box;
+	display: inline-block;
+	background-color: @primary-color;
+    font-size: @m-fontsize;
+    line-height: @m-fontsize*2.5;//整个高度是字号的2.5倍
+    padding: 0,@m-fontsize*1.5;  //左右边距是字号的1.5倍
+    min-width: @m-fontsize*5;    //最小宽度是字号的5倍
+    text-align: center;
+    color:#fff;
+    letter-spacing: 2px;
+} 
+
+/* 倒角按钮(中号) */
+.m-button-reverse-m {
+  .m-button-m;	
+  border-radius: 3px;
+}
+/* 圆角按钮(中号) */
+.m-button-round-m {
+ 	box-sizing: border-box;
+	display: inline-block;
+	background-color: @primary-color;
+    font-size: @m-fontsize;
+    line-height: @m-fontsize*2.5;//整个高度是字号的2.5倍
+    padding: 0 @m-fontsize*2;  //左右边距是字号的2倍
+    min-width: @m-fontsize*6;    //最小宽度是字号的6倍
+    text-align: center;
+    border-radius: (@m-fontsize*2.5)/2;  //高度的一半
+    color:#fff;
+    letter-spacing: 2px;
+}
+
+
+/* 直角按钮(大号) */
+.m-button-l {
+	box-sizing: border-box;
+	display: inline-block;
+	background-color: @primary-color;
+    font-size: @l-fontsize;
+    line-height: @l-fontsize*2.5;//整个高度是字号的2.5倍
+    padding: 0  @l-fontsize*1.5;  //左右边距是字号的1.5倍
+    min-width: @l-fontsize*5;    //最小宽度是字号的5倍
+    text-align: center;
+    color:#fff;
+    letter-spacing: 2px;
+} 
+/* 倒角按钮(大号) */
+.m-button-reverse-l {
+  .m-button-l;	
+  border-radius: 3px;
+}
+
+/* 圆角按钮(大号) */
+.m-button-round-l {
+ 	box-sizing: border-box;
+	display: inline-block;
+	background-color: @primary-color;
+    font-size: @l-fontsize;
+    line-height: @l-fontsize*2.5;//整个高度是字号的2.5倍
+    padding: 0  @l-fontsize*2;  //左右边距是字号的2倍
+    min-width: @l-fontsize*6;    //最小宽度是字号的6倍
+    text-align: center;
+    border-radius: (@l-fontsize*2.5)/2;  //高度的一半
+    color:#fff;
+    letter-spacing: 2px;
+}
+
+/* 直角按钮(小号) */
+.m-button-s {
+	box-sizing: border-box;
+	display: inline-block;
+	background-color: @primary-color;
+    font-size: @s-fontsize;
+    line-height: @s-fontsize*2.5;//整个高度是字号的2.5倍
+    padding: 0  @s-fontsize*1.5;  //左右边距是字号的1.5倍
+    min-width: @s-fontsize*5;    //最小宽度是字号的5倍
+    text-align: center;
+    color:#fff;
+    letter-spacing: 2px;
+} 
+/* 倒角按钮(小号) */
+.m-button-reverse-s {
+  .m-button-s;	
+  border-radius: 3px;
+}
+
+/* 圆角按钮(小号) */
+.m-button-round-s {
+ 	box-sizing: border-box;
+	display: inline-block;
+	background-color: @primary-color;
+    font-size: @s-fontsize;
+    line-height: @s-fontsize*2.5;//整个高度是字号的2.5倍
+    padding: 0  @s-fontsize*2;  //左右边距是字号的2倍
+    min-width: @s-fontsize*6;    //最小宽度是字号的6倍
+    text-align: center;
+    border-radius: (@s-fontsize*2.5)/2;  //高度的一半
+    color:#fff;
+    letter-spacing: 2px;
+}
+
+/* hover效果 */
+.m-button-l:hover,
+.m-button-reverse-l:hover,
+.m-button-round-l:hover,
+.m-button-m:hover,
+.m-button-reverse-m:hover,
+.m-button-round-m:hover,
+.m-button-s:hover,
+.m-button-reverse-s:hover,
+.m-button-round-s:hover,
+{
+	background-color: @light-color;
+}
+
+/* 选中效果 */
+.m-button-l:active,
+.m-button-reverse-l:active,
+.m-button-round-l:active,
+.m-button-m:active,
+.m-button-reverse-m:active,
+.m-button-round-m:active,
+.m-button-s:active,
+.m-button-reverse-s:active,
+.m-button-round-s:active,
+{
+	background-color: @duck-color;
+}
+
+
+

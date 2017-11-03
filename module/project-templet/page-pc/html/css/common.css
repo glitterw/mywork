@@ -1,0 +1,93 @@
+@charset "utf-8";
+/**
+* @action: 全局通用样式
+* @author：wpx
+* @date: 2017/9/13
+*/
+
+/* 高度自动,超出隐藏 */ 
+.g-height-auto { 
+	height:auto; 
+	overflow:hidden;
+} 
+/* 文本水平居中 */ 
+.g-text-center { 
+	text-align:center;
+} 
+/* 垂直居中 */ 
+.g-vertical {
+	font-size:0;
+}
+.g-vertical:after { 
+	vertical-align:middle; 
+	display:inline-block; 
+	width:0px; 
+	height:100%; 
+	content:"";
+}  
+.g-vertical>* { 
+	vertical-align:middle; 
+	display:inline-block;
+	font-size: 12px;
+}
+/* 蒙层 */ 
+.g-overlay {
+	position: relative;
+} 
+.g-overlay:after {  
+	display: block; 
+	position: absolute; 
+	left: 0; 
+	top: 0;  
+	width:100%; 
+	height:100%;
+	content: '';  
+	background: #000; 
+	opacity: 0.3;  
+	z-index: 999;
+}
+/* 右浮动 */
+.g-fr {
+	float: right;
+}
+/* 左浮动 */
+.g-fl {
+	float: left;
+}
+
+/* 文本强制换行 */
+.g-text-break {
+	word-break:break-all;　
+	word-wrap:break-word;
+} 
+/* 文本显示一行,溢出省略... */ 
+.g-text-ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+} 
+/*隐藏*/
+.g-hide {
+	visibility:hidden;
+}
+.g-none {
+	display:none;
+}
+/*黑白滤镜*/
+.g-filter-gray {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%); 
+	-webkit-filter: gray; 
+	filter: gray;
+}
+/* css3弹性盒子 */
+.g-flex { 
+	display: -ms-flexbox; 
+	display: -webkit-box; 
+	display: flex;
+}
+.g-flex-item { 
+	-webkit-box-flex: 1; 
+	-ms-flex: auto;
+	flex: auto; 
+}

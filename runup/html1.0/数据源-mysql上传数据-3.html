@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<!--<html manifest="cssjs.appcache">-->
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+    <title>数据源-mysql上传数据-2</title>
+    <meta name="Keywords" content="可视化工具">
+    <meta name="Description" content="可视化工具">
+    <link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/inside.css" />
+    <link rel="stylesheet" type="text/css" href="css/data.css" />
+    <link rel="stylesheet" type="text/css" href="css/cell.css" />
+</head>
+
+<body class="mysql-upload body-style">
+<header class="data-header">
+    <div class="logo"><a href="#"><img src="img/logo.png" /></a></div>
+    <div class="title">
+        <h3>
+            <span>上传数据</span>
+            <span class="mysql">MySQL</span>
+        </h3>
+    </div>
+    <div class="process">
+        <span>
+            <div>
+                <i class="no no1 finish"></i>
+                <i class="pname pname1">连接配置</i>
+            </div>
+            <div>
+                <i class="no no2 finish"></i>
+                <i class="pname pname2">数据表配置</i>
+            </div>
+            <div>
+                <i class="no no3 active">3</i>
+                <i class="pname pname3">高级配置</i>
+            </div>
+        </span>
+    </div>
+    <span class="action"><a href="javascript:" class="action-button next">上一步</a><a href="javascript:" class="action-button finish active">完成</a></span>
+    <div class="back"></div>
+</header>
+
+<div class="set-data-box">
+    <div class="setting">
+
+        <div class="item">
+            <span><i class="need">*</i>数据源名称:</span>
+            <input type="text" value=""  placeholder="用于区分数据源的标识">
+        </div>
+        <div class="item">
+            <span>分类标签:</span>
+            <input type="text" value=""  placeholder="用于分类、搜索的自定义标签">
+        </div>
+        <div class="item ">
+            <span>数据源备注:</span>
+            <textarea placeholder="请输入数据源备注"></textarea>
+        </div>
+    </div>
+</div>
+<!--上一步 警告提示框 开始-->
+<div class="Mlayer_4 Mlayer_4_400" id="warning">
+    <h5 class="Mlayer_4_h">提示<span class="Mlayer_4_gb"></span></h5>
+    <div class="Mlayer_4_box text_c">
+        <p class="Mlayer_p">
+            <img src="img/data/warning.png" class="data-warning-img">
+            <span class="data-warning-text">返回上一步，上传成功的文件将被取消是否继续？</span>
+        </p>
+    </div>
+    <div class="Mlayer_4_bottAll">
+        <a id='isxingjianwenjianjia' class="blue">确定</a>
+        <a class='M4quxiao'>取消</a>
+    </div>
+</div>
+<!--上一步 警告提示框 结束-->
+<!--完成提示框 开始-->
+<div class="Mlayer_4 Mlayer_4_400" id="task-finish">
+    <h5 class="Mlayer_4_h">提示<span class="Mlayer_4_gb"></span></h5>
+    <div class="Mlayer_4_box text_c">
+        <p class="Mlayer_p">
+            <i class="data-finish-img"></i>
+            <!--<img src="img/data/Mlayer_4_icon.png" class="data-finish-img">-->
+            <span class="data-warning-text">添加数据成功！</span>
+        </p>
+    </div>
+    <div class="Mlayer_4_bottAll">
+        <a id='isxingjianwenjianjia' class="blue">确定</a>
+        <a class='M4quxiao'>取消</a>
+    </div>
+</div>
+<!--完成提示框 结束-->
+<script src="js/myjs/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/myjs/Mbase.js"></script>
+<script type="text/javascript" src="js/myjs/jquery.gridster.min.js"></script>
+<script src="js/myjs/common.js" type="text/javascript"></script>
+<script src="js/myjs/inside.js" type="text/javascript"></script>
+<script src="js/myjs/data.js" type="text/javascript"></script>
+
+</body>
+
+</html>

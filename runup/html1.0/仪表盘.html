@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+	<!--<html manifest="cssjs.appcache">-->
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/x-icon" href="img/logo.ico">
+		<title>可视化工具</title>
+		<meta name="Keywords" content="可视化工具">
+		<meta name="Description" content="可视化工具">
+		<!--zTree-->
+		<link rel="stylesheet" type="text/css" href="js/zTree_v3/css/zTreeStyle/zTreeStyle.css" />
+		<!--zTreeEnd-->
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/inside.css" />
+	</head>
+
+	<body id="dash_board">
+		<wrap>
+			<nav class="nav_0">
+				<a class="logo_0" href="#"><img src="img/logo.png" /></a>
+				<div class="nav_0_div">
+					<a class="nav_a1 active" href="javascript:;">
+						<i></i>
+						<span>仪表盘</span>
+					</a>
+					<a class="nav_a2" href="javascript:;">
+						<i></i>
+						<span>工作表</span>
+					</a>
+					<a class="nav_a3" href="javascript:;">
+						<i></i>
+						<span>数据源</span>
+					</a>
+					<a class="nav_a4" href="javascript:;">
+						<i></i>
+						<span>模板库</span>
+					</a>
+				</div>
+				<div class="shezhi">
+					<div class="shezhi_home">
+						<a class="shezhi_home_a"><img src="img/yonghuimg.png" onerror="this.src='img/yonghuimg.png'" />
+						</a>
+						<div class="Mlayer_1">
+							<ii></ii>
+							<span class="a_title">个人中心</span>
+						</div>
+						<div class="Mlayer_2">
+							<ii></ii>
+							<div class="gerenxinxi">
+								<h4><span><img src="img/yonghuimg.png" onerror="this.src='img/yonghuimg.png'" /></span>端午和妞妞</h4>
+								<div class="gerenxinxi_xq">
+									<h5>个人信息</h5>
+									<p>昵称：<span>端午和妞妞</span><i></i></p>
+									<p>手机：<span>186 8888 6666</span><i></i></p>
+									<p>邮箱：<span>12345678@QQ.com</span><i></i></p>
+								</div>
+								<div class="xiugaimima_xq">
+									<h5>修改密码</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="shezhi_c">
+						<div class="shezhi_xq">
+							<a class="a_shizhi"></a>
+							<div class="Mlayer_1">
+								<ii></ii>
+								<span class="a_title">设置</span>
+							</div>
+							<div class="Mlayer_2">
+								<ii></ii>
+								<div class="xiugaizhuti_xq">
+									<h5>主题</h5>
+									<p class="overflow" id="xiugaizhuti">
+										<span class="on"><img src="img/zhuti1.png"/></span>
+										<span><img src="img/zhuti2.png"/></span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="shezhi_xq">
+							<a class="a_youjian"><i id="xiaoxiliang">200</i></a>
+							<div class="Mlayer_1">
+								<ii></ii>
+								<span class="a_title">消息中心</span>
+							</div>
+						</div>
+						<div class="shezhi_xq">
+							<a class="a_bangzhu"></a>
+							<div class="Mlayer_1">
+								<ii></ii>
+								<span class="a_title">帮助中心</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<nav class="nav_1">
+				<div class="nav_1_1">
+					<div class="nav_1_1_div">
+						<h5>仪表盘</h5>
+						<a class="xingjian">
+							<i></i>
+							<div class="Mlayer_3">
+								<ii></ii>
+								<div class="xingjian_xq">
+									<p id="xjwjj">新建文件夹</p>
+									<p id="xjybp">新建仪表盘</p>
+								</div>
+							</div>
+						</a>
+						<a class="zhankaisq">
+							<i></i>
+							<div class="Mlayer_3">
+								<ii></ii>
+								<div class="zhankaisq_xq">
+									<p id="collapseAllBtn">收起全部</p>
+									<p id="expandAllBtn">展开全部</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="nav_1_form_w">
+					<form class="nav_1_form">
+						<input id="nav_1_form_ss" type="text" value="" placeholder="输入关键字搜索" />
+						<input type="submit" value="" />
+						<div class="nav_1_form_ss_xq MScroll">
+							<p>仪表盘<em>6</em></p>
+							<span><i>良品铺子</i>网站订单数据分析汇总</span>
+							<span><i>良品铺子</i>网站用户分析</span>
+							<span><i>良品铺子</i>用户留存分析</span>
+							<span><i>良品铺子</i>访客咨询分析</span>
+							<span><i>良品铺子</i>访客咨询分析</span>
+							<span><i>良品铺子</i>访客咨询分析</span>
+							<p>工作表<em>11</em></p>
+							<span><i>良品铺子</i>网站订单数据分析汇总</span>
+							<span><i>良品铺子</i>网站用户分析</span>
+							<span><i>良品铺子</i>用户留存分析</span>
+							<span><i>良品铺子</i>访客咨询分析</span>
+							<span><i>良品铺子</i>访客咨询分析</span>
+							<span><i>良品铺子</i>访客咨询分析</span>
+						</div>
+					</form>
+				</div>
+				<div class="daohang MScroll">
+					<ul id="treeDom" class="ztree treeDom"></ul>
+					<div class="Mlayer_2" id="tree_xiangqing">
+						<ii></ii>
+						<div>
+							<p>名称：<span id="tree_xiangqing_nc"></span></p>
+							<p>标签：<span id="tree_xiangqing_bq"></span></p>
+							<p>备注：<span id="tree_xiangqing_bz"></span></p>
+						</div>
+					</div>
+					<div class="Mlayer_3" id="tree_xiangqing_bianji">
+						<ii></ii>
+						<div class="zhankaisq_xq">
+							<p id="obianji">编辑</p>
+							<p id="ofuzhi">复制</p>
+							<p id="oyidong">移动</p>
+							<p id="oShanchu">删除</p>
+							<!--thiszTreeId.value当前编辑的节点在zTree中的id-->
+							<input id="thiszTreeId" type="hidden" value="" />
+						</div>
+					</div>
+					<div class="Mlayer_4" id="quedingshanchu">
+						<h5 class="Mlayer_4_h">提示<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<span class="M4queding"></span>
+							<span class="qdscxm">你确定要删除仪表盘：<br /><i id="xiangmuName">场景模板-电商</i></span>
+
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a id='isRemove' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+
+					<div class="Mlayer_4 Mlayer_4_400" id="fuzhimokuai">
+						<h5 class="Mlayer_4_h">复制仪表盘<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<p class="yjgzbxj">将仪表盘<i>良品铺子网站订单分析数据汇总</i>复制到：</p>
+							<div class="Mlayer_4_div" style="width: 330px; margin-left: 39px; padding-bottom: 10px;">
+								<span class="Mlayer_4_span left">选择文件夹：</span>
+								<div class="xialaBox Mlayer_4_input left">
+									<p class="xiala_p" placeholder="选择文件夹"><i>选择文件夹</i></p>
+									<div class="xiala_d MScroll">
+										<ul class="ztree treeDomXL2" id="treeDomXL3"></ul>
+
+									</div>
+								</div>
+							</div>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">重命名：</span>
+								<input class="Mlayer_input" type="text" placeholder="请输入文件夹名称">
+							</p>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a id='isyidongmokuai' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4" id="yidongmokuai">
+						<h5 class="Mlayer_4_h">移动仪表盘<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<p class="yjgzbxj">将仪表盘<i>良品铺子网站订单分析数据汇总</i>移动到：</p>
+							<div class="Mlayer_4_div" style="width: 330px; margin-left: 39px; padding-bottom: 10px;">
+								<span class="Mlayer_4_span left">选择文件夹：</span>
+								<div class="xialaBox Mlayer_4_input left">
+									<p class="xiala_p" placeholder="选择文件夹"><i>选择文件夹</i></p>
+									<div class="xiala_d MScroll">
+										<ul class="ztree treeDomXL2" id="treeDomXL4"></ul>
+									</div>
+								</div>
+							</div>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">重命名：</span>
+								<input class="Mlayer_input" type="text" placeholder="请输入文件夹名称">
+							</p>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a id='isyidongmokuai' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4 Mlayer_4_400" id="xingjianwenjianjia">
+						<h5 class="Mlayer_4_h">新建文件夹<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">文件夹名称：</span>
+								<input class="Mlayer_input" id="xjwjjname" type="text" placeholder="请输入文件夹名称" />
+							</p>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a id='isxingjianwenjianjia' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4 Mlayer_4_400" id="xingjianyibiaopan">
+						<h5 class="Mlayer_4_h">新建仪表盘<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<div class="Mlayer_4_div" style="width: 326px; padding-bottom: 10px;">
+								<span class="Mlayer_4_span left text_r" style="width: 86px;">文件夹名称：</span>
+								<div class="xialaBox Mlayer_4_input left">
+									<p class="xiala_p" placeholder="选择文件夹"><i>选择文件夹</i></p>
+									<div class="xiala_d MScroll">
+										<ul class="ztree treeDomXL2" id="treeDomXL1"></ul>
+									</div>
+								</div>
+							</div>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">仪表盘名称：</span>
+								<input class="Mlayer_input" id="ybpname" type="text" placeholder="请输入仪表盘名称" />
+							</p>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">分类标签：</span>
+								<input id="ybpfeilei" class="Mlayer_input" type="text" placeholder="请输入分类标签" />
+							</p>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">仪表盘备注：</span>
+								<textarea class="Mlayer_input Mlayer_textarea" id="tjtk_bz" type="text" placeholder="请输入图块备注"></textarea>
+							</p>
+
+						</div>
+
+						<div class="Mlayer_4_bottAll">
+							<a id='isxingjianyibiaopan' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4 Mlayer_4_400" id="bianjiyibiaopan">
+						<h5 class="Mlayer_4_h">编辑仪表盘<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">仪表盘名称：</span>
+								<input class="Mlayer_input" id="xjwjjname" type="text" placeholder="请输入文件夹名称" />
+							</p>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">分类标签：</span>
+								<input class="Mlayer_input" id="tjtk_bq" type="text" placeholder="请输入分类标签" />
+							</p>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">仪表盘备注：</span>
+								<textarea class="Mlayer_input" id="tjtk_bz" type="text" placeholder="请输入图块备注" style="height: 90px;"></textarea>
+							</p>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a id='isxingjianwenjianjia' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4 Mlayer_4_500" id="tianjiatukuai">
+						<h5 class="Mlayer_4_h">添加图表<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">选择图表类型：</span>
+								<span class="Mlayer_input xztbnx w349">
+									<input type="hidden"/>
+									<a class="on"></a>
+									<a></a>
+								</span>
+							</p>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">图表名称：</span>
+								<input class="Mlayer_input w349" id="tjtkname" type="text" placeholder="请输入图表名称" />
+							</p>
+							<div class="Mlayer_4_div xzwjj xzwjjgd" id="xzwjj">
+								<span class="Mlayer_4_span left">选择仪表盘：</span>
+								<div class="xialaBox Mlayer_4_input left  w349">
+									<input class="Mlayer_input w349" id="tjtkname" type="text" placeholder="请输入图表名称" /><input class="xiala_sousuo" type="button" />
+									<div class="xiala_d MScroll">
+										<ul class="ztree treeDomXL" id="treeDomXL2"></ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a id='istianjiatukuai' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4" id="daochuybp">
+						<h5 class="Mlayer_4_h">导出仪表盘<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<a class="daochuybp_a on">1x</a>
+							<a class="daochuybp_a">2x</a>
+							<input type="hidden" name="" id="" value="1" />
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4" id="fenxiangybp">
+						<h5 class="Mlayer_4_h">分享仪表盘：良品铺子网站订单分析数据汇总<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<textarea placeholder="给仪表盘添加文字描述，让你分享的仪表盘图文并茂，更具可读性吧！"></textarea>
+							<div class="fengxianglujing bdsharebuttonbox" data-tag="share_1">
+								<a class="bds_copy M4xunwen" data-cmd="copy"></a>
+								<a class="bds_weixin M4xunwen" data-cmd="weixin"></a>
+								<a class="bds_tsina M4xunwen" data-cmd="tsina"></a>
+								<a class="bds_qzone M4xunwen" data-cmd="qzone"></a>
+								<script>
+									window._bd_share_config = {
+										//此处添加分享具体设置
+										common: {
+											bdText: '分享的内容',
+											bdDesc: '分享的摘要',
+											bdUrl: 'www.baidu.com', //分享的Url地址
+											bdPic: 'http://127.0.0.1:8020/MyAPI/img/img_the_scream.jpg', //分享的图片
+											onBeforeClick: function(cmd, config) { /*在用户点击分享按钮时执行代码，更改配置。cmd为分享目标id， config为当前设置， 返回值为更新后的设置。*/
+												if('条件') {
+													return {
+														bdUrl: 'http://www.qq.com/',
+														bdPic: 'http://mat1.gtimg.com/www/images/qq2012/qqlogo_1x.png',
+													}
+												}
+											},
+										},
+										share: { bdCustomStyle: "css/none.css" },
+									}
+
+									//以下为js加载部分
+									with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+								</script>
+							</div>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a>查看分享</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<section class="section_0">
+				<div class="nav_2">
+					<h3 class="tybp_h2">良品铺子网站订单分析数据汇总</h3>
+					<div class="nav_2_div float_clear">
+						<a class="nav_2_div_a fxybp"><i></i><span>分享</span></a>
+						<a class="nav_2_div_a dcybp"><i></i><span>导出仪表盘</span></a>
+						<a class="nav_2_div_a tjtb"><i></i><span>添加图表</span></a>
+						<a class="nav_2_div_a thmb"><i></i><span>替换模板数据</span></a>
+					</div>
+
+				</div>
+
+				<div class="section_0_box MScroll" id="gridster_Box">
+					<div class="Mlayer_3" id="shuaxintubiao">
+						<ii></ii>
+						<div style="padding: 8px 12px;">
+							<p>新建文件夹</p>
+						</div>
+					</div>
+					<div class="Mlayer_3" id="shujugengxin">
+						<ii></ii>
+						<div style="padding: 8px 12px;">
+							<p>
+								<span>数据更新</span>
+								<span>2017-03-07</span>
+								<span>10:45:22</span>
+							</p>
+						</div>
+					</div>
+					<div class="Mlayer_3" id="tree_tukuai_bianji" style="display: block;">
+						<ii></ii>
+						<div class="zhankaisq_xq">
+							<p id="odaochutupian">导出图片</p>
+							<p id="ofuzhitubiao">复制图表</p>
+							<p id="oyidongtubiao">移动图表</p>
+							<p id="oShanchutubiao">删除</p>
+						</div>
+					</div>
+					<div class="Mlayer_4 Mlayer_4_400" id="fuzhitubiao">
+						<h5 class="Mlayer_4_h">复制图表<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<p class="yjgzbxj">将仪表盘<i>过去一周成功支付买家 </i>复制到：</p>
+							<div class="Mlayer_4_div" style="width: 330px; margin-left: 39px; padding-bottom: 10px;">
+								<span class="Mlayer_4_span left">选择文件夹：</span>
+								<div class="xialaBox Mlayer_4_input left">
+									<p class="xiala_p" placeholder="选择文件夹"><i>选择文件夹</i></p>
+									<div class="xiala_d MScroll">
+										<ul class="ztree treeDomXL2" id="treeDomXL5"></ul>
+										<p class="xjtb_xj">新建文件夹</p>
+									</div>
+								</div>
+							</div>
+							<div class="Mlayer_4_div" style="width: 330px; margin-left: 39px; padding-bottom: 10px;">
+								<span class="Mlayer_4_span left">选择仪表盘：</span>
+								<div class="xialaBox Mlayer_4_input left">
+									<p class="xiala_p" placeholder="选择仪表盘"><i>选择仪表盘</i></p>
+									<div class="xiala_d MScroll">
+										<ul class="ztree treeDomXL2" id="treeDomXL6"></ul>
+										<p class="xjtb_xj">新建仪表盘</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a id='isyidongmokuai' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4 Mlayer_4_400" id="yidongtubiao">
+						<h5 class="Mlayer_4_h">移动图表<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<p class="yjgzbxj">将仪表盘<i>过去一周成功支付买家 </i>移动到：</p>
+							<div class="Mlayer_4_div" style="width: 330px; margin-left: 39px; padding-bottom: 10px;">
+								<span class="Mlayer_4_span left">选择文件夹：</span>
+								<div class="xialaBox Mlayer_4_input left">
+									<p class="xiala_p" placeholder="选择文件夹"><i>选择文件夹</i></p>
+									<div class="xiala_d MScroll">
+										<ul class="ztree treeDomXL2" id="treeDomXL7"></ul>
+										<p class="xjtb_xj">新建文件夹</p>
+									</div>
+								</div>
+							</div>
+							<div class="Mlayer_4_div" style="width: 330px; margin-left: 39px; padding-bottom: 10px;">
+								<span class="Mlayer_4_span left">选择仪表盘：</span>
+								<div class="xialaBox Mlayer_4_input left">
+									<p class="xiala_p" placeholder="选择仪表盘"><i>选择仪表盘</i></p>
+									<div class="xiala_d MScroll">
+										<ul class="ztree treeDomXL2" id="treeDomXL8"></ul>
+										<p class="xjtb_xj">新建仪表盘</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a id='isyidongmokuai' class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="Mlayer_4 Mlayer_4_400" id="daochutupian">
+						<h5 class="Mlayer_4_h">导出图片<span class="Mlayer_4_gb"></span></h5>
+						<div class="Mlayer_4_box text_c">
+							<p class="Mlayer_p">
+								<span class="Mlayer_span">导出尺寸：</span>
+								<span class="Mlayer_input text_l" style="border: none; height: auto; margin-left: 0;">
+									<a class="daochuybp_a on">1x</a>
+									<a class="daochuybp_a">2x</a>
+									<a class="daochuybp_a">3x</a>
+									<a class="daochuybp_a" style="margin-right: 0;">4x</a><br />
+									<a class="daochuybp_a">固定宽度</a><jj class='xzz_jj'><input class="xzz" type="text" value="1024"/><i class="xzz_jia"></i><i class="xzz_jian"></i></jj>像素<br />
+									<a class="daochuybp_a">固定高度</a><jj class='xzz_jj'><input class="xzz" type="text" value="1024"/><i class="xzz_jia"></i><i class="xzz_jian"></i></jj>像素
+									<input type="hidden" name="" id="" value="1" />
+								</span>
+							</p>
+							<p class="Mlayer_p">
+								<span class="Mlayer_span" style="margin-right: -20px;"><label class="xspiaoqian"><input type="checkbox" /><i></i>显示标签</label></span>
+								<span class="Mlayer_input" style="border: none;"></span>
+							</p>
+						</div>
+						<div class="Mlayer_4_bottAll">
+							<a class="blue">确定</a>
+							<a class='M4quxiao'>取消</a>
+						</div>
+					</div>
+					<div class="quanpingyulan">
+						<header class="quanpingyl_header">
+							<a class="logo" href="#"><img src="img/logo.png" /></a>
+							<div class="title">
+								<h3>本周各来源注册用户订单转化量</h3>
+							</div>
+							<div class="back2"></div>
+							<div class="daochu_tb">
+								<a class="daochu_tb_a daochu_tb_a_1" href="#"><i></i><span>导出图片</span></a>
+								<a class="daochu_tb_a daochu_tb_a_2" href="#"><i></i><span>导出Excel</span></a>
+							</div>
+							<div class="right zhuti_shebai">
+								<i class="zhuti_shebai_i left">主题</i>
+								<div class="Mselect left" style="width: 86px;">
+									<p class="Mchecked">电脑</p>
+									<input type="hidden" name="" id="" value="01" />
+									<div class="MoptionBox MScroll">
+										<span class="Moption" value="01">电脑</span>
+										<span class="Moption" value="02">投影</span>
+										<span class="Moption" value="03">电视</span>
+									</div>
+								</div>
+							</div>
+							<div class="right zhuti_shebai">
+								<i class="zhuti_shebai_i left">适配设备</i>
+								<div class="Mselect left" style="width: 86px;">
+									<p class="Mchecked">清新</p>
+									<input type="hidden" name="" id="" value="01" />
+									<div class="MoptionBox MScroll">
+										<span class="Moption" value="01">清新</span>
+										<span class="Moption" value="02">深邃</span>
+									</div>
+								</div>
+							</div>
+						</header>
+						<div class="yulan_xq">
+							<div class="yulan_content">
+								<img style="width: 100%; height: 100%;" src="img/8f7ee5babeaa417c9225ed1d29cf5b53ae6069ab230f9-tU43PO_fw658.png" />
+								<div class="yulan_remark">
+									<h4>数据更新</h4>
+									<p><span>2017-02-27 15:30:05</span><span>2017-02-27 15:30:05</span></p>
+									<h4>数据修改</h4>
+									<p><span>2017-02-27 15:30:05</span><span>2017-02-27 15:30:05</span></p>
+								</div>
+							</div>
+							<div class="yulan_footer">
+								<a class="shang"></a>
+								<a class="bofang"></a>
+								<a class="xia"></a>
+							</div>
+							<div class="xianshi_bqbz">
+								<label class="Checkbox xianshi_bq"> <span>显示标签</span> <input name="" type="checkbox"> <i class="check-icon"></i> </label>
+								<label class="Checkbox xianshi_bz"> <span>显示备注</span> <input name="" type="checkbox"> <i class="check-icon"></i> </label>
+							</div>
+						</div>
+
+					</div>
+					<div class="gridster" id="gridster1">
+						<ul>
+							<li id="x1" data-row="1" data-col="1" data-sizex="13" data-sizey="5" class="gs-w" style="min-width: 27.24px; min-height: 27.24px;">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<span class="close">删除节点</span>
+									<span class="append">添加节点</span>
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+							<li id="x2" data-row="17" data-col="16" data-sizex="10" data-sizey="5" class="gs-w" style="min-width: 27.24px; min-height: 27.24px;">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+							<li data-row="1" data-col="14" data-sizex="11" data-sizey="5" class="gs-w" style="min-width: 27.24px; min-height: 27.24px;">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+
+							<li data-row="6" data-col="1" data-sizex="9" data-sizey="8" class="gs-w">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+							<li data-row="22" data-col="1" data-sizex="11" data-sizey="5" class="gs-w" style="min-width: 27.24px; min-height: 27.24px;">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+
+							<li data-row="6" data-col="10" data-sizex="9" data-sizey="5" class="gs-w">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+							<li data-row="22" data-col="19" data-sizex="7" data-sizey="5" class="gs-w" style="min-width: 27.24px; min-height: 27.24px;">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+							<li data-row="6" data-col="19" data-sizex="7" data-sizey="11" class="gs-w" style="min-width: 27.24px; min-height: 27.24px;">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+
+							<li data-row="14" data-col="1" data-sizex="9" data-sizey="3" class="gs-w">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+							<li data-row="17" data-col="1" data-sizex="15" data-sizey="5" class="gs-w">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+
+							<li data-row="22" data-col="12" data-sizex="7" data-sizey="5" class="gs-w" style="min-width: 27.24px; min-height: 27.24px;">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+							<li data-row="11" data-col="10" data-sizex="9" data-sizey="6" class="gs-w">
+								<i class="handleBox"></i>
+								<div class="contentBox">
+									<p class="xgicon">
+										<a class="xg_suaxing" title="刷新"></a>
+										<a class="xg_biaji" title="编辑"></a>
+										<a class="xg_quanping" title="全屏"></a>
+										<a class="xg_shujugx" title="数据更新"></a>
+										<a class="xg_gengduo" title="更多"></a>
+									</p>
+									<img src="img/csv-icon.png" style="display:block;width: 100%; height: 100%;" class="mCS_img_loaded">
+								</div>
+								<span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</wrap>
+		<script src="js/myjs/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/myjs/Mbase.js"></script>
+		<script type="text/javascript" src="js/myjs/jquery.gridster.min.js"></script>
+		<script src="js/myjs/common.js" type="text/javascript"></script>
+		<!--zTree-->
+		<script src="js/zTree_v3/js/jquery.ztree.core.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/zTree_v3/js/jquery.ztree.excheck.js"></script>
+		<script type="text/javascript" src="js/zTree_v3/js/jquery.ztree.exedit.js"></script>
+		<script src="js/myjs/ybp_zTree.js" type="text/javascript"></script>
+		<!--zTreeEnd-->
+		<script src="js/myjs/inside.js" type="text/javascript"></script>
+		<script src="js/myjs/html2canvas.js" type="text/javascript"></script>
+		<script type="text/javascript">
+//			$(function() {
+//				var downloadName = '下载';
+//				$('html').css('height', 'auto');
+//				html2canvas($("#gridster1"), {
+//					onrendered: function(canvas) {
+//						var iscale = 0.5; //缩放倍数
+//						
+//						/*var Mwidth = 200; //固定宽
+//						var iscale = canvas.width / Mwidth;*/
+//						
+//						/*var Mheight = 200; //固定高
+//						var iscale = canvas.height / Mheight;*/
+//						
+//						var url = canvas.toDataURL();
+//						var img = document.createElement("img");
+//						img.src = url;
+//						var canvas2 = document.createElement("canvas");
+//						canvas2.width = (canvas.width) * iscale;
+//						canvas2.height = (canvas.height) * iscale;
+//						var ctx2 = canvas2.getContext("2d");
+//						ctx2.drawImage(img, 0, 0, canvas2.width, canvas2.height);
+//						url = canvas2.toDataURL();
+//
+//						//以下代码为下载此图片功能
+//						var triggerDownload = $("<a>").attr("href", url).attr("download", downloadName + ".png").appendTo("body");
+//						triggerDownload[0].click();
+//						triggerDownload.remove();
+//						$('html').css('height', '100%');
+//					}
+//				});
+//			});
+		</script>
+
+	</body>
+
+</html>

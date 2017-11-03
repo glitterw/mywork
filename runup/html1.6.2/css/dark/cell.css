@@ -1,0 +1,58 @@
+/*
+*@action 基本元件
+*@author wpx
+*@time   2017/3/3
+*/
+
+
+/*列表页title选项卡 开始*/
+
+.data-list-tab {
+    width: 100%;
+    height: 40px;
+    //background-color: #f6f6f6;
+    background-image: linear-gradient(#222633, #1c1f2a);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.data-list-tab>ul>li {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.data-list-tab>ul>li.active {
+    background-image: linear-gradient(#222633, #1c1f2a);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #bbbccc;
+}
+
+.data-list-tab>ul>li:hover {
+    background-image: linear-gradient(#4f566b, #3d4358);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #bbbccc;
+}
+
+/*列表页title选项卡 开始*/
+/*必填项 开始*/
+.need {
+    color: #bbbccc;
+    margin-right: 2px;
+}
+
+
+/*必填项 结束*/
+.input-style {
+    border: 1px solid #444c66;
+    border-radius: 3px;
+    height: 30px;
+    color: #bbbccc;
+}

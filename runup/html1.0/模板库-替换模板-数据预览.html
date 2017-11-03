@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<!--<html manifest="cssjs.appcache">-->
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/x-icon" href="img/logo.ico">
+	<title>模板库-替换模板-数据预览</title>
+	<meta name="Keywords" content="可视化工具">
+	<meta name="Description" content="可视化工具">
+	<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/inside.css" />
+	<link rel="stylesheet" type="text/css" href="css/data.css" />
+	<link rel="stylesheet" type="text/css" href="css/cell.css" />
+</head>
+
+<body class="upload body-style mb-2" id="table-mb">
+<header class="data-header">
+	<div class="logo"><a href="#"><img src="img/logo.png" /></a></div>
+	<div class="title">
+		<h3>替换模板数据</h3>
+	</div>
+	<div class="process">
+        <span>
+            <div>
+				<i class="no no1 finish"></i>
+				<i class="pname pname1">上传文件</i>
+			</div>
+            <div>
+				<i class="no no2 active">2</i>
+				<i class="pname pname2">预览数据</i>
+			</div>
+            <div>
+				<i class="no no3">3</i>
+				<i class="pname pname3">工作表设置</i>
+			</div>
+        </span>
+	</div>
+	<span class="action"><a href="javascript:" class="action-button next">上一步</a><a href="模板库-替换模板-3.html" class="action-button active">下一步</a></span>
+	<div class="back"></div>
+</header>
+<div class="show-data-box">
+	<div class="show-file ">
+		<p>当前选中的表头为第 <i>1</i> 行，如不符合预期，可点击将你需要的数据行指定为表头。表头前的数据，将不会保留</p>
+		<div class="mb-table-select">
+			<div class="Mselect">
+				<p class="Mchecked overflow-ellipsis">中国年度人口数据</p>
+				<input type="hidden" name="" id="" value="" />
+				<div class="MoptionBox MScroll">
+					<span class="Moption" value="01">数据来源</span>
+					<span class="Moption" value="02">数据来源2</span>
+					<span class="Moption" value="03">数据来源3</span>
+					<span class="Moption" value="04">数据来源4</span>
+					<span class="Moption" value="05">数据来源5</span>
+					<span class="Moption" value="05">数据来源5</span>
+					<span class="Moption" value="05">数据来源5</span>
+					<span class="Moption" value="05">数据来源5</span>
+					<span class="Moption" value="05">数据来源5</span>
+					<span class="Moption" value="05">数据来源5</span>
+					<span class="Moption" value="05">数据来源5</span>
+					<span class="Moption" value="05">数据来源5</span>
+				</div>
+			</div>
+		</div>
+		<div class="scroll-box MScroll MScrollyx horizontalScroll">
+			<table class="excel-table">
+				<tr class="thead">
+					<td class="td1"><span class="bt-icon">表头</span></td>
+					<td class="td2">序号</td>
+					<td class="td3">姓名</td>
+					<td class="td4">电子邮件地址</td>
+					<td class="td5">手机号</td>
+					<td class="td6">手机号</td>
+					<td class="td7">手机号</td>
+					<td class="td8">手机号</td>
+					<td class="td9">手机号</td>
+					<td class="td10">手机号</td>
+					<td class="td10">手机号</td>
+					<td class="td10">手机号</td>
+					<td class="td10">手机号</td>
+					<td class="td10">手机号</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>22222222</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >4</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+				<tr>
+					<td >5</td>
+					<td>2</td>
+					<td>张三</td>
+					<td>zhangsan@bigdatainfo.com</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+					<td>13888888888</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!--表格示例 结束-->
+<!--上一步 警告提示框 开始-->
+<div class="Mlayer_4 Mlayer_4_400" id="warning">
+	<h5 class="Mlayer_4_h">提示<span class="Mlayer_4_gb"></span></h5>
+	<div class="Mlayer_4_box text_c">
+		<p class="Mlayer_p">
+			<img src="img/data/yw.png" class="data-warning-img">
+			<span class="data-warning-text">还有一张模板数据表没有被替换过，确定返回吗？</span>
+		</p>
+	</div>
+	<div class="Mlayer_4_bottAll">
+		<a id='isxingjianwenjianjia' class="blue">确定</a>
+		<a class='M4quxiao'>取消</a>
+	</div>
+</div>
+<!--上一步 警告提示框 结束-->
+
+<script src="js/myjs/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/myjs/Mbase.js"></script>
+<script type="text/javascript" src="js/myjs/jquery.gridster.min.js"></script>
+<script src="js/myjs/common.js" type="text/javascript"></script>
+<script src="js/myjs/inside.js" type="text/javascript"></script>
+<script src="js/myjs/data.js" type="text/javascript"></script>
+
+</body>
+
+</html>

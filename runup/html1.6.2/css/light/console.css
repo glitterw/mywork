@@ -1,0 +1,401 @@
+.console-section {
+  height: calc(100% - 71px);
+}
+.console-section * {
+  box-sizing: border-box;
+}
+.console-nav {
+  width: 260px;
+  height: 100%;
+  padding-top: 40px;
+}
+.console-nav a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 40px;
+  color: #333333;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.console-nav a i {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  background: url(../../img/common/console-nav.png) 0 0 no-repeat;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.console-nav a.control i {
+  background-position: 0 0;
+}
+.console-nav a.buy i {
+  background-position: 0 -1em;
+}
+.console-nav a.expense i {
+  background-position: 0 -2em;
+}
+.console-nav a:hover,
+.console-nav a.action {
+  background-color: #f6f6f6;
+  color: #4488ee;
+}
+.console-nav a:hover i,
+.console-nav a.action i {
+  background-position: -1em 0;
+}
+.console-nav a:hover.control i,
+.console-nav a.action.control i {
+  background-position: -1em 0;
+}
+.console-nav a:hover.buy i,
+.console-nav a.action.buy i {
+  background-position: -1em -1em;
+}
+.console-nav a:hover.expense i,
+.console-nav a.action.expense i {
+  background-position: -1em -2em;
+}
+.console-content {
+  margin-left: 260px;
+  height: 100%;
+  overflow: auto;
+  background-color: #eeeeee;
+}
+.instant-M {
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  background-image: -moz-linear-gradient(90deg, #f6f6f6 0%, #ffffff 100%);
+  background-image: -webkit-linear-gradient(90deg, #f6f6f6 0%, #ffffff 100%);
+  background-image: -ms-linear-gradient(90deg, #f6f6f6 0%, #ffffff 100%);
+  font-size: 16px;
+  color: #777f99;
+  vertical-align: middle;
+}
+.instant-M .purchase-a {
+  display: inline-block;
+  width: 80px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 3px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #4488ee;
+  margin-bottom: 6px;
+  margin-left: 20px;
+}
+.instant-M .purchase-a:hover {
+  opacity: 0.8;
+}
+.console-xq {
+  margin: 24px;
+  height: calc(100% - 100px);
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.console-xq-d {
+  float: left;
+  width: 25%;
+  height: 100%;
+  padding-top: 44px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+}
+.console-xq-d h4 {
+  width: 110px;
+  border-bottom: 2px solid #bbbecb;
+  font-size: 18px;
+  padding-bottom: 10px;
+  line-height: 1;
+}
+.console-xq-d .tu {
+  max-width: 260px;
+  height: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(../../img/common/progress-1.png) center no-repeat;
+  background-size: 100% auto;
+}
+.console-xq-d .tu svg {
+  width: 100%;
+  height: 100%;
+}
+.console-xq-d .tu-1 {
+  background: url(../../img/common/progress-1.png) center no-repeat;
+  background-size: 100% auto;
+}
+.console-xq-d .tu-2 {
+  background: url(../../img/common/progress-2.png) center no-repeat;
+  background-size: 100% auto;
+}
+.console-xq-d .tu-3 {
+  background: url(../../img/common/progress-3.png) center no-repeat;
+  background-size: 100% auto;
+}
+.console-xq-d .tu-4 {
+  background: url(../../img/common/progress-4.png) center no-repeat;
+  background-size: 100% auto;
+}
+.console-xq-d .vertical {
+  height: calc(100% - 30px);
+}
+.console-xq-d .vertical-d {
+  width: 100%;
+}
+.console-xq-d h3 {
+  line-height: 64px;
+  text-align: center;
+  color: #333333;
+}
+.console-xq-d h3:nth-of-type(1) {
+  margin-top: 40px;
+}
+.console-xq-d h3 i {
+  font-size: 24px;
+  width: 100px;
+  display: inline-block;
+  text-align: right;
+}
+.console-xq-d h3 span {
+  font-size: 28px;
+  width: 100px;
+  display: inline-block;
+  text-align: left;
+}
+@media only screen and (max-height: 850px) {
+  .console-xq-d h3 {
+    line-height: 44px;
+  }
+  .console-xq-d h3:nth-of-type(1) {
+    margin-top: 0px;
+  }
+}
+.console-xq-hr {
+  float: left;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: -1px;
+  width: 1px;
+  height: calc(100% - 100px);
+  background-color: #f2f3f5;
+}
+.progress {
+  fill: none;
+  stroke-width: 24px;
+  stroke-linecap: round;
+  stroke-dasharray: 654px;
+  stroke-dashoffset: 327px;
+  transform-origin: 130px 130px;
+  transform: rotate(-90deg);
+}
+.tu-4 .progress {
+  transform: rotate(-45deg);
+}
+.dot {
+  stroke: none;
+  fill: #ffffff;
+}
+.buy-xq-d {
+  width: 100%;
+  /*xxx*/
+}
+.buy-xq-d .vertical-d {
+  width: 100%;
+  height: 100%;
+}
+.buy-xq-d table {
+  width: calc(100% - 92px);
+  height: calc(100% - 126px);
+  margin-left: 46px;
+  font-size: 16px;
+  color: #333333;
+  text-align: center;
+}
+.buy-xq-d .thead-tr {
+  height: 100px;
+}
+.buy-xq-d .tfoot-tr {
+  height: 50px;
+}
+.buy-xq-d .th-hr,
+.buy-xq-d .td-hr {
+  width: 14px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.buy-xq-d th,
+.buy-xq-d td {
+  border-left: 1px solid #e4e5e8;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.buy-xq-d .border-r {
+  border-right: 1px solid #e4e5e8;
+}
+.buy-xq-d .border-b {
+  border-bottom: 1px solid #e4e5e8;
+}
+.buy-xq-d .border-n {
+  border: none;
+}
+.buy-xq-d .border-t {
+  border-top: 1px solid #e4e5e8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.buy-xq-d .thead-tr th {
+  font-size: 18px;
+  color: #333333;
+  font-weight: normal;
+}
+.buy-xq-d .thead-th-1 {
+  border: none;
+  background: url(../../img/common/thead-1.png) no-repeat;
+  background-size: 100% 100%;
+  color: #FFFFFF !important;
+}
+.buy-xq-d .thead-th-2 {
+  border: none;
+  background: url(../../img/common/thead-2.png) no-repeat;
+  background-size: 100% 100%;
+  color: #FFFFFF !important;
+}
+.buy-xq-d .thead-th-3 {
+  border: none;
+  background: url(../../img/common/thead-3.png) no-repeat;
+  background-size: 100% 100%;
+  color: #FFFFFF !important;
+}
+.buy-xq-d .thead-th-4 {
+  border: none;
+  background: url(../../img/common/thead-4.png) no-repeat;
+  background-size: 100% 100%;
+  color: #FFFFFF !important;
+}
+.buy-xq-d .thead-th-5 {
+  border: none;
+  background: url(../../img/common/thead-5.png) no-repeat;
+  background-size: 100% 100%;
+  color: #FFFFFF !important;
+}
+.buy-xq-d i {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 16px;
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 8px;
+  background-color: #4488ee;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.buy-xq-d i.disabled {
+  background-color: #d9d9d9;
+  cursor: not-allowed;
+}
+.buy-xq-d .tiao {
+  font-size: 14px;
+  color: #666666;
+}
+.buy-xq-d .total {
+  font-size: 18px;
+}
+.buy-xq-d .pay {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+.buy-xq-d .pay a {
+  border-radius: 3px;
+  width: 150px;
+  height: 50px;
+  margin-left: 24px;
+}
+.buy-xq-d .pay .zfb {
+  background: url(../../img/common/zhifu.png) no-repeat;
+}
+.buy-xq-d .pay .wx {
+  background: url(../../img/common/wechart.png) no-repeat;
+}
+.expense-xq-d {
+  width: 100%;
+}
+.expense-xq-d .vertical-d {
+  width: 100%;
+  height: 100%;
+}
+.expense-xq-d table {
+  width: calc(100% - 1px);
+  font-size: 16px;
+  color: #333333;
+}
+.expense-xq-d .thead-d {
+  width: calc(100% - 92px);
+  height: 46px;
+  margin-left: 46px;
+  overflow: hidden;
+}
+.expense-xq-d .tbody-d {
+  width: calc(100% - 92px);
+  height: calc(100% - 44px);
+  margin-left: 46px;
+}
+.expense-xq-d .tbody-d table {
+  margin-top: -46px;
+}
+.expense-xq-d .thead-r {
+  height: 46px !important;
+}
+.expense-xq-d .thead-r td {
+  border: none;
+  background-color: #e6e6e6 !important;
+  border-right: 1px solid #FFFFFF;
+  vertical-align: middle;
+}
+.expense-xq-d .thead-r td:nth-last-of-type(1) {
+  border-color: #e6e6e6;
+}
+.expense-xq-d .thead-r i {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: -24px;
+  background: url(../../img/common/expense-ioc.png) 0 0 no-repeat;
+  font-size: 24px;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+.expense-xq-d .thead-r .thead-i-1 {
+  background-position: 0 0;
+}
+.expense-xq-d .thead-r .thead-i-2 {
+  background-position: 0 -1em;
+}
+.expense-xq-d .thead-r .thead-i-3 {
+  background-position: 0 -2em;
+}
+.expense-xq-d .thead-r .thead-i-4 {
+  background-position: 0 -3em;
+}
+.expense-xq-d .thead-r .thead-i-5 {
+  background-position: 0 -4em;
+}
+.expense-xq-d tr {
+  height: 53px;
+}
+.expense-xq-d td {
+  border: 1px solid #dddddd;
+  padding-left: 44px;
+}
+.expense-xq-d tr:nth-last-of-type(odd) td {
+  background-color: #f6f6f6;
+}
+.expense-xq-d tr:nth-last-of-type(even) td {
+  background-color: #ffffff;
+}

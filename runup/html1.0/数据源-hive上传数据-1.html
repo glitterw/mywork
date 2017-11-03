@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<!--<html manifest="cssjs.appcache">-->
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+    <title>数据源-hive上传数据-1</title>
+    <meta name="Keywords" content="可视化工具">
+    <meta name="Description" content="可视化工具">
+    <link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/inside.css" />
+    <link rel="stylesheet" type="text/css" href="css/data.css" />
+    <link rel="stylesheet" type="text/css" href="css/cell.css" />
+    <link rel="stylesheet" type="text/css" href="css/addhive.css" />
+</head>
+<style>
+
+</style>
+
+<body class="mysql-upload body-style hive-upload">
+    <header class="data-header">
+        <div class="logo">
+            <a href="#"><img src="img/logo.png" /></a>
+        </div>
+        <div class="title">
+            <h3>
+            <span>上传数据</span>
+            <span class="mysql">HIVE</span>
+        </h3>
+        </div>
+        <div class="process">
+            <span>
+            <div>
+                <i class="no no1 active">1</i>
+                <i class="pname pname1">连接配置</i>
+            </div>
+            <div>
+                <i class="no no2">2</i>
+                <i class="pname pname2">数据表配置</i>
+            </div>
+            <div>
+                <i class="no no3">3</i>
+                <i class="pname pname3">高级配置</i>
+            </div>
+        </span>
+        </div>
+        <span class="action"><a href="#" class="action-button active">下一步</a></span>
+        <div class="back"></div>
+    </header>
+    <div class="set-data-box">
+        <div class="setting">
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>驱动:</span>
+                <div class="mb-table-select hive_select">
+                    <div class="Mselect hive_Mselect">
+                        <p class="Mchecked hive_Mchecked overflow-ellipsis">驱动1</p>
+                        <input type="hidden" name="" id="" value="" />
+                        <div class="MoptionBox MScroll">
+                            <span class="Moption" value="01">驱动2</span>
+                            <span class="Moption" value="02">驱动3</span>
+                            <span class="Moption" value="03">数据来源3</span>
+                            <span class="Moption" value="04">数据来源4</span>
+                            <span class="Moption" value="05">数据来源5</span>
+                            <span class="Moption" value="05">数据来源5</span>
+                            <span class="Moption" value="05">数据来源5</span>
+                            <span class="Moption" value="05">数据来源5</span>
+                            <span class="Moption" value="05">数据来源5</span>
+                            <span class="Moption" value="05">数据来源5</span>
+                            <span class="Moption" value="05">数据来源5</span>
+                            <span class="Moption" value="05">数据来源5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>URL:</span>
+                <div class="mb-table-select hive_select">
+                    <div class="Mselect hive_Mselect hive_Mselect_small">
+                        <p class="Mchecked hive_Mchecked overflow-ellipsis">org.apache.hive.jdbc.HiveDriver</p>
+                        <input type="hidden" name="" id="" value="" />
+                        <div class="MoptionBox MScroll">
+                            <span class="Moption" value="01">org.apache.hive.jdbc.HiveDriver</span>
+                            <span class="Moption" value="02">org.apache.hive.jdbc.HiveDriver</span>
+                            <span class="Moption" value="03">数据来源3</span>
+                        </div>
+                    </div>
+                </div>
+                <input type="text" value="" class="input-width_250">
+            </div>
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>默认数据库:</span>
+                <input type="text" value="" class="input-width_410">
+            </div>
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>表结构模式:</span>
+                <input type="text" value="" class="input-width_410">
+            </div>
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>队列名:</span>
+                <input type="text" value="" class="input-width_410">
+            </div>
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>最大连接数:</span>
+                <input type="text" value="" class="input-width_410">
+            </div>
+            <div class="item set-width item_line">
+                <div class="checkbox-item sz_xq hive_checkbox-item">
+                    <div class="show-box">
+                        <label><span>需要登录:</span>
+                            <input type="checkbox" name="xszd" value=""><i></i></label>
+                    </div>
+                    <div class="show-box">
+                        <label> <span>需要认证：</span>
+                            <input type="checkbox" name="xszd" value=""><i></i></label>
+                    </div>
+                </div>
+            </div>
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>用户名:</span>
+                <input type="text" value="" class="input-width_410">
+            </div>
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>密码:</span>
+                <input type="text" value="" class="input-width_410">
+            </div>
+            <div class="item set-width item_line">
+                <span><i class="need">*</i>秘钥路径:</span>
+                <input type="text" value="" class="input-width_410">
+            </div>
+            <div class="t-item set-width ">
+                <p class="title1">账号设置注意事项：</p>
+                <p>连接HIVE数据库,数据库地址及用户名必须开通公网权限,允许平台获取数据库中的数据</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/myjs/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/myjs/Mbase.js"></script>
+    <script type="text/javascript" src="js/myjs/jquery.gridster.min.js"></script>
+    <script src="js/myjs/common.js" type="text/javascript"></script>
+    <script src="js/myjs/inside.js" type="text/javascript"></script>
+    <script src="js/myjs/data.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,1730 @@
+@charset "utf-8";
+/*
+*@action 数据源相关的样式表
+*@author wpx
+*@time   2017/2/28
+*/
+
+/* CSS Document */
+/*公共样式类 开始*/
+/*强制不换行处理 末尾加点点点*/
+.overflow-ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Setting {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 2000px;
+    height: 1160px;
+    z-index: 54;
+}
+
+.body-style{
+    background-color: #eeeeee;
+    font-size: 14px;
+    color: #333333;
+}
+/*操作按钮*/
+.action-button{
+    width: 58px;
+    height: 28px;
+    display: inline-block;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 3px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 28px;
+}
+/*公共样式类 结束*/
+
+/*数据源列表展示页面 开始*/
+.data-list .daohang .type-list{
+    font-size: 14px;
+    color:#333333;
+    padding-top: 10px;
+}
+.data-list .daohang .type-list>li{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 28px;
+    padding-right: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.data-list .daohang .type-list>li.active{
+  background-color:#f6f6f6;
+  color: #0066ff;
+}
+.data-list .daohang .type-list>li.active>a{
+    color: #0066ff;
+}
+.data-list .daohang .type-list>li>a{
+    float: left;
+    width: 10em;
+}
+.data-list .daohang .type-list>li>span{
+    width: 3em;
+    overflow: hidden;
+}
+.data-list .daohang .type-list>li>span{
+    float: right;
+}
+.data-list .daohang .type-list>li:hover{
+    background-color:#f6f6f6;
+    color: #0066ff;
+}
+.data-list .daohang .type-list>li:hover>a{
+    color: #0066ff;
+}
+
+.data-list .nav_2{
+    background-color: #fbfcfb;
+    background-image: -webkit-linear-gradient( 90deg, rgb(246, 246, 246) 0%, rgb(255, 255, 255) 100%);
+}
+.data-list .state-list{
+    height: 98px;
+    line-height: 98px;
+    background-image: -webkit-linear-gradient( 90deg, rgb(246, 246, 246) 0%, rgb(255, 255, 255) 100%);
+}
+.data-list .state-list .nav_2_div{
+    width: auto;
+}
+.data-list .state-list>li {
+    float: left;
+    width: 240px;
+    height: 98px;
+    line-height: 98px;
+    text-align: center;
+    cursor: pointer;
+}
+.data-list .state-list>li:hover{
+    float: left;
+    width: 240px;
+    height: 98px;
+    line-height: 98px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.data-list .state-list>li .show{
+    display: inline-block;
+    width: 102px;
+    height: 90px;
+    text-align: center;
+    line-height: 90px;
+}
+.data-list .state-list>li .show+.line{
+    display: inline-block;
+    width: 1px;
+    height: 64px;
+    background-color: #ddd;
+    vertical-align: middle;
+    float: right;
+    margin-top: 18px;
+}
+.data-list .state-list>li.active .show{
+    border-bottom:2px solid #2968f6;
+}
+.data-list .state-list>li:hover .show{
+    border-bottom:2px solid #2968f6;
+}
+.data-list .state-list>li .show>ul{
+    display: inline-block;
+    vertical-align: middle;
+}
+.data-list .state-list>li .show>ul>li{
+    line-height: 40px;
+}
+.data-list .state-list>li .show>ul>li.sz{
+    font-size: 30px;
+    color:#0066ff ;
+    display: block;
+}
+.data-list .state-list>li .show>ul>li.type{
+    font-size: 14px;
+    color:#999999 ;
+    display: block;
+    width: 5em;
+}
+.state-list .nav_2_div_a i {
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: 30px auto 6px;
+    background: url(../img/add-icon.png) no-repeat;
+}
+
+
+.list-table{
+    max-width: 1550px;
+    min-width: 932px;
+    width: 98%;
+    border: 1px solid #eee;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid rgb(221, 226, 236);
+    font-size: 16px;
+    color: #333333;
+}
+.list-table>thead{
+    height: 46px;
+    background-color: rgb(221, 221, 221);
+    color: rgb(51, 51, 51);
+}
+.list-table>thead>tr{
+    height: 46px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+
+.list-table>thead>tr>th,.list-table>tbody>tr>td{
+   text-align: left;
+   padding-left: 30px;
+    font-weight: normal;
+}
+
+.list-table>thead>tr>th+th{
+    border-left: 1px solid #fff;
+}
+
+.list-table>tbody>tr{
+     height: 80px;
+     border-bottom: 1px solid rgb(221, 226, 236);
+ }
+.list-table>tbody>tr:nth-of-type(even){
+    background-color: #f6f6f6;
+}
+.list-table>tbody>tr>td+td{
+    border-left: 1px solid rgb(221, 226, 236);
+}
+.list-table>thead>tr>.th1{
+    min-width: 250px;
+}
+.list-table>thead>tr>.th2{
+    width: 200px;
+}
+.list-table>thead>tr>.th3{
+    width: 200px;
+}
+.list-table>thead>tr>.th4{
+    width: 200px;
+}
+.list-table>tbody>tr>.name>img{
+    max-width: 60px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.list-table>tbody>tr>.name>span{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+/*.list-table>tbody>tr>.action-box{*/
+    /*padding-left: 0;*/
+    /*text-align: center;*/
+/*}*/
+.list-table>tbody>tr>.action-box>.action-button+.action-button{
+    margin-left: 10px;
+}
+
+/*添加数据源弹窗 开始*/
+#add-data-layout{
+    display: none;
+}
+.add-layout-width{
+    width: 700px;
+    z-index: 100;
+}
+.icon-box{
+    padding: 40px 40px 0 40px;
+    font-size: 14px;
+    color: #333333;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+}
+.data-icon{
+    /*width: 140px;*/
+    /*height: 198px;*/
+    background-color: rgb(255, 255, 255);
+    /*border: 1px solid rgb(240, 240, 240);*/
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    position: relative;
+}
+.data-icon:nth-of-type(4n){
+    margin-right: 0;
+}
+
+.hover-add{
+    background: rgba(255,255,255,.941);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1), 0 16px 24px 0 rgba(0,0,0,.1);
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../img/add-logo.png") ;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hover-wait{
+    background: rgba(255,255,255,.941);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1), 0 16px 24px 0 rgba(0,0,0,.1);
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.data-icon:hover>.hover-add{
+    display: block;
+}
+.data-icon:hover>.hover-wait{
+    display: block;
+}
+.hover-wait>span{
+    width: 5em;
+    display: inline-block;
+    margin-top: 50px;
+    text-align: left;
+    font-size: 14px;
+    color: #999999;
+}
+.data-icon:hover{
+    /*background: rgba(255,255,255,.941);*/
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1), 0 16px 24px 0 rgba(0,0,0,.1);
+}
+ /*.data-icon:hover:after{*/
+    /*content: "";*/
+    /*background-image: url("../img/add-logo.png");*/
+    /*position: absolute;*/
+    /*top:0;*/
+    /*width: 22px;*/
+    /*height: 24px;*/
+    /*z-index: 99;*/
+/*}*/
+.data-icon>img{
+    display: block;
+    margin: 0 auto;
+    width: 140px;
+    height: 100px;
+}
+.data-icon>span{
+    display: block;
+    margin: 0 auto;
+    line-height: 41px;
+    width: 140px;
+    height: 41px;
+    border: 1px solid rgb(240, 240, 240);
+    box-sizing: border-box;
+}
+/*添加数据源弹窗 结束*/
+/*上传数据 开始*/
+.upload-box{
+    width: 850px;
+    height: 486px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1), 0 16px 24px 0 rgba(0,0,0,.1);
+    padding: 60px 77px 0 77px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.upload-box>.add-file{
+    display: block;
+    width: 690px;
+    height: 240px;
+    margin: 0 auto;
+    border: 1px  dashed rgb(153, 153, 153);
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    position:relative;
+}
+
+.upload-box>.add-file .upload-process{
+    display: none;
+    vertical-align: middle;
+    position: absolute;
+    top: 88px;
+    left: 170px;
+    position: absolute;
+}
+.upload-process .file-name{
+    text-align: left;
+    margin-bottom: 3px;
+    display: inline-block;
+}
+.upload-process .process-bar{
+    width: 307px;
+    height: 6px;
+    background-color: #cccccc;
+    border-radius: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+}
+.upload-process .process-bar>span{
+    background-color: #0066ff;
+    border-bottom-right-radius: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    border-radius: 20px;
+    width: 50%;
+    height: 100%;
+}
+.upload-process .del{
+    width: 16px;
+    height: 16px;
+    background: url("../img/data/del.png") no-repeat center;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+}
+.upload-process .process-bar+.del{
+    margin-left: 20px;
+}
+
+.upload-box>.add-file .add-box .add-icon{
+    margin: 70px auto 30px;
+}
+.upload-box>.add-file>.add-box>.add-icon>img,.upload-box>.add-file>.add-box>.add-icon>.upload{
+    display: inline-block;
+    vertical-align: middle;
+}
+.upload-box>.add-file .add-box .add-icon>.upload{
+    width: 60px;
+    height: 60px;
+    background: url("../img/data/upload-add.png") no-repeat center;
+    margin: 0 40px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.add-file .add-box  .add-icon>img+img{
+    margin-left: 40px;
+}
+.add-file .add-box>.add-icon>.upload>input[type="file"]{
+    position: absolute;
+    right:  -413px;
+}
+
+.upload-box>.detail{
+    margin-top: 20px;
+    font-size: 14px;
+}
+.upload-box>.demo{
+    text-align: center;
+    margin-top: 40px;
+}
+.upload-box>.demo>a{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100px;
+    height: 32px;
+    border: 1px solid #0066ff;
+    border-radius: 3px;
+    color: #0066ff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 32px;
+}
+/*上传数据1 结束*/
+/*上传数据2 开始*/
+
+.mb-2 .show-data-box {
+    width: calc(100% - 200px);
+    min-width: 1200px;
+}
+.show-data-box{
+    width: 1200px;
+    /*height: auto;*/
+    height: calc(100% - 160px);
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1), 0 16px 24px 0 rgba(0,0,0,.1);
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.mb-page .show-data-box>.show-file{
+    width: calc(100% - 80px);
+    height: calc(100% - 0px);
+    display:block;
+    margin: 0 auto;
+}
+.mb-page .file-content-box .show-data-box>.show-file>.scroll-box {
+    /* max-height: 800px; */
+    height: calc(100% - 0px);
+}
+.mb-2.upload .show-data-box>.show-file {
+    width: calc(100% - 70px);
+    height: calc(100% - 30px);
+    display: block;
+    margin: 0 auto;
+}
+.upload .show-data-box>.show-file {
+    width: calc(100% - 70px);
+    height: calc(100% - 70px);
+    display: block;
+    margin: 0 auto;
+}
+.show-data-box>.show-file{
+    width: calc(100% - 70px);
+    height: calc(100% - 30px);
+    display:block;
+    margin: 0 auto;
+}
+.show-data-box>.show-file>p{
+    font-size: 14px;
+    color: #666666;
+    display: inline-block;
+    padding: 20px 0;
+}
+.show-data-box>.show-file>p>i{
+     color:#ee3333;
+}
+.show-data-box>.show-file>.scroll-box{
+    width: 100%;
+    height: calc(100% - 60px);
+    padding-top: 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.excel-table {
+    width: 1080px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333333;
+}
+.excel-table .thead {
+	font-size: 16px;
+	background-color: rgb(221, 221, 221);
+	color: rgb(51, 51, 51);
+}
+
+.excel-table .thead .bt-icon {
+	width: 62px;
+	height: 30px;
+	background: url(../img/data/bt.png) no-repeat center;
+	color: #fff;
+	display: inline-block;
+	text-align: center;
+	line-height: 28px;
+	font-size: 14px;
+}
+
+.excel-table .thead {
+	height: 45px;
+	white-space: nowrap;
+}
+
+.excel-table .thead td,
+.excel-table tr td {
+	text-align: left;
+	padding: 0 30px;
+	font-weight: normal;
+}
+
+.excel-table .thead td {
+	border: 1px solid rgb(221, 226, 236);
+	height: 45px;
+}
+
+.excel-table .thead td:first-child {
+	border-left: 1px solid rgb(221, 226, 236) !important;
+}
+
+.excel-table .thead td:last-child {
+	border-right: 1px solid rgb(221, 226, 236) !important;
+}
+
+.excel-table td {
+	height: 34px;
+	border: 1px solid rgb(221, 226, 236);
+}
+
+.excel-table tr:nth-of-type(odd) {
+	background-color: #f6f6f6;
+}
+
+/*上传数据2 结束*/
+/*上传数据3 开始*/
+.set-data-box{
+    width: 626px;
+    height: 340px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1), 0 16px 24px 0 rgba(0,0,0,.1);
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.setting{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.setting>.item{
+    width: 460px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+.setting>.sx_xq_tj_xq .Mselect {
+    text-indent: 16px;
+    font-size: 14px;
+    color: #333333;
+    margin-right: 12px;
+    display: inline-block;
+    width: 342px;
+}
+.setting>.sx_xq_tj_xq .Mchecked {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: url(../img/Mlyxiala.png) right center no-repeat;
+    background-color: #FFFFFF;
+    height: 32px;
+    text-indent:0;
+    padding: 0 5px;
+}
+.setting>.item+.item{
+    margin-top: 10px;
+}
+.setting>.item>span{
+    width: 6em;
+    text-align: right;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+
+}
+.setting>.item>input{
+    width: 330px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0 5px;
+}
+.setting>.item>textarea{
+    width: 330px;
+    height: 90px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0 5px;
+}
+.data-warning-img{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.data-finish-img{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url("../img/Mlayer_4_icon.png")no-repeat center;
+    background-position: 0 0;
+}
+
+.data-warning-text{
+    display: inline-block;
+    max-width: 239px;
+    font-size: 14px;
+    margin-left: 15px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.data-demo-size{
+    width: 1140px;
+}
+#table-demo .excel-table {
+    margin: 0 auto;
+    border-top: none;
+    min-width: 1080px;
+}
+
+#table-demo .excel-table .no-title{
+    color: #fff;
+    background-color: #99c6ff;
+    margin-bottom: 5px;
+    height: 46px;
+    box-sizing: border-box;
+}
+#table-demo .excel-table .no-title>th+th{
+    border-left: 1px solid #fff;
+}
+#table-demo .excel-table .kong{
+    height: 10px;
+    border: none;
+    background-color: #fff;
+}
+#table-demo .excel-table>thead>tr:nth-child(3){
+    height: 46px;
+    box-sizing: border-box;
+    background-color: #ddd;
+}
+#table-demo .excel-table>thead>tr:nth-child(3)>th+th{
+    border-left: 1px solid #fff;
+}
+#table-demo .excel-table>tbody{
+    border-left: 1px solid #ddd;
+    box-sizing: border-box;
+}
+#table-demo .excel-table>tbody>tr{
+    border-bottom: 1px solid #dde2ec;
+    box-sizing: border-box;
+}
+#table-demo .excel-table>tbody>tr>td{
+    border: none;
+    box-sizing: border-box;
+}
+#table-demo .excel-table>tbody>tr>td+td{
+    border-left: 1px solid #dde2ec;;
+}
+/*上传数据3 结束*/
+
+/*数据源列表展示页面 结束*/
+
+/*消息中心 开始*/
+.message{
+    background-color: #eeeeee;
+    font-size: 14px;
+    color: #333333;
+}
+.data-header{
+    width: 100%;
+    height: 98px;
+    line-height: 98px;
+    background-color: #fbfbfb;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    /*background-image: -webkit-linear-gradient( 90deg, rgb(246, 246, 246) 0%, rgb(255, 255, 255) 100%);*/
+}
+.data-header>.logo{
+    width: 70px;
+    height: 98px;
+    background-color: #222633;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+.data-header>.logo>a>img{
+    margin-top: 24px;
+}
+.data-header>.title{
+    display: inline-block;
+}
+.data-header>.title>h3{
+    font-size: 24px;
+    color: #333333;
+    margin-left: 30px;
+}
+.data-header>.action{
+    position: absolute;
+    right: 94px;
+    top: 0;
+}
+.data-header>.action>.action-button{
+    width: 80px;
+    height: 32px;
+    box-sizing: border-box;
+    border-color: #0066ff;
+    color: #0066ff;
+}
+.data-header>.action>.action-button:hover{
+    background-color:#0066ff;
+    color: #fff;
+}
+.data-header>.action>.action-button.active{
+    background-color:#0066ff;
+    color: #fff;
+}
+.data-header>.action>.action-button+.action-button{
+    margin-left: 10px;
+}
+.process{
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+    line-height: normal;
+    margin-top: -66px;
+}
+.process>span{
+    display: inline-block;
+    width: 300px;
+    height: 2px;
+    background-color: rgb(204, 204, 204);
+    z-index: 2;
+    position: relative;
+}
+.process>span .no{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    /*background-color: #0066ff;*/
+    background-color: #ccc;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    overflow: hidden;
+    color: #fff;
+    position: absolute;
+}
+.process>span .no.finish{
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #0066ff;
+    background-image: url("../img/data/yes.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.process>span .no.active{
+    background-color: #0066ff;
+}
+.process>span .no.no1{
+    left: 0;
+    top: -12px;
+}
+.process>span .no.no2{
+    left: 142px;
+    top: -12px;
+}
+.process>span .no.no3{
+    right: 0;
+    top: -12px;
+}
+.process .pname{
+   color: #999;
+}
+.process .no.finish+.pname{
+    color: #333;
+}
+.process .no.active+.pname{
+    color: #333;
+}
+.mysql-upload .process .pname1{
+    position: absolute;
+    top: 12px;
+    left: -15px;
+}
+.mysql-upload .process .pname2{
+    position: absolute;
+    left: 118px;
+    top: 12px;
+}
+.mysql-upload .process .pname3{
+    position: absolute;
+    right: -18px;
+    top: 12px;
+}
+.upload .process .pname1 {
+    position: absolute;
+    left: -18px;
+    top: 12px;
+}
+.upload .process .pname2 {
+    position: absolute;
+    left: 125px;
+    top: 12px;
+}
+.upload .process .pname3 {
+    position: absolute;
+    right: -23px;
+    top: 12px;
+}
+.back{
+    float: right;
+    width: 60px;
+    background-color: #eaeaea;
+    background-image: url(../img/back.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 98px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: -55px;
+}
+.message>.content{
+    margin: 30px auto;
+    width: 1200px;
+    min-height: 760px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1), 0 16px 24px 0 rgba(0,0,0,.1);
+}
+.message>.content>.no-message{
+    width: 100%;
+    height: 730px;
+    line-height: 730px;
+    display: block;
+    text-align: center;
+}
+.message>.content>.no-message>img{
+    width: 225px;
+    height: 201px;
+}
+.message>.content>.no-message>span{
+    margin-left: -150px;
+}
+.message>.content>.tab{
+    width: 100%;
+    height: 40px;
+    background-color: #f6f6f6;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.message>.content>.tab>ul>li{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+.message>.content>.tab>ul>li.active{
+    background-color: #fff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #0066ff;
+}
+.message>.content>.tab>ul>li:hover{
+    background-color: #fff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #0066ff;
+}
+.message>.content>.tab>ul>li>.num1{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgb(255, 0, 0);
+    z-index: 18;
+    top: 5px;
+    position: absolute;
+    color: #fff;
+    line-height: 14px;
+    font-size: 12px;
+}
+.message>.content>.tab>ul>li>.num2{
+    width: 32px;
+    height: 16px;
+    border-radius: 20px;
+    background-color: rgb(255, 0, 0);
+    z-index: 18;
+    top: 5px;
+    position: absolute;
+    color: #fff;
+    line-height: 14px;
+    font-size: 12px;
+}
+.message>.content>.list-item{
+    width: 1140px;
+    height: auto;
+    border-bottom: 1px solid #dddddd;
+    padding: 30px;
+    overflow: hidden;
+}
+.message>.content>.list-item:nth-of-type(odd){
+    background-color: #fafafa;
+}
+.message>.content>.list-item .title{
+    font-size: 16px;
+    display: inline-block;
+    width: 90%;
+}
+.message>.content>.list-item .go{
+    background: url(../img/go.png)no-repeat center;
+    display: inline-block;
+    float: right;
+    width: 12px;
+    height: 21px;
+    cursor: pointer;
+}
+.message>.content>.list-item .date{
+    font-size: 14px;
+    color: #999;
+    margin-top: 10px;
+    display: inline-block;
+}
+.message>.content>.list-item>img{
+    width: 184px;
+    height: 138px;
+    display: block;
+    margin-top: 10px;
+}
+.message>.content>.page{
+    height: 156px;
+    position: relative;
+    font-size: 16px;
+}
+.message>.content>.page>div{
+     position: absolute;
+     right: 30px;
+     bottom: 52px;
+}
+.message>.content>.page>div>a,.message>.content>.page>div>span,.message>.content>.page .jump-page{
+    display: inline-block;
+    vertical-align: middle;
+    height: 34px;
+}
+/*翻页问题  开始*/
+.page-go{
+    width: 34px;
+    height: 34px;
+    border-radius: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    background: url("../img/page-go.png") no-repeat center;
+}
+.page-go.pre{
+   transform:rotate(180deg);
+}
+.page-go.pre+.now-page{
+    margin-left: 10px;
+}
+.now-page{
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+}
+.now-page>.active{
+    color: #0066ff;
+}
+.page-go+.jump-page{
+    margin-left: 10px;
+}
+.jump-page{
+    display: inline-block;
+    width: 130px;
+    height: 34px;
+    box-sizing: border-box;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 5px;
+    padding: 0 2px;
+}
+.jump-page>input{
+    border: none;
+    border-right: 1px solid rgb(221, 221, 221);
+    height: 100%;
+    width: 50%;
+    text-align: center;
+}
+.jump-page>input:focus{
+    outline:none;
+}
+.jump-page>a{
+    margin-left: 18px;
+}
+/*翻页问题  结束*/
+/*消息中心 结束*/
+/*弹窗相关 开始*/
+#data-select-worktable{
+    width: 400px;
+    height: auto;
+}
+.data-layout-content{
+    margin: 40px;
+    font-size: 14px;
+    color: #333;
+}
+.checkbox-item>label{
+    display: block;
+    position: relative;
+}
+.upload .checkbox-item{
+    margin-left: 38px;
+}
+.checkbox-item.sz_xq{
+    margin-top: 30px;
+    padding: 0;
+}
+
+.checkbox-item.sz_xq>label{
+    margin-bottom: 10px;
+}
+.checkbox-item.sz_xq>label>span{
+    margin-left: 8px;
+}
+/*.checkbox-item>label>input[type='checkbox']{*/
+    /*/!*position: absolute;*!/*/
+    /*width: 14px;*/
+    /*height: 14px;*/
+    /*border: 1px  solid rgb(153, 153, 153);*/
+    /*-webkit-appearance: none;*/
+    /*-moz-appearance: none;*/
+    /*appearance: none;*/
+    /*border-radius: 2px;*/
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+    /*box-sizing: border-box;*/
+/*}*/
+/*.checkbox-item>label>span{*/
+    /*margin-left: 5px;*/
+/*}*/
+/*.checkbox-item>label>input[type=checkbox]:before{*/
+    /*position:absolute;*/
+    /*content: '';*/
+    /*width: 14px;*/
+    /*height: 14px;*/
+    /*top: 4px;*/
+    /*left: 0px;*/
+/*}*/
+/*.checkbox-item>label>input[type=checkbox]:checked:before {*/
+    /*background: url(../img/data/cbox.png) no-repeat;*/
+/*}*/
+/*弹窗相关 结束*/
+
+/*编辑图表-查看数据 开始*/
+.bjtb-showdata{
+    background-color:#eeeeee;
+}
+.bjtb-showdata>.data-header>.title{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+.bjtb-showdata>.data-header>.title>p{
+    margin-left: 30px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.bjtb-showdata>.data-header>.title>p>span>i{
+    color: #ee3333;
+}
+.bjtb-showdata>.data-header>.title>p>.time{
+    color: #999;
+    margin-left: 14px;
+}
+.bjtb-showdata>.data-header>.close {
+    float: right;
+    width: 60px;
+    background-color: #eaeaea;
+    background-image: url(../img/data/close.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 98px;
+    display: inline-block;
+    cursor: pointer;
+}
+.bjtb-showdata .show-data-box{
+    background-color: #eeeeee;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: calc(100% - 30px);
+}
+.bjtb-showdata .show-data-box .show-file{
+    width: 100%;
+    height: calc(100% - 0px);
+}
+.bjtb-showdata .show-data-box>.show-file>.scroll-box {
+    height: calc(100% - 0px);
+    padding-top: 0;
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+table>tbody>tr>td{
+    box-sizing: border-box;
+}
+.upload .excel-table{
+	/*min-width: 1186px;*/
+    min-width: 1080px;
+	border: 1px solid rgb(221, 226, 236);
+}
+.bjtb-showdata .excel-table{
+    min-width: 1186px;
+    border: 1px solid rgb(221, 226, 236);
+}
+.bjtb-showdata .excel-table .th1{
+    width: 110px;
+}
+.bjtb-showdata .excel-table .th2{
+    width: 122px;
+}
+.bjtb-showdata .excel-table .th3{
+    width: 110px;
+}
+.bjtb-showdata .excel-table .th4{
+    width: 110px;
+}
+.bjtb-showdata .excel-table .th5{
+    width: 110px;
+}
+.bjtb-showdata .excel-table .th6{
+    width: 110px;
+}
+.bjtb-showdata .excel-table .th7{
+    width: 80px;
+}
+/*编辑图表-查看数据 结束*/
+/*数据源-mysql上传数据 开始*/
+.mysql-upload .title:before{
+    content: "";
+    width: 100px;
+    height: 78px;
+    box-sizing: border-box;
+    background: url("../img/data/MySQL.png") no-repeat center;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 5px;
+}
+.mysql-upload .title>h3{
+    font-size: 24px;
+    color: #333333;
+    margin-left: 20px;
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+}
+.mysql-upload .title>h3>.mysql{
+    font-size: 18px;
+    display: block;
+}
+.mysql-upload .back{
+    margin-top: -51px;
+}
+.mysql-upload .set-data-box{
+    width: 600px;
+    height: auto;
+    padding: 40px;
+}
+.mysql-upload .set-data-box .setting {
+    margin: 10px 0;
+}
+.mysql-upload .set-data-box .setting>.item.set-width {
+    width: 530px;
+}
+.setting>.item>input.input-width_300{
+    width: 300px;
+}
+.setting>.item>input.input-width_dk{
+    width: 94px;
+}
+.setting>.item>input.input-width_410{
+    width: 410px;
+}
+.setting>.t-item{
+    font-size: 14px;
+    margin-left: 36px;
+    line-height: 2;
+    width: 485px;
+    margin-top: 30px;
+}
+.setting>.t-item>.title1{
+    font-size: 16px;
+}
+.set-data-box .setting>.item2{
+    width: 500px;
+    margin: 20px auto;
+    font-size: 14px;
+}
+.search-table{
+    width: 485px;
+    background: url("../img/sousuo.png") no-repeat right;
+    padding: 0 30px 0 5px;
+    background-position-x: 458px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+.set-data-box .setting>.item2>.sz_xq{
+    margin-left: 0;
+}
+.checkbox-item.sz_xq>.show-box{
+    width: 485px;
+}
+.checkbox-item.sz_xq>.show-box>.show-table{
+    display: inline-block;
+    float: right;
+    color: #999;
+    background: url(../img/data/show.png) no-repeat left;
+    width: 54px;
+    text-align: right;
+    cursor: pointer;
+}
+.checkbox-item.sz_xq>.show-box>.show-table:hover{
+    color: #666666;
+    background: url(../img/data/show-hover.png) no-repeat left;
+}
+.checkbox-item.sz_xq>.show-box>.show-table:active{
+    color: #0066ff;
+    background: url(../img/data/show-active.png) no-repeat left;
+}
+/*数据源-mysql上传数据 结束*/
+/*模板库替换模板  开始*/
+.explain-box{
+    width: 240px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    background-color: #fff;
+    height: calc(100% - 102px);
+}
+.explain-box .text{
+    width: 100%;
+    padding: 40px 20px 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+.explain-box .text a{
+    color:#0066ff;
+}
+.explain-box .filelist{
+    width: 100%;
+    margin-top: 20px;
+}
+.explain-box .filelist>p{
+    padding: 0 0 20px 20px;
+}
+.explain-box .filelist>ul>li{
+    padding: 0 10px 0 30px;
+}
+.explain-box .filelist>ul>li>span{
+    height: 30px;
+    line-height: 30px;
+    background: url("../img/data/file-icon.png") no-repeat left;
+    padding-left: 26px;
+}
+.explain-box .filelist>ul>li:hover,.explain-box .filelist>ul>li.active{
+    background-color: #f6f6f6;
+}
+.explain-box .filelist>ul>li:hover>span,.explain-box .filelist>ul>li.active>span{
+    background: url("../img/data/file-icon-h.png") no-repeat left;
+    color: #0066ff;
+}
+.file-content-box{
+    margin-left: 240px;
+    height: calc(100% - 150px);
+}
+.file-content-box .show-data-box{
+    background-color: #eee;
+    box-shadow:none;
+    width: inherit;
+    margin: 40px auto;
+    height: calc(100% - 30px);
+}
+.file-content-box .show-data-box>.show-file>.scroll-box{
+    /*max-height: 800px;*/
+    height: 96%;
+}
+.mb-page .back{
+    float: right;
+    width: 60px;
+    background-color: #eaeaea;
+    background-image: url(../img/back.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 98px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 0;
+}
+.data-header>.replace {
+    position: absolute;
+    right: 94px;
+    top: 0;
+    background: url(../img/data/th.png) no-repeat top;
+    background-position-y: 10px;
+    box-sizing: border-box;
+    height: 98px;
+    margin-top: 16px;
+    cursor: pointer;
+}
+.data-header>.replace:hover,.data-header>.replace:active{
+    background-image: url("../img/data/th-h.png");
+}
+.upload .mb-table-select{
+    display: inline-block;
+    margin-left: 100px;
+    vertical-align: middle;
+    float: right;
+    margin-top: 14px;
+    margin-right: 50px;
+}
+.mb-2 .excel-table {
+    min-width: 1080px;
+    border: 1px solid rgb(221, 226, 236);
+    /*width: 100%;*/
+    height: calc(100% - 10px);
+}
+.upload .mb-table-select .Mselect {
+    text-indent: 16px;
+    font-size: 14px;
+    color: #333333;
+    margin-right: 12px;
+    display: inline-block;
+    width: 224px;
+}
+.upload .mb-table-select .Mchecked {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: url(../img/data/select-icon.png) right no-repeat;
+    background-color: #FFFFFF;
+    background-position-x: 200px;
+    height: 32px;
+    text-indent: 0;
+    padding: 0 24px 0 20px;
+}
+.upload .mb-table-select .Mchecked:hover{
+    background: url(../img/data/select-icon-h.png) right no-repeat;
+    background-color: #FFFFFF;
+    background-position-x: 200px;
+}
+.upload .mb-table-select .Mchecked.Mchecked_on{
+    background: url(../img/data/select-icon-s.png) right no-repeat;
+    background-color: #FFFFFF;
+    background-position-x: 200px;
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.upload .mb-table-select .Mchecked.Mchecked_on+.MoptionBox{
+    border: 1px solid #ddd;
+}
+.upload .mb-table-select .Mchecked.Mchecked_on+.MoptionBox .Moption{
+    border: 1px solid;
+}
+.upload .mb-table-select .MoptionBox{
+     background-color: #fff;
+ }
+.upload .mb-table-select .MoptionBox .Moption{
+    border-bottom: none;
+    border-top: none;
+    padding-left: 5px;
+    overflow: hidden;
+}
+.upload .mb-table-select .MoptionBox .Moption:hover{
+    background-color: #fff;
+    color: #0066ff;
+}
+
+.mb-3 .upload-box{
+    width: 804px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 30px 40px;
+    font-size: 14px;
+    color: #666;
+}
+.mb-3 .upload-box>p+p{
+    margin-top: 10px;
+}
+.mb-3 .upload-box .warning{
+    background: url("../img/data/mb-worning.png") left no-repeat;
+    padding-left: 24px;
+    display: inline-block;
+    height: 20px;
+    vertical-align: middle;
+}
+.field-box .field+.warning,.field-box .field+.error{
+    position: absolute;
+    right: 39px;
+}
+.mb-3 .upload-box .error{
+    background: url("../img/data/mb-error.png") left no-repeat;
+    padding-left: 26px;
+    display: inline-block;
+    height: 20px;
+    width: auto;
+    float: none;
+}
+.mb-3 .upload-box .warning-gray{
+    background: url("../img/data/mb-worning-2.png") left no-repeat;
+    padding-left: 24px;
+    display: inline-block;
+    height: 20px;
+    margin-top: 16px;
+}
+.field-box>table{
+    border: 1px solid rgb(221, 226, 236);
+    width: 100%;
+    color: #333333;
+    margin-top: 32px;
+}
+.field-box>table tr{
+    box-sizing: border-box;
+    height: 52px;
+    border-bottom: 1px solid rgb(221, 226, 236);
+}
+.field-box>table tr>td{
+    padding: 0 20px;
+    position: relative;
+}
+.field-box>table tr>td+td{
+    box-sizing: border-box;
+    border-left: 1px solid rgb(221, 226, 236);
+    padding: 0 20px;
+}
+/*文本类型*/
+.text-v{
+    background: url("../img/data/mb-text.png") left no-repeat;
+    padding-left: 20px;
+    display: inline-block;
+}
+/*数值类型*/
+.figure-v{
+    background: url("../img/data/mb-value.png") left no-repeat;
+    padding-left: 20px;
+    display: inline-block;
+}
+/*日期类型*/
+.date-v{
+    background: url("../img/data/mb-date.png") left no-repeat;
+    padding-left: 20px;
+    display: inline-block;
+
+}
+ /*下拉箭头*/
+.mb-select-icon{
+    background: url("../img/data/select-icon.png")center no-repeat;
+    width: 12px;
+    height: 6px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.field-box>table tr>td>.mb-select-icon{
+    float: right;
+    margin-top: 6px;
+    cursor: pointer;
+}
+.field-box>table tr>td.action:hover{
+    background-color: #f6f6f6;
+}
+.field-box>table tr>td.action:hover .mb-select-icon{
+    background: url("../img/data/select-icon-h.png")center no-repeat;
+}
+.field-box>table tr>td.show:hover .mb-select-icon{
+    background: url("../img/data/select-icon-s.png")center no-repeat;
+}
+.field-box>table tr>td.show .mb-select-icon{
+    background: url("../img/data/select-icon-s.png")center no-repeat;
+}
+.select-list{
+    display: block;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    top: 55px;
+    left: 0;
+    height: auto;
+    z-index: 99;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 20px 22px;
+
+}
+.action>.select-list{
+    display: none;
+}
+.action.show>.select-list{
+    display: block;
+}
+.select-list>ul>li>div{
+     padding-left: 20px;
+    display: inline-block;
+ }
+.select-list>ul>li:hover{
+    color: #0066ff;
+}
+.select-list>ul>li+li{
+     margin-top: 16px;
+}
+.no-replace{
+    color: #999;
+    display: inline-block;
+}
+/*添加未匹配字段 弹窗 开始*/
+#mb-field-layout{
+    display: block;
+}
+.content-layout{
+    padding: 40px 40px 20px;
+    box-sizing: border-box;
+    height: auto;
+}
+.content-layout p{
+    line-height: 1.5;
+}
+.content-layout .sz_xq{
+    font-size: 16px;
+    padding-bottom: 0;
+    padding-top: 20px;
+}
+.content-layout .sz_xq>div{
+    display: inline-block;
+    width: 49%;
+    margin-bottom: 12px;
+}
+.content-layout  .sz_xq label {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+/*添加未匹配字段 弹窗 结束*/
+
+
+ /*模板库替换模板  结束*/
+
+/*数据源设置1  开始*/
+.data-set-layout{
+    width: 500px;
+    height: auto;
+}
+.data-set-layout .data-layout-content{
+    box-sizing: border-box;
+    margin: 40px 0 0;
+}
+.data-set-layout .data-layout-content .left-item{
+    width: 120px;
+    height: 190px;
+    border-right: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: top;
+}
+.data-set-layout .data-layout-content .setting.set3 {
+     margin-left: 18px;
+}
+.data-set-layout .data-layout-content .left-item>li{
+     height: 40px;
+     line-height: 40px;
+     text-align: center;
+ }
+.data-set-layout .data-layout-content .left-item>li.active,.data-set-layout .data-layout-content .left-item>li:hover{
+   background-color: #f6f6f6;
+    color: #0066ff;
+}
+
+.data-set-layout .data-layout-content .left-item>li>span{
+    text-align: left;
+    display: inline-block;
+    width: 4em;
+}
+
+.data-set-layout .data-layout-content .setting {
+    display: none;
+    height: 190px;
+    width: auto;
+    vertical-align: middle;
+    margin-top: 0;
+}
+.data-set-layout .data-layout-content .setting.show {
+    display: inline-block;
+}
+.data-set-layout .data-layout-content .setting .item{
+    width: 360px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+.data-set-layout .data-layout-content .setting.set3 .item{
+     width: 356px;
+ }
+.data-set-layout .data-layout-content .setting .item.data-name{
+    margin-bottom: 18px;
+}
+.data-set-layout .data-layout-content .setting .item.data-name>span:nth-child(2){
+    width: 16em;
+    text-align: left;
+}
+
+.data-set-layout .data-layout-content .setting .item .need{
+    color: #ee3333;
+}
+.data-set-layout .data-layout-content .setting .item+.item{
+    margin-top: 10px;
+}
+.data-set-layout .data-layout-content .setting>.item>span {
+    width: 6em;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.data-set-layout .data-layout-content .setting>.item>input {
+    width: 240px;
+}
+.data-set-layout .data-layout-content .setting>.item>input.search {
+    width: 212px;
+}
+.data-set-layout .data-layout-content .setting>.item>input+input{
+    margin-left: 10px;
+}
+.data-set-layout .data-layout-content .setting>.item>input.ip-input-width{
+    width: 150px;
+}
+.data-set-layout .data-layout-content .setting>.item>input.port-input-width{
+    width: 64px;
+}
+.data-set-layout .data-layout-content .setting .item>.dbname{
+    text-align: left;
+    width: 150px;
+}
+.data-set-layout .data-layout-content .setting .item>input[type="button"]{
+    width: 78px;
+    height: 30px;
+    display: inline-block;
+    margin-left: 10px;
+    color: #88bbff;
+    border: 1px solid #88bbff;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.data-set-layout .data-layout-content .setting .item:last-child {
+    margin-top: 18px;
+}
+
+.data-layout-content .setting .item2  input.search-table {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    height: 30px;
+    width: 308px;
+    background: url(../img/sousuo.png) no-repeat right;
+    padding: 0 30px 0 5px;
+    background-position-x: 286px;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+.data-layout-content .setting .item2{
+    margin-left: 30px;
+}
+.data-layout-content .setting .item2+.item2{
+    margin-top: 30px;
+}
+.data-layout-content .setting .item2 .checkbox-item.sz_xq>.show-box{
+    width: 308px;
+}
+.data-layout-content .sz_xq label {
+    margin-bottom: 16px;
+}
+.data-layout-content .setting>.item>textarea {
+    width: 212px;
+}
+.data-set-layout .data-layout-content .setting>.item.item-textarea>span{
+    vertical-align: top;
+}
+.data-layout-content .setting .sx_xq_tj_a {
+    margin-left: 0;
+    margin-right:0;
+}
+.data-layout-content .setting .sx_xq_tj_a+.sx_xq_tj_a {
+    margin-left: 24px;
+
+}
+/*数据源设置1  结束*/
+
+

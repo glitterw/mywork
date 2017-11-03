@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>图表编辑-旭日图</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/Mbase.css">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" type="text/css" href="./css/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="./css/editablechart.css">
+    <link rel="stylesheet" type="text/css" href="./css/edit-charts.css">
+</head>
+
+<body id='图表编辑' class='fz14'>
+    <header class="header">
+        <div class="logo">
+            <a href="#"><img src="img/logo.png" /></a>
+        </div>
+        <div class="title">
+            <h3>上传数据</h3>
+        </div>
+        <a href="javscript:void(0)" class="back pull-right"></a>
+        <a href="javscript:void(0)" class="pull-right bttn text-center">保存</a>
+    </header>
+    <div class="chart-left">
+        <div class='indicator-wrap fz16'>
+            <a class='indicator text-center mg1  active' href="javascript:void(0)">图形选择</a>
+            <a class='indicator text-center' href="javascript:void(0)">图形设置</a>
+        </div>
+        <div id='tool-box' class="tool-box ">
+            <div class="xuanze tab">
+                <div class='title clearfix'>
+                    <h5 class='pull-left fz16'>中国年度人口数据</h5>
+                    <a class='pull-right fz14 chakan text-center' href="javascript:void(0)">
+                        <i class='icon  icon-chakan'></i> 查看数据
+                    </a>
+                </div>
+                <div class='main clearfix'>
+                    <div class="item pull-left  left-sec">
+
+                        <h5 class='fz16 ziduan'>字段</h5>
+                        <form class='form'>
+                            <div class='search-wrap'>
+                                <input placeholder="输入关键字搜索" class='search'>
+                                <i class='icon icon-search'></i>
+                            </div>
+                        </form>
+
+                        <ul class='ziduan-list'>
+                            <li class='item'>
+                                <a class='item-name  active draggable' href="javascript:void(0)">
+                                    <i class='icon icon-arrow-down'></i>
+                                    <i class='icon icon-date'></i>
+                                    <span class='text'> 邮件营销 </span>
+                                </a>
+                                <ul class='sub-ziduan-list'>
+                                    <li>
+                                        <a href="javascript:void(0)" class='draggable'>
+                                            <i class='icon icon-date'></i>
+                                            <span class='text'> 
+                                                年                                                                        </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class='draggable'>
+                                            <i class='icon icon-date'></i>
+                                            <span class='text'> 
+                                                月
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class='item'>
+                                <a href="javascript:void(0)" class='item-name  active draggable'>
+                                    <i class='icon icon-nianfen'></i>
+                                    <span class='text'> 年份 </span>
+                                </a>
+                            </li>
+                            <li class='item'>
+                                <a href="javascript:void(0)" class='item-name  active draggable'>
+                                    <i class='icon icon-qita'></i>
+                                    <span class='text'> 男性人口(万人) </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item pull-left  right-sec">
+                        <div class='types'>
+                            <h5 class='fz16 ziduan'>智能推荐图形</h5>
+                            <ul class='chart-types  clearfix'>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon1' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon2' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon3' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a data-type='line' class='chart-type-icon icon4 active' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a data-type='bar' class='chart-type-icon icon5 ' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon6' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon7' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon8' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon9' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon10' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon11' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon12' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon13' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon14' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon15' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon16' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon17' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon18' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon19' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon20' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon21' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon22' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon23' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon24' href="javascript:void(0)"></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class='drag-container'>
+                            <div class='drag-wrap'>
+                                <h5 class='fz16 ziduan'>筛选器</h5>
+                                <div class="drag text-center">
+                                    拖拽字段至此进行筛选
+                                </div>
+                                <!--<div class="filter-item">
+                                <a href="javascript:void(0)">
+                                    <span>aaaa</span>
+                                </a>
+                                <i class="icon icon-edit-blue"></i>
+                                <i class="icon icon-arrow-blue-down"></i>
+                                <div class="jisuan-list">
+                                    <h5>满足条件</h5>
+                                    <ul class="js-list">
+                                        <li>
+                                            10000<span class='zhi'> 至</span>90000
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>-->
+                            </div>
+                        </div>
+                        <div class='color-list'>
+                            <h5 class='fz16 ziduan'>颜色</h5>
+                            <ul class='color-pick'>
+                                <li class='item'>
+                                    <a style=' background: #008b8b;' class='color text-center' href="javascript:void(0)">
+                                        <i class='icon icon-edit-hover'></i>
+                                    </a>
+                                    邮件营销
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shezhi tab MScroll" style='display: none;'>
+                <form id='sun-form' class="scatter-style" action="">
+                    <div class='sz-item s-item-0 clearfix'>
+                        <span class='sz-head'>
+                        图表标题
+                        </span>
+                        <input class='input pull-right mg1'>
+                    </div>
+                    <div class='sz-item s-item-2  clearfix sun-label'>
+                        <span class='sz-head'>
+                        显示图表标签
+                       </span>
+                        <div class='sub-item pull-right'>
+                            <label class='Checkbox'>
+                                <input  type="checkbox">
+                                <i class='check-icon'></i>
+                            </label>
+                        </div>
+                        <div class="sun-label-type">
+                            <div class="sub-item  mg1">
+                                <label class="Radio">
+                                    <input name="ys" type="radio">
+                                    <i class="radio-icon"></i>
+                                    <span>文字</span>
+                                </label>
+                                <label class="Radio">
+                                <input name="ys" type="radio">
+                                <i class="radio-icon"></i>
+                                <span>占比</span>
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sz-item s-item-7">
+                        <span class="sz-head">
+                        显示条目数
+                       </span>
+                        <div class="wei-du">
+                            <div class="sub-item">
+                                <label class="Checkbox">
+                                    <input type="checkbox">
+                                    <i class="check-icon"></i>
+                                    <span>维度显示条目数</span>
+                                </label>
+                            </div>
+                            <div class="items" style="">
+                                <div class="Myselect">
+                                    <div class="wrap">
+                                        <div class="Myselect-value">前</div>
+                                        <input style="display:none">
+                                        <i class="icon icon-arrow-down"></i>
+                                        <div class="op-list-wrap">
+                                            <ul class="op-list">
+                                                <li>
+                                                    <a href="javascript:void(0)">前</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)">后</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="input-number-wrap">
+                                <input class="input">
+                                <i class="icon icon-arrow-up  increase"></i>
+                                <i class="icon icon-arrow-down  decrease"></i>
+                            </span>
+                                <div class="Myselect">
+                                    <div class="wrap">
+                                        <div class="Myselect-value">项目</div>
+                                        <input style="display:none">
+                                        <i class="icon icon-arrow-down"></i>
+                                        <div class="op-list-wrap">
+                                            <ul class="op-list">
+                                                <li>
+                                                    <a href="javascript:void(0)">
+                                                        项目
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)">%</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='sz-item s-item-9'>
+                        <h5 class='sz-head'>
+                            图表备注
+                        </h5>
+                        <div class='sub-item'>
+                            <textarea placeholder="请输入图表备注" class='textarea'></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="chart-main">
+        <div class="chart-args-wrap">
+            <ul class='chart-args'>
+                <li class='c-item  x-axis clearfix'>
+                    <div class='label pull-left'>
+                        <i class='icon icon-x-axis'></i>
+                        <span class='fz16'>X轴</span>
+                        <span class='fz14 mg1'>(字段)</span>
+                        <i class='icon icon-edit'></i>
+                    </div>
+                    <ul class='x-item pull-left droppable'>
+                        <!--<li class='target'>
+                            <span class='target-inner'>
+                                <span class='text'>邮件营销</span>
+                            <i class='icon  icon-arrow-blue-down'></i>
+                            <div class='jisuan-list'>
+                                <ul class='js-list'>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            设置字段
+                                        </a>
+                                    </li>
+                                    <li class='more paixu no-border'>
+                                        <a href="javascript:void(0)">
+                                            对齐方式
+                                            <i class='icon icon-more pull-right'></i>
+                                        </a>
+                                        <ul class='px-list'>
+                                            <li><a href="javascript:void(0)">左对齐</a></li>
+                                            <li><a href="javascript:void(0)">居中</a></li>
+                                            <li><a href="javascript:void(0)">右对齐</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class='more paixu no-border'>
+                                        <a href="javascript:void(0)">
+                                            排序
+                                            <i class='icon icon-more pull-right'></i>
+                                        </a>
+                                        <ul class='px-list'>
+                                            <li><a href="javascript:void(0)">默认</a></li>
+                                            <li><a href="javascript:void(0)">升序</a></li>
+                                            <li><a href="javascript:void(0)">降序</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            </span>
+                        </li>-->
+                    </ul>
+                    <!--<a class='icon-action add-duibi' href="javascript:void(0)">
+                        <i class='icon icon-add'></i> 添加对比
+                    </a>-->
+                </li>
+                <li class='c-item  c-item-2 x-axis clearfix'>
+                    <div class='label pull-left'>
+                        <i class='icon icon-x-axis'></i>
+                        <span class='fz16'>X轴</span>
+                        <span class='fz14 mg1'>(字段)</span>
+                        <i class='icon icon-edit'></i>
+                    </div>
+                    <ul class='x-item pull-left droppable'></ul>
+                    <a class='icon-action  remove-duibi' href="javascript:void(0)">
+                        <i class='icon icon-remove'></i>移除对比
+                    </a>
+                </li>
+                <li class='c-item  y-axis clearfix'>
+                    <div class='label pull-left'>
+                        <i class='icon icon-y-axis '></i>
+                        <span class='fz16 '>Y轴</span>
+                        <span class='fz14 mg1 '>(数值)</span>
+                        <span class='type-ava'>
+                           <i class='chart-type-icon icon4'></i>
+                           <i class='icon  icon-arrow-blue-down'></i>
+                           <div class='type-choice-list'>
+                               <ul class='list text-center'>
+                               <li>
+                                   <a href="javascript:void(0)">
+                                        <i class='chart-type-icon icon4'></i>
+                                   </a>                                   
+                               </li>
+                               <li>
+                                   <a href="javascript:void(0)">
+                                        <i class='chart-type-icon icon4'></i>
+                                   </a>                                   
+                               </li>
+                           </ul>
+                           </div>                           
+                        </span>
+                    </div>
+                    <ul class='y-item pull-left droppable'>
+                        <!--<li class='target'>
+                            <span class='target-inner'>
+                                <span class='text'>邮件营销(求和)</span>
+                            <i class='icon  icon-arrow-blue-down'></i>
+                            <div class='jisuan-list'>
+                                <ul class='js-list'>
+                                    <li class='active'>
+                                        <a href="javascript:void(0)">
+                                                    求和
+                                                    </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                                    平均值
+                                                    </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                                    计数
+                                                    </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                                    去重计数
+                                                    </a>
+                                    </li>
+                                    <li class='more paixu'>
+                                        <a href="javascript:void(0)">
+                                                更多
+                                                <i class='icon icon-more pull-right'></i>
+                                            </a>
+                                        <ul class='px-list'>
+                                            <li><a href="javascript:void(0)">最大值</a></li>
+                                            <li><a href="javascript:void(0)">最小值</a></li>
+                                            <li><a href="javascript:void(0)">中位数</a></li>
+                                            <li class='more2 paixu2'>
+                                                <a href="javascript:void(0)">
+                                                        百分比
+                                                        <i class='icon icon-more pull-right'></i>
+                                                    </a>
+                                                <ul class='px-list2'>
+                                                    <li><a href="javascript:void(0)">5</a></li>
+                                                    <li><a href="javascript:void(0)">10</a></li>
+                                                    <li><a href="javascript:void(0)">25</a></li>
+                                                    <li class='baifenbi'><a href="javascript:void(0)">自定义</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class='more paixu'>
+                                        <a href="javascript:void(0)">
+                                                    高级计算
+                                                <i class='icon icon-more pull-right'></i>
+                                            </a>
+                                        <ul class='px-list'>
+                                            <li class='tongbihuanbi'><a href="javascript:void(0)">同比/环比</a></li>
+                                            <li><a href="javascript:void(0)">百分比</a></li>
+                                            <li class='liucunlv'><a href="javascript:void(0)">留存率</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class='shujuxianshigeshi'>
+                                        <a href="javascript:void(0)">
+                                                数据显示格式
+                                            </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                                    设置字段
+                                                    </a>
+                                    </li>
+                                    <li class='jieguoshaixuan'>
+                                        <a href="javascript:void(0)">
+                                                结果筛选器
+                                            </a>
+                                    </li>
+                                    <li class='more  paixu'>
+                                        <a href="javascript:void(0)">
+                                                排序
+                                                <i class='icon icon-more pull-right'></i>
+                                            </a>
+                                        <ul class='px-list'>
+                                            <li><a href="javascript:void(0)">默认</a></li>
+                                            <li><a href="javascript:void(0)">升序</a></li>
+                                            <li><a href="javascript:void(0)">降序</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            </span>
+                        </li>-->
+                    </ul>
+                    <a class='icon-action add-cizhou' href="javascript:void(0)">
+                        <i class='icon icon-add'></i> 添加次轴
+                    </a>
+                </li>
+                <li class='c-item c-item-4  y-axis clearfix'>
+                    <div class='label pull-left'>
+                        <i class='icon icon-y-axis'></i>
+                        <span class='fz16'>Y轴</span>
+                        <span class='fz14 mg1'>(数值)</span>
+                        <span class='type-ava'>
+                           <i class='chart-type-icon icon5'></i>
+                           <i class='icon  icon-arrow-blue-down'></i>
+                           <div class='type-choice-list'>
+                               <ul class='list text-center'>
+                               <li>
+                                   <a href="javascript:void(0)">
+                                        <i class='chart-type-icon icon5'></i>
+                                   </a>                                   
+                               </li>
+                               <li>
+                                   <a href="javascript:void(0)">
+                                        <i class='chart-type-icon icon5'></i>
+                                   </a>                                   
+                               </li>
+                           </ul>
+                           </div>                           
+                        </span>
+                    </div>
+                    <ul class='y-item pull-left droppable'>
+                    </ul>
+                    <a class='icon-action remove-cizhou' href="javascript:void(0)">
+                        <i class='icon icon-remove'></i>移除次轴
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class='chart-box'>
+            <!--散点图 开始-->
+            <div id='chart' class='chart'></div>
+            <!--结束 开始-->
+            <!--<div class='zongji'>-->
+                <!--<div class="title-text">11111</div>-->
+                <!--<div class="Myselect">-->
+                    <!--<div class="wrap">-->
+                        <!--<div class="Myselect-value">总计</div>-->
+                        <!--<input style="display:none">-->
+                        <!--<i class="icon icon-arrow-down"></i>-->
+                        <!--<div class="op-list-wrap">-->
+                            <!--<ul class="op-list">-->
+                                <!--<li>-->
+                                    <!--<a href="javascript:void(0)">总计</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="javascript:void(0)">最大值</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="javascript:void(0)">最小值</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="javascript:void(0)">平均值</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class='modal'>
+        <div class="color-setup modal-item" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>颜色设置</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class='wrap clearfix'>
+                    <div class="left">
+                        <h5 class='fz16 head'>选择数值轴：</h5>
+                        <ul class='item-list'>
+                            <li class='item active'>
+                                <i class='color'></i>
+                                <a href="javascript:void(0)">                                    
+                                    邮件营销
+                                </a>
+                            </li>
+                            <!--<li class='item '>
+                                <i class='color'></i>
+                                <a href="javascript:void(0)">                                    
+                                    年末总人口(万人)
+                                </a>
+                            </li>
+                            <li class='item '>
+                                <i class='color'></i>
+                                <a href="javascript:void(0)">                                    
+                                    年末总人口(万人)
+                                </a>
+                            </li>-->
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h5 class='fz16 head'>选择配色方案：</h5>
+                        <div class="default-wrap">
+                            <div class="default-color">
+                                默认颜色
+                                <i class='icon icon-arrow-down'></i>
+                                <ul class='color-ava'>
+                                    <li class='tpl-item  active-item'>
+                                        <i class='icon icon-default'></i>
+                                        <a href="javascript:void(0)">默认颜色</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-shuoguo'></i>
+                                        <a href="javascript:void(0)">硕果累累</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-fugu'></i>
+                                        <a href="javascript:void(0)">复古调</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-gaodiao'></i>
+                                        <a href="javascript:void(0)">高调红</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-shangwu'></i>
+                                        <a href="javascript:void(0)">商务蓝</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-shishang'></i>
+                                        <a href="javascript:void(0)">时尚绿</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-lengse'></i>
+                                        <a href="javascript:void(0)">冷色灰</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <a class='text-center' id='apply' href="javascript:void(0)">应用</a>
+                            <ul class='color-list' style='display: '>
+                                <li class='pull-left color-item default current-color' style='background-color: #5c82dd'></li>
+                                <li class='pull-left color-item default' style='background-color: #a5ca73'></li>
+                                <li class='pull-left color-item default' style='background-color: #61af82'></li>
+                                <li class='pull-left color-item default' style='background-color: #f0cc62'></li>
+
+
+                                <li class='pull-left color-item default' style='background-color: #ea9257'></li>
+                                <li class='pull-left color-item default' style='background-color: #e15e58'></li>
+                                <li class='pull-left color-item default' style='background-color: #c06ad0'></li>
+                                <li class='pull-left color-item default' style='background-color: #8159cd'></li>
+
+
+
+                                <li class='pull-left color-item default' style='background-color: #5258b2'></li>
+                                <li class='pull-left color-item default' style='background-color: #6bb3ec'></li>
+                                <li class='pull-left color-item default' style='background-color: #84d2d9'></li>
+                                <li class='pull-left color-item default' style='background-color: #c33e6b'></li>
+                            </ul>
+                            <ul class='color-list' style='display: none'>
+                                <li class='pull-left color-item shuoguo' style='background-color: #aa4a46 '></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #db7968'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #e56941'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #eda255'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #c35d67'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #d9625e'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #d89a78'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #a38a70'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #b27876'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #b1afa1'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #92ab83'></li>
+                                <li class='pull-left color-item shuoguo' style='background-color: #94985b'></li>
+                            </ul>
+                            <ul class='color-list' style='display: none'>
+                                <li class='pull-left color-item fugu' style='background-color: #914176 '></li>
+                                <li class='pull-left color-item fugu' style='background-color: #b9426c'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #ef834a'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #cf4b3f'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #eb4a7f'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #e66976'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #ce6482'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #a92857'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #6589c5'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #6f759b'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #616fc1'></li>
+                                <li class='pull-left color-item fugu' style='background-color: #6256a4'></li>
+                            </ul>
+                            <ul class='color-list' style='display: none'>
+                                <li class='pull-left color-item gaodiao' style='background-color: #772929 '></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #c70904'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #98220e'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #c4572f'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #e91f1a'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #ff5800'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #ffb400'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #ffd200'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #d42965'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #ff5e93'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #8bb4f7'></li>
+                                <li class='pull-left color-item gaodiao' style='background-color: #2361d7'></li>
+                            </ul>
+                            <ul class='color-list' style='display: none'>
+                                <li class='pull-left color-item shangwu' style='background-color: #0059ce '></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #095086'></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #94d7f1'></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #0086e6'></li>
+
+                                <li class='pull-left color-item shangwu' style='background-color: #006593'></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #2e77d7'></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #74a4e4'></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #a2c3ed'></li>
+
+                                <li class='pull-left color-item shangwu' style='background-color: #a3a314'></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #0049a9'></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #17afb7'></li>
+                                <li class='pull-left color-item shangwu' style='background-color: #ce0059'></li>
+                            </ul>
+                            <ul class='color-list' style='display: none'>
+                                <li class='pull-left color-item shishang' style='background-color: #69c28f '></li>
+                                <li class='pull-left color-item shishang' style='background-color: #405942'></li>
+                                <li class='pull-left color-item shishang' style='background-color: #6a8b5b'></li>
+                                <li class='pull-left color-item shishang' style='background-color: #77a656'></li>
+
+                                <li class='pull-left color-item shishang' style='background-color: #abbf7e'></li>
+                                <li class='pull-left color-item shishang' style='background-color: #557514'></li>
+                                <li class='pull-left color-item shishang' style='background-color: #41a774'></li>
+                                <li class='pull-left color-item shishang' style='background-color: #4cd964'></li>
+
+                                <li class='pull-left color-item shishang' style='background-color: #51c2c2'></li>
+                                <li class='pull-left color-item shishang' style='background-color: #d92332'></li>
+                                <li class='pull-left color-item shishang' style='background-color: #707dcc'></li>
+                                <li class='pull-left color-item shishang' style='background-color: #6accba'></li>
+                            </ul>
+                            <ul class='color-list' style='display:none'>
+                                <li class='pull-left color-item lengse' style='background-color: #88ada6 '></li>
+                                <li class='pull-left color-item lengse' style='background-color: #83818e'></li>
+                                <li class='pull-left color-item lengse' style='background-color: #808080'></li>
+                                <li class='pull-left color-item lengse' style='background-color: #bacac6'></li>
+
+                                <li class='pull-left color-item lengse' style='background-color: #c2ccd0'></li>
+                                <li class='pull-left color-item lengse' style='background-color: #bbcdc5'></li>
+                                <li class='pull-left color-item lengse' style='background-color: #c0ebd7'></li>
+                                <li class='pull-left color-item lengse' style='background-color: #999999'></li>
+
+                                <li class='pull-left color-item lengse' style='background-color: #75664d'></li>
+                                <li class='pull-left color-item lengse' style='background-color: #6d6d6d'></li>
+                                <li class='pull-left color-item lengse' style='background-color: #50616d'></li>
+                                <li class='pull-left color-item lengse' style='background-color: #758a99'></li>
+                            </ul>
+                            <div class='define-color'>
+                                <a id='pick' href='javascript:void(0)'>
+                                    <span class='color-item self-define text-center'>
+                                        <i class='icon icon-self-define'></i>
+                                    </span>
+                                    <span>自定义颜色</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="edit-filter modal-item  number" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>编辑筛选项</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <p class='fz16 info'>男性人口(万人)</p>
+                <div class='condition'>
+                    <div class='Myselect select'>
+                        <div class='wrap' href="javascript:void(0)">
+                            <div class='Myselect-value'>等于</div>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">不等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">大于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">小于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">大于等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">小于等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">区间</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <span class='input-number-wrap'>
+                         <input placeholder='请输入数值' class='input addwidth'>
+                         <i class='icon icon-arrow-up  increase'></i>
+                         <i class='icon icon-arrow-down  decrease'></i>
+                    </span>
+                    <span class='zhi disappear' style='display: none'>至</span>
+                    <span class='input-number-wrap  disappear' style='display: none'>
+                        <input  type='number' placeholder='请输入数值' class='input '>
+                         <i class='icon icon-arrow-up  increase'></i>
+                         <i class='icon icon-arrow-down  decrease'></i>
+                     </span>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="edit-filter modal-item  time" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>编辑筛选项</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content ">
+                <p class='fz16 info'>时间范围</p>
+                <div class='condition text-center' style='margin-left: -35px'>
+                    <input placeholder='请选择时间' class="input datepicker">
+                    <span style='margin: 0 25px;'>至</span>
+                    <input placeholder='请选择时间' class="input datepicker">
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="edit-filter  modal-item transfer" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>编辑筛选项</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <p class='fz16 info'>配送方式</p>
+                <div class='condition'>
+                    <div class="Myselect select">
+                        <div class="wrap">
+                            <div class="Myselect-value">请选择筛选条件</div>
+                            <input style='display:none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">不等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">包含</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">不包含</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">开头包含</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">结尾包含</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <input class='input input2' placeholder="请输入条件">
+                    <a class='add text-center' href="javascript:void(0)">
+                        <i class='icon icon-filter-add'></i>
+                    </a>
+                </div>
+                <div class="Myselect select condition-meet" style='display:none'>
+                    <div class="wrap">
+                        <div class="Myselect-value">满足任一条件</div>
+                        <input style='display:none'>
+                        <i class="icon icon-arrow-down"></i>
+                        <div class='op-list-wrap'>
+                            <ul class="op-list">
+                                <li>
+                                    <a href="javascript:void(0)">满足任一条件</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">满足所有条件</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class='condition-wrap  MScroll'>
+                    <ul>
+                        <!--<li>
+                        <div class='condition-item'>不等于</div>
+                        <div class='condition-value'>特色快递</div>
+                        <a class='remove' href="javascript:void(0)">
+                            <i class='icon icon-filter-remove'></i>
+                        </a>
+                      </li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="save-dia modal-item" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>提示</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class='wrap'>
+                    <div class="dia">
+                        <img src="./img/editablechart/tishi.png" alt="">
+                        <div class="info">
+                            <p>
+                                图表未保存，
+                            </p>
+                            <p>
+                                确认离开此页？
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="tianjiafuzhuxian modal-item" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>添加辅助线</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content-wrap scatter-line-set">
+                <p class="line-title">横向辅助线</p>
+                <div class="content">
+                    <input class='input'>
+                    <div class="Myselect">
+                        <div class="wrap">
+                            <div class="Myselect-value">横向(1)</div>
+                            <input style='display:none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">固定值</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">计算值</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Myselect Myselect-r" style='display: none'>
+                        <div class="wrap">
+                            <div class="Myselect-value">城市(计数)</div>
+                            <input style='display:none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">城市(计数)</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">城市(计数)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Myselect Myselect-r" style='display: none'>
+                        <div class="wrap">
+                            <div class="Myselect-value">最大值</div>
+                            <input style='display: none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">平均值</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">最大值</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">最小值</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <input class='input  input-r'>
+                    <i class='icon  icon-edit-add'></i>
+                    <i class='icon  icon-minus'></i>
+                </div>
+            </div>
+            <div class="content-wrap scatter-line-set">
+                <p class="line-title">纵向辅助线</p>
+                <div class="content">
+                    <input class='input'>
+                    <div class="Myselect">
+                        <div class="wrap">
+                            <div class="Myselect-value">纵向(1)</div>
+                            <input style='display:none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">固定值</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">计算值</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Myselect Myselect-r" style='display: none'>
+                        <div class="wrap">
+                            <div class="Myselect-value">城市(计数)</div>
+                            <input style='display:none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">城市(计数)</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">城市(计数)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Myselect Myselect-r" style='display: none'>
+                        <div class="wrap">
+                            <div class="Myselect-value">最大值</div>
+                            <input style='display: none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">平均值</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">最大值</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">最小值</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <input class='input  input-r'>
+                    <i class='icon  icon-edit-add'></i>
+                    <i class='icon  icon-minus'></i>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="baifenwei modal-item" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>百分位设置</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class="wrap text-center">
+                    <span>自定义数值</span>
+                    <div class='input-number-wrap'>
+                        <input data-type='number' data-max='100' data-min='1' placeholder="请输入1~100的整数" class='input'>
+                        <i class='icon icon-arrow-up  increase'></i>
+                        <i class='icon icon-arrow-down  decrease'></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="huizong modal-item" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>汇总数值筛选器</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class='shiyong'>
+                    <label class='Checkbox'>
+                            <input type="checkbox">
+                            <i class='check-icon'></i>
+                            <span>使用下方筛选条件</span>
+                    </label>
+                </div>
+                <div class='condition'>
+                    <div class='Myselect select text-left' style='margin-right:18px'>
+                        <div class='wrap' href="javascript:void(0)">
+                            <div class='Myselect-value'>等于</div>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">不等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">大于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">小于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">大于等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">小于等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">区间</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='input-number-wrap'>
+                        <input placeholder='请输入数值' class='input addwidth'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    <span class='zhi disappear' style='display: none;'>~</span>
+                    <div class='input-number-wrap  disappear' style='display: none'>
+                        <input placeholder='请输入数值' class='input'>
+                        <i class='icon icon-arrow-up  increase'></i>
+                        <i class='icon icon-arrow-down  decrease'></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="xianshigeshi modal-item" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>设置字段数值显示格式</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div>
+                    <label class='Radio'>
+                            <input name='xs'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>显示为数值</span>
+                    </label>
+                    <div class='item-wrap'>
+                        <div class="item">
+                            <span>小数位数</span>
+                            <div class='input-number-wrap'>
+                                <input data-type='number' class='input'>
+                                <i class='icon icon-arrow-up  increase'></i>
+                                <i class='icon icon-arrow-down  decrease'></i>
+                            </div>
+                        </div>
+                        <div class='item'>
+                            <label class='Checkbox'>
+                                 <input   type="checkbox">
+                                 <i class='check-icon'></i>
+                                 <span>使用千位分隔符</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <span>数值单位</span>
+                            <div class="Myselect">
+                                <div class="wrap">
+                                    <div class="Myselect-value">万</div>
+                                    <input style="display:none">
+                                    <i class="icon icon-arrow-down"></i>
+                                    <div class="op-list-wrap">
+                                        <ul class="op-list">
+                                            <li>
+                                                <a href="javascript:void(0)">无</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">万</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">亿</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">k</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">M</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">G</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <label class='Radio'>
+                            <input name='xs'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>显示为百分数</span>
+                    </label>
+                    <div class='item-wrap'>
+                        <div class="item">
+                            <span>小数位数</span>
+                            <div class='input-number-wrap'>
+                                <input data-type='number' class='input'>
+                                <i class='icon icon-arrow-up  increase'></i>
+                                <i class='icon icon-arrow-down  decrease'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class="tongbi modal-item" style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>同比/环比设置</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <span>日期字段</span>
+                    <div id='riqiziduan' class="Myselect">
+                        <div class="wrap">
+                            <div class="Myselect-value">按日</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a data-to='day' href="javascript:void(0)">按日</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='week' href="javascript:void(0)">按周</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='month' href="javascript:void(0)">按月</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='quarter' href="javascript:void(0)">按季</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='year' href="javascript:void(0)">按年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-target='week' class="Myselect select2" style='display: none'>
+                        <div class="wrap">
+                            <div class="Myselect-value">自然周</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">自然周</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-target='month' class="Myselect select2" style='display: none'>
+                        <div class="wrap">
+                            <div class="Myselect-value">自然月</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">自然月</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-target='year' class="Myselect select2" style='display: none'>
+                        <div class="wrap">
+                            <div class="Myselect-value">自然年</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">自然年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <span>对比类型</span>
+                    <div class="Myselect">
+                        <div class="wrap">
+                            <div class="Myselect-value">环比增长</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">环比增长</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">去年同比</a>
+                                    </li>
+                                    <!--<li>
+                                        <a href="javascript:void(0)">自定义对比</a>
+                                    </li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <span>数值设置</span>
+                    <div class="Myselect">
+                        <div class="wrap">
+                            <div class="Myselect-value">增长值</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">增长值</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">增长率</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item  item-wrap">
+                    <span>所选日期</span>
+                    <div data-target='day' class='sub-item'>
+                        <label class='Radio mg1'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>今天</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>昨天</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>日</span>
+                    </div>
+                    <div style='display:none' data-target='week' class='sub-item'>
+                        <label class='Radio mg1'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>本周</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>上周</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>周</span>
+                    </div>
+                    <div style='display:none' data-target='month' class='sub-item'>
+                        <label class='Radio mg1'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>本月</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>上月</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>月</span>
+                    </div>
+                    <div style='display:none' data-target='quarter' class='sub-item'>
+                        <label class='Radio mg1'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>本季度</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>上季度</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>季</span>
+                    </div>
+                    <div style='display:none' data-target='year' class='sub-item'>
+                        <label class='Radio mg1'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>今年</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>去年</span>
+                        </label>
+                        <label class='Radio mg2'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>年</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class='shezhiziduan modal-item' style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>设置字段</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class='m-item'>
+                    <span class='label'>设置当前字段别名</span>
+                    <input class='input' placeholder="别名" type="text">
+                </div>
+                <div class='m-item'>
+                    <span class='label'>设置当前字段单位</span>
+                    <input class='input' placeholder="单位" type="text">
+                </div>
+                <div class='m-item'>
+                    <span class='label'>字段描述</span>
+                    <textarea class='input  textarea' placeholder="字段描述"></textarea>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+        <div class='liucunlvshezhi modal-item' style='display:none;'>
+            <div class="title">
+                <h5 class='fz16'>留存率设置</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <span>留存周期</span>
+                    <div class="Myselect select1">
+                        <div class="wrap">
+                            <div class="Myselect-value">固定时间</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a data-to='' href="javascript:void(0)">固定时间</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='' href="javascript:void(0)">范围时间</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Myselect select2 mg1">
+                        <div class="wrap">
+                            <div class="Myselect-value">按日</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a data-to='day' href="javascript:void(0)">按日</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='week' href="javascript:void(0)">按周</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='month' href="javascript:void(0)">按月</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='quarter' href="javascript:void(0)">按季</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='year' href="javascript:void(0)">按年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <span class='sub-item'>
+                        <span class='mg2'>第</span>
+                    <div class='input-number-wrap'>
+                        <input class='input'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    日&nbsp;留存率
+                    </span>
+                    <span class='sub-item'>
+                        <span class='mg2'>到</span>
+                    <div class='input-number-wrap'>
+                        <input class='input'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    日&nbsp;留存率
+                    </span>
+                    <span class='sub-item' style='display: none'>
+                        <span class='mg2'>第</span>
+                    <div class='input-number-wrap'>
+                        <input class='input input2'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    周&nbsp;留存率
+                    </span>
+                    <span class='sub-item' style='display: none'>
+                        <span class='mg2'>到</span>
+                    <div class='input-number-wrap'>
+                        <input class='input input2'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    周&nbsp;留存率
+                    </span>
+                    <span class='sub-item' style='display: none'>
+                        <span class='mg2'>第</span>
+                    <div class='input-number-wrap'>
+                        <input class='input input2'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    月&nbsp;留存率
+                    </span>
+                    <span class='sub-item' style='display: none'>
+                        <span class='mg2'>到</span>
+                    <div class='input-number-wrap'>
+                        <input class='input input2'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    月&nbsp;留存率
+                    </span>
+                    <span class='sub-item' style='display: none'>
+                        <span class='mg2'>第</span>
+                    <div class='input-number-wrap'>
+                        <input class='input input2'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    季&nbsp;留存率
+                    </span>
+                    <span class='sub-item' style='display: none'>
+                        <span class='mg2'>到</span>
+                    <div class='input-number-wrap'>
+                        <input class='input input2'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    季&nbsp;留存率
+                    </span>
+                    <span class='sub-item' style='display: none'>
+                        <span class='mg2'>第</span>
+                    <div class='input-number-wrap'>
+                        <input class='input input2'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    年&nbsp;留存率
+                    </span>
+                    <span class='sub-item' style='display: none'>
+                        <span class='mg2'>到</span>
+                    <div class='input-number-wrap'>
+                        <input class='input input2'>
+                        <i class='icon icon-arrow-up increase'></i>
+                        <i class='icon icon-arrow-down decrease'></i>
+                    </div>
+                    年&nbsp;留存率
+                    </span>
+                </div>
+                <div class="item">
+                    <span>日期字段</span>
+                    <div class="Myselect select3">
+                        <div class="wrap">
+                            <div class="Myselect-value">请选择字段</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">请选择字段</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">时间</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <span>所选日期</span>
+                    <div class="Myselect select1">
+                        <div class="wrap">
+                            <div class="Myselect-value">固定时间</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">固定时间</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Myselect select2 mg1">
+                        <div class="wrap">
+                            <div class="Myselect-value">按日</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a data-to='day' href="javascript:void(0)">按日</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='week' href="javascript:void(0)">按周</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='month' href="javascript:void(0)">按月</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='quarter' href="javascript:void(0)">按季</a>
+                                    </li>
+                                    <li>
+                                        <a data-to='year' href="javascript:void(0)">按年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-target='day' class='sub-item'>
+                        <label class='Radio mg3'>
+                        <input name='riqi'  type="radio"  checked>
+                        <i class='radio-icon'></i>
+                        <span>今天</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>昨天</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>日</span>
+                    </div>
+                    <div style='display:none' data-target='week' class='sub-item'>
+                        <label class='Radio mg3'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>本周</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>上周</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>周</span>
+                    </div>
+                    <div style='display:none' data-target='month' class='sub-item'>
+                        <label class='Radio mg3'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>本月</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>上月</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>月</span>
+                    </div>
+                    <div style='display:none' data-target='quarter' class='sub-item'>
+                        <label class='Radio mg3'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>本季度</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>上季度</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>季</span>
+                    </div>
+                    <div style='display:none' data-target='year' class='sub-item'>
+                        <label class='Radio mg3'>
+                        <input name='riqi'  type="radio">
+                        <i class='radio-icon'></i>
+                        <span>今年</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>去年</span>
+                        </label>
+                        <label class='Radio mg3'>
+                            <input name='riqi'  type="radio">
+                            <i class='radio-icon'></i>
+                            <span>前</span>
+                        </label>
+                        <div class='input-number-wrap'>
+                            <input class='input input2'>
+                            <i class='icon icon-arrow-up increase'></i>
+                            <i class='icon icon-arrow-down decrease'></i>
+                        </div>
+                        <span>年</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <span>数值设置</span>
+                    <div class="Myselect select3">
+                        <div class="wrap">
+                            <div class="Myselect-value">留存率</div>
+                            <input style="display:none">
+                            <i class="icon icon-arrow-down"></i>
+                            <div class="op-list-wrap">
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">留存率</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">留存数</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+    </div>
+
+    <script src='./js/myjs/jquery-1.11.0.min.js'></script>
+    <script defer src='./js/myjs/spectrum.js'></script>
+    <script src='./js/myjs/echarts.min.js'></script>
+    <script defer src='./js/myjs/jquery-ui.min.js'></script>
+    <script src='./js/myjs/editablechart.js'></script>
+    <script src='./js/myjs/zebra_datepicker.js'></script>
+    <script src='./js/myjs/Mbase.js'></script>
+    <script src='./js/myjs/funnel.js'></script>
+    <div class='tool-tip' style='display: none'>
+        <i class='triangle'></i>
+        <div class='fz16'>
+            表格
+        </div>
+        <div class="tip-content">
+            <p>
+                0个或多个维度(支持对比)
+            </p>
+            <p>
+                0个或多个数值
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="main"></div>
+<script src='./js/myjs/echarts.min.js'></script>
+<script src="./js/myjs/map/china.js"></script>
+<script>
+    var chart = echarts.init(document.getElementById('main'));
+    chart.setOption({
+        series: [{
+            type: 'map',
+            map: 'china'
+        }]
+    });
+</script>
+</body>
+</html>

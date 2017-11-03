@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<!--<html manifest="cssjs.appcache">-->
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+    <title>数据源-选择工作表</title>
+    <meta name="Keywords" content="可视化工具">
+    <meta name="Description" content="可视化工具">
+    <link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/inside.css" />
+    <link rel="stylesheet" type="text/css" href="css/data.css" />
+</head>
+
+<body class="upload body-style">
+<header class="data-header">
+    <div class="logo"><a href="#"><img src="img/logo.png" /></a></div>
+    <div class="title">
+        <h3>上传数据</h3>
+    </div>
+    <div class="process">
+        <span>
+            <div>
+                <i class="no no1 finish"></i>
+                <i class="pname pname1">上传文件</i>
+            </div>
+            <div>
+                <i class="no no2 finish"></i>
+                <i class="pname pname2">预览数据</i>
+            </div>
+            <div>
+                <i class="no no3 active">3</i>
+                <i class="pname pname3">工作表设置</i>
+            </div>
+        </span>
+    </div>
+    <span class="action"><a href="#" class="action-button active">完成</a></span>
+    <div class="back"></div>
+</header>
+<!--选择工作表弹窗 开始-->
+<div class="Mlayer_4 data-demo-size" id="data-select-worktable">
+    <h5 class="Mlayer_4_h">选择工作表<span class="Mlayer_4_gb"></span></h5>
+    <div class="data-layout-content">
+        <p class="">请选择你要上传的数据表:</p>
+        <div class="checkbox-item sz_xq">
+            <label><input type="checkbox" name="xszd"  value=""><i></i> <span>全选</span></label>
+            <label><input type="checkbox" name="xszd"  value=""><i></i> <span>员工通讯录</span></label>
+            <label><input type="checkbox" name="xszd"  value=""><i></i> <span>员工考勤表</span></label>
+            <label><input type="checkbox" name="xszd"  value=""><i></i> <span>员工工资条</span></label>
+        </div>
+    </div>
+    <div class="Mlayer_4_bottAll">
+        <a id='isxingjianwenjianjia' class="blue">确定</a>
+        <a class='M4quxiao'>取消</a>
+    </div>
+</div>
+<!--选择工作表弹窗 结束-->
+<script src="js/myjs/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/myjs/Mbase.js"></script>
+<script type="text/javascript" src="js/myjs/jquery.gridster.min.js"></script>
+<script src="js/myjs/common.js" type="text/javascript"></script>
+<script src="js/myjs/inside.js" type="text/javascript"></script>
+<script src="js/myjs/data.js" type="text/javascript"></script>
+
+</body>
+
+</html>

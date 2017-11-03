@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico">
+    <title>可视化工具</title>
+    <meta name="Keywords" content="可视化工具">
+    <meta name="Description" content="可视化工具">
+    <link rel="stylesheet" type="text/css" href="js/zTree_v3/css/zTreeStyle/zTreeStyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/light/mbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/light/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/light/inside.css" />
+    <link rel="stylesheet" type="text/css" href="css/light/semantic-cognition.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/light/win.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/dark/win.css" />
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/mbase.js"></script>
+    <!--zTree-->
+    <script type="text/javascript" src="js/zTree_v3/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="js/zTree_v3/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="js/zTree_v3/js/jquery.ztree.exedit.js"></script>
+    <!--zTreeEnd-->
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/layer/layer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/inside.js"></script>
+</head>
+<body>
+<div>
+    <button id="replace">选择替换方法</button>
+    <button id="pay">微信支付</button>
+    <button id="alipay">支付宝支付</button>
+</div>
+<!-- 选择替换方法弹窗 -->
+<div id="layer-replace-win">
+    <div class="replace-win">
+        <div>
+            <button class="button-win">
+                <span class="button-dec upload"><i>上传本地文件替换</i></span>
+            </button>
+            <p class="dec">从本地电脑上传Excel、csv文件替换</p>
+        </div>
+        <div>
+            <button class="button-win">
+                <span class="button-dec replace"><i>选择工作表替换</i></span>
+            </button>
+            <p class="dec">从本人账户下的工作表中选择替换</p>
+        </div>
+    </div>
+</div>
+<!-- /选择替换方法弹窗 -->
+<!-- 微信支付弹窗 -->
+<div id="layer-pay-win">
+    <div class="pay-win">
+        <div class="pay-code">
+             <img src="./img/light/1.6.2/wxcode.png" class="payimg">
+             <p>
+                 <span class="price-title">应支付金额:</span>
+                 <span class="price"> 
+                 <i>￥5100</i>
+                 </span>
+             </p>
+        </div>
+        <!-- 购买详情  -->
+        <div class="pay-detail flex_box">
+            <span class="title">购买详情:</span>
+            <span class="detail-item"> 
+                <ul>
+                    <li>
+                        <i class="item text_overflow">工作表容量 (升级版)</i>
+                        <i class="num">1份</i>
+                    </li>
+                    <li>
+                      <i class="item text_overflow">图表数量 (基础版版)</i>
+                      <i class="num">50份</i>  
+                    </li>
+                    <li>
+                      <i class="item text_overflow">工作表容量 (升级版）</i>
+                      <i class="num">1份</i>               
+                    </li>
+                     <li>
+                      <i class="item text_overflow">图表数量 (基础版版)</i>
+                      <i class="num">50份</i>               
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <!-- /购买详情  --> 
+    </div>
+</div>
+<!-- /微信支付弹窗 --> 
+</body>
+<script type="text/javascript">
+$(function() { 
+    //替换文本窗口
+    $('#replace').click(function() {
+        layer.open({
+            skin:'mylayer',
+            title: '选择替换方法',
+            type: 1,
+            shift: 2,
+            area:'480px',
+            shadeClose: true, //开启遮罩关闭
+            btn: ['确定', '取消'],
+            content: $('#layer-replace-win').html(),
+            success: function(layero, index) {
+                console.log('弹窗加载完');
+            },
+            btn1: function(index, layero) {
+                layer.close(index); //手动关闭弹窗
+            },
+        });
+    });
+ 
+     //微信支付窗口
+    $('#pay').click(function() {
+        layer.open({
+            skin:'mylayer',
+            title: '微信支付',
+            type: 1,
+            shift: 2,
+            area:'480px',
+            shadeClose: true, //开启遮罩关闭
+            // btn: ['确定', '取消'],
+            content: $('#layer-pay-win').html(),
+            success: function(layero, index) {
+                console.log('弹窗加载完');
+            },
+            btn1: function(index, layero) {
+                layer.close(index); //手动关闭弹窗
+            },
+        });
+    }); 
+
+      //支付宝支付窗口
+    $('#alipay').click(function() {
+        layer.open({
+            skin:'mylayer',
+            title: '支付宝支付',
+            type: 1,
+            shift: 2,
+            area:'480px',
+            shadeClose: true, //开启遮罩关闭
+            // btn: ['确定', '取消'],
+            content: $('#layer-pay-win').html(),
+            success: function(layero, index) {
+                console.log('弹窗加载完');
+            },
+            btn1: function(index, layero) {
+                layer.close(index); //手动关闭弹窗
+            },
+        });
+    });      
+});
+ 
+</script>
+
+</html>

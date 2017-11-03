@@ -1,0 +1,81 @@
+.gorgeousScreen_0 {
+    margin-left: 70px;
+    height: ~'calc(100% - 73px)';
+    margin-top: 73px;
+    background-color: #eeeeee;
+    position: relative;
+}
+
+.gorgeousScreen-list {
+    padding: 15px;
+    height: auto;
+}
+
+.gorgeousScreen-list-xq {
+    width: 33.3%;
+}
+
+.gorgeousScreen-list-xq>div {
+    margin: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.gorgeousScreen-list-xq>div img {
+    display: block;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.gorgeousScreen-list-xq>div h4 {
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    text-align: center;
+    color: #333333;
+    border-radius: 0 0 5px 5px;
+    background: #FFFFFF;
+}
+
+.gorgeousScreen-list-xq>div:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.gorgeousScreen-list-xq>div:hover::after {
+    content: '';
+    border-radius: 5px;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    bottom: 80px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.gorgeousScreen-list-xq>div .operation {
+    display: none;
+    width: 100px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #3987fd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -57px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.gorgeousScreen-list-xq>div:hover .operation {
+    display: block;
+}
+
+.gorgeousScreen-list-xq>div .operation:hover {
+    background-color: #0066ff;
+}

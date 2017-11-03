@@ -1,0 +1,120 @@
+.solution-two {
+	background: url(/img/light/solution-two-bg.jpg) center top no-repeat;
+	background-size: 100% auto;
+}
+
+.solution-two .section-5 h3 {
+	font-size: 82px;
+	color: #0066ff;
+	line-height: 200px;
+	text-align: center;
+	padding-top: 135px;
+}
+
+.solution-two .section-5 a {
+	display: block;
+	width: 260px;
+	height: 50px;
+	margin: 0 auto;
+	margin-bottom: 210px;
+	background: url(/img/light/btn-3.png);
+}
+
+.solution-two .section-5 a:hover {
+	opacity: 0.8;
+}
+
+body {
+	min-width: 1200px;
+}
+
+.solution-two .section-1 {
+	width: 84%;
+	margin: 0 auto;
+	height: auto;
+	margin-bottom: 100px;
+	background: #000;
+}
+
+.solution-two .section-1 .content {
+	width: 50%;
+	height: 400px;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.solution-two .section-1 .content h3 {
+	padding-top: 134px;
+	padding-bottom: 26px;
+	text-align: center;
+}
+
+.solution-two .section-1 .content h4 {
+	height: 44px;
+	line-height: 1;
+	font-size: 24px;
+	text-align: center;
+	color: #33eecc;
+	position: relative;
+	margin-bottom: 75px;
+}
+
+.solution-two .section-1 .content h4:after {
+	content: '';
+	display: block;
+	width: 50px;
+	height: 4px;
+	background-color: #33eecc;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	margin-left: -25px;
+}
+
+.solution-two .section-1 .content a {
+	display: block;
+	width: 180px;
+	height: 40px;
+	line-height: 36px;
+	border: 1px solid #FFFFFF;
+	margin: 0 auto;
+	font-size: 14px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.solution-two .section-1 .content:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 8px;
+	background-color: #33eecc;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transition: 0.5s ease-out;
+}
+
+.solution-two .section-1 .content:hover:after {
+	width: 100%;
+}
+
+.solution-two .section-1 .content i {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	transition: 0.5s ease-out;
+	transform-origin: 50% 50%;
+}
+
+.solution-two .section-1 .content:hover i {
+	transform: scale(1.1);
+}

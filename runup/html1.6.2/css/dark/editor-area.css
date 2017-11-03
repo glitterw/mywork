@@ -1,0 +1,278 @@
+.editor-area,
+.wblb-ul {
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", Arial, sans-serif;
+  font-size: 16px;
+  word-wrap: break-word;
+  /*overflow: hidden;*/
+  /*.cell { background-color: #fff}*/
+  /*mobilestyle*/
+  /*svg*/
+}
+.editor-area.gridster li.gs-w{
+ background-color: #ffffff;
+}
+.editor-area.gridster li.gs-w:hover{
+	 background-color: #ffffff;
+}
+.fenxiang_content .editor-area{
+  overflow: inherit !important;
+  height: 100% !important;
+  position: relative !important;
+  width: 840px !important;
+}
+.editor-area .page,
+.wblb-ul .page {
+  padding-top: 20px;
+}
+.editor-area .page-background,
+.wblb-ul .page-background {
+  padding: 20px 4px;
+  background: white;
+}
+.editor-area .page-background::before,
+.wblb-ul .page-background::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: url(/img/dark/theme1_top.png) no-repeat;
+  background-size: 100% 10px;
+  top: 0;
+  left: 0;
+}
+.editor-area .mobilestyle .page-container:first-of-type .page-background::before,
+.wblb-ul .mobilestyle .page-container:first-of-type .page-background::before {
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+}
+.editor-area .text_element,
+.wblb-ul .text_element {
+  color: #555;
+  -webkit-font-smoothing: auto;
+}
+.editor-area .headline,
+.wblb-ul .headline {
+  position: relative;
+  color: #0085c8;
+  font-size: 3em;
+  font-weight: 600;
+  padding: 10px 0;
+  text-align: center;
+  line-height: 1.3;
+}
+.editor-area .subtitle,
+.wblb-ul .subtitle {
+  padding: 4px 0;
+  border-bottom: 1px solid #b6d1de;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #0085c8;
+  line-height: 1.4;
+}
+.editor-area .thirdtitle,
+.wblb-ul .thirdtitle {
+  font-size: 1.5em;
+  color: #0085c8;
+  font-weight: bold;
+  line-height: 1.4;
+}
+.editor-area .bodytext,
+.wblb-ul .bodytext {
+  line-height: 1.8;
+}
+.editor-area .seHandler,
+.wblb-ul .seHandler {
+  border-bottom-color: #85b3c8;
+}
+.editor-area .swHandler,
+.wblb-ul .swHandler {
+  border-left-color: #85b3c8;
+}
+.editor-area .edit_mode .page:hover .cell,
+.wblb-ul .edit_mode .page:hover .cell {
+  border-color: #85b3c8;
+}
+.editor-area .brush_bg_body,
+.wblb-ul .brush_bg_body,
+.editor-area .preview .text_item,
+.wblb-ul .preview .text_item {
+  background-color: #fff;
+}
+.editor-area .brush_bg1,
+.wblb-ul .brush_bg1 {
+  background-color: #ccc;
+}
+.editor-area .brush_bg2,
+.wblb-ul .brush_bg2 {
+  background-color: #0085c8;
+  color: #fff;
+}
+.editor-area .brush_bd1,
+.wblb-ul .brush_bd1 {
+  border-color: #ccc;
+}
+.editor-area .brush_bd2,
+.wblb-ul .brush_bd2 {
+  border-color: #b6d1de;
+}
+.editor-area .brush_bd3,
+.wblb-ul .brush_bd3 {
+  border-color: #0085c8;
+}
+.editor-area .brush_txt1,
+.wblb-ul .brush_txt1 {
+  color: #333;
+}
+.editor-area .brush_txt2,
+.wblb-ul .brush_txt2 {
+  color: #0085c8;
+}
+.editor-area .quote,
+.wblb-ul .quote {
+  padding: 30px 20px;
+  background: #85b3c8;
+}
+.editor-area .quotetext,
+.wblb-ul .quotetext {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.8;
+}
+.editor-area .quotetitle,
+.wblb-ul .quotetitle {
+  font-style: italic;
+  text-align: right;
+  padding-top: 10px;
+  color: #555;
+}
+.editor-area .timer,
+.wblb-ul .timer {
+  padding: 40px 0;
+}
+.editor-area .timer .legend,
+.wblb-ul .timer .legend {
+  border-top: 1px solid #85b3c8;
+  width: 100%;
+  text-align: center;
+}
+.editor-area .timer .legend span,
+.wblb-ul .timer .legend span {
+  display: inline-block;
+  padding: 4px 20px;
+  color: #fff;
+  background-color: #85b3c8;
+}
+.editor-area .timertext,
+.wblb-ul .timertext {
+  padding: 30px 0 10px;
+  text-align: center;
+  word-break: break-word;
+}
+.editor-area .timertext .tspan,
+.wblb-ul .timertext .tspan {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 5px;
+}
+.editor-area .timertext .tspan .ti,
+.wblb-ul .timertext .tspan .ti {
+  color: #0085c8;
+  font-size: 54px;
+  font-family: 'PT Sans Narrow', 'Arial Narrow';
+  font-weight: bold;
+  line-height: 60px;
+}
+.editor-area .timertext .tspan .tx,
+.wblb-ul .timertext .tspan .tx {
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+}
+.editor-area .line,
+.wblb-ul .line,
+.editor-area .column,
+.wblb-ul .column,
+.editor-area .bubble,
+.wblb-ul .bubble,
+.editor-area .scatter,
+.wblb-ul .scatter,
+.editor-area .kline,
+.wblb-ul .kline,
+.editor-area .pie,
+.wblb-ul .pie,
+.editor-area .donut,
+.wblb-ul .donut,
+.editor-area .rose,
+.wblb-ul .rose,
+.editor-area .ring,
+.wblb-ul .ring,
+.editor-area .pie-many,
+.wblb-ul .pie-many,
+.editor-area .radar,
+.wblb-ul .radar,
+.editor-area .chord,
+.wblb-ul .chord,
+.editor-area .chord-line,
+.wblb-ul .chord-line,
+.editor-area .wordcloud,
+.wblb-ul .wordcloud,
+.editor-area .gauge,
+.wblb-ul .gauge,
+.editor-area .funnel,
+.wblb-ul .funnel,
+.editor-area .pyramid,
+.wblb-ul .pyramid,
+.editor-area .treemap,
+.wblb-ul .treemap,
+.editor-area .multiple,
+.wblb-ul .multiple {
+  padding: 10px 0;
+  background-color: #f5f5f5;
+}
+.editor-area .page.mobilestyle,
+.wblb-ul .page.mobilestyle {
+  padding: 20px 4px;
+}
+.editor-area .mobilestyle .headline,
+.wblb-ul .mobilestyle .headline {
+  font-size: 2.25em;
+  padding: 10px 0;
+}
+.editor-area .mobilestyle .subtitle,
+.wblb-ul .mobilestyle .subtitle {
+  font-size: 1.5em;
+  padding: 4px 0;
+}
+.editor-area .mobilestyle .thirdtitle,
+.wblb-ul .mobilestyle .thirdtitle {
+  font-size: 1.25em;
+}
+.editor-area .mobilestyle .bodytext,
+.wblb-ul .mobilestyle .bodytext {
+  line-height: 1.6;
+}
+.editor-area .svg-fill,
+.wblb-ul .svg-fill {
+  fill: #0085c8;
+  stroke: transparent;
+  stroke-width: 2px;
+}
+.editor-area .svg-layout-fill,
+.wblb-ul .svg-layout-fill {
+  fill: #0085c8;
+  stroke: transparent;
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.editor-area .svg-title,
+.wblb-ul .svg-title {
+  color: #0085c8;
+  font-size: 16px;
+  display: block;
+  padding-bottom: 5px;
+}
+

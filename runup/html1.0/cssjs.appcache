@@ -1,0 +1,21 @@
+CACHE MANIFEST
+
+CACHE:
+# 需要缓存的列表
+/可视化1.0/css/Mbase.css
+/可视化1.0/css/common.css
+/可视化1.0/css/index.css
+/可视化1.0/css/inside.css
+/可视化1.0/css/jquery.gridster.min.css
+/可视化1.0/js/jquery-1.11.0.min.js
+/可视化1.0/js/jquery.gridster.min.js
+/可视化1.0/js/index.js
+/可视化1.0/js/inside.js
+/可视化1.0/mCustomScrollbar/jquery.mCustomScrollbar.min.css
+/可视化1.0/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js
+NETWORK:
+# 不需要缓存的
+
+
+FALLBACK:
+# 访问缓存失败后，备用访问的资源，第一个是访问源，第二个是替换文件*.html 

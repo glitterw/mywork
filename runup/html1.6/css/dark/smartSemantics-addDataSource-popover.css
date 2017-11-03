@@ -1,0 +1,29 @@
+@charse "utf-8"
+/*CSS Document*/
+
+.xxxxxx {
+  width: 0;
+}
+.icon-box {
+  padding: 40px 40px 20px 40px;
+}
+
+.icon-box-semanticAnalysis .data-icon > img {
+  margin-bottom: -8px;
+}
+.icon-box-semanticAnalysis .data-icon > span {
+  height: 49px;
+  background: #fff;
+  position: relative;
+}
+.form-sample-box {
+  width: 1140px;
+  height: 244px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.form-sample-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

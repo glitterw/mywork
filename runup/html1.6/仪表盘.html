@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/x-icon" href="./img/dark/logo.ico">
+		<title>冲霄-认知分析-仪表盘</title>
+		<meta name="Keywords" content="可视化工具">
+		<meta name="Description" content="可视化工具">
+		<link rel="stylesheet" type="text/css" href="./js/zTree_v3/css/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" type="text/css" href="./css/dark/Mbase.css" />
+		<link rel="stylesheet" type="text/css" href="./css/dark/jquery.gridster.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/dark/common.css" />
+		<link rel="stylesheet" type="text/css" href="./css/dark/inside.css" />
+		<link rel="stylesheet" type="text/css" href="./js/layer/skin/layer.css" />
+		<link rel="stylesheet" type="text/css" href="./css/dark/default.css">
+		<link rel="stylesheet" type="text/css" href="./js/overtrue-share/dist/css/share.min.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="./js/mCustomScrollbar/jquery.mCustomScrollbar.min.css" /> -->
+		<link rel="stylesheet" type="text/css" href="./css/dark/editablechart.css" />
+		<!-- 0816新增分组筛选 -->
+		<link rel="stylesheet" type="text/css" href="./css/dark/add-groupfilter.css" />
+		<script src="./js/jquery-1.11.0.min.js"></script>
+		<!-- <script type="text/javascript" src="./js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script> -->
+		<script type="text/javascript" src="./js/jquery.gridster.min.js"></script>
+		<script type="text/javascript" src="./js/app/dashboard/fullScreen.js"></script>
+		<script type="text/javascript" src="./js/lib/storage.js"></script>
+		<!--zTree-->
+		<script type="text/javascript" src="./js/zTree_v3/js/jquery.ztree.core.js"></script>
+		<script type="text/javascript" src="./js/zTree_v3/js/jquery.ztree.excheck.js"></script>
+		<script type="text/javascript" src="./js/zTree_v3/js/jquery.ztree.exedit.js"></script>
+		<!--zTreeEnd-->
+		<script src='./js/zebra_datepicker.js'></script>
+
+		<script type="text/javascript" src="./js/common.js"></script>
+		<script type="text/javascript" src="./js/Mbase.js"></script>
+		<script type="text/javascript" src="./js/inside.js"></script>
+		<script type="text/javascript" src="./js/layer/layer.js"></script>
+		<style>
+			.gridster li:hover .ss-headline {
+				width: calc(100% - 152px);
+			}
+			
+			.ss-headline {
+				width: 100%;
+				float: left;
+				color: rgba(10, 18, 32, .87);
+				font-size: 20px;
+				font-weight: 700;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/newStyle.css" />
+	</head>
+
+	<body id="仪表盘" style="cursor: auto;">
+		<wrap>
+
+			<header class="logo-nav">
+				<div class="logo left"><img src="img/common/logo.svg" /></div>
+				<nav class="nav_0-2 left">
+					<a class="nav_0-2_a1 " style="display:  block ;" href="/templatebase/index">
+						<i></i>
+						<span>政务认知</span>
+					</a>
+					<a class="nav_0-2_a2 " style="display:  block ;" href="/semantic/index">
+						<i></i>
+						<span>可视化</span>
+					</a>
+					<a class="nav_0-2_a3  active " style="display:  block ;" href="/dashboard/index">
+						<i></i>
+						<span>报告</span>
+					</a>
+					<a class="nav_0-2_a4 " style="display:  block ;" href="/bigscreen/index">
+						<i></i>
+						<span>大屏</span>
+					</a>
+				</nav>
+				<div class="my-home right">
+					<div class="home-nav-s"><i></i>个人中心</div>
+					<div class="home-nav-o">
+						<a class="o-a-1" href=""><i></i>个人及组织信息</a>
+						<a class="o-a-2" href=""><i></i>认知指标管理</a>
+						<a class="o-a-3" href=""><i></i>文本源管理</a>
+						<a class="o-a-4" href=""><i></i>主题设置</a>
+						<a class="o-a-5" href=""><i></i>退出登录</a>
+					</div>
+				</div>
+			</header>
+			<script type="text/javascript">
+				var set_theme = {
+					setting: function(theme) {
+						$.ajax({
+							type: "post",
+							url: "/setTheme",
+							data: {
+								theme: theme,
+							},
+							success: function(json) {
+								if(json.status == "success") {
+									var id = json.data;
+									storageService.setStoragePool(id + "_theme", theme);
+									window.location.reload();
+								}
+								if(json.status == "error") {
+									layer.msg(json.message);
+								}
+							}
+						});
+					}
+				};
+			</script>
+			<nav class="nav_1">
+				<div class="nav_1_1">
+					<div class="nav_1_1_div">
+						<h5>仪表盘</h5>
+						<a class="xingjian">
+							<i></i>
+							<div class="Mlayer_3">
+								<ii></ii>
+								<div class="xingjian_xq">
+									<p onclick="folderAdd.init()">新建文件夹</p>
+									<p onclick="dashboardAdd.init()">新建仪表盘</p>
+								</div>
+							</div>
+						</a>
+						<a class="zhankaisq">
+							<i></i>
+							<div class="Mlayer_3">
+								<ii></ii>
+								<div class="zhankaisq_xq">
+									<p id="collapseAllBtn">收起全部</p>
+									<p id="expandAllBtn">展开全部</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="nav_1_form_w">
+					<form class="nav_1_form">
+						<input id="keyword" type="text" value="" autocomplete="off" placeholder="输入关键字搜索">
+						<input type="submit" value="">
+						<div class="nav_1_form_ss_xq MScroll mCustomScrollbar _mCS_1 mCS_no_scrollbar" id="tipContent" style="display: none;">
+							<div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0" style="max-height: 286px;">
+								<div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; left: 0px; top: 0px;" dir="ltr">
+									<div id="content">
+									</div>
+								</div>
+								<div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;">
+									<div class="mCSB_draggerContainer">
+										<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;" oncontextmenu="return false;">
+											<div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+										</div>
+										<div class="mCSB_draggerRail"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="fold_has" class="daohang MScroll mCustomScrollbar _mCS_2 mCS_no_scrollbar">
+					<div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0">
+						<div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; left: 0px; top: 0px;" dir="ltr">
+							<style type="text/css">
+								/*此处无意义的*/
+								#mCSB_2_container{
+									height: 100% !important;
+								}
+							</style>
+							<ul id="treeDom" class="ztree treeDom ztree_mbk">
+								<li id="treeDom_1" class="level0 folder" tabindex="0" hidefocus="true" treenode=""><span id="treeDom_1_switch" title="" class="button level0 switch noline_open" treenode_switch=""></span>
+									<a id="treeDom_1_a" class="level0" treenode_a="" onclick="" target="_blank" style=""><span id="treeDom_1_ico" title="" treenode_ico="" class="button ico_open" style="background:url(css/dark/zTree_v3/img/wenjianjia_2.png) 0 0 no-repeat;"></span><span id="treeDom_1_span" class="node_name">1</span></a>
+									<ul id="treeDom_1_ul" class="level0 " style="">
+										<li id="treeDom_2" class="level1 dashboard" tabindex="0" hidefocus="true" treenode=""><span id="treeDom_2_switch" title="" class="button level1 switch noline_docu" treenode_switch=""></span>
+											<a id="treeDom_2_a" class="level1" treenode_a="" onclick="" target="_blank" style=""><span id="treeDom_2_ico" title="" treenode_ico="" class="button ico_docu" style="background:url(css/dark/zTree_v3/img/wenjianjia_4.png) 0 0 no-repeat;"></span><span id="treeDom_2_span" class="node_name">2</span></a>
+										</li>
+									</ul>
+								</li>
+								<li id="treeDom_3" class="level0 folder" tabindex="0" hidefocus="true" treenode=""><span id="treeDom_3_switch" title="" class="button level0 switch noline_open" treenode_switch=""></span>
+									<a id="treeDom_3_a" class="level0" treenode_a="" onclick="" target="_blank" style=""><span id="treeDom_3_ico" title="" treenode_ico="" class="button ico_open" style="background:url(css/dark/zTree_v3/img/wenjianjia_2.png) 0 0 no-repeat;"></span><span id="treeDom_3_span" class="node_name">2</span></a>
+									<ul id="treeDom_3_ul" class="level0 " style=""></ul>
+								</li>
+								<li id="treeDom_4" class="level0 folder" tabindex="0" hidefocus="true" treenode=""><span id="treeDom_4_switch" title="" class="button level0 switch noline_open" treenode_switch=""></span>
+									<a id="treeDom_4_a" class="level0" treenode_a="" onclick="" target="_blank" style=""><span id="treeDom_4_ico" title="" treenode_ico="" class="button ico_open" style="background:url(css/dark/zTree_v3/img/wenjianjia_2.png) 0 0 no-repeat;"></span><span id="treeDom_4_span" class="node_name">文明办</span></a>
+									<ul id="treeDom_4_ul" class="level0 " style="">
+										<li id="treeDom_5" class="level1 folder" tabindex="0" hidefocus="true" treenode=""><span id="treeDom_5_switch" title="" class="button level1 switch noline_open" treenode_switch=""></span>
+											<a id="treeDom_5_a" class="level1" treenode_a="" onclick="" target="_blank" style=""><span id="treeDom_5_ico" title="" treenode_ico="" class="button ico_open" style="background:url(css/dark/zTree_v3/img/wenjianjia_2.png) 0 0 no-repeat;"></span><span id="treeDom_5_span" class="node_name">投诉分析Gov</span></a>
+											<ul id="treeDom_5_ul" class="level1 " style="">
+												<li id="treeDom_6" class="level2 dashboard" tabindex="0" hidefocus="true" treenode=""><span id="treeDom_6_switch" title="" class="button level2 switch noline_docu" treenode_switch=""></span>
+													<a id="treeDom_6_a" class="level2 curSelectedNode" treenode_a="" onclick="" target="_blank" style=""><span id="treeDom_6_ico" title="" treenode_ico="" class="button ico_docu" style="background:url(css/dark/zTree_v3/img/wenjianjia_4.png) 0 0 no-repeat;"></span><span id="treeDom_6_span" class="node_name">投诉分析</span><span class="button edit" id="treeDom_6_edit" title="" treenode_edit="" style="display: inline;"></span><span class="button remove" id="treeDom_6_remove" title="" treenode_remove="" style=""></span></a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="Mlayer_2" id="tree_xiangqing" style="top: 200px; display: none;">
+								<ii></ii>
+								<div style=" min-height: auto;">
+									<p>名称：<span id="tree_xiangqing_nc">2</span></p>
+									<!-- <p>标签：<span id="tree_xiangqing_bq"></span></p>
+						<p>备注：<span id="tree_xiangqing_bz"></span></p> -->
+								</div>
+							</div>
+							<div class="Mlayer_3" id="shujugengxin">
+								<ii></ii>
+								<div style="padding: 8px 12px;">
+									<p>
+										<span>数据更新</span>
+										<span id="date"></span>
+										<span id="time"></span>
+									</p>
+								</div>
+							</div>
+							<!-- chart_tip -->
+							<div class="Mlayer_3" id="tree_tukuai_bianji" style="display: none;">
+								<ii></ii>
+								<div class="zhankaisq_xq">
+									<p onclick="dashboard.exportChart()">导出图片</p>
+									<p onclick="chartCopy.init()">复制图表</p>
+									<p onclick="chartMove.init()">移动图表</p>
+									<p onclick="chartDelete.init()">删除</p>
+								</div>
+								<input type="hidden" id="chart_id">
+							</div>
+							<!-- ztree_tip -->
+							<div class="Mlayer_3" id="tree_xiangqing_bianji" style="display: none;">
+								<ii></ii>
+								<div class="zhankaisq_xq">
+									<p onclick="dashboardEdit.init()">编辑</p>
+									<p onclick="dashboardCopy.init()">复制</p>
+									<p onclick="dashboardMove.init()">移动</p>
+									<p onclick="dashboardDelete.init()">删除</p>
+									<!--thiszTreeId.value当前编辑的节点在zTree中的id-->
+									<input id="thiszTreeId" type="hidden" value="">
+								</div>
+							</div>
+						</div>
+						<div id="mCSB_2_scrollbar_vertical" class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;">
+							<div class="mCSB_draggerContainer">
+								<div id="mCSB_2_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;" oncontextmenu="return false;">
+									<div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+								</div>
+								<div class="mCSB_draggerRail"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="fold_has_no" class="daohang MScroll mCustomScrollbar _mCS_3 mCS_no_scrollbar" style="display:none">
+					<div id="mCSB_3" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0">
+						<div id="mCSB_3_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; left: 0px; top: 0px;" dir="ltr">
+							<div class="nothing">
+								<i></i>
+								<span>你当前没有自建的文件夹,请先创建</span>
+							</div>
+						</div>
+						<div id="mCSB_3_scrollbar_vertical" class="mCSB_scrollTools mCSB_3_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;">
+							<div class="mCSB_draggerContainer">
+								<div id="mCSB_3_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;" oncontextmenu="return false;">
+									<div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+								</div>
+								<div class="mCSB_draggerRail"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<section class="section_0">
+				<div class="nav_2" id="baseinfo">
+					<h3 class="tybp_h2">投诉分析</h3>
+					<div class="nav_2_div float_clear nav_2_div_sz">
+						<a class="nav_2_div_a fxybp" onclick="dashboard.sharedDashboard()"><i></i><span>分享</span></a>
+						<a class="nav_2_div_a dcybp" onclick="dashboard.exportDashbaord('317')"><i></i><span>导出仪表盘</span></a>
+						<a class="nav_2_div_a tjtb" onclick="chartAdd.init()"><i></i><span>添加图表</span></a>
+						<a class="nav_2_div_a thmb" href="/dashboard/changTableData?tableid=1113"><i></i><span>替换模板数据</span></a>
+						<a class="nav_2_div_a ybpsz"><i></i><span>仪表盘设置</span></a>
+					</div>
+				</div>
+				<div class="filter-group">
+					<div class="filter-item ui-draggable ui-draggable-handle">
+						<a href="javascript:void(0)"> 年份 </a><i class="icon icon-edit-blue icon-edit-blue1"></i><i class="icon icon-arrow-blue-down"></i>
+						<div class="jisuan-list">
+							<h5>满足条件</h5>
+							<ul class="js-list">
+								<li>10000<span class="zhi"> 至</span>90000</li>
+							</ul>
+						</div>
+					</div>
+					<div class="filter-item ui-draggable ui-draggable-handle">
+						<a href="javascript:void(0)"> 个数 </a><i class="icon icon-edit-blue icon-edit-blue2"></i><i class="icon icon-arrow-blue-down"></i>
+						<div class="jisuan-list">
+							<h5>满足条件</h5>
+							<ul class="js-list">
+								<li>4444<span class="zhi"> 至</span>66666</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="fullscreen"></div>
+				<div class="section_0_box MScroll mCustomScrollbar _mCS_4 mCS_no_scrollbar" id="gridster_Box" style="display: block;">
+					<div id="mCSB_4" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0">
+						<div id="mCSB_4_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; left: 0px; top: 0px;" dir="ltr">
+							<div class="gridster ready" id="charts">
+								<ul id="gridter_ul" style="height: 1197px; width: 1425px; position: relative;">
+									<li id="9" date="2017-06-13" time="18:08:02" data-row="1" data-col="1" data-sizex="7" data-sizey="6" class="gs-w">
+										<i class="handleBox"></i>
+										<div class="contentBox contentBox-group">
+											<!-- <span class="close">删除节点</span> -->
+											<div class="contentmenu" style="">
+												<div class="contentmenu-tit">
+													<p>本周订单数据统计</p>
+												</div>
+												<div class="contentmenu-list MScroll">
+													<div class="contentmenu-list-item active">本周各来源注册用户订单本周各来源注</div>
+													<div class="contentmenu-list-item">本周各来源注册用户订单</div>
+													<div class="contentmenu-list-item">本周各来源注册用户订单</div>
+													<div class="contentmenu-list-item">本周各来源注册用户订单</div>
+													<div class="contentmenu-list-item">本周各来源注册用户订单</div>
+													<div class="contentmenu-list-item">本周各来源注册用户订单</div>
+													<div class="contentmenu-list-item">本周各来源注册用户订单</div>
+												</div>
+											</div>
+											<div class="overflow">
+												<h3 class="ss-headline">投诉主体性别分析</h3>
+												<p class="xgicon">
+
+													<a class="xg_suaxing" onclick="dashboard.flushChart('1205')" title="刷新"></a>
+													<a class="xg_biaji" href="/chart/edit/186/1205" title="编辑"></a>
+													<a class="xg_quanping" onclick="chartFullScreen.scan('1205')" title="全屏"></a>
+													<a class="xg_shujugx"></a>
+													<a class="xg_gengduo" title="更多"></a>
+
+												</p>
+											</div>
+											<div id="chart_9" style="display: block; width:calc(100% - 190px); height: calc(100% - 20px); -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1502779455725">
+												<div style="position: relative; overflow: hidden; width: 341px; height: 264px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+													<canvas width="341" height="264" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 341px; height: 264px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+												</div>
+												<div></div>
+											</div>
+										</div>
+										<span class="gs-resize-handle gs-resize-handle-both"></span>
+										<input id="table_9" type="hidden" value="21">
+									</li>
+									<li id="10" date="2017-06-13" time="18:07:35" data-row="1" data-col="8" data-sizex="7" data-sizey="6" class="gs-w">
+										<i class="handleBox"></i>
+										<div class="contentBox contentBox-group">
+											<!-- <span class="close">删除节点</span> -->
+											<div class="contentmenu" style="">
+												<div class="contentmenu-tit">
+													<p>本周订单数据统计</p>
+												</div>
+												<div class="contentmenu-list">
+													<div class="contentmenu-list-item active">本周各来源注册用户订单本周各来源注</div>
+													<div class="contentmenu-list-item">本周各来源注册用户订单</div>
+													<div class="contentmenu-list-item">本周各来源注册用户订单</div>
+												</div>
+											</div>
+											<div class="overflow">
+												<h3 class="ss-headline">投诉主体年龄分析</h3>
+												<p class="xgicon">
+													<a class="xg_quanping" onclick="chartFullScreen.scan('10')" title="全屏"></a>
+												</p>
+											</div>
+											<div id="chart_10" style="display: block; width: 100%; height: calc(100% - 20px); -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1502779455728">
+												<div style="position: relative; overflow: hidden; width: 341px; height: 264px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+													<canvas width="341" height="264" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 341px; height: 264px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+												</div>
+												<div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 118px; top: 134px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 3px;">
+													<font color="#94985b">18-30：10</font>
+													<br>
+													<font color="#000000">占比：33.33%</font>
+												</div>
+											</div>
+										</div>
+										<span class="gs-resize-handle gs-resize-handle-both"></span>
+										<input id="table_10" type="hidden" value="21">
+									</li>
+									<li id="11" date="2017-06-13" time="18:08:26" data-row="1" data-col="15" data-sizex="11" data-sizey="13" class="gs-w">
+										<i class="handleBox"></i>
+										<div class="contentBox">
+											<!-- <span class="close">删除节点</span> -->
+											<div class="overflow">
+												<h3 class="ss-headline">投诉事件区域分析</h3>
+												<p class="xgicon">
+													<a class="xg_quanping" onclick="chartFullScreen.scan('11')" title="全屏"></a>
+												</p>
+											</div>
+											<div id="chart_11" style="display: block; width: 100%; height: calc(100% - 20px); -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1502779455729">
+												<div style="position: relative; overflow: hidden; width: 569px; height: 663px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+													<canvas width="569" height="663" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 569px; height: 663px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+												</div>
+												<div></div>
+											</div>
+										</div>
+										<span class="gs-resize-handle gs-resize-handle-both"></span>
+										<input id="table_11" type="hidden" value="21">
+									</li>
+									<li id="12" date="2017-06-13" time="18:09:37" data-row="7" data-col="1" data-sizex="14" data-sizey="7" class="gs-w">
+										<i class="handleBox"></i>
+										<div class="contentBox">
+											<!-- <span class="close">删除节点</span> -->
+											<div class="overflow">
+												<h3 class="ss-headline">投诉时间分析</h3>
+												<p class="xgicon">
+													<a class="xg_quanping" onclick="chartFullScreen.scan('12')" title="全屏"></a>
+												</p>
+											</div>
+											<div id="chart_12" style="display: block; width: 100%; height: calc(100% - 20px); -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1502779455726">
+												<div style="position: relative; overflow: hidden; width: 740px; height: 321px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+													<canvas width="740" height="321" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 740px; height: 321px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+												</div>
+												<div></div>
+											</div>
+										</div>
+										<span class="gs-resize-handle gs-resize-handle-both"></span>
+										<input id="table_12" type="hidden" value="21">
+									</li>
+									<li id="13" date="2017-06-13" time="18:10:20" data-row="14" data-col="1" data-sizex="8" data-sizey="8" class="gs-w">
+										<i class="handleBox"></i>
+										<div class="contentBox">
+											<!-- <span class="close">删除节点</span> -->
+											<div class="overflow">
+												<h3 class="ss-headline">投诉类型分析</h3>
+												<p class="xgicon">
+													<a class="xg_quanping" onclick="chartFullScreen.scan('13')" title="全屏"></a>
+												</p>
+											</div>
+											<div id="chart_13" style="display: block; width: 100%; height: calc(100% - 20px); -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1502779455727">
+												<div style="position: relative; overflow: hidden; width: 398px; height: 378px; padding: 0px; margin: 0px; border-width: 0px;">
+													<canvas width="398" height="378" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 398px; height: 378px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+												</div>
+												<div></div>
+											</div>
+										</div>
+										<span class="gs-resize-handle gs-resize-handle-both"></span>
+										<input id="table_13" type="hidden" value="21">
+									</li>
+									<li id="14" date="2017-06-13" time="18:11:14" data-row="14" data-col="9" data-sizex="8" data-sizey="8" class="gs-w">
+										<i class="handleBox"></i>
+										<div class="contentBox">
+											<!-- <span class="close">删除节点</span> -->
+											<div class="overflow">
+												<h3 class="ss-headline">投诉内容文本分析</h3>
+												<p class="xgicon">
+													<a class="xg_quanping" onclick="chartFullScreen.scan('14')" title="全屏"></a>
+												</p>
+											</div>
+											<div id="chart_14" style="display: block; width: 100%; height: calc(100% - 20px); -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1502779455730">
+												<div style="position: relative; overflow: hidden; width: 398px; height: 378px; padding: 0px; margin: 0px; border-width: 0px;">
+													<canvas width="398" height="378" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 398px; height: 378px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+												</div>
+												<div></div>
+											</div>
+										</div>
+										<span class="gs-resize-handle gs-resize-handle-both"></span>
+										<input id="table_14" type="hidden" value="21">
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div id="mCSB_4_scrollbar_vertical" class="mCSB_scrollTools mCSB_4_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;">
+							<div class="mCSB_draggerContainer">
+								<div id="mCSB_4_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;" oncontextmenu="return false;">
+									<div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+								</div>
+								<div class="mCSB_draggerRail"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section_0_box" style="display: none;" id="gridster_Box_no">
+					<div class="content_nothing">
+						<i class="ybp-img_nothing"></i>
+						<span class="ybp-add-filebox" onclick="chartAdd.init()">添加图表</span>
+					</div>
+				</div>
+			</section>
+		</wrap>
+		<script type="text/javascript" src="js/myjs/add-groupfilter.js"></script>
+	</body>
+
+</html>

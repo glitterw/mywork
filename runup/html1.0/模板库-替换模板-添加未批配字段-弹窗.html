@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<!--<html manifest="cssjs.appcache">-->
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+    <title>模板库-替换模板-添加未匹配字段-弹窗</title>
+    <meta name="Keywords" content="可视化工具">
+    <meta name="Description" content="可视化工具">
+    <link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/inside.css" />
+    <link rel="stylesheet" type="text/css" href="css/data.css" />
+</head>
+<body class="upload body-style">
+<header class="data-header">
+    <div class="logo"><a href="#"><img src="img/logo.png" /></a></div>
+    <div class="title">
+        <h3>替换模板数据</h3>
+    </div>
+    <div class="process">
+         <span>
+            <div>
+                <i class="no no1 finish"></i>
+                <i class="pname pname1">上传文件</i>
+            </div>
+            <div>
+                <i class="no no2 finish"></i>
+                <i class="pname pname2">预览数据</i>
+            </div>
+            <div>
+                <i class="no no3 active">3</i>
+                <i class="pname pname3">工作表设置</i>
+            </div>
+        </span>
+    </div>
+    <span class="action"><a href="javascript:" class="action-button next">上一步</a><a href="javascript:" class="action-button finish active">完成</a></span>
+    <div class="back"></div>
+</header>
+
+<!--添加未匹配字段 弹窗 开始-->
+<div class="Mlayer_4 Mlayer_4_400" id="mb-field-layout">
+    <h5 class="Mlayer_4_h">添加未匹配字段<span class="Mlayer_4_gb"></span></h5>
+    <div class="Mlayer_4_box content-layout">
+        <p>上传表还有以下字段未与原表匹配，可通过勾选添加到原表中。</p>
+        <div class="sz_xq">
+            <div><label><input type="checkbox" name="xszd"  value=""><i></i> <span>城镇人口(万人)</span></label></div>
+            <div><label><input type="checkbox" name="xszd"  value=""><i></i> <span>农村人口(万人)</span></label></div>
+            <div><label><input type="checkbox" name="xszd"  value=""><i></i> <span>男性人口(万人)</span></label></div>
+            <div><label><input type="checkbox" name="xszd"  value=""><i></i> <span>女性人口(万人)</span></label></div>
+        </div>
+    </div>
+    <div class="Mlayer_4_bottAll">
+        <a id='isxingjianwenjianjia' class="blue">确定</a>
+        <a class='M4quxiao'>取消</a>
+    </div>
+</div>
+<!--添加未匹配字段 弹窗 结束-->
+<script src="js/myjs/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/myjs/Mbase.js"></script>
+<script type="text/javascript" src="js/myjs/jquery.gridster.min.js"></script>
+<script src="js/myjs/common.js" type="text/javascript"></script>
+<script src="js/myjs/inside.js" type="text/javascript"></script>
+<script src="js/myjs/data.js" type="text/javascript"></script>
+
+</body>
+
+</html>

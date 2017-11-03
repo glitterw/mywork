@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>图表编辑</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css">
+		<link rel="stylesheet" type="text/css" href="css/spectrum.css">
+		<link rel="stylesheet" type="text/css" href="css/editablechart.css">
+		<link rel="stylesheet" type="text/css" href="css/edit-charts.css">
+		<link rel="stylesheet" type="text/css" href="css/inside.css" />
+	</head>
+
+	<body id='radar_map' class='fz14'>
+		<header class="header">
+			<div class="logo">
+				<a href="#"><img src="img/logo.png" /></a>
+			</div>
+			<div class="title">
+				<h3>上传数据</h3>
+			</div>
+			<a href="javscript:void(0)" class="back pull-right"></a>
+			<a href="javscript:void(0)" class="pull-right bttn text-center">保存</a>
+		</header>
+		<div class="chart-left">
+			<div class='indicator-wrap fz16'>
+				<a class='indicator text-center mg1  active' href="javascript:void(0)">图形选择</a>
+				<a class='indicator text-center' href="javascript:void(0)">图形设置</a>
+			</div>
+			<div class="tool-box">
+				<div class="xuanze tab">
+					<div class='title clearfix'>
+						<h5 class='pull-left fz16'>中国年度人口数据</h5>
+						<a class='pull-right fz14 chakan text-center' href="javascript:void(0)">
+							<i class='icon  icon-chakan'></i> 查看数据
+						</a>
+					</div>
+					<div class='main clearfix'>
+						<div class="item pull-left  left-sec">
+
+							<h5 class='fz16 ziduan'>字段</h5>
+							<form class='form'>
+								<div class='search-wrap'>
+									<input placeholder="输入关键字搜索" class='search'>
+									<i class='icon icon-search'></i>
+								</div>
+							</form>
+
+							<ul class='ziduan-list'>
+								<li class='item'>
+									<a class='item-name  active draggable' href="javascript:void(0)">
+										<i class='icon icon-arrow-down'></i>
+										<i class='icon icon-date'></i>
+										<span class='text'> 邮件营销 </span>
+									</a>
+									<ul class='sub-ziduan-list'>
+										<li>
+											<a href="javascript:void(0)" class='draggable'>
+												<i class='icon icon-date'></i>
+												<span class='text'> 
+                                                年                                                                        </span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)" class='draggable'>
+												<i class='icon icon-date'></i>
+												<span class='text'> 
+                                                月
+                                            </span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class='item'>
+									<a href="javascript:void(0)" class='item-name  active draggable'>
+										<i class='icon icon-nianfen'></i>
+										<span class='text'> 年份 </span>
+									</a>
+								</li>
+								<li class='item'>
+									<a href="javascript:void(0)" class='item-name  active draggable'>
+										<i class='icon icon-qita'></i>
+										<span class='text'> 男性人口(万人) </span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="item pull-left  right-sec">
+							<div class='types'>
+								<h5 class='fz16 ziduan'>智能推荐图形</h5>
+								<ul class='chart-types  clearfix'>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon1  ' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon2' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon3' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a data-type='line' class='chart-type-icon icon4 active' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a data-type='bar' class='chart-type-icon icon5 ' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon6' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon7' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon8' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon9' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon10' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon11' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon12' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon13' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon14' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon15' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon16' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon17' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon18' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon19' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon20' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon21' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon22' href="javascript:void(0)"></a>
+									</li>
+									<li class='pull-left ct-wrap'>
+										<a class='chart-type-icon icon23' href="javascript:void(0)"></a>
+									</li>
+								</ul>
+							</div>
+							<div class='drag-container'>
+								<div class='drag-wrap'>
+									<h5 class='fz16 ziduan'>筛选器</h5>
+									<div class="drag text-center">
+										拖拽字段至此进行筛选
+									</div>
+								</div>
+							</div>
+							<div class='color-list'>
+								<h5 class='fz16 ziduan'>颜色</h5>
+								<ul class='color-pick'>
+									<li class='item'>
+										<a class='color text-center' href="javascript:void(0)">
+											<i class='icon icon-edit-hover'></i>
+										</a>
+										邮件营销
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="shezhi tab" style='display: none;'>
+					<form id='zhexiantu' action="">
+						<div class="sz-item s-item-0 clearfix" style="padding-bottom: 10px;">
+							<span class="sz-head">图表标题：</span>
+							<div class="sub-item  pull-right">
+								<input class="input ">
+							</div>
+						</div>
+						<div class='sz-item s-item-5 overflow'>
+							<div class="sz-head">
+								<label class="Checkbox"><input name="" type="checkbox"><i class="check-icon" style="margin-right: 8px;"></i>显示图表标签</label>
+							</div>
+						</div>
+						<div class='sz-item s-item-5'>
+							<span class="sz-head">显示条目数</span>
+							<div class="sz-head">
+								<label class="Checkbox"><input class="wdxstm" name="" type="checkbox"><i class="check-icon" style="margin-right: 8px;"></i>维度显示条目数</label>
+							</div>
+							<div class="sz-head wdxstm_xq" style="display: none; margin-bottom: 10px;">
+								<div class="Myselect  Myselect-1">
+									<div class="wrap">
+										<div class="Myselect-value">前</div>
+										<input style='display: none'>
+										<i class="icon icon-arrow-down"></i>
+										<div class='op-list-wrap'>
+											<ul class="op-list">
+												<li>
+													<a href="javascript:void(0)">前</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)">后</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="xzz_jj">
+									<span class="input-number-wrap">
+		                                <input class="input input2">
+		                                <i class="icon icon-arrow-up  increase"></i>
+		                                <i class="icon icon-arrow-down  decrease"></i>
+			                        </span>
+								</div>
+								<div class="Myselect  Myselect-1">
+									<div class="wrap">
+										<div class="Myselect-value">项目</div>
+										<input style='display: none'>
+										<i class="icon icon-arrow-down"></i>
+										<div class='op-list-wrap'>
+											<ul class="op-list">
+												<li>
+													<a href="javascript:void(0)">项目</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)">%</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class='sz-item s-item-9'>
+							<h5 class='sz-head'> 图表备注 </h5>
+							<div class='sub-item'>
+								<textarea placeholder="请输入图表备注" class='textarea'></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="chart-main">
+			<div class="chart-args-wrap">
+				<ul class='chart-args'>
+					<li class='c-item  x-axis clearfix'>
+						<div class='label pull-left'>
+							<i class='icon icon-x-axis'></i>
+							<span class='fz16'>X轴</span>
+							<span class='fz14 mg1'>(字段)</span>
+							<i class='icon icon-edit'></i>
+						</div>
+						<ul class='x-item pull-left droppable'>
+							<!--<li class='target'>
+                        <span class='target-inner'>
+                            <span class='text'>邮件营销</span>
+                        <i class='icon  icon-arrow-blue-down'></i>
+                        <div class='jisuan-list'>
+                            <ul class='js-list'>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        设置字段
+                                    </a>
+                                </li>
+                                <li class='more paixu no-border'>
+                                    <a href="javascript:void(0)">
+                                        对齐方式
+                                        <i class='icon icon-more pull-right'></i>
+                                    </a>
+                                    <ul class='px-list'>
+                                        <li><a href="javascript:void(0)">左对齐</a></li>
+                                        <li><a href="javascript:void(0)">居中</a></li>
+                                        <li><a href="javascript:void(0)">右对齐</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class='more paixu no-border'>
+                                    <a href="javascript:void(0)">
+                                        排序
+                                        <i class='icon icon-more pull-right'></i>
+                                    </a>
+                                    <ul class='px-list'>
+                                        <li><a href="javascript:void(0)">默认</a></li>
+                                        <li><a href="javascript:void(0)">升序</a></li>
+                                        <li><a href="javascript:void(0)">降序</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        </span>
+                    </li>-->
+						</ul>
+						<!--<a class='icon-action add-duibi' href="javascript:void(0)">
+                    <i class='icon icon-add'></i> 添加对比
+                </a>-->
+					</li>
+					<li class='c-item  c-item-2 x-axis clearfix'>
+						<div class='label pull-left'>
+							<i class='icon icon-x-axis'></i>
+							<span class='fz16'>X轴</span>
+							<span class='fz14 mg1'>(字段)</span>
+							<i class='icon icon-edit'></i>
+						</div>
+						<ul class='x-item pull-left droppable'></ul>
+						<a class='icon-action  remove-duibi' href="javascript:void(0)">
+							<i class='icon icon-remove'></i> 移除对比
+						</a>
+					</li>
+					<li class='c-item  y-axis clearfix'>
+						<div class='label pull-left'>
+							<i class='icon icon-y-axis '></i>
+							<span class='fz16 '>Y轴</span>
+							<span class='fz14 mg1 '>(数值)</span>
+							<span class='type-ava'>
+                           <i class='chart-type-icon icon4'></i>
+                           <i class='icon  icon-arrow-blue-down'></i>
+                           <div class='type-choice-list'>
+                               <ul class='list text-center'>
+                                   <li>
+                                       <a href="javascript:void(0)">
+                                           <i class='chart-type-icon icon4'></i>
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a href="javascript:void(0)">
+                                           <i class='chart-type-icon icon4'></i>
+                                       </a>
+                                   </li>
+                               </ul>
+                           </div>                           
+                        </span>
+						</div>
+						<ul class='y-item pull-left droppable'>
+						</ul>
+						<a class='icon-action add-cizhou' href="javascript:void(0)">
+							<i class='icon icon-add'></i> 添加次轴
+						</a>
+					</li>
+					<li class='c-item c-item-4  y-axis clearfix'>
+						<div class='label pull-left'>
+							<i class='icon icon-y-axis'></i>
+							<span class='fz16'>Y轴</span>
+							<span class='fz14 mg1'>(数值)</span>
+							<span class='type-ava'>
+                           <i class='chart-type-icon icon5'></i>
+                           <i class='icon  icon-arrow-blue-down'></i>
+                           <div class='type-choice-list'>
+                               <ul class='list text-center'>
+                                   <li>
+                                       <a href="javascript:void(0)">
+                                           <i class='chart-type-icon icon5'></i>
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a href="javascript:void(0)">
+                                           <i class='chart-type-icon icon5'></i>
+                                       </a>
+                                   </li>
+                               </ul>
+                           </div>                           
+                        </span>
+						</div>
+						<ul class='y-item pull-left droppable'>
+						</ul>
+						<a class='icon-action remove-cizhou' href="javascript:void(0)">
+							<i class='icon icon-remove'></i>移除次轴
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class='chart-box'>
+				<div id='chart' style="height: 100%;">
+				</div>
+			</div>
+		</div>
+		<div class='modal'>
+			<div class="color-setup modal-item" style='display: none;'>
+				<div class="title">
+					<h5 class='fz16'>颜色设置</h5>
+					<a href="javascript:void(0)">
+						<i class='icon icon-close close'></i>
+					</a>
+				</div>
+				<div class="content">
+					<div class='wrap clearfix'>
+						<div class="left">
+							<h5 class='fz16 head'>选择数值轴：</h5>
+							<ul class='item-list'>
+								<li class='item active'>
+									<i class='color'></i>
+									<a href="javascript:void(0)">
+										邮件营销
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="right">
+							<h5 class='fz16 head'>选择配色方案：</h5>
+							<div class="default-wrap">
+								<div class="default-color">
+									默认颜色
+									<i class='icon icon-arrow-down'></i>
+									<ul class='color-ava'>
+										<li class='tpl-item  active-item'>
+											<i class='icon icon-default'></i>
+											<a href="javascript:void(0)">默认颜色</a>
+										</li>
+										<li class='tpl-item'>
+											<i class='icon icon-shuoguo'></i>
+											<a href="javascript:void(0)">硕果累累</a>
+										</li>
+										<li class='tpl-item'>
+											<i class='icon icon-fugu'></i>
+											<a href="javascript:void(0)">复古调</a>
+										</li>
+										<li class='tpl-item'>
+											<i class='icon icon-gaodiao'></i>
+											<a href="javascript:void(0)">高调红</a>
+										</li>
+										<li class='tpl-item'>
+											<i class='icon icon-shangwu'></i>
+											<a href="javascript:void(0)">商务蓝</a>
+										</li>
+										<li class='tpl-item'>
+											<i class='icon icon-shishang'></i>
+											<a href="javascript:void(0)">时尚绿</a>
+										</li>
+										<li class='tpl-item'>
+											<i class='icon icon-lengse'></i>
+											<a href="javascript:void(0)">冷色灰</a>
+										</li>
+									</ul>
+
+								</div>
+								<a class='text-center' id='apply' href="javascript:void(0)">应用</a>
+								<ul class='color-list' style='display: '>
+									<li class='pull-left color-item default current-color' style='background-color: #5c82dd'></li>
+									<li class='pull-left color-item default' style='background-color: #a5ca73'></li>
+									<li class='pull-left color-item default' style='background-color: #61af82'></li>
+									<li class='pull-left color-item default' style='background-color: #f0cc62'></li>
+
+									<li class='pull-left color-item default' style='background-color: #ea9257'></li>
+									<li class='pull-left color-item default' style='background-color: #e15e58'></li>
+									<li class='pull-left color-item default' style='background-color: #c06ad0'></li>
+									<li class='pull-left color-item default' style='background-color: #8159cd'></li>
+
+									<li class='pull-left color-item default' style='background-color: #5258b2'></li>
+									<li class='pull-left color-item default' style='background-color: #6bb3ec'></li>
+									<li class='pull-left color-item default' style='background-color: #84d2d9'></li>
+									<li class='pull-left color-item default' style='background-color: #c33e6b'></li>
+								</ul>
+								<ul class='color-list' style='display: none'>
+									<li class='pull-left color-item shuoguo' style='background-color: #aa4a46 '></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #db7968'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #e56941'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #eda255'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #c35d67'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #d9625e'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #d89a78'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #a38a70'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #b27876'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #b1afa1'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #92ab83'></li>
+									<li class='pull-left color-item shuoguo' style='background-color: #94985b'></li>
+								</ul>
+								<ul class='color-list' style='display: none'>
+									<li class='pull-left color-item fugu' style='background-color: #914176 '></li>
+									<li class='pull-left color-item fugu' style='background-color: #b9426c'></li>
+									<li class='pull-left color-item fugu' style='background-color: #ef834a'></li>
+									<li class='pull-left color-item fugu' style='background-color: #cf4b3f'></li>
+									<li class='pull-left color-item fugu' style='background-color: #eb4a7f'></li>
+									<li class='pull-left color-item fugu' style='background-color: #e66976'></li>
+									<li class='pull-left color-item fugu' style='background-color: #ce6482'></li>
+									<li class='pull-left color-item fugu' style='background-color: #a92857'></li>
+									<li class='pull-left color-item fugu' style='background-color: #6589c5'></li>
+									<li class='pull-left color-item fugu' style='background-color: #6f759b'></li>
+									<li class='pull-left color-item fugu' style='background-color: #616fc1'></li>
+									<li class='pull-left color-item fugu' style='background-color: #6256a4'></li>
+								</ul>
+								<ul class='color-list' style='display: none'>
+									<li class='pull-left color-item gaodiao' style='background-color: #772929 '></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #c70904'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #98220e'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #c4572f'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #e91f1a'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #ff5800'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #ffb400'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #ffd200'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #d42965'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #ff5e93'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #8bb4f7'></li>
+									<li class='pull-left color-item gaodiao' style='background-color: #2361d7'></li>
+								</ul>
+								<ul class='color-list' style='display: none'>
+									<li class='pull-left color-item shangwu' style='background-color: #0059ce '></li>
+									<li class='pull-left color-item shangwu' style='background-color: #095086'></li>
+									<li class='pull-left color-item shangwu' style='background-color: #94d7f1'></li>
+									<li class='pull-left color-item shangwu' style='background-color: #0086e6'></li>
+
+									<li class='pull-left color-item shangwu' style='background-color: #006593'></li>
+									<li class='pull-left color-item shangwu' style='background-color: #2e77d7'></li>
+									<li class='pull-left color-item shangwu' style='background-color: #74a4e4'></li>
+									<li class='pull-left color-item shangwu' style='background-color: #a2c3ed'></li>
+
+									<li class='pull-left color-item shangwu' style='background-color: #a3a314'></li>
+									<li class='pull-left color-item shangwu' style='background-color: #0049a9'></li>
+									<li class='pull-left color-item shangwu' style='background-color: #17afb7'></li>
+									<li class='pull-left color-item shangwu' style='background-color: #ce0059'></li>
+								</ul>
+								<ul class='color-list' style='display: none'>
+									<li class='pull-left color-item shishang' style='background-color: #69c28f '></li>
+									<li class='pull-left color-item shishang' style='background-color: #405942'></li>
+									<li class='pull-left color-item shishang' style='background-color: #6a8b5b'></li>
+									<li class='pull-left color-item shishang' style='background-color: #77a656'></li>
+
+									<li class='pull-left color-item shishang' style='background-color: #abbf7e'></li>
+									<li class='pull-left color-item shishang' style='background-color: #557514'></li>
+									<li class='pull-left color-item shishang' style='background-color: #41a774'></li>
+									<li class='pull-left color-item shishang' style='background-color: #4cd964'></li>
+
+									<li class='pull-left color-item shishang' style='background-color: #51c2c2'></li>
+									<li class='pull-left color-item shishang' style='background-color: #d92332'></li>
+									<li class='pull-left color-item shishang' style='background-color: #707dcc'></li>
+									<li class='pull-left color-item shishang' style='background-color: #6accba'></li>
+								</ul>
+								<ul class='color-list' style='display:none'>
+									<li class='pull-left color-item lengse' style='background-color: #88ada6 '></li>
+									<li class='pull-left color-item lengse' style='background-color: #83818e'></li>
+									<li class='pull-left color-item lengse' style='background-color: #808080'></li>
+									<li class='pull-left color-item lengse' style='background-color: #bacac6'></li>
+
+									<li class='pull-left color-item lengse' style='background-color: #c2ccd0'></li>
+									<li class='pull-left color-item lengse' style='background-color: #bbcdc5'></li>
+									<li class='pull-left color-item lengse' style='background-color: #c0ebd7'></li>
+									<li class='pull-left color-item lengse' style='background-color: #999999'></li>
+
+									<li class='pull-left color-item lengse' style='background-color: #75664d'></li>
+									<li class='pull-left color-item lengse' style='background-color: #6d6d6d'></li>
+									<li class='pull-left color-item lengse' style='background-color: #50616d'></li>
+									<li class='pull-left color-item lengse' style='background-color: #758a99'></li>
+								</ul>
+								<div class='define-color'>
+									<a id='pick' href='javascript:void(0)'>
+										<span class='color-item self-define text-center'>
+                                        <i class='icon icon-self-define'></i>
+                                    </span>
+										<span>自定义颜色</span>
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="bttn-wrap text-center">
+						<a class='bttn queding' href="javascript:void(0)">确定</a>
+						<a class='bttn cancel' href="javascript:void(0)">取消</a>
+					</div>
+				</div>
+			</div>
+			<div class="save-dia modal-item" style='display: none;'>
+				<div class="title">
+					<h5 class='fz16'>提示</h5>
+					<a href="javascript:void(0)">
+						<i class='icon icon-close close'></i>
+					</a>
+				</div>
+				<div class="content">
+					<div class='wrap'>
+
+						<div class="dia">
+							<img src="./img/editablechart/tishi.png" alt="">
+							<div class="info">
+								<p>
+									图表未保存，
+								</p>
+								<p>
+									确认离开此页？
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="bttn-wrap text-center">
+						<a class='bttn queding' href="javascript:void(0)">确定</a>
+						<a class='bttn cancel' href="javascript:void(0)">取消</a>
+					</div>
+				</div>
+
+			</div>
+			<div class='tiaojian-geshi  modal-item' style='display: none'>
+				<div class="title">
+					<h5 class='fz16'>条件格式</h5>
+					<a href="javascript:void(0)">
+						<i class='icon icon-close close'></i>
+					</a>
+				</div>
+				<div class="content">
+					<div class='wrap text-center'>
+						<span>当前还没有设置条件</span>
+						<a class='bttn  tianjia' href="javascript:void(0)">点击添加</a>
+					</div>
+
+					<div class="bttn-wrap text-center">
+						<a class='bttn queding' href="javascript:void(0)">确定</a>
+						<a class='bttn cancel' href="javascript:void(0)">取消</a>
+					</div>
+
+				</div>
+			</div>
+			<div class='tiaojian-geshi-edit  modal-item Common-close' style='display:none'>
+				<div class="title">
+					<h5 class='fz16'>条件格式</h5>
+					<a href="javascript:void(0)">
+						<i class='icon icon-close close'></i>
+					</a>
+				</div>
+				<div class="content-wrap">
+					<div class="content">
+						<i class='icon icon-edit-condition'></i>
+						<div class="Myselect  Myselect-1">
+							<div class="wrap">
+								<div class="Myselect-value">xx </div>
+								<input style='display: none'>
+								<i class="icon icon-arrow-down"></i>
+								<div class='op-list-wrap'>
+									<ul class="op-list">
+										<li>
+											<a href="javascript:void(0)">x</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">xx</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="Myselect  Myselect-2">
+							<div class="wrap">
+								<div class="Myselect-value"> 不等于</div>
+								<input style='display: none'>
+								<i class="icon icon-arrow-down"></i>
+								<div class='op-list-wrap'>
+									<ul class="op-list">
+										<li>
+											<a href="javascript:void(0)">等于</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">不等于</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">大于</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">小于</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">大于等于</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">小于等于</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">区间</a>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+						<input class='input input-1'>
+						<span class='mg'>配色</span>
+						<span class='input input-2'>
+		                    Tt
+		                   <i class='icon icon-arrow-down'></i>
+		                   <div class='yangshi  Common-close biaoge_yangshi' style='display: none'>
+		                       <div class="title">
+		                           &nbsp;
+		                           <a class='icon  icon-close close' href="javascript:void(0)"></a>
+		                       </div>
+		                        <ul class="yangshi-inner clearfix">
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #f4d9d7; color: #aa4a46;">Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #cce7bc; color: #4d8d68;">Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #f9cfb8;color: #c6532f;">Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #daeaf6;color: #6689c5;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #e66976;color: #fffefe;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #6689c5;color: #fffefe;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #ef834a;color: #fffefe;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #87ad81;color: #fffefe;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #aa4a46;color: #fffefe;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #6f749b;color: #fffefe;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #a6aaae;color: #fffefe;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                            <li class="pull-left" >
+		                                <a  class="text-center "  href="javascript:void(0)" style="background: #c8cbce;color: #fffefe;">
+		                                    Tt
+		                                </a>
+		                            </li>
+		                        </ul>
+		                        <div class='line'></div>
+		                        <div class='zidingyi-wrap'>
+		                            <h5 class='zidingyi'>自定义</h5>
+		                            <div class='clearfix'>
+                                         <div class="pull-left item"> 背景 <span class='pick1 icon-wrap wrap-2 text-center' style='background:red'>&nbsp;</span>
+					</div>
+					<div class="pull-left item">文字<span class='pick2 icon-wrap wrap-2 text-center' style='background:red'>&nbsp;</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		</span>
+		<i class='icon  icon-edit-add icon-edit-add2'></i>
+		<i class='icon  icon-minus'></i>
+		</div>
+		</div>
+		<div class="bttn-wrap text-center">
+			<a class='bttn queding' href="javascript:void(0)">确定</a>
+			<a class='bttn cancel' href="javascript:void(0)">取消</a>
+		</div>
+		</div>
+
+		<script src='js/myjs/jquery-1.11.0.min.js'></script>
+		<script defer src='js/myjs/spectrum.js'></script>
+		<script src='js/myjs/echarts.min.js'></script>
+		<script defer src='js/myjs/jquery-ui.min.js'></script>
+		<script src='js/myjs/editablechart.js'></script>
+		<script src='js/myjs/Mbase.js'></script>
+		<script src="js/myjs/inside.js"></script>
+		<script src="js/myjs/leidatu.js"></script>
+		</div>
+	</body>
+
+</html>

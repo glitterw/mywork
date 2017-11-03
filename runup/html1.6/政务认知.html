@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico">
+    <title>可视化工具</title>
+    <meta name="Keywords" content="可视化工具">
+    <meta name="Description" content="可视化工具">
+    <link rel="stylesheet" type="text/css" href="js/zTree_v3/css/zTreeStyle/zTreeStyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/dark/mbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/dark/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/dark/inside.css" />
+    <link rel="stylesheet" type="text/css" href="css/dark/semantic-cognition.css" />
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/mbase.js"></script>
+    <!--zTree-->
+    <script type="text/javascript" src="js/zTree_v3/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="js/zTree_v3/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="js/zTree_v3/js/jquery.ztree.exedit.js"></script>
+    <!--zTreeEnd-->
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/layer/layer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/inside.js"></script>
+</head>
+
+<body>
+    <span></span>
+    <wrap>
+        <header class="logo-nav">
+				<div class="logo left"><img src="img/common/logo.svg"></div>
+				<nav class="nav_0-2 left">
+					<a class="nav_0-2_a1 active" style="display:  block ;" href="/templatebase/index">
+						<i></i>
+						<span>政务认知</span>
+					</a>
+					<a class="nav_0-2_a2 " style="display:  block ;" href="/semantic/index">
+						<i></i>
+						<span>可视化</span>
+					</a>
+					<a class="nav_0-2_a3 " style="display:  block ;" href="/dashboard/index">
+						<i></i>
+						<span>报告</span>
+					</a>
+					<a class="nav_0-2_a4 " style="display:  block ;" href="/bigscreen/index">
+						<i></i>
+						<span>大屏</span>
+					</a>
+				</nav>
+				<div class="my-home right">
+					<div class="home-nav-s"><i></i>个人中心</div>
+					<div class="home-nav-o">
+						<a class="o-a-1" href=""><i></i>个人及组织信息</a>
+						<a class="o-a-2" href=""><i></i>认知指标管理</a>
+						<a class="o-a-3" href=""><i></i>文本源管理</a>
+						<a class="o-a-4" href=""><i></i>主题设置</a>
+						<a class="o-a-5" href=""><i></i>退出登录</a>
+					</div>
+				</div>
+			</header>
+        <section class="semantic_con MScroll" style="margin-left: 0">
+            <!-- chromeTab start -->
+            <div class="chromeTab J_chromeTab">
+                <div class="chromeTabHd">
+                    <ul>
+                        <li class="cur">投诉</li>
+                        <li>建议</li>
+                        <li>举报</li>
+                        <li>自由文本</li>
+                    </ul>
+                    <div class="Action">
+                    	<a href="" class="change">替换文本源</a>
+                    </div>
+                </div>
+                <div class="chromeTabBd">
+                    <div class="items" style="display: block;">
+                        <div class="gzb_nav_xq">
+                            <div class="sx_sz overflow">
+                                <a class="sx_sz_a left on"><i>数据筛选</i><i>收起筛选</i></a>
+                                <a class="sx_sz_a left"><i>设置显示字段</i><i>收起设置</i></a>
+                                <p class="right">显示最新<span> 1000 </span>条数据，共<span> 498046</span> 条数据
+                                    <x>最近更新时间：</x><i>2017-02-21 05:51:57</i></p>
+                            </div>
+                            <div class="sx_sz_xq sx_xq" style="display: block;">
+                                <div class="sx_xq_tj">满足以下：
+                                    <a class="sx_xq_tj_a on">全部条件</a>
+                                    <a class="sx_xq_tj_a">任意条件</a>
+                                    <input type="hidden" name="" id="" value="1" />
+                                </div>
+                                <div class="sx_xq_tj_xq">
+                                    <div class="sx_xq_tj_xq_box float_clear">
+                                        <div class="Mselect left">
+                                            <p class="Mchecked"><i>请选择</i></p>
+                                            <input type="hidden" name="hidden11" id="hidden11" value="" />
+                                            <div class="MoptionBox MScroll">
+                                                <span class="Moption" value="01">数据来源</span>
+                                                <span class="Moption" value="02">数据来源2</span>
+                                                <span class="Moption" value="03">数据来源3</span>
+                                                <span class="Moption" value="04">数据来源4</span>
+                                                <span class="Moption" value="05">数据来源5</span>
+                                            </div>
+                                        </div>
+                                        <div class="Mselect left">
+                                            <p class="Mchecked"><i>请选择</i></p>
+                                            <input type="hidden" name="hidden12" id="hidden12" value="" />
+                                            <div class="MoptionBox MScroll">
+                                                <span class="Moption" value="01">等于</span>
+                                                <span class="Moption" value="02">大于</span>
+                                                <span class="Moption" value="03">小于</span>
+                                            </div>
+                                        </div>
+                                        <div class="sx_xq_tj_form left" style="width: 232px;">
+                                            <input type="text" name="hidden13" id="hidden13" value="" placeholder="输入关键字搜索" style="border-color: #CCCCCC;">
+                                            <input type="submit" value="">
+                                        </div>
+                                        <a class="jiansao left"></a>
+                                    </div>
+                                </div>
+                                <div class="sx_xq_tj_xq">
+                                    <div class="sx_xq_tj_xq_box float_clear">
+                                        <div class="Mselect left">
+                                            <p class="Mchecked"><i>请选择</i></p>
+                                            <input type="hidden" name="hidden11" id="hidden11" value="" />
+                                            <div class="MoptionBox MScroll">
+                                                <span class="Moption" value="01">数据来源</span>
+                                                <span class="Moption" value="02">数据来源2</span>
+                                                <span class="Moption" value="03">数据来源3</span>
+                                                <span class="Moption" value="04">数据来源4</span>
+                                                <span class="Moption" value="05">数据来源5</span>
+                                            </div>
+                                        </div>
+                                        <div class="Mselect left">
+                                            <p class="Mchecked"><i>请选择</i></p>
+                                            <input type="hidden" name="hidden12" id="hidden12" value="" />
+                                            <div class="MoptionBox MScroll">
+                                                <span class="Moption" value="01">等于</span>
+                                                <span class="Moption" value="02">大于</span>
+                                                <span class="Moption" value="03">小于</span>
+                                            </div>
+                                        </div>
+                                        <div class="sx_xq_tj_form left" style="width: 232px;">
+                                            <input type="text" name="hidden13" id="hidden13" value="" placeholder="输入关键字搜索" style="border-color: #CCCCCC;">
+                                            <input type="submit" value="">
+                                        </div>
+                                        <a class="jiansao left"></a>
+                                        <a class="zhengduo left"></a>
+                                        <a class="qurding left">确定</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sx_sz_xq sz_xq" style="display: none;">
+                                <form>
+                                    <div class=" overflow">
+                                        <div class="parent left"><label><input type="checkbox" name="xszd" id="" value="" /><i></i> <i class="parent_wb"></i><span>文本</span></label></div>
+                                        <div class="children left">
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>数据来源</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>排行榜单</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>设备类型</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>应用名称</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>应用ID</span></label></div>
+                                    </div>
+                                    <div class=" overflow">
+                                        <div class="parent left">
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i><i class="parent_sz"></i> <span>数值</span></label>
+                                        </div>
+                                        <div class="children left">
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>数据来源</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>排行榜单</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>设备类型</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>应用名称</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>应用ID</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>数据来源</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>排行榜单</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>设备类型</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>应用名称</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>应用ID</span></label>
+                                        </div>
+                                    </div>
+                                    <div class=" overflow">
+                                        <div class="parent left">
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i><i class="parent_rq"></i> <span>日期</span></label>
+                                        </div>
+                                        <div class="children left">
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>数据来源</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>排行榜单</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>设备类型</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>应用名称</span></label>
+                                            <label><input type="checkbox" name="xszd" id="" value="" /><i></i> <span>应用ID</span></label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div> <!-- gzb_nav_xq end -->
+                        <div class="gzb_table_w">
+							<div class="MScroll MScrollyx gzb_table_box">
+								<table class="gzb_table jack_table">
+									<tr class="biaoti_tr">
+										<td class="biaoti"><i class="gzb_tb gzb_sz"></i><span class="gzb_mc">序号(ID)</span></td>
+										<td class="biaoti"><i class="table_icon"></i><span class="gzb_mc">标题</span></td>
+										<td class="biaoti"><i class="table_icon time"></i><span class="gzb_mc">时间</span></td>
+										<td class="biaoti">
+											<i class="table_icon"></i><span class="gzb_mc">投诉内容</span>
+											<span class="gzb_px"></span><span class="gzb_xg"></span><span class="gzb_qd"></span><span class="gzb_qx"></span>
+										</td>
+										<td class="biaoti"><i class="table_icon"></i><span class="gzb_mc">投诉人</span></td>
+										<td class="biaoti"><i class="table_icon"></i><span class="gzb_mc">投诉人电话</span></td>
+										<td class="biaoti"><i class="table_icon"></i><span class="gzb_mc">投诉部门</span></td>
+									</tr>
+									<tr>
+										<td class="text_l">1</td>
+										<td class="text_l">拖欠工程款</td>
+										<td class="text_l">2017/2/28 13:34</td>
+										<td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td>
+										<td>蔡先生</td>
+										<td>15629038573</td>
+										<td class="text_r">武汉经济技术开发区管委</td>
+									</tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+									<tr><td class="text_l">1</td><td class="text_l">拖欠工程款</td><td class="text_l">2017/2/28 13:34</td><td class="text_l"><div class="js_tips">我反映：2011年1月1日在江夏舒安街徐河村修路，但是村书记（徐松名）拖欠我们30多万的工程款没有支付，有欠条。向相关部门反映</div></td><td>蔡先生</td><td>15629038573</td><td class="text_r">武汉经济技术开发区管委</td></tr>
+								</table>
+							</div>
+						</div> <!-- gzb_table_w end -->
+                    </div>
+                    <div class="items">Here is 02</div>
+                    <div class="items">Here is 03</div>
+                    <div class="items">
+						<div class="semantic_txt">
+							<p class="empty">在这里输入自由文本，每条文本间以“#”号开始<small>部分文本会因内容问题而得不到认知结果</small></p>
+                            <textarea class="J_textarea"></textarea>
+						</div>
+                    </div>
+                </div>
+            </div> <!-- chromeTab end -->
+
+            <div class="clearfix">
+                <div class="semantic_wrap">
+
+                    <div class="semantic_result">
+                        <p class="tit">认知结果</p>
+                        <div class="result_tab">
+                            <div class="MScroll">
+                                <a href="javascript:;" class="active">问题聚类</a>
+                                <a href="javascript:;" class="disabled">情感分析</a>
+                                <a href="javascript:;">加权词云</a>
+                                <a href="javascript:;">基础统计</a>
+                            </div>
+                        </div>
+                        <div class="report_con">
+                            <div class="midu">
+                                <span>聚集密度</span><a href="javascript:;" class="active">最概括</a><a href="javascript:;">较概括</a><a href="javascript:;">平衡</a><a href="javascript:;">较详细</a><a href="javascript:;">最详细</a>
+                            </div>
+                            <!-- 图表 -->
+                            <div class="report_tu">
+                                图表
+                            </div>
+                            <!-- table -->
+                            <div class="report_table MScrollyx">
+                                <!-- 表头 -->
+                                <div class="fixed_top">
+                                    <table class="ex-table ">
+                                        <tr class="thead"><td class="td1">问题聚类</td><td class="td2">问题描述</td></tr>
+                                        <tr><td class="th1">2017/3/6</td><td class="th2">问题描述完整展示题描述完整展示题描述完整展示题描述完整展示</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                    </table>
+                                </div>
+                                <!-- 内容 -->
+                                <div class="table_con">
+                                    <table class="ex-table">
+                                        <tr class="thead"><td class="td1">问题聚类</td><td class="td2">问题描述</td></tr>
+                                        <tr><td class="th1">2017/3/6</td><td class="th2">问题描述完整展示题描述完整展示题描述完整展示题描述完整展示</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                        <tr><td>2017/3/6</td><td>600</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="semantic_tools">
+                    	<div class="title">操作</div>
+                    	<ul class="actionList">
+                    		<li class="cur"><a href="">加入认知历史</a></li>
+                    		<li><a href="">分享</a></li>
+                    		<li><a href="">生成报告</a></li>
+                    	</ul>
+                    	<div class="title">认知历史</div>
+                    	<ul class="historyList">
+                            <div class="MScroll">
+                        		<li><i></i><a href="">名称：投诉/建议/举报/自由文本</a><div class="time">时间：YYYY/MM/DD  HH:MM:SS</div></li>
+                        		<li><i></i><a href="">名称：投诉/建议/举报/自由文本</a><div class="time">时间：YYYY/MM/DD  HH:MM:SS</div></li>
+                        		<li><i></i><a href="">名称：投诉/建议/举报/自由文本</a><div class="time">时间：YYYY/MM/DD  HH:MM:SS</div></li>
+                        		<li><i></i><a href="">名称：投诉/建议/举报/自由文本</a><div class="time">时间：YYYY/MM/DD  HH:MM:SS</div></li>
+                        		<li><i></i><a href="">名称：投诉/建议/举报/自由文本</a><div class="time">时间：YYYY/MM/DD  HH:MM:SS</div></li>
+                            </div>
+                    	</ul>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </wrap>
+    <div class="add-data-layout" style="display: none">
+        <div class="icon-box">
+            <div class="data-icon">
+                <img src="img/dark/mysql-icon.png">
+                <span>MYSQL</span>
+                <div class="hover-add" onclick="goPage('/datasources/tomysqlstep1')">
+                </div>
+            </div>
+            <div class="data-icon">
+                <img src="img/dark/hive-icon.png">
+                <span>HIVE</span>
+                <div class="hover-add" onclick="goPage('/datasources/tohivestep1')">
+                </div>
+            </div>
+            <div class="data-icon">
+                <img src="img/dark/psql-icon.png">
+                <span>POSTGRESQL</span>
+                <div class="hover-wait">
+                    <span>正在研发中敬请期待...</span>
+                </div>
+            </div>
+            <div class="data-icon">
+                <img src="img/dark/oracel-icon.png">
+                <span>ORACEL</span>
+                <div class="hover-wait">
+                    <span>正在研发中敬请期待...</span>
+                </div>
+            </div>
+            <div class="data-icon">
+                <img src="img/dark/sql-icon.png">
+                <span>SQL SERVER</span>
+                <div class="hover-wait">
+                    <span>正在研发中敬请期待...</span>
+                </div>
+            </div>
+            <div class="data-icon">
+                <img src="img/dark/wx-icon.png">
+                <span>微信</span>
+                <div class="hover-wait">
+                    <span>正在研发中敬请期待...</span>
+                </div>
+            </div>
+            <div class="data-icon">
+                <img src="img/dark/weibo-icon.png">
+                <span>微博</span>
+                <div class="hover-wait">
+                    <span>正在研发中敬请期待...</span>
+                </div>
+            </div>
+            <div class="data-icon">
+                <img src="img/dark/baidu-icon.png">
+                <span>百度统计</span>
+                <div class="hover-wait">
+                    <span>正在研发中敬请期待...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+$(function() {
+    //文本源切换
+    $('.classification_text_tab span').click(function() {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        $(".classification_text_list").find(".classification_text_con").eq($(this).index()).css('display', 'block');
+        $(".classification_text_list").find(".classification_text_con").eq($(this).index()).siblings().css('display', 'none')
+    });
+    //认结果切换
+    $('.result_tab a').click(function() {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+    });
+    //分析切换
+    $(document).on('click', '.btn_group a', function() {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+    });
+    // 密度切换
+    $('.midu a').click(function() {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+    });
+    $('.addtext_btn').click(function() {
+        layer.open({
+            title: '添加文本源',
+            type: 1,
+            shift: 2,
+            area: '700px',
+            shadeClose: true, //开启遮罩关闭
+            btn: ['确定', '取消'],
+            content: $('.add-data-layout').html(),
+            success: function(layero, index) {
+                console.log('弹窗加载完');
+            },
+            btn1: function(index, layero) {
+                layer.close(index); //手动关闭弹窗
+            },
+        });
+    });
+
+    $('.chromeTabHd li').on('click',function(){
+    	var $this = $(this),index = $this.index();
+    	$this.addClass('cur').siblings().removeClass('cur');
+    	$('.chromeTabBd .items').eq(index).show().siblings().hide()
+    })
+
+    
+    $('.js_tips').closest('td').hover(function(){
+        var $this = $(this),
+            v = $this.text(),
+            obj = $this,
+            t = obj.offset().top - 5 + 'px',
+            l = obj.offset().left -5 + 'px',
+            w = obj.innerWidth() + 10 + 'px',
+            h = obj.innerHeight() + 10 + 'px';
+        if ($('.js_tips').height()>38) {            
+            var tpl = '<div class="table-tips js-table-tips" style="top:'+t+';left:'+l+';width:'+w+';min-height:'+h+';position:fixed;">'+ v +'</div>'
+            setTimeout(function(){
+                $('body').append(tpl)
+            },30)
+        }
+    },function(){
+        $('.js-table-tips').remove();
+    })
+
+    
+});
+
+;(function(){
+    $('.J_textarea').on('blur',function(){
+        if ($(this).val() != '') {
+            $(this).addClass('focus')
+        }else{
+            $(this).removeClass('focus')
+        }
+    })
+})()
+</script>
+
+</html>

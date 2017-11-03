@@ -1,0 +1,123 @@
+.text_overflow{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.gorgeousScreen-list-xq .customization {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 80px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.gorgeousScreen-list-xq-c>div:hover::after {
+	display: none;
+}
+
+.customization_a {
+	display: block;
+	width: 101px;
+	height: 101px;
+	margin: 0 auto;
+	background: url(../../img/light/customization-add.png) no-repeat;
+}
+
+.customization_a:hover {
+	opacity: 0.9;
+}
+
+.customization_a:active {
+	opacity: 0.7;
+}
+
+.customization_p {
+	line-height: 24px;
+	font-size: 14px;
+	color: #999999;
+	margin-top: 24px;
+}
+
+.name-input-1 {
+	width: 490px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	font-size: 0;
+}
+
+.customization_layer {
+	padding-top: 40px;
+}
+
+.customization_layer * {
+	box-sizing: border-box;
+}
+
+.name-input-1 .name {
+	display: inline-block;
+	width: 90px;
+	line-height: 36px;
+	height: 36px;
+	padding-right: 5px;
+	text-align: right;
+	vertical-align: top;
+	color: #333333;
+	font-size: 14px;
+}
+
+.name-input-1 .name i {
+	color: #ff0033;
+}
+
+.name-input-1 ._input {
+	display: inline-block;
+	width: 395px;
+}
+
+.name-input-1 ._input input[type='text'],
+.name-input-1 ._input input[type='tel'],
+.name-input-1 ._input input[type='email'] {
+	border: none;
+	outline: none;
+	background-color: none;
+	width: 370px;
+	height: 36px;
+	padding: 0 1em;
+	color: #333333;
+	font-size: 14px;
+	border-width: 1px;
+	border-color: #d9dde1;
+	border-style: solid;
+	border-radius: 3px;
+}
+
+.name-input-1 ._input .Mselect {
+	width: 370px;
+	height: 36px;
+	line-height: 34px;
+	color: #333333;
+	font-size: 14px;
+}
+
+.name-input-1 ._input textarea {
+	border: none;
+	outline: none;
+	background-color: none;
+	width: 370px;
+	height: 114px;
+	line-height: 34px;
+	padding: 0 1em;
+	color: #333333;
+	font-size: 14px;
+	border-width: 1px;
+	border-color: #d9dde1;
+	border-style: solid;
+	border-radius: 3px;
+	resize: none;
+}
+
+.customization_layer_p {
+	height: 36px;
+	line-height: 36px;
+	font-size: 14px;
+	color: #ff0033;
+	text-align: center;
+	margin-bottom: 10px;
+}

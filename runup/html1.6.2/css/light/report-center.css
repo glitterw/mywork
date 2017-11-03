@@ -1,0 +1,126 @@
+* {
+	box-sizing: border-box;
+}
+
+.nav_0-2 {
+	display: none;
+}
+
+.section_0 {
+	height: 100%;
+	/*margin-left: 350px;*/
+	margin-top: 0;
+}
+
+.nav_1 {
+	/*width: 280px;*/
+	height: 100%;
+}
+
+.section_0_box {
+	padding-top: 70px;
+}
+
+.cjbg i {
+	background: url(/img/light/chuangjianbg.png) 0 0 no-repeat;
+}
+
+.nav_2_div_a.cjbg:hover i {
+	background: url(/img/light/chuangjianbg_on.png) 0 0 no-repeat;
+}
+
+.report-list {
+	padding: 15px;
+	height: auto;
+}
+
+.report-list-xq {
+	width: 33.3%;
+}
+
+.report-list-xq>div {
+	margin: 5px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.report-list-xq>div img {
+	display: block;
+	width: 100%;
+	border-radius: 5px 5px 0 0;
+}
+
+.report-list-xq>div h4 {
+	height: 80px;
+	line-height: 80px;
+	font-size: 18px;
+	text-align: center;
+	color: #333333;
+	border-radius: 0 0 5px 5px;
+	background: #FFFFFF;
+}
+
+.report-list-xq>div:hover {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.report-list-xq>div:hover::after {
+	content: '';
+	border-radius: 5px;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 0;
+	left: 0;
+	bottom: 80px;
+	background: rgba(0,0,0,0.3);
+}
+
+.report-list-xq>div:hover .operation {
+	display: block;
+}
+
+.report-list-xq>div .operation {
+	display: none;
+	position: absolute;
+	top: 26px;
+	right: 36px;
+	font-size: 0;
+	z-index: 2;
+}
+
+.report-list-xq>div .operation a {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-left: 20px;
+	font-size: 30px;
+	border-radius: 3px;
+}
+
+.report-list-xq>div .operation a:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.report-list-xq>div .operation a i {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(/img/light/operation-a-bg.png) 0 center no-repeat;
+}
+
+.report-list-xq>div .operation a.bj i {
+	background-position: 0 0;
+}
+
+.report-list-xq>div .operation a.yl i {
+	background-position: 0 -1em;
+}
+
+.report-list-xq>div .operation a.xz i {
+	background-position: 0 -2em;
+}
+
+.report-list-xq>div .operation a.fx i {
+	background-position: 0 -3em;
+}

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>图表编辑</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/Mbase.css">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="./css/editablechart.css">
+</head>
+
+<body id='chart_compile' class='fz14'>
+    <header class="header">
+        <div class="logo">
+            <a href="#"><img src="img/logo.png" /></a>
+        </div>
+        <div class="title">
+            <h3>上传数据</h3>
+        </div>
+        <a href="javscript:void(0)" class="back pull-right"></a>
+        <a href="javscript:void(0)" class="pull-right bttn text-center">保存</a>
+    </header>
+    <div class="chart-left">
+        <div class='indicator-wrap fz16'>
+            <a class='indicator text-center mg1  active' href="javascript:void(0)">图形选择</a>
+            <a class='indicator text-center' href="javascript:void(0)">图形设置</a>
+        </div>
+        <div class="tool-box ">
+            <div class="xuanze tab MScroll">
+                <div class='title clearfix'>
+                    <h5 class='pull-left fz16'>中国年度人口数据</h5>
+                    <a class='pull-right fz14 chakan text-center' href="javascript:void(0)">
+                        <i class='icon  icon-chakan'></i> 查看数据
+                    </a>
+                </div>
+                <div class='main clearfix'>
+                    <div class="item pull-left  left-sec">
+
+                        <h5 class='fz16 ziduan'>字段</h5>
+                        <form class='form'>
+                            <div class='search-wrap'>
+                                <input placeholder="输入关键字搜索" class='search'>
+                                <i class='icon icon-search'></i>
+                            </div>
+                        </form>
+
+                        <ul class='ziduan-list'>
+                            <li class='item'>
+                                <a class='item-name  active draggable' href="javascript:void(0)">
+                                    <i class='icon icon-arrow-down'></i>
+                                    <i class='icon icon-date'></i>
+                                    <span class='text'> 邮件营销 </span>
+                                </a>
+                                <ul class='sub-ziduan-list'>
+                                    <li>
+                                        <a href="javascript:void(0)" class='draggable'>
+                                            <i class='icon icon-date'></i>
+                                            <span class='text'> 
+                                                年                                                                        </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class='draggable'>
+                                            <i class='icon icon-date'></i>
+                                            <span class='text'> 
+                                                月
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class='item'>
+                                <a href="javascript:void(0)" class='item-name  active draggable'>
+                                    <i class='icon icon-nianfen'></i>
+                                    <span class='text'> 年份 </span>
+                                </a>
+                            </li>
+                            <li class='item'>
+                                <a href="javascript:void(0)" class='item-name  active draggable'>
+                                    <i class='icon icon-qita'></i>
+                                    <span class='text'> 男性人口(万人) </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item pull-left  right-sec">
+                        <div class='types'>
+                            <h5 class='fz16 ziduan'>智能推荐图形</h5>
+                            <ul class='chart-types  clearfix'>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon1  ' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon2' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon3' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a data-type='line' class='chart-type-icon icon4 active' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a data-type='bar' class='chart-type-icon icon5 ' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon6' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon7' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon8' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon9' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon10' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon11' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon12' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon13' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon14' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon15' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon16' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon17' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon18' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon19' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon20' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon21' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon22' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon23' href="javascript:void(0)"></a>
+                                </li>
+                                <li class='pull-left ct-wrap'>
+                                    <a class='chart-type-icon icon24' href="javascript:void(0)"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='drag-container'>
+                            <div class='drag-wrap'>
+                                <h5 class='fz16 ziduan'>筛选器</h5>
+                                <div class="drag text-center">
+                                    拖拽字段至此进行筛选
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class='color-list'>
+                            <h5 class='fz16 ziduan'>颜色</h5>
+                            <ul class='color-pick'>
+                                <li class='item'>
+                                    <a style=' background: #008b8b;' class='color text-center' href="javascript:void(0)">
+                                        <i class='icon icon-edit-hover'></i>
+                                    </a>
+                                    邮件营销
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shezhi tab" style='display: none;'>
+                <form action="">
+                    <div class='sz-item s-item-5 clearfix'>
+                        <span class='sz-head'>
+                        条件格式
+                        </span>
+                        <div class='sub-item  pull-right'>
+                            <i class='icon  icon-edit  add-tiaojian'></i>
+                        </div>
+
+                        <ul class="table-condition-list">
+                            <li>
+                                <span class="text ">现钞买入价（元）(求和) 小于 0
+                                </span>
+                                <span class="mgl" style='color:red'>
+                                    <i class="icomoon icomoon-arrow-down"></i>
+                                    <i class="">T</i>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="text ">现钞买入价（元）(求和) 小于 0
+                                </span>
+                                <span class="mgl" style='color:green'>
+                                    <i class="icomoon icomoon-arrow-down"></i>
+                                    <i class="">T</i>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="text ">现钞买入价（元）(求和) 小于 0
+                                </span>
+                                <span class="mgl" style='color:blue'>
+                                    <i class="icomoon icomoon-arrow-down"></i>
+                                    <i class="">T</i>
+                                </span>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class='sz-item s-item-9'>
+                        <h5 class='sz-head'>
+                            图表备注
+                        </h5>
+                        <div class='sub-item'>
+                            <textarea placeholder="请输入图表备注" class='textarea'></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="chart-main">
+        <div class="chart-args-wrap">
+            <ul class='chart-args'>
+                <li class='c-item  x-axis clearfix'>
+                    <div class='label pull-left'>
+                        <i class='icon icon-x-axis'></i>
+                        <span class='fz16'>X轴</span>
+                        <span class='fz14 mg1'>(字段)</span>
+                        <i class='icon icon-edit'></i>
+                    </div>
+                    <ul class='x-item pull-left droppable'>
+
+                    </ul>
+
+                </li>
+                <li class='c-item  c-item-2 x-axis clearfix'>
+                    <div class='label pull-left'>
+                        <i class='icon icon-x-axis'></i>
+                        <span class='fz16'>X轴</span>
+                        <span class='fz14 mg1'>(字段)</span>
+                        <i class='icon icon-edit'></i>
+                    </div>
+                    <ul class='x-item pull-left droppable'></ul>
+                    <a class='icon-action  remove-duibi' href="javascript:void(0)">
+                        <i class='icon icon-remove'></i> 移除对比
+                    </a>
+                </li>
+                <li class='c-item  y-axis clearfix'>
+                    <div class='label pull-left'>
+                        <i class='icon icon-y-axis '></i>
+                        <span class='fz16 '>Y轴</span>
+                        <span class='fz14 mg1 '>(数值)</span>
+                        <span class='type-ava'>
+                           <i class='chart-type-icon icon4'></i>
+                           <i class='icon  icon-arrow-blue-down'></i>
+                           <div class='type-choice-list'>
+                               <ul class='list text-center'>
+                               <li>
+                                   <a href="javascript:void(0)">
+                                        <i class='chart-type-icon icon4'></i>
+                                   </a>                                   
+                               </li>
+                               <li>
+                                   <a href="javascript:void(0)">
+                                        <i class='chart-type-icon icon4'></i>
+                                   </a>                                   
+                               </li>
+                           </ul>
+                           </div>                           
+                        </span>
+                    </div>
+                    <ul class='y-item pull-left droppable'>
+
+                    </ul>
+                    <a class='icon-action add-cizhou' href="javascript:void(0)">
+                        <i class='icon icon-add'></i> 添加次轴
+                    </a>
+                </li>
+                <li class='c-item c-item-4  y-axis clearfix'>
+                    <div class='label pull-left'>
+                        <i class='icon icon-y-axis'></i>
+                        <span class='fz16'>Y轴</span>
+                        <span class='fz14 mg1'>(数值)</span>
+                        <span class='type-ava'>
+                           <i class='chart-type-icon icon5'></i>
+                           <i class='icon  icon-arrow-blue-down'></i>
+                           <div class='type-choice-list'>
+                               <ul class='list text-center'>
+                               <li>
+                                   <a href="javascript:void(0)">
+                                        <i class='chart-type-icon icon5'></i>
+                                   </a>                                   
+                               </li>
+                               <li>
+                                   <a href="javascript:void(0)">
+                                        <i class='chart-type-icon icon5'></i>
+                                   </a>                                   
+                               </li>
+                           </ul>
+                           </div>                           
+                        </span>
+                    </div>
+                    <ul class='y-item pull-left droppable'>
+                    </ul>
+                    <a class='icon-action remove-cizhou' href="javascript:void(0)">
+                        <i class='icon icon-remove'></i>移除次轴
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class='chart-box'>
+            <div id='chart' class='chart'>
+            </div>
+            <div class="chart-text-box">
+                <div class="chart-text-box-inner">
+                    <div class="chart-text-item">
+                        <div class="chart-text-title">
+                            <span class="nick-name-value nowrap">基准价（元）</span>
+                        </div>
+                        <div class="chart-text-value nowrap">
+                            15,313,472.23
+                        </div>
+                        <div class="chart-text-updown nowrap">
+                            <span class="hd">现钞买入价（元）</span>
+                            <span class="bd" style='color: red'>34,609,463.70</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='modal'>
+        <div class="color-setup modal-item" style='display: none;'>
+            <div class="title">
+                <h5 class='fz16'>颜色设置</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class='wrap clearfix'>
+                    <div class="left">
+                        <h5 class='fz16 head'>选择数值轴：</h5>
+                        <ul class='item-list'>
+                            <li class='item active'>
+                                <i class='color'></i>
+                                <a href="javascript:void(0)">                                    
+                                    邮件营销
+                                </a>
+                            </li>
+                            <!--<li class='item '>
+                                <i class='color'></i>
+                                <a href="javascript:void(0)">                                    
+                                    年末总人口(万人)
+                                </a>
+                            </li>
+                            <li class='item '>
+                                <i class='color'></i>
+                                <a href="javascript:void(0)">                                    
+                                    年末总人口(万人)
+                                </a>
+                            </li>-->
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h5 class='fz16 head'>选择配色方案：</h5>
+                        <div class="default-wrap">
+                            <div class="default-color">
+                                默认颜色
+                                <i class='icon icon-arrow-down'></i>
+                                <ul class='color-ava'>
+                                    <li class='tpl-item  active-item'>
+                                        <i class='icon icon-shuoguo'></i>
+                                        <a href="javascript:void(0)">硕果累累</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-fugu'></i>
+                                        <a href="javascript:void(0)">复古调</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-gaodiao'></i>
+                                        <a href="javascript:void(0)">高调红</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-shangwu'></i>
+                                        <a href="javascript:void(0)">商务蓝</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-shishang'></i>
+                                        <a href="javascript:void(0)">时尚绿</a>
+                                    </li>
+                                    <li class='tpl-item'>
+                                        <i class='icon icon-lengse'></i>
+                                        <a href="javascript:void(0)">冷色灰</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <a class='text-center' id='apply' href="javascript:void(0)">应用</a>
+                            <ul class='color-list'>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                                <li class='pull-left color-item'></li>
+                            </ul>
+                            <div class='define-color'>
+                                <a id='pick' href='javascript:void(0)'>
+                                    <span class='color-item self-define text-center'>
+                                        <i class='icon icon-self-define'></i>
+                                    </span>
+                                    <span>自定义颜色</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="bttn-wrap text-center">
+                    <a class='bttn queding' href="javascript:void(0)">确定</a>
+                    <a class='bttn cancel' href="javascript:void(0)">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="edit-filter modal-item" style='display: none;'>
+            <div class="title">
+                <h5 class='fz16'>编辑筛选项</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class='wrap'>
+                    <p class='fz16 info'>男性人口(万人)</p>
+                    <div class='condition'>
+                        <div class='Myselect select'>
+                            <span class='wrap' href="javascript:void(0)">
+                                <span class='Myselect-value'>等于</span>
+                            <i class="icon icon-arrow-down"></i>
+                            <ul class="op-list">
+                                <li>
+                                    <a href="javascript:void(0)">等于</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">不等于</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">大于</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">小于</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">大于等于</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">小于等于</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">区间</a>
+                                </li>
+                            </ul>
+                            </span>
+                        </div>
+                        <input class='input addwidth'>
+                        <span class='zhi disappear none'>至</span>
+                        <input class='input  disappear none'>
+                    </div>
+
+                </div>
+
+                <div class="bttn-wrap text-center">
+                    <a class='bttn queding' href="javascript:void(0)">确定</a>
+                    <a class='bttn cancel' href="javascript:void(0)">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="save-dia modal-item" style='display: none;'>
+            <div class="title">
+                <h5 class='fz16'>提示</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content">
+                <div class='wrap'>
+
+                    <div class="dia">
+                        <img src="./img/editablechart/tishi.png" alt="">
+                        <div class="info">
+                            <p>
+                                图表未保存，
+                            </p>
+                            <p>
+                                确认离开此页？
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bttn-wrap text-center">
+                    <a class='bttn queding' href="javascript:void(0)">确定</a>
+                    <a class='bttn cancel' href="javascript:void(0)">取消</a>
+                </div>
+            </div>
+
+        </div>
+        <div class='tiaojian-geshi modal-item' style='display: none'>
+            <div class="title">
+                <h5 class='fz16'>条件格式</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+
+            <div class="content">
+                <div class='wrap text-center'>
+                    <span>当前还没有设置条件</span>
+                    <a class='bttn  tianjia' href="javascript:void(0)">点击添加</a>
+                </div>
+            </div>
+            <div class="bttn-wrap text-center">
+                <a class='bttn queding' href="javascript:void(0)">确定</a>
+                <a class='bttn cancel' href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+
+        <div class='tiaojian-geshi-edit  modal-item Common-close' style='display:none'>
+            <div class="title">
+                <h5 class='fz16'>条件格式</h5>
+                <a href="javascript:void(0)">
+                    <i class='icon icon-close close'></i>
+                </a>
+            </div>
+            <div class="content-wrap">
+                <div class="content">
+                    <i class='icon icon-edit-condition'></i>
+                    <div class="Myselect  Myselect-1">
+                        <div class="wrap">
+                            <div class="Myselect-value">不等于 </div>
+                            <input style='display: none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">x</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">不等于</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Myselect  Myselect-2">
+                        <div class="wrap">
+                            <div class="Myselect-value"> 不等于</div>
+                            <input style='display: none'>
+                            <i class="icon icon-arrow-down"></i>
+                            <div class='op-list-wrap'>
+                                <ul class="op-list">
+                                    <li>
+                                        <a href="javascript:void(0)">等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">不等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">大于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">小于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">大于等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">小于等于</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">区间</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <input class='input input-1  input-right1'>
+                    <input class='input input-1  input-right2' style='display:none'>
+                    <span class='input-right2' style='display:none'>~</span>
+                    <input class='input input-1  input-right2' style='display:none'>
+                    <span class='mg'>样式</span>
+                    <span class='input input-2 input-3'>
+                   <i  class="icomoon icomoon-arrow-up"></i>
+                    Tt
+                   <i class='icon icon-arrow-down'></i>
+                   <div class='yangshi  Common-close' style='display: none'>
+                       <div class="title">
+                           &nbsp;
+                           <a class='icon  icon-close close' href="javascript:void(0)"></a>
+                       </div>
+                        <ul class="yangshi-inner  yangshi-inner-2 clearfix">
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color: #c54440">
+                                    <i class="icomoon icomoon-arrow-up"></i>Tt
+                                </a>
+                            </li>
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color: #33aa65">
+                                    <i class="icomoon icomoon-arrow-down"></i>Tt
+                                </a>
+                            </li>
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color: #a6aaae">
+                                    <i class="icomoon icomoon-arrow-equal"></i>Tt
+                                </a>
+                            </li>
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color:#a6aaae ">
+                                    Tt
+                                </a>
+                            </li>
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color: #ef834a">
+                                    Tt
+                                </a>
+                            </li>
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color:#6689c5 ">
+                                    Tt
+                                </a>
+                            </li>
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color:#6f749b ">
+                                    Tt
+                                </a>
+                            </li>
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color:#d9540e ">
+                                    Tt
+                                </a>
+                            </li>
+                            <li class="pull-left" >
+                                <a  class="text-center "  href="javascript:void(0)" style="color:#87ad81 ">
+                                    Tt
+                                </a>
+                            </li>
+                        </ul>
+                        <div class='line'></div>
+                        <div class='zidingyi-wrap'>
+                            <h5 class='zidingyi'>自定义</h5>
+                            <div class='clearfix'>
+                                         <div class="pull-left item">
+                                    样式
+                                     <span class='icon-wrap text-center   yangshi-icon'>
+                                       <i id='show-icon' class="  icomoon icomoon-remove"></i>
+                                        <div class="icon-wrap-inner"  style='display: none'>
+                                            <ul class='clearfix'>
+                                                <li  class="pull-left">
+                                                        <a href="javascript:;" class="">
+                                                            <i class="icomoon icomoon-arrow-down"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li  class="pull-left">
+                                                        <a href="javascript:;" class="">
+                                                            <i class="icomoon icomoon-arrow-up"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li  class="pull-left">
+                                                        <a href="javascript:;" class="">
+                                                            <i class="icomoon icomoon-arrow-equal"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li  class="pull-left">
+                                                        <a href="javascript:;" class="">
+                                                            <i class="icomoon icomoon-ok"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li  class="pull-left">
+                                                        <a href="javascript:;" class="">
+                                                            <i class="icomoon icomoon-remove"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li  class="pull-left">
+                                                        <a href="javascript:;" class="">
+                                                            <i class="icomoon icomoon-attention"></i>
+                                                        </a>
+                                                    </li>
+                                            </ul>
+                                            <div class="line"></div>
+                                            <div class="wuyanshi text-left">
+                                                <a href="javascript:;" class="text-center" >
+                                                    <i class="icomoon icomoon-ban-circle"></i>
+                                                </a>
+                                                无样式
+                                            </div>
+                                       </div>
+                                    </span>
+
+                </div>
+                <div class="pull-left item">
+                    文字
+                    <span class='pick2 icon-wrap wrap-2 text-center' style='background:red'>
+                    &nbsp;
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </span>
+    <i class='icon  icon-edit-add'></i>
+    <i class='icon  icon-minus'></i>
+    </div>
+    </div>
+    <div class="bttn-wrap text-center">
+        <a class='bttn queding' href="javascript:void(0)">确定</a>
+        <a class='bttn cancel' href="javascript:void(0)">取消</a>
+    </div>
+    </div>
+    <div class='shezhiziduan modal-item' style='display:none;'>
+        <div class="title">
+            <h5 class='fz16'>设置字段</h5>
+            <a href="javascript:void(0)">
+                <i class='icon icon-close close'></i>
+            </a>
+        </div>
+        <div class="content">
+            <div class='m-item'>
+                <span class='label'>设置当前字段别名</span>
+                <input class='input' placeholder="别名" type="text">
+            </div>
+            <div class='m-item'>
+                <span class='label'>设置当前字段单位</span>
+                <input class='input' placeholder="单位" type="text">
+            </div>
+            <div class='m-item'>
+                <span class='label'>字段描述</span>
+                <textarea class='input  textarea' placeholder="字段描述"></textarea>
+            </div>
+        </div>
+        <div class="bttn-wrap text-center">
+            <a class='bttn queding' href="javascript:void(0)">确定</a>
+            <a class='bttn cancel' href="javascript:void(0)">取消</a>
+        </div>
+    </div>
+    </div>
+    <script src='./js/myjs/jquery-1.11.0.min.js'></script>
+    <script defer src='./js/myjs/spectrum.js'></script>
+    <script src='./js/myjs/echarts.min.js'></script>
+    <script defer src='./js/myjs/jquery-ui.min.js'></script>
+    <script src='./js/myjs/editablechart.js'></script>
+    <script src='./js/myjs/zebra_datepicker.js'></script>
+    <script src='./js/myjs/zhibiaoka.js'></script>
+    <script src='./js/myjs/Mbase.js'></script>
+
+</body>
+
+</html>

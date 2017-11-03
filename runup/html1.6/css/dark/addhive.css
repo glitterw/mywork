@@ -1,0 +1,68 @@
+.hive-upload .title:before{
+    content: "";
+    width: 100px;
+    height: 78px;
+    box-sizing: border-box;
+    background: url("/img/dark/data/HIVE.png") no-repeat center;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 5px;
+}
+.hive_select {
+    position: absolute;
+    margin-top: -32px;
+    margin-left: 98px;
+}
+
+.hive_Mselect {
+    width: 422px;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 10px;
+    background-color: #ffffff;
+    position: relative;
+    padding-bottom: 1px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.hive_Mselect_small {
+    width: 150px
+}
+
+.hive_Mchecked {
+    border-radius: 3px;
+    padding-right: 20px;
+}
+
+.hive_Mselect .MoptionBox {
+    background-color: #ffffff;
+}
+
+.mysql-upload .set-data-box .setting>.item_line {
+    height: 32px;
+    line-height: 32px;
+}
+
+.setting>.item>input.input-width_250 {
+    margin-left: 160px;
+    width: 250px;
+}
+
+.hive_checkbox-item.checkbox-item {
+    margin-top: 0;
+}
+
+.hive_checkbox-item.checkbox-item.sz_xq>.show-box {
+    width: 150px;
+    display: inline-block;
+}
+
+.hive_checkbox-item div span {
+    width: 5.3rem;;
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+}

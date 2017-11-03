@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<!--<html manifest="cssjs.appcache">-->
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/x-icon" href="img/dark/logo.ico">
+		<title>可视化-数据源</title>
+		<meta name="Keywords" content="可视化工具">
+		<meta name="Description" content="可视化工具">
+		<link rel="stylesheet" type="text/css" href="css/dark/Mbase.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/dark/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/dark/inside.css" />
+		<link rel="stylesheet" type="text/css" href="css/dark/data.css" />
+	</head>
+
+	<body class="data-list">
+		<wrap>
+			<header class="logo-nav">
+				<div class="logo left"><img src="img/common/logo.svg" /></div>
+				<nav class="nav_0-2 left">
+					<a class="nav_0-2_a1 " style="display:  block ;" href="/templatebase/index">
+						<i></i>
+						<span>政务认知</span>
+					</a>
+					<a class="nav_0-2_a2 " style="display:  block ;" href="/semantic/index">
+						<i></i>
+						<span>可视化</span>
+					</a>
+					<a class="nav_0-2_a3  active " style="display:  block ;" href="/dashboard/index">
+						<i></i>
+						<span>报告</span>
+					</a>
+					<a class="nav_0-2_a4 " style="display:  block ;" href="/bigscreen/index">
+						<i></i>
+						<span>大屏</span>
+					</a>
+				</nav>
+				<div class="my-home right">
+					<div class="home-nav-s"><i></i>个人中心</div>
+					<div class="home-nav-o">
+						<a class="o-a-1" href=""><i></i>个人及组织信息</a>
+						<a class="o-a-2" href=""><i></i>认知指标管理</a>
+						<a class="o-a-3" href=""><i></i>文本源管理</a>
+						<a class="o-a-4" href=""><i></i>主题设置</a>
+						<a class="o-a-5" href=""><i></i>退出登录</a>
+					</div>
+				</div>
+			</header>
+			<div class="my-home-data-nav">
+				<h4 class="left">文本源管理</h4>
+				<div class="right">
+					<a class="gzb" href=""><i></i>工作表</a>
+					<a class="wby action" href=""><i></i>文本源接入</a>
+				</div>
+			</div>
+			<nav class="nav_1 nav-1-worksheet">
+				<div class="nav_1_1">
+					<div class="nav_1_1_div">
+						<h5>数据源</h5>
+					</div>
+				</div>
+				<div class="nav_1_form_w">
+					<form class="nav_1_form">
+						<input type="text" value="" placeholder="输入关键字搜索" />
+						<input type="submit" value="" />
+					</form>
+				</div>
+				<div class="daohang MScroll">
+					<ul class="type-list">
+						<li class="active"><a href="#">全部</a><span>45</span></li>
+						<li><a href="#" class="overflow-ellipsis">数据库</a><span >22</span></li>
+						<li><a href="#">网络营销</a><span>5</span></li>
+						<li><a href="#">在线客服</a><span>6</span></li>
+						<li><a href="#">数据统计</a><span>21</span></li>
+						<li><a href="#">企业管理</a><span>56</span></li>
+						<li><a href="#">公共数据</a><span>7</span></li>
+						<li><a href="#">同步工具</a><span>10</span></li>
+					</ul>
+				</div>
+			</nav>
+
+			<section class="section_0 section-worksheet">
+				<div class="nav_2">
+					<!--数据源状态 开始-->
+					<ul class="state-list">
+					  <li class="active">
+						  <div class="show">
+							  <ul>
+								  <li class="sz">45</li>
+								  <li class="type overflow-ellipsis">全部</li>
+							  </ul>
+						  </div>
+						  <em class="line"></em>
+					  </li>
+						<li>
+						<div class="show">
+							<ul>
+								<li class="sz">42</li>
+								<li class="type">同步完成</li>
+							</ul>
+						</div>
+							<em class="line"></em>
+					</li>
+					<li>
+						<div class="show">
+							<ul>
+								<li class="sz">3</li>
+								<li class="type">失败</li>
+							</ul>
+						</div>
+					</li>
+					<div class="nav_2_div float_clear">
+						<a class="nav_2_div_a"><i></i><span>添加数据源</span></a>
+					</div>
+					</ul>
+					<!--数据源状态 结束-->
+
+				</div>
+				<!--添加数据弹窗 开始-->
+				<div class="Mlayer_4 add-layout-width" id="add-data-layout">
+					<h5 class="Mlayer_4_h">添加数据源<span class="Mlayer_4_gb"></span></h5>
+					<div class="icon-box">
+						<div class="data-icon ">
+							<img src="img/dark/excel-icon.png">
+							<span>Excel</span>
+							<div class="hover-add">
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/csv-icon.png">
+							<span>CSV</span>
+							<div class="hover-add">
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/mysql-icon.png">
+							<span>MYSQL</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/hive-icon.png">
+							<span>HIVE</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/psql-icon.png">
+							<span>POSTGRESQL</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/oracel-icon.png">
+							<span>ORACEL</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/sql-icon.png">
+							<span>SQL SERVER</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/wx-icon.png">
+							<span>微信</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/weibo-icon.png">
+							<span>微博</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/youku-icon.png">
+							<span>优酷</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+						<div class="data-icon">
+							<img src="img/dark/baidu-icon.png">
+							<span>百度统计</span>
+							<div class="hover-wait">
+								<span>正在研发中敬请期待...</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--添加数据弹窗 结束-->
+
+				<div class="section_0_box MScroll">
+					 <table class="list-table">
+						<thead>
+							<tr>
+								<th class="th1">名称</th>
+								<th class="th2">状态</th>
+								<th class="th3">最近同步时间</th>
+								<th class="th4">操作</th>
+							</tr>
+						</thead>
+						 <tbody>
+						 <tr>
+							 <td class="name"><img src="img/dark/type-icon1.png"><span>居民收支数据</span></td>
+							 <td>同步完成</td>
+							 <td>3小时前</td>
+							 <td class="action-box">
+								 <a class="action-button set-layout">设置</a>
+								 <a class="action-button del-layout">删除</a>
+							 </td>
+						 </tr>
+						 <tr>
+							 <td class="name"><img src="img/dark/type-icon2.png"><span>人口数据</span></td>
+							 <td>同步完成</td>
+							 <td>3小时前</td>
+							 <td class="action-box">
+								 <a class="action-button set-layout">设置</a>
+								 <a class="action-button del-layout">删除</a>
+							 </td>
+						 </tr>
+						 <tr>
+							 <td class="name"><img src="img/dark/type-icon3.png"><span>人民币汇率数据</span></td>
+							 <td>同步完成</td>
+							 <td>3小时前</td>
+							 <td class="action-box">
+								 <a class="action-button set-layout">设置</a>
+								 <a class="action-button del-layout">删除</a>
+							 </td>
+						 </tr>
+						 <tr>
+							 <td class="name"><img src="img/dark/type-icon4.png"><span>天气数据</span></td>
+							 <td>同步完成</td>
+							 <td>3小时前</td>
+							 <td class="action-box">
+								 <a class="action-button set-layout">设置</a>
+								 <a class="action-button del-layout">删除</a>
+							 </td>
+						 </tr>
+						 <tr>
+							 <td class="name"><img src="img/dark/type-icon5.png"><span>移民应用排名数据</span></td>
+							 <td>同步完成</td>
+							 <td>3小时前</td>
+							 <td class="action-box">
+								 <a class="action-button set-layout">设置</a>
+								 <a class="action-button del-layout">删除</a>
+							 </td>
+						 </tr>
+						 <tr>
+							 <td class="name"><img src="img/dark/type-icon6.png"><span>本地生活数据</span></td>
+							 <td>同步完成</td>
+							 <td>3小时前</td>
+							 <td class="action-box">
+								 <a class="action-button set-layout">设置</a>
+								 <a class="action-button del-layout">删除</a>
+							 </td>
+						 </tr>
+						 <tr>
+							 <td class="name"><img src="img/dark/type-icon7.png"><span>地理区域数据</span></td>
+							 <td>同步完成</td>
+							 <td>3小时前</td>
+							 <td class="action-box">
+								 <a class="action-button set-layout">设置</a>
+								 <a class="action-button del-layout">删除</a>
+							 </td>
+						 </tr>
+						 <tr>
+							 <td class="name"><img src="img/dark/type-icon8.png"><span>农副产品价格数据</span></td>
+							 <td>同步完成</td>
+							 <td>3小时前</td>
+							 <td class="action-box">
+								 <a class="action-button set-layout">设置</a>
+								 <a class="action-button del-layout">删除</a>
+							 </td>
+						 </tr>
+						 </tbody>
+					 </table>
+				</div>
+				<!--数据源设置1 开始-->
+				<div class="Mlayer_4 data-demo-size data-set-layout"  id="data-set-layout-1">
+					<h5 class="Mlayer_4_h">数据源设置<span class="Mlayer_4_gb"></span></h5>
+					<div class="data-layout-content">
+							<ul class="left-item">
+								<li class="li1 active"><span>连接配置</span></li>
+								<li class="li2"><span>数据表</span></li>
+								<li class="li3"><span>高级配置</span></li>
+							</ul>
+
+							<div class="setting set1 show">
+								<div class="item">
+									<span><i class="need">*</i>服务器:</span>
+									<input type="text" value="192.168.8.180" class="ip-input-width">
+									<input type="text" value="3308" class="port-input-width">
+								</div>
+								<div class="item">
+									<span><i class="need">*</i>用户名:</span>
+									<input type="text" value=""  placeholder="请输入用户名">
+								</div>
+								<div class="item">
+									<span><i class="need">*</i>密码:</span>
+									<input type="text" value=""  placeholder="请输入密码">
+								</div>
+								<div class="item">
+									<span><i class="need">*</i>数据库:</span>
+									<span class="dbname">datadb</span>
+									<input type="button" value="测试数据">
+								</div>
+								<div class="item">
+									<span><i class="need">*</i>数据源状态:</span>
+									<a class="sx_xq_tj_a on">启用</a>
+									<a class="sx_xq_tj_a ">停用</a>
+									<input type="hidden" name="" id="" value="1">
+								</div>
+							</div>
+							<!--数据表设置 开始 -->
+						<div class="setting set2">
+							<div class="item2">
+								<p><input type="text" value="" placeholder="输入数据表关键字搜索" class="input-style search-table"></p>
+							</div>
+							<div class="item2">
+								<div class="checkbox-item sz_xq">
+									<div class="show-box">
+										<label><input type="checkbox" name="xszd" value="" class="allSelected" ><i></i> <span>全部</span></label>
+									</div>
+									<div class="show-box">
+										<label><input type="checkbox" name="xszd" value=""><i></i> <span>db1</span></label>
+										<a class="show-table" href="数据源-mysql-数据预览.html" target="_blank">预览</a>
+									</div>
+									<div class="show-box">
+										<label><input type="checkbox" name="xszd" value=""><i></i> <span>db2</span></label>
+										<a class="show-table" href="数据源-mysql-数据预览.html" target="_blank">预览</a>
+									</div>
+									<div class="show-box">
+										<label><input type="checkbox" name="xszd" value=""><i></i> <span>db3</span></label>
+										<a class="show-table" href="数据源-mysql-数据预览.html" target="_blank">预览</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--数据表设置 结束 -->
+						<!--高级配置 开始 -->
+						<div class="setting set3">
+							<div class="item data-name">
+								<span><i class="need">*</i>数据源名称:</span>
+								<span class="overflow-ellipsis">网站流量统计</span>
+							</div>
+							<div class="item">
+								<span>分类标签:</span>
+								<input type="text" value=""  placeholder="用于分类、搜索的自定义标签" class="search">
+							</div>
+							<div class="item item-textarea">
+								<span><i class="need">*</i>数据源备注:</span>
+								<textarea placeholder="请输入数据源备注"></textarea>
+							</div>
+						</div>
+						<!--高级配置 结束 -->
+					</div>
+					<div class="Mlayer_4_bottAll">
+						<a id='isxingjianwenjianjia' class="blue">确定</a>
+						<a class='M4quxiao'>取消</a>
+					</div>
+				</div>
+				<!--数据源设置1 结束-->
+				<!--删除提示框 开始-->
+				<div class="Mlayer_4 Mlayer_4_400" id="del-db">
+					<h5 class="Mlayer_4_h">提示<span class="Mlayer_4_gb"></span></h5>
+					<div class="Mlayer_4_box text_c">
+						<p class="Mlayer_p">
+							<img src="img/dark/data/yw.png" class="data-warning-img">
+							<span class="data-warning-text">你确定要删除数据库:testDB?</span>
+						</p>
+					</div>
+					<div class="Mlayer_4_bottAll">
+						<a id='isxingjianwenjianjia' class="blue">确定</a>
+						<a class='M4quxiao'>取消</a>
+					</div>
+				</div>
+				<!--删除提示框 结束-->
+			</section>
+		</wrap>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/Mbase.js"></script>
+		<script type="text/javascript" src="js/jquery.gridster.min.js"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script src="js/inside.js" type="text/javascript"></script>
+		<script src="js/data.js" type="text/javascript"></script>
+	</body>
+
+</html>

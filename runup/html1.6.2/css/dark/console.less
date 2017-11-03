@@ -1,0 +1,412 @@
+@import url("less");
+.console-section {
+    height: ~'calc(100% - 71px)';
+}
+
+.console-section * {
+    box-sizing: border-box;
+}
+
+.console-nav {
+    width: 260px;
+    height: 100%;
+    padding-top: 40px;
+    background-color: @PanelBg;
+    a {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 40px;
+        color: @SecondaryText;
+        font-size: 18px;
+        vertical-align: middle;
+        i {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+            background: url(../../img/common/console-nav.png) 0 0 no-repeat;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+        &.control i {
+            background-position: 0 0;
+        }
+        &.buy i {
+            background-position: 0 -1em;
+        }
+        &.expense i {
+            background-position: 0 -2em;
+        }
+        &:hover,
+        &.action {
+            background-color: @BackBg;
+            color: @focal;
+            i {
+                background-position: -1em 0;
+            }
+            &.control i {
+                background-position: -1em 0;
+            }
+            &.buy i {
+                background-position: -1em -1em;
+            }
+            &.expense i {
+                background-position: -1em -2em;
+            }
+        }
+    }
+}
+
+.console-content {
+    margin-left: 260px;
+    height: 100%;
+    overflow: auto;
+    background-color: @BackBg;
+}
+
+.instant-M {
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    background-image:@TipTitleBg;
+    font-size: 16px;
+    color: @SecondaryText;
+    vertical-align: middle;
+    .purchase-a {
+        display: inline-block;
+        width: 80px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 3px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 14px;
+        color: #FFFFFF;
+        background-color: rgb(68, 136, 238);
+        margin-bottom: 6px;
+        margin-left: 20px;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.console-xq {
+    margin: 24px;
+    height: ~'calc(100% - 100px)';
+    background-color: @PanelBg;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.console-xq-d {
+    float: left;
+    width: 25%;
+    height: 100%;
+    padding-top: 44px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    h4 {
+        width: 110px;
+        border-bottom: 2px solid #4d5265;
+        font-size: 18px;
+        padding-bottom: 10px;
+        line-height: 1;
+        color: @SecondaryText;
+    }
+    .tu {
+        max-width: 260px;
+        height: 260px;
+        margin-left: auto;
+        margin-right: auto;
+        background: url(../../img/common/progress-1.png) center no-repeat;
+        background-size: 100% auto;
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .tu-1 {
+        background: url(../../img/common/progress-1.png) center no-repeat;
+        background-size: 100% auto;
+    }
+    .tu-2 {
+        background: url(../../img/common/progress-2.png) center no-repeat;
+        background-size: 100% auto;
+    }
+    .tu-3 {
+        background: url(../../img/common/progress-3.png) center no-repeat;
+        background-size: 100% auto;
+    }
+    .tu-4 {
+        background: url(../../img/common/progress-4.png) center no-repeat;
+        background-size: 100% auto;
+    }
+    .vertical {
+        height: ~'calc(100% - 30px)';
+    }
+    .vertical-d {
+        width: 100%;
+    }
+    h3 {
+        line-height: 64px;
+        text-align: center;
+        color: @ConventionalText;
+        &:nth-of-type(1) {
+            margin-top: 40px;
+        }
+        i {
+            font-size: 24px;
+            width: 100px;
+            display: inline-block;
+            text-align: right;
+        }
+        span {
+            font-size: 28px;
+            width: 100px;
+            display: inline-block;
+            text-align: left;
+        }
+        @media only screen and (max-height: 850px) {
+            line-height: 44px;
+            &:nth-of-type(1) {
+                margin-top: 0px;
+            }
+        }
+    }
+}
+
+.console-xq-hr {
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: -1px;
+    width: 1px;
+    height: ~'calc(100% - 100px)';
+    background-color: #4d5265;
+}
+
+.progress {
+    fill: none;
+    stroke-width: 24px;
+    stroke-linecap: round;
+    stroke-dasharray: 654px;
+    stroke-dashoffset: 327px;
+    transform-origin: 130px 130px;
+    transform: rotate(-90deg);
+}
+
+.tu-4 .progress {
+    transform: rotate(-45deg);
+}
+
+.dot {
+    stroke: none;
+    fill: #ffffff;
+}
+
+.buy-xq-d {
+    width: 100%;
+    .vertical-d {
+        width: 100%;
+        height: 100%;
+    }
+    table {
+        width: ~'calc(100% - 92px)';
+        height: ~'calc(100% - 126px)';
+        margin-left: 46px;
+        font-size: 16px;
+        color: @ConventionalText;
+        text-align: center;
+    }
+    .thead-tr {
+        height: 100px;
+    }
+    .tfoot-tr {
+        height: 50px;
+    }
+    .th-hr,
+    .td-hr {
+        width: 14px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    th,
+    td {
+        border-left: 1px solid @AltText;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .border-r {
+        border-right: 1px solid @AltText;
+    }
+    .border-b {
+        border-bottom: 1px solid @AltText;
+    }
+    .border-n {
+        border: none;
+    }
+    .border-t {
+        border-top: 1px solid @AltText;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .thead-tr th {
+        font-size: 18px;
+        color: @ConventionalText;
+        font-weight: normal;
+    }
+    .thead-th-1 {
+        border: none;
+        background: url(../../img/common/thead-1.png) no-repeat;
+        background-size: 100% 100%;
+        color: #FFFFFF !important;
+    }
+    .thead-th-2 {
+        border: none;
+        background: url(../../img/common/thead-2.png) no-repeat;
+        background-size: 100% 100%;
+        color: #FFFFFF !important;
+    }
+    .thead-th-3 {
+        border: none;
+        background: url(../../img/common/thead-3.png) no-repeat;
+        background-size: 100% 100%;
+        color: #FFFFFF !important;
+    }
+    .thead-th-4 {
+        border: none;
+        background: url(../../img/common/thead-4.png) no-repeat;
+        background-size: 100% 100%;
+        color: #FFFFFF !important;
+    }
+    .thead-th-5 {
+        border: none;
+        background: url(../../img/common/thead-5.png) no-repeat;
+        background-size: 100% 100%;
+        color: #FFFFFF !important;
+    }
+    i {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        line-height: 16px;
+        margin: 10px;
+        margin-top: 0;
+        border-radius: 8px;
+        background-color: #4488ee;
+        color: #FFFFFF;
+        cursor: pointer;
+        &.disabled {
+            background-color: #d9d9d9;
+            cursor: not-allowed;
+        }
+    }
+    .tiao {
+        font-size: 14px;
+        color: @SecondaryText;
+    }
+    .total {
+        font-size: 18px;
+    }
+    /*xxx*/
+    .pay {
+        padding-top: 45px;
+        padding-bottom: 45px;
+        a {
+            border-radius: 3px;
+            width: 150px;
+            height: 50px;
+            margin-left: 24px;
+        }
+        .zfb {
+            background: url(../../img/common/zhifu.png) no-repeat;
+        }
+        .wx {
+            background: url(../../img/common/wechart.png) no-repeat;
+        }
+    }
+}
+
+.expense-xq-d {
+    width: 100%;
+    .vertical-d {
+        width: 100%;
+        height: 100%;
+    }
+    table {
+        width: ~'calc(100% - 1px)';
+        font-size: 16px;
+        color: @ConventionalText;
+    }
+    .thead-d {
+        width: ~'calc(100% - 92px)';
+        height: 46px;
+        margin-left: 46px;
+        overflow: hidden;
+    }
+    .tbody-d {
+        width: ~'calc(100% - 92px)';
+        height: ~'calc(100% - 44px)';
+        margin-left: 46px;
+        table {
+            margin-top: -46px;
+        }
+    }
+    .thead-r {
+        height: 46px !important;
+        td {
+            border: none;
+            background-color: @TableHeader !important;
+            border-right: 1px solid @BackBg;
+            vertical-align: middle;
+            &:nth-last-of-type(1) {
+                border-color: @BackBg;
+            }
+        }
+        i {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-left: -24px;
+            background: url(../../img/common/expense-ioc.png) 0 0 no-repeat;
+            font-size: 24px;
+            vertical-align: middle;
+            margin-bottom: 2px;
+        }
+        .thead-i-1 {
+            background-position: 0 0;
+        }
+        .thead-i-2 {
+            background-position: 0 -1em;
+        }
+        .thead-i-3 {
+            background-position: 0 -2em;
+        }
+        .thead-i-4 {
+            background-position: 0 -3em;
+        }
+        .thead-i-5 {
+            background-position: 0 -4em;
+        }
+    }
+    tr {
+        height: 53px;
+    }
+    td {
+        border: 1px solid @BackBg;
+        padding-left: 44px;
+    }
+    tr:nth-last-of-type(odd) {
+        td {
+            background-color: @TableDark;
+        }
+    }
+    tr:nth-last-of-type(even) {
+        td {
+            background-color: @TableLight;
+        }
+    }
+}

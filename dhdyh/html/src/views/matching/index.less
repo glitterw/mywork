@@ -1,0 +1,82 @@
+body {
+    background-color: #ebebeb;
+}
+
+@import url("../../assets/styles/less");
+.matching {
+    //display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    .swiperList {
+        height: 4.20rem;
+    }
+    .vux-slider>.vux-indicator>a>.vux-icon-dot,
+    .vux-slider .vux-indicator-right>a>.vux-icon-dot {
+        width: 0.14rem;
+        height: 0.14rem;
+        border-width: 1px;
+        border-color: rgb(255, 255, 255);
+        border-style: solid;
+        border-radius: 50%;
+        opacity: 0.502;
+        background-color: transparent;
+    }
+    .vux-slider>.vux-indicator>a>.vux-icon-dot.active,
+    .vux-slider .vux-indicator-right>a>.vux-icon-dot.active {
+        background-color: rgb(255, 255, 255);
+    }
+    .vux-slider>.vux-indicator>a,
+    .vux-slider .vux-indicator-right>a {
+        margin-left: 10px;
+    }
+    .nav_2 {
+        display: flex;
+        .nav_d {
+            flex: 1;
+            width: auto;
+            background-color: @colorf;
+            a {
+                display: block;
+                width: 100%;
+                color: @color3;
+                text-align: center;
+                .font26;
+                &:hover,
+                &:active {
+                    opacity: 0.7;
+                }
+                &.search {
+                    background-size: 0.70rem 0.70rem;
+                }
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+                span {
+                    display: block;
+                    padding-top: 0.22rem;
+                    padding-bottom: 0.30rem;
+                    line-height: 1;
+                }
+            }
+            &:nth-of-type(odd) a {
+                background-color: @colorf;
+            }
+            &:nth-of-type(even) a {
+                background-color: #f5f5f5;
+            }
+        }
+        .nav_line {
+            width: 1px;
+            background-color: #ebebeb;
+        }
+    }
+    .matching_list {
+        height: 100vh;
+    }
+}

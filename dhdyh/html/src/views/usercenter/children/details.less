@@ -1,0 +1,163 @@
+@import url("../../../assets/styles/less");
+.details {
+    padding-bottom: 1.00rem;
+    .matching_list_xq {
+        &:after {
+            display: none;
+        }
+    }
+    .time {
+        padding-left: 0.28rem;
+        font-size: 0.24rem;
+        color: @color9;
+        line-height: 0.90rem;
+        vertical-align: middle;
+        background: @colorf;
+        margin-top: -0.3rem;
+        position: relative;
+    }
+    .time2 {
+        padding-left: 0.28rem;
+        font-size: 0.24rem;
+        color: @color9;
+        vertical-align: middle;
+        background: @colorf;
+        position: relative;
+        padding-bottom: 0.33rem;
+        margin-top: -0.20rem;
+    }
+    .time_d {
+        margin-bottom: 0.20rem;
+        position: relative;
+    }
+    .details_xq {
+        padding: 0.16rem 0.32rem;
+        margin-bottom: 0.20rem;
+        background-color: @colorf;
+        .name_input {
+            display: flex;
+            .name {
+                display: inline-block;
+                width: 5em;
+                padding-right: 0.5em;
+                .font32;
+                height: 0.60rem;
+                line-height: 0.60rem;
+            }
+            ._input {
+                flex: 1;
+                height: 0.60rem;
+                line-height: 0.60rem;
+                .font28;
+                color: @colorc;
+            }
+        }
+        .name_textarea {
+            .name {
+                display: inline-block;
+                width: 5em;
+                padding-right: 0.5em;
+                .font32;
+                height: 0.60rem;
+                line-height: 0.60rem;
+            }
+            ._textarea {
+                display: block;
+                width: 100%;
+                line-height: 0.35rem;
+                .font28;
+                color: @color6;
+                padding-top: 0.16rem;
+                padding-bottom: 0.36rem;
+            }
+        }
+        .name_fileImage {
+            .name {
+                width: 5em;
+                padding-right: 0.5em;
+                .font32;
+                height: 0.60rem;
+                line-height: 0.60rem;
+            }
+            .fileImage_w {
+                display: block;
+                padding-bottom: 0.80rem;
+            }
+            ._fileImage_div {
+                width: 1.44rem;
+                height: 1.44rem;
+                margin-right: 0.36rem;
+                margin-top: 0.30rem;
+                border: 1px solid @color9;
+                background: center no-repeat;
+                background-size: cover;
+                position: relative;
+                &:nth-child(4n) {
+                    margin-right: 0;
+                }
+            }
+        }
+        .name_reply {
+            .name {
+                display: inline-block;
+                width: 5em;
+                padding-right: 0.5em;
+                .font32;
+                height: 0.60rem;
+                line-height: 0.60rem;
+            }
+            ._textarea {
+                display: block;
+                width: 100%;
+                line-height: 0.35rem;
+                .font28;
+                color: #2e3478;
+                padding-top: 0.16rem;
+                padding-bottom: 0.36rem;
+                span:last-child i {
+                    display: none;
+                }
+            }
+        }
+    }
+    .scqx {
+        display: block;
+        width: 0.65rem;
+        height: 0.57rem;
+        position: absolute;
+        right: 0.24rem;
+        bottom: 0.40rem;
+        &.sc {
+            background: url(./sc.png) no-repeat;
+            .bg100;
+        }
+        &.qx {
+            background: url(./qx.png) no-repeat;
+            .bg100;
+        }
+    }
+    ._button {
+        width: 100%;
+        height: 1.0rem;
+        line-height: 1.0rem;
+        .font36;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        border: none;
+        background: #15aafb;
+        color: @colorf;
+        letter-spacing: 0.2em;
+        &.no {
+            background: @color9;
+        }
+    }
+    .margin_bottom {
+        &:after {
+            content: '';
+            display: block;
+            height: 0.20rem;
+            background-color: #ebebeb;
+        }
+    }
+}

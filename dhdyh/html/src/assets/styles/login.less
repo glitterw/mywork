@@ -1,0 +1,121 @@
+*{padding: 0;margin: 0;box-sizing: border-box;}
+input,textarea,button{border: 0 none;outline: none;}
+a{text-decoration: none;}
+.fl{float: left;}
+.fr{float: right;}
+body{font-size: 14px;background: #fff!important;}
+
+@themes: '../images';
+@loginBlue: #15aafb;
+@sentBlue: #eef9ff;
+@white: #fff;
+@gray: #ddd;
+@basicfontSize: .36rem;
+
+.button-default() {
+    background: @gray;
+    color: @white;
+    border: 1px solid @gray;
+}
+.button-sent() {
+    background: @sentBlue;
+    color: @loginBlue;
+    border:1px solid @loginBlue;
+}
+
+.login-layout{
+  padding: .3rem .59rem;
+  .logo{
+    width: 4.42rem;
+    height: .74rem;
+    margin: 1.14rem auto .92rem;
+    background: url('@{themes}/logo.svg') center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    text-indent: -9999px;
+  }
+
+  .login-button{
+    height: .96rem;
+    width: 100%;
+    font-size: @basicfontSize;
+    line-height: .96rem;
+    border-radius: .2rem;
+    background: @loginBlue;
+    color: @white;
+    display: block;
+  }
+  .sent-sms{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    font-size: .28rem;
+    height: .58rem;
+    line-height: .58rem;
+    padding: 0 .16rem;
+    border-radius: .1rem;
+    transform: translateY(-50%);
+    .button-default();
+    &.sentSmsOk{
+      .button-sent();
+    }
+  }
+  .login-tips{
+    margin-top: .26rem;
+    overflow: hidden;
+    a{
+      font-size: .28rem;
+      color: #666;
+      &.to-join{
+        float: left;
+      }
+      &.to-forget{
+        float: right;
+      }
+    }
+
+  }
+
+}
+
+.login-form{
+
+  .login-items{
+    position: relative;
+    margin-bottom: .32rem;
+    height: .88rem;
+    padding: 0 .68rem;
+    border-bottom: 1px solid #d2d2d2;
+    &:last-child{
+      margin-bottom: .62rem;
+    }
+    i{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: .68rem;
+      font-size: .38rem;
+      line-height: .88rem;
+      color: #999;
+      text-align: center;
+      display: block;
+    }
+    .login-text{
+      font-size: .32rem;
+      line-height: .88rem;
+      height: 100%;
+      width: 100%;
+      color: #a6a6a6;
+      &:-webkit-autofill {
+        box-shadow: 0 0 0 .88rem @white inset;
+      }
+    }
+  }
+}
+
+.router-fade-enter-active, .router-fade-leave-active {
+  transition: opacity .25s
+}
+.router-fade-enter, .router-fade-leave-to{
+  opacity: 0
+}

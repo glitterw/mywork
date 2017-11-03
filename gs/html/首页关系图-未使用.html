@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+		<link href="mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" />
+		<script>
+			if(document.documentElement.clientWidth < 760) {
+				document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 7.60 + "px";
+			} else {
+				document.getElementsByTagName('html')[0].style.fontSize = "100px";
+			} //设计图在小于760px的屏幕上,100px=1rem;
+			document.createElement("header");
+			document.createElement("footer");
+			document.createElement("nav");
+			document.createElement("section");
+			document.createElement("wrap");
+			document.createElement("data");
+		</script>
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+		<title>东湖大数据</title>
+		<meta name="Keywords" content="东湖大数据,全媒体融合云平台">
+		<meta name="Description" content="东湖大数据,全媒体融合云平台">
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+	</head>
+
+	<body>
+		<wrap>
+			<div class="fixed fixed_1 mengceng">
+				固定定位
+			</div>
+			<div class="wrap_box">
+				<style type="text/css">
+					body {
+						background-color: #005083;
+					}
+					#gxt_svg {
+						width: 100%;
+						height: 100%;
+						cursor: default;
+					}
+					
+					#svg_centre1 {
+						transform: translate(410px, 540px);
+					}
+					
+					.circle_8 {
+						r: 8;
+						fill: #FFFFFF;
+						stroke: #009fff;
+						stroke-width: 2;
+						cursor: pointer;
+					}
+					
+					.circle_26 {
+						r: 26;
+					}
+					
+					.path_8 {
+						fill: none;
+						stroke: #99b9cd;
+						stroke-width: 1;
+						stroke-dasharray: 4, 1;
+					}
+					
+					.path_8:nth-of-type(1) {
+						d: path('M 0 0 q 50 0 100 0');
+					}
+					
+					.path_8:nth-of-type(2) {
+						d: path('M 0 0 q 50 -40 100 0');
+					}
+					
+					.path_8:nth-of-type(3) {
+						d: path('M 0 0 q 50 40 100 0');
+					}
+					
+					.path_8:nth-of-type(4) {
+						d: path('M 0 0 q 50 -20 100 0');
+					}
+					
+					.path_8:nth-of-type(5) {
+						d: path('M 0 0 q 50 20 100 0');
+					}
+					
+					.path_8:nth-of-type(6) {
+						d: path('M 0 0 q 50 -60 100 0');
+					}
+					
+					.path_8:nth-of-type(7) {
+						d: path('M 0 0 q 50 60 100 0');
+					}
+					
+					.path_8:nth-of-type(8) {
+						d: path('M 0 0 q 50 -80 100 0');
+					}
+					
+					.path_8:nth-of-type(9) {
+						d: path('M 0 0 q 50 80 100 0');
+					}
+					
+					.text_8 {
+						text-anchor: start;
+						fill: #009fff;
+						cursor: pointer;
+						font-size: 16px;
+						font-weight: bold;
+					}
+					
+					.circle_8:hover+.text_8 {
+						fill: #FFFFFF;
+						stroke: #009fff;
+					}
+					
+					.text_8:hover {
+						fill: #FFFFFF;
+						font-weight: bold;
+						stroke: #009fff;
+					}
+					
+					.Gwidth {
+						transform: translate(20px, 0);
+					}
+				</style>
+				<div class="content_D">
+					<div id="gxt_svg">
+						<svg width="100%" height="100%">
+							<g id="svg_centre1">
+								<g style="display: none;">
+									<g class="centre_g"></g>
+									<g class="Gwidth"></g>
+									<path class="path_8" />
+									<g class="circle_text_8">
+										<circle class="circle_8"></circle>
+										<text dx="8" dy="6" class="text_8">MSH2</text>
+									</g>
+									<g class="Gcircle_26">
+										<circle class="circle_8 circle_26"></circle>
+									</g>
+								</g>
+
+							</g>
+							<g id="svg_centre2">
+
+							</g>
+							<!--L直线C三次贝塞尔曲线Q二次贝塞尔曲线A椭圆
+							小写为相对位置-->
+							<!--<path class="path_8" d="M0,0 l200,0"/>-->
+							<!--<path class="path_8" d="M起点x,起点y l终点x,终点y"></path>-->
+							<!--<path class="path_8" d="M0,20 c3,65 65,8 200,0" />-->
+							<!--<path class="path_8" d="M0,0 c第一个斜率点 第二个斜率点 终点"/>-->
+							<!--<path class="path_8" d="M0 40 q100,100 200,0" />-->
+							<!--<path class="path_8" d="M0 0 q斜率点 终点"/>-->
+							<!--<path class="path_8" d="M0,60 a100,100 0 0,0 200,0" />-->
+							<!--<path class="path_8" d="M0,0 ax轴半径,y轴半径(当实际椭圆大于这个值时表现为比例) 椭圆与x轴夹角(当绘制的是椭圆且有效,) 大圆还是小圆,顺时针还是逆时针 终点X,终点Y"/>-->
+							<!--<path class="path_8" d="M0,80 a100,50 10 0,0 200,0" />-->
+							<!--<path class="path_8" d="M0 120 a100,100 0 0,0 100,100"/>-->
+							<!--<path class="path_8" d="M0 140 a100,50 10 0,0 100,50"/>-->
+
+						</svg>
+					</div>
+				</div>
+			</div>
+		</wrap>
+		<!--left左浮动,right右浮动,autoH清浮动一,float_clear清浮动二,center子级水平居中,vertical子级垂直居中,opacity背景色半透明,fixed固定定位-->
+		<!--[if lte IE 6]><i id="lteIE6" style="display:none;"></i><![endif]-->
+		<!--[if lte IE 7]><i id="lteIE7" style="display:none;"></i><![endif]-->
+		<!--[if lte IE 8]><i id="lteIE8" style="display:none;"></i><script type="text/javascript" src="js/IE678bug.js"></script><![endif]-->
+		<!--[if IE 9]><style>.opacity{filter:Alpha(opacity=100);}/*不写RGBA和opacity都生效,透明会加倍*/</style><![endif]-->
+		<!--[if IE 9]><style>.flex_box{width:100%;display:table;} .flex_item{display:table-cell;}</style><![endif]-->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+		<script type="text/javascript" src="laypage/laypage.js"></script>
+		<script type="text/javascript" src="laytpl/laytpl.js"></script>
+		<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" src="js/Mbase.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var svg1Data = {
+					mian: '企业名',
+					list: [{
+						name: '关系企业名',
+						chainId:'klqy_1',
+						chain: [{
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chainId:'klqy_2',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}]
+				};
+
+				var svg2Data = {
+					mian: '企业名',
+					list: [{
+						name: '关系企业名2',
+						chainId:'klqy_1',
+						chain: [{
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chainId:'klqy_2',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}, {
+						name: '关系企业名',
+						chain: [{
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}, {
+							chainName: '关系链的名称'
+						}]
+					}]
+				};
+
+				var winW = $(window).width();
+				var winH = $(window).height();
+				var svg_centre1X=winW * 0.5 - 550;
+				var svg_centre1Y=winH * 0.5;
+				var svg_centre2X=winW * 0.5 + 300;
+				var svg_centre2Y=winH * 0.5 + 200;
+				
+				$('#svg_centre1').css('transform', 'translate(' + svg_centre1X + 'px,' + svg_centre1Y + 'px)');
+				$('#svg_centre2').css('transform', 'translate(' + svg_centre2X + 'px,' + svg_centre2Y + 'px)');
+
+				var svg1DataFn = function(dom, data) {
+					var centre_g = $(".centre_g").eq(0);
+					var Gwidth = $(".Gwidth").eq(0);
+					var path_8 = $(".path_8").eq(0);
+					var circle_text_8 = $(".circle_text_8").eq(0);
+					var Gcircle_26 = $(".Gcircle_26").eq(0);
+					for(var i = 0, len = data.list.length; i < len; i++) {
+						var this_centre_g = centre_g.clone().appendTo($(dom));
+						var this_Gwidth = Gwidth.clone().appendTo(this_centre_g);
+						for(var j = 0, lenj = data.list[i].chain.length; j < lenj; j++) {
+							path_8.html(data.list[i].chain[j].chainName);
+							this_Gwidth.append(path_8.clone());
+						}
+						var this_circle_text_8 = circle_text_8.clone().appendTo(this_Gwidth);
+						this_circle_text_8.find('.text_8').html(data.list[i].name);
+						if(data.list[i].chainId){
+							this_circle_text_8.find('.circle_8').attr('id',data.list[i].chainId);
+						};
+					}
+					$(dom).append(Gcircle_26.clone());
+				};
+				svg1DataFn('#svg_centre1', svg1Data);
+				svg1DataFn('#svg_centre2', svg2Data);
+				$('#svg_centre1 .centre_g').each(function() {
+					var siblS = $(this).siblings().size() - 1;
+					var thisIndex = $(this).index();
+					var iDeg = 360 / siblS;
+					var randomN = -30 + Math.random() * 10;
+					$(this).css("transform", "rotate(" + (iDeg * thisIndex + randomN) + "deg)");
+					$(this).find('text').css("transform", "rotate(" + (-iDeg * thisIndex - randomN) + "deg)");
+					$('#svg_centre1 .Gwidth').each(function() {
+						var childS = $(this).children().size();
+						var Gwidth = 5 / childS + 1.3 + Math.random() * 0.5;
+						var GwidthPx = Gwidth * 100;
+						$(this).find('.path_8').css('transform', 'scaleX(' + Gwidth + ')');
+						$(this).find('.circle_text_8').css('transform', 'translate(' + GwidthPx + 'px,0)');
+					})
+				});
+				$('#svg_centre2 .centre_g').each(function() {
+					var siblS = $(this).siblings().size() - 1;
+					var thisIndex = $(this).index();
+					var iDeg = 360 / siblS;
+					var randomN = -150 + Math.random() * 10;
+					$(this).css("transform", "rotate(" + (-iDeg * thisIndex + randomN) + "deg)");
+					$(this).find('text').css("transform", "rotate(" + (iDeg * thisIndex - randomN) + "deg)");
+					$('#svg_centre2 .Gwidth').each(function() {
+						var childS = $(this).children().size();
+						var Gwidth = 5 / childS +1 + Math.random() * 0.5;
+						var GwidthPx = Gwidth * 100;
+						$(this).find('.path_8').css('transform', 'scaleX(' + Gwidth + ')');
+						$(this).find('.circle_text_8').css('transform', 'translate(' + GwidthPx + 'px,0)');
+					})
+				});
+				
+				var centre1_klqy=$("#svg_centre1 .circle_8[id^='klqy_']");
+				var centre2_klqy=$("#svg_centre2 .circle_8[id^='klqy_']");
+				for(var i=0,len=centre1_klqy.length;i<len;i++){
+					for(var j=0,lenj=centre2_klqy.length;j<lenj;j++){
+						if(centre1_klqy[i].id==centre2_klqy[j].id){
+							var klqyX=centre1_klqy.eq(i).offset().left+6;
+							var klqyY=centre1_klqy.eq(i).offset().top+6;
+							var klqyX2=centre2_klqy.eq(j).offset().left+6;
+							var klqyY2=centre2_klqy.eq(j).offset().top+6;
+							var pathML="path('M"+klqyX+' '+klqyY+'L'+klqyX2+' '+klqyY2+"')";
+							var stroke_dasharray= "8, 2";
+							var path_8 = $(".path_8").eq(0);
+							path_8.clone().prependTo('#gxt_svg svg').css({'d':pathML,'stroke-dasharray':stroke_dasharray});
+						}
+					}
+				}
+				
+		$('#svg_centre1 .circle_8').not('.circle_26').mousedown(function (ev) {
+			var _this=$(this);
+			$(window).mousemove(function (ev) {
+				SjzTzFn(ev);
+			});
+			$(window).mouseup(function () {
+				SjzTzFn2();
+			});
+			var pvrPageX = ev.pageX;
+			var pvrPageY = ev.pageY;
+			var SjzTzFn = function (ev) {
+				var PageX_Ox=ev.pageX-svg_centre1X;
+				var PageY_Oy=ev.pageY-svg_centre1Y;
+				var pageRotate=Math.atan(PageY_Oy/PageX_Ox)/Math.PI*180;
+				if(PageX_Ox<0){pageRotate=pageRotate+180;}
+				var _pageRotate=-pageRotate;
+				var pageTranslate=Math.sqrt(PageX_Ox*PageX_Ox+PageY_Oy*PageY_Oy)-20;
+				var pageScaleX=pageTranslate/100;
+
+				_this.parents('.centre_g').css("transform","rotate("+pageRotate+"deg)");
+				_this.parents('.centre_g').find('.text_8').css("transform","rotate("+_pageRotate+"deg)");
+				_this.parents('.centre_g').find('.path_8').css("transform","scaleX("+pageScaleX+")");
+				_this.parents('.centre_g').find('.circle_text_8').css("transform","translateX("+pageTranslate+"px)");		
+				pvrPageX = ev.pageX;
+				pvrPageY = ev.pageY;
+			};
+			var SjzTzFn2 = function() {
+				SjzTzFn=SjzTzFn2=function(){};
+			}
+		});
+		$('#svg_centre2 .circle_8').not('.circle_26').mousedown(function (ev) {
+			var _this=$(this);
+			$(window).mousemove(function (ev) {
+				SjzTzFn(ev);
+			});
+			$(window).mouseup(function () {
+				SjzTzFn2();
+			});
+			var pvrPageX = ev.pageX;
+			var pvrPageY = ev.pageY;
+			var SjzTzFn = function (ev) {
+				var PageX_Ox=ev.pageX-svg_centre2X;
+				var PageY_Oy=ev.pageY-svg_centre2Y;
+				var pageRotate=Math.atan(PageY_Oy/PageX_Ox)/Math.PI*180;
+				if(PageX_Ox<0){pageRotate=pageRotate+180;}
+				var _pageRotate=-pageRotate;
+				var pageTranslate=Math.sqrt(PageX_Ox*PageX_Ox+PageY_Oy*PageY_Oy)-20;
+				var pageScaleX=pageTranslate/100;
+
+				_this.parents('.centre_g').css("transform","rotate("+pageRotate+"deg)");
+				_this.parents('.centre_g').find('.text_8').css("transform","rotate("+_pageRotate+"deg)");
+				_this.parents('.centre_g').find('.path_8').css("transform","scaleX("+pageScaleX+")");
+				_this.parents('.centre_g').find('.circle_text_8').css("transform","translateX("+pageTranslate+"px)");		
+				pvrPageX = ev.pageX;
+				pvrPageY = ev.pageY;
+			};
+			var SjzTzFn2 = function() {
+				SjzTzFn=SjzTzFn2=function(){};
+			}
+		});
+				
+				
+			})
+		</script>
+	</body>
+
+</html>

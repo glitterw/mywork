@@ -1,0 +1,650 @@
+@charset "utf-8"
+/* CSS Document */
+
+xxxxxxxxxxxxxx {}
+
+html {
+	width: 100%;
+	height: 100%;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-perspective: 3000px;
+	perspective: 3000px;
+	overflow: hidden;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: #24262c;
+	overflow: hidden;
+}
+
+wrap {
+	width: 100%;
+	height: 100%;
+	background: url(../img/daping/daping_2_bg.jpg) center bottom no-repeat;
+	background-size: 100% auto;
+}
+
+.header_T {
+	background: url(../img/daping/header2_T.png) no-repeat;
+	width: 622px;
+	height: 73px;
+	position: absolute;
+	left: 50%;
+	margin-left: -290px;
+	top: 4.8%;
+	font-size: 0;
+}
+
+#chilizhongliang {
+	width: 390px;
+	height: 290px;
+	position: absolute;
+	left: 3.125%;
+	top: 11.48%;
+	z-index: 5;
+}
+
+#chilizhongliang h3 {
+	background: url(../img/daping/clzn.png);
+	width: 390px;
+	height: 41px;
+	box-sizing: border-box;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: bold;
+	color: #ca4735;
+	padding-left: 24px;
+	letter-spacing: 3px;
+}
+
+#chilizhongliang h3 span {
+	position: relative;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#chilizhongliang h3 span {
+		background: -webkit-linear-gradient(#e95942, #360d07);
+		background: linear-gradient(#e95942, #360d07);
+		color: transparent;
+		-webkit-background-clip: text;
+	}
+}
+
+#chilizhongliang>div {
+	background: url(../img/daping/clzn_3.png);
+	width: 390px;
+	height: 203px;
+	position: absolute;
+	left: 0;
+	top: 90px;
+	overflow: hidden;
+	transition: width 1s;
+}
+
+#chilizhongliang .xuyu {
+	font-size: 16px;
+	font-family: "Microsoft YaHei";
+	color: rgb( 156, 163, 179);
+	font-weight: bold;
+	position: absolute;
+	left: 265px;
+	top: 64.234px;
+	width: 122px;
+	text-align: center;
+}
+
+#chilizhongliang .zhongliang {
+	font-size: 24px;
+	font-family: "Arial";
+	color: rgb( 255, 255, 255);
+	font-weight: bold;
+	position: absolute;
+	left: 265px;
+	top: 92.41px;
+	width: 122px;
+	text-align: center;
+	text-shadow: 0px 0px 7px #ef5941;
+}
+
+#chilizhongliang .shenshu {
+	font-size: 16px;
+	font-family: "Arial";
+	color: rgb( 81, 88, 103);
+	font-weight: bold;
+	position: absolute;
+	left: 93px;
+	top: 5.273px;
+}
+
+#chilizhongliang .zixun {
+	font-size: 16px;
+	font-family: "Arial";
+	color: rgb( 81, 88, 103);
+	font-weight: bold;
+	position: absolute;
+	left: 123px;
+	top: 81.273px;
+}
+
+.jubao {
+	font-size: 16px;
+	font-family: "Arial";
+	color: rgb( 81, 88, 103);
+	font-weight: bold;
+	position: absolute;
+	left: 93px;
+	top: 157.273px;
+}
+
+
+/*月度变化量*/
+
+#yuedubianhualiang {
+	width: 390px;
+	height: 560px;
+	position: absolute;
+	left: 3.125%;
+	top: 43.98%;
+	z-index: 5;
+}
+
+#yuedubianhualiang h3 {
+	background: url(../img/daping/clzn.png);
+	width: 390px;
+	height: 41px;
+	box-sizing: border-box;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: bold;
+	color: #ca4735;
+	padding-left: 24px;
+	letter-spacing: 3px;
+}
+
+#yuedubianhualiang h3 span {
+	position: relative;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#yuedubianhualiang h3 span {
+		background: -webkit-linear-gradient(#e95942, #360d07);
+		background: linear-gradient(#e95942, #360d07);
+		color: transparent;
+		-webkit-background-clip: text;
+	}
+}
+
+#yuedubianhualiang .fenlei {
+	position: absolute;
+	left: 54px;
+	top: 42px;
+	height: 56px;
+}
+
+#yuedubianhualiang .fenlei h4 {
+	width: 108px;
+	padding-top: 12px;
+	line-height: 34px;
+	text-align: center;
+	font-size: 14px;
+	color: #757a89;
+	font-weight: bold;
+}
+
+#yuedubianhualiang .fenlei div {
+	position: relative;
+}
+
+#yuedubianhualiang .fenlei span {
+	display: block;
+	width: 108px;
+	padding-top: 40px;
+	padding-bottom: 35px;
+	line-height: 38px;
+	text-align: center;
+	font-size: 18px;
+	font-family: "Arial";
+	color: rgb( 255, 255, 255);
+	font-weight: bold;
+	text-shadow: 0px 0px 7px #ef5941;
+}
+
+#yuedubianhualiang .fenlei svg {
+	position: absolute;
+	left: 0;
+	top: 50px;
+}
+
+.backdrop {
+	r: 50px;
+	cy: 58px;
+	cx: 54px;
+	stroke-width: 2px;
+	stroke: #3b3f4a;
+	fill: none;
+}
+
+.backdrop2 {
+	width: 3px;
+	height: 18px;
+	y: -1px;
+	x: 53px;
+	stroke-width: 0.5px;
+	stroke: #be4e3e;
+	fill: #f1f2f2;
+}
+
+.progress1 {
+	r: 50px;
+	cy: 58px;
+	cx: 54px;
+	stroke-width: 4px;
+	stroke: #be4e3e;
+	fill: none;
+	stroke-linecap: round;
+	stroke-dasharray: 314.16px;
+	stroke-dashoffset: 314.16px;
+	animation: progressAnimation 3s linear infinite;
+	transform-origin: 50% 50%;
+	transform: rotate(-90deg);
+}
+
+.progress2 {
+	r: 50px;
+	cy: 58px;
+	cx: 54px;
+	stroke-width: 3px;
+	stroke: #f1f2f2;
+	fill: none;
+	stroke-linecap: round;
+	stroke-dasharray: 314.16px;
+	stroke-dashoffset: 314.16px;
+	animation: progressAnimation 3s linear infinite;
+	transform-origin: 50% 50%;
+	transform: rotate(-90deg);
+}
+
+#svg_shegnshu .progress1,
+#svg_shegnshu .progress2 {
+	animation-delay: -2s;
+}
+
+#svg_zixun .progress1,
+#svg_zixun .progress2 {
+	animation-delay: -1s;
+}
+
+#svg_jubao .progress1,
+#svg_jubao .progress2 {
+	animation-delay: 0s;
+}
+
+@keyframes progressAnimation {
+	from {
+		stroke-dashoffset: 314.16px;
+	}
+	to {
+		stroke-dashoffset: 628.3px;
+	}
+}
+
+#yuedubianhualiang .yuedu_shijian {
+	background: url(../img/daping/ydbh_1.png);
+	width: 28px;
+	height: 488px;
+	position: absolute;
+	left: 270px;
+	top: 74px;
+}
+
+.yuedu_shijian span {
+	display: block;
+	width: 12px;
+	height: auto;
+	font-size: 12px;
+	color: rgb( 112, 112, 112);
+}
+
+.yuedu_shijian span.on {
+	color: #fd664b;
+}
+
+.yuedu_shijian .disiji {
+	position: absolute;
+	left: -20px;
+	top: 56px;
+}
+
+.yuedu_shijian .dishanji {
+	position: absolute;
+	left: -20px;
+	top: 145px;
+}
+
+.yuedu_shijian .dierji {
+	position: absolute;
+	left: 36px;
+	top: 232px;
+}
+
+.yuedu_shijian .diyiji {
+	position: absolute;
+	left: 36px;
+	top: 318px;
+}
+
+.yuedu_shijian .yuedu {
+	background: url(../img/daping/ydbh_2.png);
+	width: 105px;
+	height: 45px;
+	position: absolute;
+	left: -84px;
+	top: 328px;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: bold;
+	color: #fd664b;
+}
+
+.yuedu_shijian .yue_1 {
+	top: 328px;
+}
+
+.yuedu_shijian .yue_2 {
+	top: 310px;
+}
+
+.yuedu_shijian .yue_3 {
+	top: 292px;
+}
+
+.yuedu_shijian .yue_4 {
+	top: 240px;
+}
+
+.yuedu_shijian .yue_5 {
+	top: 222px;
+}
+
+.yuedu_shijian .yue_6 {
+	top: 204px;
+}
+
+.yuedu_shijian .yue_7 {
+	top: 154px;
+}
+
+.yuedu_shijian .yue_8 {
+	top: 135px;
+}
+
+.yuedu_shijian .yue_9 {
+	top: 116px;
+}
+
+.yuedu_shijian .yue_10 {
+	top: 66px;
+}
+
+.yuedu_shijian .yue_11 {
+	top: 47px;
+}
+
+.yuedu_shijian .yue_12 {
+	top: 28px;
+}
+
+.yuedu_shijian .yue_transform {
+	transform: rotateY(180deg);
+	transform-origin: 101px 45px;
+}
+
+.yuedu_shijian .yue_transform i {
+	position: absolute;
+	left: auto;
+	top: auto;
+	transform: rotateY(-180deg);
+}
+
+
+/*趋势图*/
+
+#tousuqushi {
+	width: 444px;
+	height: 540px;
+	position: absolute;
+	right: 2.60%;
+	top: 11.48%;
+	z-index: 5;
+}
+
+#tousuqushi h3 {
+	background: url(../img/daping/clzn_1.png);
+	width: 444px;
+	height: 41px;
+	box-sizing: border-box;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: bold;
+	color: #ca4735;
+	padding-left: 24px;
+	letter-spacing: 3px;
+}
+
+#tousuqushi h3 span {
+	position: relative;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#tousuqushi h3 span {
+		background: -webkit-linear-gradient(#e95942, #360d07);
+		background: linear-gradient(#e95942, #360d07);
+		color: transparent;
+		-webkit-background-clip: text;
+	}
+}
+
+.qusi_d {
+	width: 459px;
+	height: 455px;
+	position: absolute;
+	left: -15px;
+	top: 80px;
+	background: url(../img/daping/qusi_1.png) 0px 55px no-repeat;
+}
+
+#qusi_svg {
+	position: absolute;
+	left: 57px;
+	top: 98px;
+}
+
+#qusi_path {
+	transition: all 1s;
+	transform: translateY(130px);
+}
+
+#qusi_path2 {
+	transition: all 1s;
+	transform: translateY(130px);
+}
+
+.qusi_d .quming {
+	width: 420px;
+	height: 314px;
+	position: absolute;
+	left: 40px;
+	top: 72px;
+	z-index: 1;
+}
+
+.qusi_d .quming a {
+	display: block;
+	float: left;
+	width: 32px;
+	height: 310px;
+	position: relative;
+}
+
+.quming em {
+	display: block;
+	width: 38px;
+	height: 16px;
+	margin-left: -4px;
+	text-align: center;
+	background: #3e3f44;
+	border: 1px solid #515258;
+	border-radius: 3px;
+	font-size: 12px;
+	color: #bbbaba;
+	position: absolute;
+}
+
+.quming span {
+	display: block;
+	width: 14px;
+	margin: 15px 9px;
+	font-size: 14px;
+	color: #707070;
+	position: absolute;
+}
+
+.qusi_d .quming a:nth-of-type(2n) em {
+	top: 0;
+}
+
+.qusi_d .quming a:nth-of-type(2n+1) em {
+	bottom: 0;
+}
+
+.qusi_d .quming a:nth-of-type(2n) span {
+	bottom: 100%;
+}
+
+.qusi_d .quming a:nth-of-type(2n+1) span {
+	top: 100%;
+}
+
+.qusi_d .quming a i {
+	width: 1px;
+	height: 342px;
+	margin-top: -16px;
+	margin-left: 15.5px;
+	background: url(../img/daping/qusi_2.png);
+	display: none;
+}
+
+.qusi_d .quming a:hover span,
+.qusi_d .quming a.on span {
+	color: #ca4735;
+}
+
+.qusi_d .quming a:hover em,
+.qusi_d .quming a.on em {
+	color: #ffffff;
+	background: -webkit-linear-gradient(left, #fc654a, #cb4735);
+	background: linear-gradient(to right, #fc654a, #cb4735);
+}
+
+.qusi_d .quming a:hover i,
+.qusi_d .quming a.on i {
+	display: block;
+}
+
+
+/*投诉圆图*/
+
+#tousuyuantu {
+	width: 444px;
+	height: 342px;
+	position: absolute;
+	right: 2.60%;
+	top: 64.26%;
+	z-index: 5;
+}
+
+#tousuyuantu h3 {
+	background: url(../img/daping/clzn_1.png);
+	width: 444px;
+	height: 41px;
+	box-sizing: border-box;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: bold;
+	color: #ca4735;
+	padding-left: 24px;
+	letter-spacing: 3px;
+}
+
+#tousuyuantu h3 span {
+	position: relative;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#tousuyuantu h3 span {
+		background: -webkit-linear-gradient(#e95942, #360d07);
+		background: linear-gradient(#e95942, #360d07);
+		color: transparent;
+		-webkit-background-clip: text;
+	}
+}
+
+#tousuyuantu .tsyt_xq h4 {
+	padding-top: 42px;
+	font-size: 14px;
+	color: #9ca3b3;
+	text-align: center;
+}
+
+#tousuyuantu .tsyt_xq i {
+	padding: 0 1em;
+}
+
+#tousuyuantu .tsyt_xq div {
+	padding-top: 14px;
+	text-align: center;
+	font-size: 0;
+}
+
+.tsyt_xq p {
+	display: inline-block;
+	width: 40px;
+	margin: 0 5px;
+}
+
+.tsyt_xq span {
+	display: block;
+	font-size: 12px;
+	color: #707070;
+}
+
+.tsyt_xq em {
+	display: block;
+	width: 38px;
+	height: 16px;
+	line-height: 16px;
+	margin-top: 5px;
+	font-size: 12px;
+	color: #bbbaba;
+	border: 1px solid #515258;
+	border-radius: 3px;
+	background-color: #3e3f44;
+}
+
+.tsyt_tu {}
+
+
+/*中心地图*/
+
+#zhongxin3D {
+	width: 1100px;
+	height: 900px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -550px;
+	margin-top: -450px;
+}

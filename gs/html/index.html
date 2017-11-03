@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+		<link href="mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" />
+		<script>
+			if(document.documentElement.clientWidth < 760) {
+				document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 7.60 + "px";
+			} else {
+				document.getElementsByTagName('html')[0].style.fontSize = "100px";
+			} //设计图在小于760px的屏幕上,100px=1rem;
+			document.createElement("header");
+			document.createElement("footer");
+			document.createElement("nav");
+			document.createElement("section");
+			document.createElement("wrap");
+			document.createElement("data");
+		</script>
+		<script>
+			var winW=document.documentElement.clientWidth;
+			var winH=document.documentElement.clientHeight;
+			var htmlDom=document.getElementsByTagName('html')[0];
+			if((winW/winH)>1.7778){
+				htmlDom.style.height="1080px";
+				htmlDom.style.width=1080*(winW/winH)+"px";
+				htmlDom.style.transform='scale('+ winH/1080 +')';
+			}else{
+				htmlDom.style.width="1920px";
+				htmlDom.style.height=1920*(winH/winW)+"px";
+				htmlDom.style.transform='scale('+ winW/1920 +')';
+			}
+		</script>
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+		<title>工商大数据</title>
+		<meta name="Keywords" content="工商大数据,工商大数据">
+		<meta name="Description" content="工商大数据,工商大数据,工商大数据">
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<wrap>
+			<div class="fixed">
+			</div>
+			<div class="sidebar">
+				<a class="sidebar_a1 a_on" href="javascript:;"></a>
+				<a class="sidebar_a2" href="javascript:;"></a>
+				<a class="sidebar_a3" href="javascript:;"></a>
+				<a class="sidebar_a4" href="javascript:;"></a>
+				<a class="sidebar_a5" href="javascript:;"></a>
+			</div>
+			<div class="wrap_box wrap_index" id="top_0">
+				<header class="">
+					<div class="header_D float_clear">
+						<a class="left logo" href="index.html"><img src="img/logo_h.png" /></a>
+						<ul class="left float_clear nav">
+							<li>
+								<a class="nav_a" href="企业征信_搜索页.html">企业征信</a>
+							</li>
+							<li>
+								<a class="nav_a" href="企业评级_搜索列表页.html">评级公告</a>
+							</li>
+							<li class="sjts">
+								<a class="nav_a" href="javascript:;">投诉大数据<i></i></a>
+								<div class="sjts_c">
+									<a href="投诉大数据_投诉地图.html">投诉地图</a>
+									<a href="投诉大数据_品牌排名.html">品牌排行</a>
+								</div>
+							</li>
+							<li>
+								<a class="nav_a" href="可视化报告_精彩报告.html">可视化报告</a>
+							</li>
+							<li>
+								<a class="nav_a" href="联系我们.html">联系我们</a>
+							</li>
+						</ul>
+						<div class="right fenxiang">
+							<div class="fenxiang_c">
+								<a class="f_weixin" href="javascript:;"></a>
+								<a class="f_weibo" href="javascript:;"></a>
+							</div>
+							<a class="fenxiang_n" href="javasrcipt:;">&nbsp;</a>
+						</div>
+					</div>
+				</header>
+				<div id="content_D_1" class="content_D">
+					<div id="content_canvas_1"></div>
+					<img class="hxsjzm" src="img/hxsjzm.png" />
+					<div class="loginBar_1">
+						<a href="#">登&nbsp;&nbsp;&nbsp;&nbsp;陆</a>
+					</div>
+					<div class="loginBar_2">
+						<div class="loginBar_2_D">
+							<form>
+								<input class="input_LB" type="text" value="" placeholder="请输入您的用户名" />
+								<input class="input_LB" type="password" value="" placeholder="请输入您的密码" />
+								<label class="yzm">
+									<input class="input_LB" type="text" value="" placeholder="请输入右侧验证码"/>
+									<span class="yzm_span"><img src="img/yzm.jpg"/></span>
+								</label>
+								<div class="jzw">
+									<label><input type="checkbox" name="" id="" value=""/><span>记住我</span></label>
+								</div>
+								<div class="sub_LB">
+									<input type="submit" value="" />
+								</div>
+							</form>
+							<a class="guanbiX" href="javascript:;"></a>
+						</div>
+					</div>
+					<a class="a_pn sidebar_a2" href="javascript:;"></a>
+				</div>
+				<div id="content_D_2" class="content_D">
+					<img src="img/content_2_img.png" style="position: absolute; left: 0; right: 0; margin-left: auto; margin-right: auto; height: 100%; width: auto;">
+					<a href="企业征信_搜索详情页_信用评级.html" style="position: absolute; width: 100%; height: 100%; left: 0;top: 0; z-index: 0;">&nbsp;</a>
+					<a class="a_pn sidebar_a3" href="javascript:;"></a>
+				</div>
+				<div id="content_D_3" class="content_D">
+					<a href="投诉大数据_投诉地图.html" style="position: absolute; width: 100%; height: 100%; left: 0;top: 0; z-index: 1;">&nbsp;</a>
+					<h3 class="content_h"><img src="img/tsdt_bg.png"/></h3>
+					<div id="container" style="height: 100%; opacity: 0;"></div>
+					<div class="sjzs_d">
+						<p class="clzd_flzd_p">武汉市最近半年工商投诉数据走势</p>
+						<div id="sjzs"></div>
+					</div>
+					<div class="clzd_d">
+						<p class="clzd_flzd_p">分类投诉处理情况</p>
+						<div id="clzb"></div>
+					</div>
+					<div class="flzd_d">
+						<p class="clzd_flzd_p">投诉分类占比情况</p>
+						<div id="flzb"></div>
+					</div>
+					<div class="ycmb_d">
+						<a href="javascript:;">&nbsp;</a>
+						<p class="ycmb_p">隐藏面板</p>
+					</div>
+					<div class="tssjtz_d" id="tssjtz_d" data-start="" data-end="">
+						<span class="tssjtz_pvr">&nbsp;</span>
+						<span class="tssjtz_net">&nbsp;</span>
+						<div class="tssjtz_bg1_1">
+							<div class="tssjtz_bg1_1d flex_box">
+								<a class="flex_item" href="javascript:;"><em>8月</em></a>
+								<a class="flex_item" href="javascript:;"><i>1周</i></a>
+								<a class="flex_item" href="javascript:;"><i>2周</i></a>
+								<a class="flex_item" href="javascript:;"><i>3周</i></a>
+								<a class="flex_item" href="javascript:;"><i>4周</i></a>
+								<a class="flex_item" href="javascript:;"><em>9月</em></a>
+								<a class="flex_item" href="javascript:;"><i>1周</i></a>
+								<a class="flex_item" href="javascript:;"><i>2周</i></a>
+								<a class="flex_item" href="javascript:;"><i>3周</i></a>
+								<a class="flex_item" href="javascript:;"><i>4周</i></a>
+								<a class="flex_item" href="javascript:;"><em>10月</em></a>
+								<a class="flex_item" href="javascript:;"><i>1周</i></a>
+								<a class="flex_item" href="javascript:;"><i>2周</i></a>
+								<a class="flex_item" href="javascript:;"><i>3周</i></a>
+								<a class="flex_item" href="javascript:;"><i>4周</i></a>
+								<a class="flex_item" href="javascript:;"><em>11月</em></a>
+								<a class="flex_item" href="javascript:;"><i>1周</i></a>
+								<a class="flex_item" href="javascript:;"><i>2周</i></a>
+								<a class="flex_item" href="javascript:;"><i>3周</i></a>
+								<a class="flex_item" href="javascript:;"><i>4周</i></a>
+								<a class="flex_item" href="javascript:;"><em>12月</em></a>
+							</div>
+						</div>
+						<div class="tssjtz_bg1_2">
+							<div class="tssjtz_bg1_2d flex_box">
+								<a class="flex_item" href="javascript:;"><em>8月</em></a>
+								<a class="flex_item" href="javascript:;"><i>1周</i></a>
+								<a class="flex_item" href="javascript:;"><i>2周</i></a>
+								<a class="flex_item" href="javascript:;"><i>3周</i></a>
+								<a class="flex_item" href="javascript:;"><i>4周</i></a>
+								<a class="flex_item" href="javascript:;"><em>9月</em></a>
+								<a class="flex_item" href="javascript:;"><i>1周</i></a>
+								<a class="flex_item" href="javascript:;"><i>2周</i></a>
+								<a class="flex_item" href="javascript:;"><i>3周</i></a>
+								<a class="flex_item" href="javascript:;"><i>4周</i></a>
+								<a class="flex_item" href="javascript:;"><em>10月</em></a>
+								<a class="flex_item" href="javascript:;"><i>1周</i></a>
+								<a class="flex_item" href="javascript:;"><i>2周</i></a>
+								<a class="flex_item" href="javascript:;"><i>3周</i></a>
+								<a class="flex_item" href="javascript:;"><i>4周</i></a>
+								<a class="flex_item" href="javascript:;"><em>11月</em></a>
+								<a class="flex_item" href="javascript:;"><i>1周</i></a>
+								<a class="flex_item" href="javascript:;"><i>2周</i></a>
+								<a class="flex_item" href="javascript:;"><i>3周</i></a>
+								<a class="flex_item" href="javascript:;"><i>4周</i></a>
+								<a class="flex_item" href="javascript:;"><em>12月</em></a>
+							</div>
+						</div>
+					</div>
+					<div class="a_pn4_bg"></div>
+					<a class="a_pn sidebar_a4" href="javascript:;"></a>
+				</div>
+				<div id="content_D_4" class="content_D">
+					<a href="企业征信_搜索详情页_查看企业链图.html" style="position: absolute; width: 100%; height: 100%; left: 0;top: 0; z-index: 0;">&nbsp;</a>
+					<h3 class="content_h" style="margin-top: -40px;"><img src="img/qylt_bg.png"/></h3>
+					<a class="a_pn sidebar_a5" href="javascript:;"></a>
+				</div>
+				<div id="content_D_5" class="content_D">
+					<a href="可视化报告_精彩报告.html" style="position: absolute; width: 100%; height: 100%; left: 0;top: 0; z-index: 5;">&nbsp;</a>
+					<h3 class="content_h" style="margin-top: -40px;"><img src="img/kshbg_bg.png"/></h3>
+					<div class="content_5_it">
+						<div class="content_5_img">
+							<img src="img/content_img1.png"/>
+							<img src="img/content_img2.png"/>
+							<img src="img/content_img3.png"/>
+							<img src="img/content_img_bg.png"/>
+						</div>
+						<div class="content_5_Text">
+							<img src="img/content_text1.png"/>
+							<img src="img/content_text2.png"/>
+							<img src="img/content_text3.png"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</wrap>
+		<!--left左浮动,right右浮动,autoH清浮动一,float_clear清浮动二,center子级水平居中,vertical子级垂直居中,opacity背景色半透明,fixed固定定位-->
+		<!--[if lte IE 6]><i id="lteIE6" style="display:none;"></i><![endif]-->
+		<!--[if lte IE 7]><i id="lteIE7" style="display:none;"></i><![endif]-->
+		<!--[if lte IE 8]><i id="lteIE8" style="display:none;"></i><script type="text/javascript" src="js/IE678bug.js"></script><![endif]-->
+		<!--[if IE 9]><style>.opacity{filter:Alpha(opacity=100);}/*不写RGBA和opacity都生效,透明会加倍*/</style><![endif]-->
+		<!--[if IE 9]><style>.flex_box{width:100%;display:table;} .flex_item{display:table-cell;}</style><![endif]-->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+		<script type="text/javascript" src="laypage/laypage.js"></script>
+		<script type="text/javascript" src="laytpl/laytpl.js"></script>
+		<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" src="js/Mbase.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/three.min.index.js"></script>
+		<script src="js/echarts.min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cAnVZhT8myhX7a28sAfTakLMQq7YWXKU"></script>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+		<script src="js/index.js" type="text/javascript"></script>
+	</body>
+
+</html>

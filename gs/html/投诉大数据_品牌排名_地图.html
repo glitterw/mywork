@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+		<link href="mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" />
+		<script>
+			if(document.documentElement.clientWidth < 760) {
+				document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 7.60 + "px";
+			} else {
+				document.getElementsByTagName('html')[0].style.fontSize = "100px";
+			} //设计图在小于760px的屏幕上,100px=1rem;
+			document.createElement("header");
+			document.createElement("footer");
+			document.createElement("nav");
+			document.createElement("section");
+			document.createElement("wrap");
+			document.createElement("data");
+		</script>
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+		<title>东湖大数据</title>
+		<meta name="Keywords" content="东湖大数据,全媒体融合云平台">
+		<meta name="Description" content="东湖大数据,全媒体融合云平台">
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="css/inside.css" />
+	</head>
+
+	<body>
+		<wrap>
+			<header class="">
+				<div class="header_D float_clear">
+					<a class="left logo" href="index.html"><img src="img/logo_h2.png" /></a>
+					<ul class="left float_clear nav">
+							<li>
+								<a class="nav_a" href="企业征信_搜索页.html">企业征信</a>
+							</li>
+							<li>
+								<a class="nav_a" href="企业评级_搜索列表页.html">评级公告</a>
+							</li>
+							<li class="sjts">
+								<a class="nav_a" href="javascript:;">投诉大数据<i></i></a>
+								<div class="sjts_c">
+									<a href="投诉大数据_投诉地图.html">投诉地图</a>
+									<a href="投诉大数据_品牌排名.html">品牌排行</a>
+								</div>
+							</li>
+							<li>
+								<a class="nav_a" href="可视化报告_精彩报告.html">可视化报告</a>
+							</li>
+							<li>
+								<a class="nav_a" href="联系我们.html">联系我们</a>
+							</li>
+						</ul>
+					<div class="right fenxiang">
+						<div class="fenxiang_c">
+							<a class="f_weixin" href="javascript:;"></a>
+							<a class="f_weibo" href="javascript:;"></a>
+						</div>
+						<a class="fenxiang_n" href="javasrcipt:;">&nbsp;</a>
+					</div>
+				</div>
+			</header>
+
+			<div class="wrap_box wrap_pinpaipaiming">
+				<div class="content_box">
+					<h2 class="content_h">武汉地区12315品牌排行榜</h2>
+					<div class="float_clear zsfsSxtj">
+						<div class="left zsfs">
+							<a class="gaishu" href="投诉大数据_品牌排名.html"><i></i><span>概览</span></a>
+							<a class="paiming" href="投诉大数据_品牌排名.html"><i></i><span>排行</span></a>
+							<a class="tubiao" href="投诉大数据_品牌排名.html"><i></i><span>图表</span></a>
+							<a class="a_on" href="javascript:;"><i></i><span>地图</span></a>
+						</div>
+						<div class="right sxtj">
+							<div class="Mselect">
+								<p class="Mchecked"><i>全部行业</i></p>
+								<input type="hidden" name="" id="" value="" />
+								<div class="MoptionBox MScroll">
+									<span class="MoptionO" value="01">儿童用品</span>
+									<span class="MoptionO" value="02">服装鞋帽</span>
+									<span class="MoptionO" value="03">计算机产品</span>
+									<span class="MoptionO" value="05">家居用品</span>
+									<span class="MoptionO" value="06">家用电器</span>
+									<span class="MoptionO" value="07">交通工具</span>
+									<span class="MoptionO" value="08">食品</span>
+									<span class="MoptionO" value="09">首饰</span>
+									<span class="MoptionO" value="10">通讯产品</span>
+									<span class="MoptionO" value="11">装修建材</span>
+								</div>
+							</div>
+							<div class="Mselect">
+								<p class="Mchecked"><i>全部投诉性别</i></p>
+								<input type="hidden" name="" id="" value="" />
+								<div class="MoptionBox">
+									<span class="Moption" value="01"><i>全部投诉性别</i></span>
+									<span class="Moption" value="01">男</span>
+									<span class="Moption" value="02">女</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pmxq">
+						<div class="float_clear mssx">
+							<div class="Mselect left mssx_1">
+								<p class="Mchecked"><i>--分类查看--</i></p>
+								<input type="hidden" name="" id="flck" value="" />
+								<div class="MoptionBox">
+									<span class="Moption" value="01">按被投诉次数</span>
+									<span class="Moption" value="02">按被咨询次数</span>
+								</div>
+							</div>
+							<div class="left mssx_3">
+								<div class="left"><i style="background-color: #ff0033;"></i>投诉</div>
+								<div class="left"><i style="background-color: #aa0011;"></i>咨询</div>
+							</div>
+							<span class="gxsj right">更新日期：2016 年 11 月 11 日</span>
+						</div>
+						<div class="pmxq_content pmxq_map">
+							<div id="pmxq_map" style="height: 100%">
+								
+							</div>
+						</div>
+
+						<div class="tssjtz_d" id="tssjtz_d" data-start="" data-end="">
+							<span class="tssjtz_pvr">&nbsp;</span>
+							<span class="tssjtz_net">&nbsp;</span>
+							<div class="tssjtz_bg1_1">
+								<div class="tssjtz_bg1_1d flex_box">
+									<a class="flex_item" href="javascript:;"><em>8月</em></a>
+									<a class="flex_item" href="javascript:;"><i>1周</i></a>
+									<a class="flex_item" href="javascript:;"><i>2周</i></a>
+									<a class="flex_item" href="javascript:;"><i>3周</i></a>
+									<a class="flex_item" href="javascript:;"><i>4周</i></a>
+									<a class="flex_item" href="javascript:;"><em>9月</em></a>
+									<a class="flex_item" href="javascript:;"><i>1周</i></a>
+									<a class="flex_item" href="javascript:;"><i>2周</i></a>
+									<a class="flex_item" href="javascript:;"><i>3周</i></a>
+									<a class="flex_item" href="javascript:;"><i>4周</i></a>
+									<a class="flex_item" href="javascript:;"><em>10月</em></a>
+									<a class="flex_item" href="javascript:;"><i>1周</i></a>
+									<a class="flex_item" href="javascript:;"><i>2周</i></a>
+									<a class="flex_item" href="javascript:;"><i>3周</i></a>
+									<a class="flex_item" href="javascript:;"><i>4周</i></a>
+									<a class="flex_item" href="javascript:;"><em>11月</em></a>
+									<a class="flex_item" href="javascript:;"><i>1周</i></a>
+									<a class="flex_item" href="javascript:;"><i>2周</i></a>
+									<a class="flex_item" href="javascript:;"><i>3周</i></a>
+									<a class="flex_item" href="javascript:;"><i>4周</i></a>
+									<a class="flex_item" href="javascript:;"><em>12月</em></a>
+								</div>
+							</div>
+							<div class="tssjtz_bg1_2">
+								<div class="tssjtz_bg1_2d flex_box">
+									<a class="flex_item" href="javascript:;"><em>8月</em></a>
+									<a class="flex_item" href="javascript:;"><i>1周</i></a>
+									<a class="flex_item" href="javascript:;"><i>2周</i></a>
+									<a class="flex_item" href="javascript:;"><i>3周</i></a>
+									<a class="flex_item" href="javascript:;"><i>4周</i></a>
+									<a class="flex_item" href="javascript:;"><em>9月</em></a>
+									<a class="flex_item" href="javascript:;"><i>1周</i></a>
+									<a class="flex_item" href="javascript:;"><i>2周</i></a>
+									<a class="flex_item" href="javascript:;"><i>3周</i></a>
+									<a class="flex_item" href="javascript:;"><i>4周</i></a>
+									<a class="flex_item" href="javascript:;"><em>10月</em></a>
+									<a class="flex_item" href="javascript:;"><i>1周</i></a>
+									<a class="flex_item" href="javascript:;"><i>2周</i></a>
+									<a class="flex_item" href="javascript:;"><i>3周</i></a>
+									<a class="flex_item" href="javascript:;"><i>4周</i></a>
+									<a class="flex_item" href="javascript:;"><em>11月</em></a>
+									<a class="flex_item" href="javascript:;"><i>1周</i></a>
+									<a class="flex_item" href="javascript:;"><i>2周</i></a>
+									<a class="flex_item" href="javascript:;"><i>3周</i></a>
+									<a class="flex_item" href="javascript:;"><i>4周</i></a>
+									<a class="flex_item" href="javascript:;"><em>12月</em></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<footer></footer>
+		</wrap>
+		<!--left左浮动,right右浮动,autoH清浮动一,float_clear清浮动二,center子级水平居中,vertical子级垂直居中,opacity背景色半透明,fixed固定定位-->
+		<!--[if lte IE 6]><i id="lteIE6" style="display:none;"></i><![endif]-->
+		<!--[if lte IE 7]><i id="lteIE7" style="display:none;"></i><![endif]-->
+		<!--[if lte IE 8]><i id="lteIE8" style="display:none;"></i><script type="text/javascript" src="js/IE678bug.js"></script><![endif]-->
+		<!--[if IE 9]><style>.opacity{filter:Alpha(opacity=100);}/*不写RGBA和opacity都生效,透明会加倍*/</style><![endif]-->
+		<!--[if IE 9]><style>.flex_box{width:100%;display:table;} .flex_item{display:table-cell;}</style><![endif]-->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+		<script type="text/javascript" src="laypage/laypage.js"></script>
+		<script type="text/javascript" src="laytpl/laytpl.js"></script>
+		<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" src="js/Mbase.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cAnVZhT8myhX7a28sAfTakLMQq7YWXKU"></script>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/china.js"></script>
+		<script type="text/javascript" src="js/inside.js"></script>
+		<script type="text/javascript">
+		</script>
+
+	</body>
+
+</html>

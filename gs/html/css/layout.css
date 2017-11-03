@@ -1,0 +1,22 @@
+/* CSS Document */
+header{ position: absolute; width: 100%; left: 0; top: 20px; z-index: 999;}
+.header_D{ width: 1200px; margin: 0 auto;}
+.header_D .nav{ width: 600px; padding-left: 40px;}
+.header_D .nav li{ float: left; padding-top: 9px; padding-bottom: 9px;}
+.header_D .nav_a{ display: block; padding-left: 20px; padding-right: 20px; height: 30px; line-height: 30px; font-size: 14px; color: #FFFFFF; text-shadow: 0 0 1px #FFFFFF; border: 1px solid transparent; border-radius: 2px;}
+.header_D .nav_a i{ display: inline-block; background: url(../img/bottom.png); width: 12px; height: 8px; margin-left: 5px;}
+.header_D .nav_a:hover,.header_D .nav_a.a_on{ background-color:rgba(255,255,255,0.2); border-color:rgba(255,255,255,0.4) ;}
+.sjts_c{ display: block; background-color:rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-top:none; border-radius: 0 0 2px 2px; margin-bottom: 6px;  display: none;}
+.sjts_c a{ display: block; padding-left: 20px; line-height: 30px; font-size: 14px; color: #FFFFFF; margin-bottom: 4px;}
+.sjts_c a:hover{background-color:rgba(255,255,255,0.2);}
+.header_D .sjts.active .nav_a{background-color:rgba(255,255,255,0.2); border-color:rgba(255,255,255,0.4) ; border-bottom: none; border-radius: 2px 2px 0 0;}
+
+.fenxiang{ padding-right: 40px; width: 0; height: 40px; margin-top: 5px; border: 1px solid transparent; border-radius: 20px; overflow: hidden; position: relative; transition: width 0.5s;}
+.fenxiang_n{ background: url(../img/fenxiang.png) center no-repeat; width: 40px; height: 40px; position: absolute; top: 0; right: 0;}
+.fenxiang_c{ font-size: 0; width: 80px; display: none;}
+.fenxiang_c a{display: inline-block; width: 30px; height: 30px; margin: 5px;}
+.fenxiang_c a.f_weixin{ background: url(../img/weixin.png) center no-repeat;}
+.fenxiang_c a.f_weibo{ background: url(../img/weibo.png) center no-repeat;}
+.fenxiang:hover{ width: 80px; background-color: rgba(255,255,255,0.3);}
+.fenxiang:hover .fenxiang_c{ display: block;}
+.fenxiang:hover .fenxiang_n{background: url(../img/fenxiang_all.png) center no-repeat; width: 30px; height: 30px; margin: 5px;}

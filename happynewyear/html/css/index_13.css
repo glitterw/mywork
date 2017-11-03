@@ -1,0 +1,344 @@
+@charset "utf-8"
+/* CSS Document */
+
+xxxxxxxxxxxxxx {}
+
+
+/**场景13 样式表 开始**/
+
+#jing_13 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	overflow: hidden;
+}
+
+#jing_13 .form1 {
+	width: 1.81rem;
+	height: 4.85rem;
+	background: url("../images/jing13_text_form1.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0.94rem;
+	left: 0.92rem;
+	text-align: center;
+	opacity: 0;
+	z-index: 2;
+	transition: all 1s;
+}
+
+#jing_13 .form1 .text1 {
+	width: 100%;
+	height: 100%;
+	background: url("../images/jing13_title1.png") no-repeat center;
+	background-size: 0.80rem 3.82rem;
+	display: block;
+	opacity: 0;
+	transition: all 1s 1s;
+}
+
+#jing_13.on .form1 {
+	opacity: 1;
+}
+
+#jing_13.on .form1 .text1 {
+	opacity: 1;
+}
+
+#jing_13 .round {
+	width: 3.92rem;
+	height: 3.92rem;
+	background: url("../images/jing13_yuan.png") no-repeat center;
+	background-size: 100% 100%;
+	position: absolute;
+	right: 4.00rem;
+	top: 1.68rem;
+	opacity: 0;
+	z-index: 2;
+	transition: all 2s 2s;
+}
+
+#jing_13 .round .light {
+	width: 2.00rem;
+	height: 2.59rem;
+	background: url("../images/jing13_dengpao.png");
+	background-size: 100% 100%;
+	position: absolute;
+	left: -0.25rem;
+	opacity: 0;
+	transition: all 1s 1s;
+}
+
+#jing_13 .round .person {
+	width: 1.84rem;
+	height: 3.61rem;
+	background: url("../images/jing13_person.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0.26rem;
+	right: 0;
+	opacity: 0;
+	transition: all 1s 1s;
+}
+
+#jing_13.on .round {
+	opacity: 1;
+}
+
+#jing_13.on .round .light {
+	opacity: 1;
+}
+
+#jing_13.on .round .person {
+	opacity: 1;
+}
+
+#jing_13 .relation {
+	width: 1.66rem;
+	height: 2.09rem;
+	background: url("../images/jing13_lianjie.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 2.68rem;
+	right: 2.46rem;
+	opacity: 0;
+	z-index: 2;
+	transition: all 1s 2s;
+}
+
+#jing_13.on .relation {
+	opacity: 1;
+}
+
+@keyframes myRound {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+#jing_13 .relation .ball1 {
+	width: 2.11rem;
+	height: 2.11rem;
+	background: url("../images/jing13_ball1.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: -1.48rem;
+	right: -1.02rem;
+	animation: myRound 2s linear infinite;
+	animation-direction: alternate;
+	opacity: 0;
+	transition: all 1s 2s;
+}
+
+#jing_13 .relation .ball2 {
+	width: 1.99rem;
+	height: 1.99rem;
+	background: url("../images/jing13_ball2.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 1.20rem;
+	right: -1.02rem;
+	animation: myRound 2s linear infinite;
+	animation-direction: alternate;
+	opacity: 0;
+	transition: all 1s 2s;
+}
+
+#jing_13.on .relation .ball1 {
+	opacity: 1;
+}
+
+#jing_13.on .relation .ball2 {
+	opacity: 1;
+}
+
+#jing_13 .form2 {
+	width: 0.74rem;
+	height: 2.38rem;
+	background: url("../images/jing13_text_form2.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0.82rem;
+	right: 1.02rem;
+	text-align: center;
+	opacity: 0;
+	z-index: 3;
+	transition: all 1s 2s;
+}
+
+#jing_13.on .form2 {
+	opacity: 1;
+}
+
+#jing_13 .form2 .text2 {
+	width: 100%;
+	height: 100%;
+	background: url("../images/jing13_title2.png") no-repeat center;
+	background-size: 0.27rem 2.08rem;
+	display: block;
+	opacity: 0;
+	transition: all 1s 2s;
+}
+
+#jing_13.on .form2 .text2 {
+	opacity: 1;
+}
+
+#jing_13 .form3 {
+	width: 0.74rem;
+	height: 2.38rem;
+	background: url("../images/jing13_text_form3.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 3.50rem;
+	right: 1.02rem;
+	opacity: 0;
+	z-index: 3;
+	transition: all 1s 2s;
+}
+
+#jing_13.on .form3 {
+	opacity: 1;
+}
+
+#jing_13 .form3 .text3 {
+	width: 100%;
+	height: 100%;
+	background: url("../images/jing13_title3.png") no-repeat center;
+	background-size: 0.27rem 2.10rem;
+	display: block;
+	opacity: 0;
+	transition: all 1s 2s;
+}
+
+#jing_13.on .form3 .text3 {
+	opacity: 1;
+}
+
+#jing_13 .point_box {
+	opacity: 0;
+	transition: all 1s 3s;
+}
+
+#jing_13 .point_box .point {
+	border-radius: 50%;
+	background-color: rgb( 255, 224, 99);
+	position: absolute;
+	width: 0.44rem;
+	height: 0.44rem;
+	z-index: 4;
+	opacity: 0;
+}
+
+#jing_13.on .point_box {
+	opacity: 1;
+}
+
+#jing_13 .point_box .point.p1 {
+	top: 3.20rem;
+	left: 0.50rem;
+	transform: scale(0.44);
+	animation: pointAnimation 2s linear infinite;
+	animation-direction: alternate;
+}
+
+#jing_13 .point_box .point.p2 {
+	top: 3.70rem;
+	left: 2.58rem;
+	animation: pointAnimation 2s 2s linear infinite;
+	animation-direction: alternate;
+}
+
+#jing_13 .point_box .point.p3 {
+	top: 4.70rem;
+	left: 6.78rem;
+	transform: scale(0.44);
+	animation: pointAnimation 2s 1s linear infinite;
+	animation-direction: alternate;
+}
+
+#jing_13 .point_box .point.p4 {
+	top: 3.56rem;
+	left: 7.66rem;
+	transform: scale(0.44);
+	animation: pointAnimation 2s 2s linear infinite;
+	animation-direction: alternate;
+}
+
+#jing_13 .point_box .point.p5 {
+	top: 3.64rem;
+	right: 0.58rem;
+	transform: scale(0.44);
+	animation: pointAnimation 2s 1s linear infinite;
+	animation-direction: alternate;
+}
+
+#jing_13 .point_box .point.p6 {
+	top: 4.98rem;
+	right: 3.50rem;
+	animation: pointAnimation 2s linear infinite;
+	animation-direction: alternate;
+}
+
+@keyframes pointAnimation {
+	0% {
+		transform: translateX(0.10rem) translateY(-0.10rem)
+	}
+	10% {
+		transform: translateX(0.20rem) translateY(-0.20rem) scale(0.55);
+	}
+	20% {
+		transform: translateX(0.30rem) translateY(-0.30rem) scale(0.66);
+	}
+	30% {
+		transform: translateX(0.30rem) translateY(-0.30rem) scale(0.77);
+	}
+	40% {
+		transform: translateX(0.20rem) translateY(-0.40rem) scale(0.66);
+	}
+	50% {
+		transform: translateX(0.10rem) translateY(-0.30rem) scale(0.50);
+		opacity: 0.7
+	}
+	60% {
+		transform: translateX(0.00rem) translateY(-0.40rem) scale(0.48);
+		opacity: 0.6
+	}
+	70% {
+		transform: translateX(-0.10rem) translateY(-0.50rem) scale(0.44);
+		opacity: 0.5
+	}
+	80% {
+		transform: translateX(-0.20rem) translateY(-0.45rem) scale(0.50);
+	}
+	90% {
+		transform: translateX(-0.30rem) translateY(-0.35rem) scale(0.55);
+	}
+	95% {
+		transform: translateX(-0.25rem) translateY(-0.20rem) scale(0.60);
+	}
+	100% {
+		transform: translateX(-0.20rem) translateY(-0.10rem) scale(0.44);
+	}
+}
+
+#jing_13 .jing_bg,
+#jing_13 .rili {
+	transition: all 2s;
+	opacity: 0;
+}
+
+#jing_13.on .jing_bg,
+#jing_13.on .rili {
+	opacity: 1;
+}
+
+
+/**场景13 样式表 结束**/

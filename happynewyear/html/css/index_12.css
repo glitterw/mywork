@@ -1,0 +1,182 @@
+@charset "utf-8"
+/* CSS Document */
+
+xxxxxxxxxxxxxx {}
+
+/**场景12 样式表 开始**/
+#jing_12 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	overflow: hidden;
+}
+#jing_12 .header{
+	position: relative;
+	margin: 0 auto;
+}
+#jing_12 .header .fuzhi{
+	width: 10.91rem;
+	height: 1.44rem;
+	background: url("../images/jing12_header.png") no-repeat center;
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 1;
+	top:-2rem;
+	transition: all 1s;
+}
+#jing_12.on .header .fuzhi{
+	top:0;
+}
+
+#jing_12 .road{
+	width: 11.14rem;
+	height: 13.53rem;
+
+	overflow: hidden;
+	background: url("../images/jing12_paodao.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top:1.02rem;
+	right:0.40rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 1s 1s;
+}
+#jing_12.on .road{
+	opacity: 1;
+}
+#jing_12 .road .title1{
+	width: 3.09rem;
+	height: 1.81rem;
+	background: url("../images/jing12_title1.png");
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 2;
+	left: 2.96rem;
+	top: 2.84rem;
+	opacity: 0;
+	transition: all 1s 3s;
+}
+#jing_12.on .road .title1{
+	opacity: 1;
+}
+#jing_12 .road .title2{
+	width: 3.09rem;
+	height: 1.81rem;
+	background: url("../images/jing12_title2.png");
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 2;
+	left: 4.32rem;
+	top: 3.02rem;
+	opacity: 0;
+	transition: all 1s 4s;
+}
+#jing_12.on .road .title2{
+	opacity: 1;
+}
+#jing_12 .road .title3{
+	width: 3.09rem;
+	height: 1.81rem;
+	background: url("../images/jing12_title3.png");
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 2;
+	left: 5.88rem;
+	top: 3.18rem;
+	transform: rotateY(33deg);
+	opacity: 0;
+	transition: all 1s 5s;
+}
+#jing_12.on .road .title3{
+	opacity: 1;
+}
+#jing_12 .road .person{
+	width: 4.18rem;
+	height: 1.90rem;
+	background: url("../images/jing12_person.png");
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 3;
+	right: 0.22rem;
+	top: 0.15rem;
+	opacity: 0;
+	transition: all 1s 2s;
+}
+#jing_12.on .road .person{
+	opacity: 1;
+}
+#jing_12 .fudai{
+	width: 3.96rem;
+	height: 1.86rem;
+	position: absolute;
+	z-index: 3;
+}
+#jing_12 .fudai .qd{
+	width: 2.13rem;
+	height: 1.98rem;
+	background: url("../images/jing12_qd.png");
+	background-size: 100% 100%;
+	position: absolute;
+	left: 1.78rem;
+	top: -2.22rem;
+	z-index: 2;
+	transition: all 1s 2s;
+	transition-timing-function:ease;
+}
+#jing_12.on .fudai .qd{
+	top:2.22rem;
+}
+#jing_12 .fudai .flower1{
+	width: 1.92rem;
+	height: 0.76rem;
+	background: url("../images/jing12_flower1.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 3.00rem;
+	left: 0.70rem;
+	z-index: 1;
+	animation:flowerChange 3s  linear infinite;
+	animation-direction:alternate;
+	opacity: 0;
+	transition: all 1s 3s;
+	transition-timing-function:ease;
+}
+#jing_12 .fudai .flower2{
+	width: 1.81rem;
+	height: 0.93rem;
+	background: url("../images/jing12_flower2.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 2.16rem;
+	left: 2.81rem;
+	z-index: 3;
+	animation:flowerChange 3s 1s linear infinite;
+	animation-direction:alternate;
+	opacity: 0;
+	transition: all 1s 3s;
+	transition-timing-function:ease;
+}
+
+#jing_12.on .fudai .flower1{
+	opacity: 1;
+}
+#jing_12.on .fudai .flower2{
+	opacity: 1;
+}
+
+@keyframes flowerChange
+{
+	0% {
+		transform: scale(0.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+/**场景12 样式表 结束**/

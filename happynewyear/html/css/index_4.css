@@ -1,0 +1,309 @@
+@charset "utf-8"
+/* CSS Document */
+
+xxxxxxxxxxxxxx {}
+
+/**场景四 样式表 开始**/
+#jing_4 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	overflow: hidden;
+}
+
+#jing_4_bg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../images/body_bg.png);
+	background-size: 100% 100%;
+	/*display: none;*/
+}
+
+#jing_4_bg_2 {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	background: url(../images/jing_bg.png);
+	background-size: 100% 100%;
+	/*display: none;*/
+}
+
+
+
+/*1：两边的幕先登场 开始*/
+#jing_4 .mu_left{
+	width: 2.07rem;
+	height: 6.18rem;
+	position: absolute;
+	background: url(../images/jing4_mu_left.png) no-repeat;
+	background-size: 100% 100%;
+	z-index: 4;
+	top:0.04rem;
+	left:-2rem;
+	transition: all 1s;
+}
+#jing_4 .mu_right{
+	width: 2.06rem;
+	height: 6.18rem;
+	position: absolute;
+	background: url(../images/jing4_mu_right.png) no-repeat;
+	background-size: 100% 100%;
+	z-index: 4;
+	top:0.04rem;
+	right: -2rem;
+	transition: all 1s;
+
+}
+#jing_4.on .mu_left{
+	left:0.03rem;
+}
+#jing_4.on .mu_right{
+	right:0.03rem;
+}
+/*1：两边的幕先登场 结束*/
+
+/*2：上面的幕延迟2s登场 开始*/
+.mu_header{
+	width:7.80rem;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	z-index:1;
+}
+#jing_4.on .mu_header .header_left{
+	top:0;
+}
+#jing_4.on .mu_header .header_right{
+	top:0;
+}
+#jing_4 .mu_header .header_left{
+	width: 3.08rem;
+	height: 0.69rem;
+	background: url(../images/jing4_mu_top.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top:-0.69rem;
+	left: 0;
+	transition: all 1s 1s;
+}
+#jing_4 .mu_header .header_right{
+	width: 3.08rem;
+	height: 0.69rem;
+	background: url(../images/jing4_mu_top.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top:-0.69rem;
+	right: 0;
+	transition: all 1s 1s;
+}
+/*2：上面的幕延迟2s登场 结束*/
+
+/*3：舞台延迟4s登场 开始*/
+#jing_4 .stage_foot{
+	position: absolute;
+	width: 100%;
+	height: 3.44rem;
+	margin: 0 auto;
+	bottom: 0;
+	z-index: 3;
+}
+#jing_4 .stage_foot .stage{
+	width: 11.36rem;
+	height: 3.44rem;
+	background: url(../images/jing4_stage.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	bottom:-3.44rem;
+	transition: all 1s 2s;
+}
+#jing_4.on .stage_foot .stage{
+	bottom:0;
+}
+/*3：舞台延迟4s登场 结束*/
+
+/*4：奖杯延迟3s登场 开始*/
+#jing_4 .stage_foot .cup{
+	width: 2.02rem;
+	height: 2.02rem;
+	position: absolute;
+	bottom: 3.0rem;
+	/*top:1.31rem;*/
+	left: 40%;
+	z-index: 5;
+	transform:scale(0);
+	opacity: 0;
+	animation:cupShow 3s linear infinite;
+	transition: all 2s 2s;
+}
+#jing_4.on .stage_foot .cup{
+	transform:scale(1);
+	opacity: 1;
+}
+
+#jing_4 .stage_foot .cup .cup_img{
+	width: 2.02rem;
+	height: 2.02rem;
+	background: url(../images/jing4_cup.png) no-repeat;
+	background-size: 100% 100%;
+	display: block;
+	transform:scale(0);
+	opacity: 0;
+	transition: all 2s 2s;
+}
+#jing_4.on .stage_foot .cup .cup_img{
+	transform:scale(1);
+	opacity: 1;
+
+}
+
+@keyframes cupShow
+{
+	0% {
+		transform:rotateY(0);
+		-webkit-transform:  rotateY(0);
+		-o-transform:rotateY(0);
+		-moz-transform:rotateY(0);
+	}
+	100% {
+		transform:rotateY(360deg);
+		-webkit-transform:  rotateY(360deg);
+		-o-transform:rotateY(360deg);
+		-moz-transform:rotateY(360deg);
+
+	}
+}
+/*4：奖杯延迟3s登场 结束*/
+
+/*5：人延迟3s登场 开始*/
+#jing_4 .stage_foot .person{
+	width: 11.36rem;
+	height: 1.31rem;
+	background: url(../images/jing4_viewer.png);
+	background-size: 100% 100%;
+	position: absolute;
+	bottom:-1.31rem;
+	z-index: 4;
+	transition: all 1s 2s;
+}
+
+#jing_4.on .stage_foot .person{
+	bottom:0;
+}
+/*5：人迟3s登场 结束*/
+/*6：花延迟3s登场 开始*/
+#jing_4 .flower{
+	z-index: 6;
+}
+#jing_4 .flower .flower1{
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: -1.6rem;
+}
+#jing_4 .flower .flower1 .flower1_img{
+	width: 2.85rem;
+	height: 1.13rem;
+	background: url(../images/jing4_flower_left.png);
+	background-size: 100% 100%;
+	display: block;
+	transform: scale(0);
+	transition: all 1s 3s;
+}
+#jing_4.on .flower .flower1{
+	top: 0.85rem;
+	left: 0.6rem;
+}
+#jing_4.on .flower .flower1 .flower1_img{
+	top: 0.85rem;
+	left: 0.6rem;
+	transform: scale(1);
+
+}
+
+#jing_4 .flower .flower2{
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	right: -1.6rem;
+}
+#jing_4 .flower .flower2 .flower2_img{
+	width: 2.85rem;
+	height: 1.13rem;
+	background: url(../images/jing4_flower_right.png);
+	background-size: 100% 100%;
+	display: block;
+	transform: scale(0);
+	transition: all 1s 3s;
+}
+#jing_4.on .flower .flower2{
+	top: 0.35rem;
+	right: 0.55rem;
+}
+#jing_4.on .flower .flower2 .flower2_img{
+	top: 0.85rem;
+	left: 0.6rem;
+	transform: scale(1);
+}
+/*6：花延迟3s登场 结束*/
+/*7：文字延迟4s登场 开始*/
+#jing_4 .content1{
+	width: 0.36rem;
+	height: 3.20rem;
+	background: url(../images/jing4_content1.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: 1.56rem;
+	right: 1.84rem;
+	z-index: 5;
+	opacity: 0;
+	transition: all 1s 3s;
+}
+#jing_4 .content2{
+	width: 0.36rem;
+	height: 1.83rem;
+	background: url(../images/jing4_content2.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: 2.31rem;
+	right: 2.34rem;
+	z-index: 5;
+	opacity: 0;
+	transition: all 1s 3s;
+}
+#jing_4 .content3{
+	width: 0.37rem;
+	height: 1.54rem;
+	background: url(../images/jing4_content3.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: 2.45rem;
+	right: 2.84rem;
+	z-index: 5;
+	opacity: 0;
+	transition: all 1s 3s;
+}
+#jing_4.on .content1{
+	opacity: 1;
+}
+#jing_4.on .content2{
+	opacity: 1;
+}
+#jing_4.on .content3{
+	opacity: 1;
+}
+/*7：文字延迟4s登场 结束*/
+
+
+/**场景四 样式表 结束**/

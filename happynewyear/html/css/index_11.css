@@ -1,0 +1,473 @@
+@charset "utf-8"
+/* CSS Document */
+
+xxxxxxxxxxxxxx {}
+
+
+/**场景11 样式表 开始**/
+
+#jing_11 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	overflow: hidden;
+}
+
+
+/*#jing_11 .map{*/
+
+
+/*width: 100%;*/
+
+
+/*height: 100%;*/
+
+
+/*background: url("../images/jing11_map.png") no-repeat center;*/
+
+
+/*background-size: 5.14rem 4.38rem;*/
+
+
+/*position: absolute;*/
+
+
+/*}*/
+
+#jing_11 .map {
+	width: 5.14rem;
+	height: 4.38rem;
+	background: url("../images/jing11_map.png") no-repeat center;
+	background-size: 100% 100%;
+	position: absolute;
+	top: 1.26rem;
+	left: 3.20rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 2s;
+}
+
+#jing_11 .map.on {
+	opacity: 1;
+}
+
+#jing_11 .beijing .heart {
+	position: absolute;
+	top: 2.78rem;
+	right: 4.44rem;
+	opacity: 0;
+	transition: all 2s 2s;
+}
+
+#jing_11 .beijing .city {
+	width: 1.43rem;
+	height: 0.80rem;
+	background: url("../images/jing11_beijing.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 2.18rem;
+	right: 4.60rem;
+	z-index: 2;
+	opacity: 0;
+	transition: all 2s 2s;
+}
+
+#jing_11 .beijing .company1 {
+	width: 3.41rem;
+	height: 1.38rem;
+	background: url("../images/jing11_beijing_1.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 1.32rem;
+	right: 1.38rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 2s 2s;
+}
+
+#jing_11 .beijing.on .heart {
+	opacity: 1;
+}
+
+#jing_11 .beijing.on .city {
+	opacity: 1;
+}
+
+#jing_11 .beijing.on .company1 {
+	opacity: 1;
+}
+
+#jing_11 .jiangshu .heart {
+	position: absolute;
+	top: 3.54rem;
+	right: 4.30rem;
+	opacity: 0;
+}
+
+#jing_11 .jiangshu .city {
+	width: 1.44rem;
+	height: 0.89rem;
+	background: url("../images/jing11_jiangshu.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 3.00rem;
+	right: 3.00rem;
+	z-index: 2;
+	opacity: 0;
+	transition: all 2s 1s;
+}
+
+#jing_11 .jiangshu .company1 {
+	width: 3.12rem;
+	height: 1.17rem;
+	background: url("../images/jing11_jiangshu_1.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 2.32rem;
+	right: 0.38rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 2s 2s;
+}
+
+#jing_11 .jiangshu .company2 {
+	width: 3.12rem;
+	height: 1.15rem;
+	background: url("../images/jing11_jiangshu_2.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 3.50rem;
+	right: 0.48rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 2s 3s;
+}
+
+#jing_11 .jiangshu.on .heart {
+	opacity: 1;
+}
+
+#jing_11 .jiangshu.on .city {
+	opacity: 1;
+}
+
+#jing_11 .jiangshu.on .company1 {
+	opacity: 1;
+}
+
+#jing_11 .jiangshu.on .company2 {
+	opacity: 1;
+}
+
+#jing_11 .zhejiang .heart {
+	position: absolute;
+	top: 4.00rem;
+	right: 4.26rem;
+	opacity: 0;
+	transition: all 2s;
+}
+
+#jing_11 .zhejiang .company1 {
+	width: 3.12rem;
+	height: 1.33rem;
+	background: url("../images/jing11_zhejiang_1.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 4.40rem;
+	right: 2.08rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 2s 2s;
+}
+
+#jing_11 .zhejiang .city {
+	width: 1.44rem;
+	height: 0.89rem;
+	background: url("../images/jing11_zhejiang.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 3.60rem;
+	right: 4.38rem;
+	z-index: 2;
+	opacity: 0;
+	transition: all 2s 1s;
+}
+
+#jing_11 .zhejiang.on .heart {
+	opacity: 1;
+}
+
+#jing_11 .zhejiang.on .city {
+	opacity: 1;
+}
+
+#jing_11 .zhejiang.on .company1 {
+	opacity: 1;
+}
+
+#jing_11 .wuhan .heart {
+	position: absolute;
+	top: 3.48rem;
+	right: 5.10rem;
+	opacity: 0;
+	transition: all 2s;
+}
+
+#jing_11 .wuhan .city {
+	width: 1.29rem;
+	height: 0.73rem;
+	background: url("../images/jing11_wuhan.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 2.8rem;
+	right: 5.14rem;
+	z-index: 2;
+	opacity: 0;
+	transition: all 2s 1s;
+}
+
+#jing_11 .wuhan .company1 {
+	width: 4.52rem;
+	height: 1.71rem;
+	background: url("../images/jing11_wuhan_1.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 1.57rem;
+	left: 0.78rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 2s 2s;
+}
+
+#jing_11 .wuhan .company2 {
+	width: 3.66rem;
+	height: 0.70rem;
+	background: url("../images/jing11_wuhan_2.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 2.40rem;
+	left: 1.38rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 1s 2s;
+}
+
+#jing_11 .wuhan .company3 {
+	width: 4.28rem;
+	height: 0.85rem;
+	background: url("../images/jing11_wuhan_3.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 3.25rem;
+	left: 0.88rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 1s 1s;
+}
+
+#jing_11 .wuhan .company4 {
+	width: 3.12rem;
+	height: 1.80rem;
+	background: url("../images/jing11_wuhan_4.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 3.20rem;
+	left: 2.33rem;
+	z-index: 1;
+	opacity: 0;
+	transition: all 1s 3s;
+}
+
+#jing_11 .wuhan.on .heart {
+	opacity: 1;
+}
+
+#jing_11 .wuhan.on .city {
+	opacity: 1;
+}
+
+#jing_11 .wuhan.on.year2014 .company1 {
+	opacity: 1;
+}
+
+#jing_11 .wuhan.on.year2015 .company2 {
+	opacity: 1;
+}
+
+#jing_11 .wuhan.on.year2015 .company4 {
+	opacity: 1;
+}
+
+#jing_11 .wuhan.on.year2016 .company3 {
+	opacity: 1;
+}
+
+#jing_11 .heart {
+	display: block;
+	width: 0.05rem;
+	height: 0.05rem;
+	border-radius: 50%;
+	background-color: #fff;
+	position: absolute;
+	animation: heartJump 1.5s -1.2s linear infinite;
+	z-index: 3;
+}
+
+#jing_11 .building {
+	width: 10.23rem;
+	height: 1.67rem;
+	background: url("../images/jing11_city.png");
+	background-size: 100% 100%;
+	position: absolute;
+	bottom: 0;
+	opacity: 0;
+	transition: all 1s;
+}
+
+#jing_11 .building.on {
+	opacity: 1;
+}
+
+@keyframes heartJump {
+	0% {
+		box-shadow: 0 0 0 0rem rgba( 255, 255, 255, 0.802), 0 0 0 0rem rgba(255, 255, 255, 0.302);
+	}
+	100% {
+		box-shadow: 0 0 0 0.03rem rgba(255, 255, 255, 0.502), 0 0 0 0.07rem rgba(255, 255, 255, 0.2);
+	}
+}
+
+#jing_11 .jing_bg,
+#jing_11 .rili {
+	transition: all 4s;
+	opacity: 0;
+}
+
+#jing_11 .jing_bg.on,
+#jing_11 .rili.on {
+	opacity: 1;
+}
+
+.wlContent {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-style: preserve-3d;
+	perspective: 3000px;
+	z-index: 2;
+	transition: all 2s;
+}
+.wlContent.off{
+	opacity: 0;
+}
+.wlContent_1:before {
+	content: '';
+	display: block;
+	width: 11.34rem;
+	height: 3.60rem;
+	background: url(../images/wlc_1.png);
+	background-size: 100% 100%;
+	position: absolute;
+	left: -20rem;
+	top: 0;
+	transition: all 1s ease-out;
+}
+
+.wlContent_1:after {
+	content: '';
+	display: block;
+	width: 11.34rem;
+	height: 2.80rem;
+	background: url(../images/wlc_2.png);
+	background-size: 100% 100%;
+	position: absolute;
+	left: 20rem;
+	top: 3.60rem;
+	transition: all 1s ease-out;
+}
+
+.wlContent_1.on:before {
+	left: 0;
+}
+
+.wlContent_1.on:after {
+	left: 0;
+}
+
+.wlContent_2 {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/wlc_3.png);
+	background-size: 100% 100%;
+	backface-visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	-webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+
+.wlContent_3 {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/wlc_4.png);
+	background-size: 100% 100%;
+	backface-visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	-webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+
+.wlContent_4 {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/wlc_5.png);
+	background-size: 100% 100%;
+	backface-visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	-webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+
+.wlContent_5 {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/wlc_6.png);
+	background-size: 100% 100%;
+	backface-visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	-webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+
+.wlContent_2.on,
+.wlContent_3.on,
+.wlContent_4.on,
+.wlContent_5.on {
+	transition: all 2s linear;
+	-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.wlContent_2.off,
+.wlContent_3.off,
+.wlContent_4.off,
+.wlContent_5.off {
+	transition: all 2s linear;
+	-webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+}
+
+
+/**场景11 样式表 结束**/

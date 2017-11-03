@@ -1,0 +1,174 @@
+@charset "utf-8"
+/* CSS Document */
+
+xxxxxxxxxxxxxx {}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #ce0807;
+	-webkit-transition: all 2s;
+	transition: all 2s;
+}
+body.nonecolor{
+	background: none;
+}
+wrap {
+	width: 100%;
+	height: 100%;
+}
+
+#wrap_wrap {
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+
+
+/*#wrap:after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../images/body_bg.png);
+	background-size: 100% 100%;
+	z-index: -1;
+}*/
+
+#wrap {
+	width: 11.35rem;
+	height: 6.40rem;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#wrap {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
+}
+
+#wrap_Q {
+	width: 11.35rem;
+	height: 6.40rem;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -5.675rem;
+	margin-top: -3.20rem;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: translateZ(0px);
+	transform: translateZ(0px);
+	-webkit-transition: all 3s;
+	transition: all 3s;
+}
+
+@font-face {
+	font-family: '创艺简粗黑';
+	src: url('587d6f46f629d8051479d640.gif');
+	src: url('587d6f46f629d8051479d640.gif?#iefix') format('embedded-opentype'), url('587d6f46f629d8051479d640.bmp') format('woff'), url('587d6f46f629d8051479d640.jpg') format('truetype'), url('#cyjcuhei') format('svg');
+}
+
+
+/*日历*/
+
+.rili {
+	font-family: '创艺简粗黑';
+	font-size: 100px;
+	width: 3.00rem;
+	margin-left: -1.50rem;
+	position: absolute;
+	left: 50%;
+	top: 0.15rem;
+	z-index: 9;
+}
+
+.rili_N {
+	width: 0.74rem;
+	height: 0.93rem;
+	background: url(../images/rili_bg.png);
+	background-size: 100% 100%;
+	transform-style: preserve-3d;
+	position: absolute;
+	top: 0;
+}
+
+.rili_N:nth-of-type(1) {
+	left: 0;
+}
+
+.rili_N:nth-of-type(2) {
+	left: 25%;
+}
+
+.rili_N:nth-of-type(3) {
+	left: 50%;
+}
+
+.rili_N:nth-of-type(4) {
+	left: 75%;
+}
+
+.rili_t,
+.rili_b {
+	display: block;
+	width: 0.74rem;
+	height: 0.93rem;
+	line-height: 0.90rem;
+	background: url(../images/rili.png);
+	background-size: 100% 100%;
+	backface-visibility: hidden;
+	font-size: 0.82rem;
+	text-align: center;
+	color: #FFFFFF;
+	-webkit-text-stroke: 1px #771f1c;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform-origin: 50% 46.2%;
+}
+
+.rili_t {
+	-webkit-clip-path: polygon( 0% 0%, 100% 0%, 100% 46.2%, 0% 46.2%);
+}
+
+.rili_b {
+	-webkit-clip-path: polygon( 0% 46.2%, 100% 46.2%, 100% 100%, 0% 100%);
+}
+
+.rili_An .rili_t {
+	transform: rotateX(180deg);
+}
+
+.rili_An {
+	width: 0.74rem;
+	height: 0.93rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	transform-style: preserve-3d;
+	transform-origin: 50% 46.2%;
+	transform: rotateX(0deg);
+}
+
+.rili_N.in .rili_An {
+	transition: 1s;
+	transform: rotateX(180deg);
+}

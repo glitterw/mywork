@@ -1,0 +1,286 @@
+@charset "utf-8"
+/* CSS Document */
+
+xxxxxxxxxxxxxx {}
+
+#jing_2 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	overflow: hidden;
+}
+
+.shu_l {
+	position: absolute;
+	left: 0;
+	top: 0;
+	-webkit-transition: all 3s ease-out;
+	transition: all 3s ease-out;
+	z-index: 5;
+}
+
+.off .shu_l {
+	left: -10rem;
+}
+
+.shu_r {
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-transition: all 3s ease-out;
+	transition: all 3s ease-out;
+	z-index: 5;
+}
+
+.off .shu_r {
+	right: -10rem;
+}
+
+.shu_l .shu_1 {
+	display: block;
+	width: 8.19rem;
+	height: 2.95rem;
+	background: url(../images/shu_L.png);
+	background-size: 100% 100%;
+	position: relative;
+	z-index: 5;
+}
+
+@-webkit-keyframes feng_An {
+	0% {
+		-webkit-transform: rotate(-6deg);
+		transform: rotate(-6deg);
+	}
+	100% {
+		-webkit-transform: rotate(12deg);
+		transform: rotate(12deg);
+	}
+}
+
+@keyframes feng_An {
+	0% {
+		-webkit-transform: rotate(-6deg);
+		transform: rotate(-6deg);
+	}
+	100% {
+		-webkit-transform: rotate(12deg);
+		transform: rotate(12deg);
+	}
+}
+
+.deng {
+	-webkit-animation: feng_An 3s ease alternate infinite both;
+	animation: feng_An 3s ease alternate infinite both;
+}
+
+.deng_1 {
+	display: block;
+	width: 0.98rem;
+	height: 4.05rem;
+	background: url(../images/denglong_1.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0;
+	left: 0.68rem;
+	-webkit-transform-origin: 50% 2.00rem;
+	transform-origin: 50% 2.00rem;
+}
+
+.deng_2 {
+	display: block;
+	width: 1.09rem;
+	height: 4.97rem;
+	background: url(../images/denglong_2.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0;
+	left: 2.00rem;
+	-webkit-transform-origin: 50% 1.56rem;
+	transform-origin: 50% 1.56rem;
+}
+
+.deng_3 {
+	display: block;
+	width: 0.84rem;
+	height: 3.11rem;
+	background: url(../images/denglong_3.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0;
+	left: 6.25rem;
+	-webkit-transform-origin: 50% 1.92rem;
+	transform-origin: 50% 1.92rem;
+}
+
+.shu_r .shu_2 {
+	display: block;
+	width: 5.19rem;
+	height: 3.18rem;
+	background: url(../images/shu_R.png);
+	background-size: 100% 100%;
+	position: relative;
+	z-index: 5;
+}
+
+.deng_4 {
+	display: block;
+	width: 1.05rem;
+	height: 6.05rem;
+	background: url(../images/denglong_4.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0;
+	right: 2.26rem;
+	-webkit-transform-origin: 50% 2.67rem;
+	transform-origin: 50% 2.67rem;
+}
+
+.deng_5 {
+	display: block;
+	width: 1.27rem;
+	height: 4.92rem;
+	background: url(../images/denglong_5.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0;
+	right: 0.74rem;
+	-webkit-transform-origin: 50% 2.80rem;
+	transform-origin: 50% 2.80rem;
+}
+
+.jing2_hua_1 {
+	display: block;
+	width: 0.42rem;
+	height: 0.43rem;
+	margin: -0.21rem;
+	position: absolute;
+	z-index: 6;
+}
+
+.jing2_hua_1:after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/hua_1_2.png);
+	background-size: 100% 100%;
+	-webkit-animation: j2_hua_An 10s ease-out alternate infinite both;
+	animation: j2_hua_An 10s ease-out alternate infinite both;
+}
+
+.jing2_hua_2 {
+	display: block;
+	width: 0.57rem;
+	height: 0.58rem;
+	margin: -0.29rem;
+	position: absolute;
+	z-index: 6;
+}
+
+.jing2_hua_2:after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/hua_2_2.png);
+	background-size: 100% 100%;
+	-webkit-animation: j2_hua_An 10s -5s ease-out alternate infinite both;
+	animation: j2_hua_An 10s -5s ease-out alternate infinite both;
+}
+
+.jing2_hua_1_1 {
+	left: 2.20rem;
+	top: 1.40rem;
+}
+
+.jing2_hua_2_1 {
+	left: 3.46rem;
+	top: 2.24rem;
+}
+
+.jing2_hua_2_3 {
+	left: 5.83rem;
+	top: 2.78rem;
+	-webkit-transform: scale(0.5);
+	transform: scale(0.5);
+}
+
+.jing2_hua_2_4 {
+	left: 5.38rem;
+	top: 1.05rem;
+	-webkit-transform: scale(0.5);
+	transform: scale(0.5);
+}
+
+.jing2_hua_2_2 {
+	right: 3.08rem;
+	top: 2.86rem;
+	-webkit-transform: scale(0.7);
+	transform: scale(0.7);
+}
+
+.jing2_hua_2_5 {
+	right: 1.38rem;
+	top: 1.38rem;
+	-webkit-transform: scale(0.5);
+	transform: scale(0.5);
+}
+
+@-webkit-keyframes j2_hua_An {
+	0% {
+		-webkit-transform: scale(0.4) rotate(0);
+		transform: scale(0.4) rotate(0);
+	}
+	10% {
+		-webkit-transform: scale(0.4) rotate(0);
+		transform: scale(0.4) rotate(0);
+	}
+	90% {
+		-webkit-transform: scale(1.0) rotate(720deg);
+		transform: scale(1.0) rotate(720deg);
+	}
+	100% {
+		-webkit-transform: scale(1.0) rotate(720deg);
+		transform: scale(1.0) rotate(720deg);
+	}
+}
+
+@keyframes j2_hua_An {
+	0% {
+		-webkit-transform: scale(0.4) rotate(0);
+		transform: scale(0.4) rotate(0);
+	}
+	10% {
+		-webkit-transform: scale(0.4) rotate(0);
+		transform: scale(0.4) rotate(0);
+	}
+	90% {
+		-webkit-transform: scale(1.0) rotate(720deg);
+		transform: scale(1.0) rotate(720deg);
+	}
+	100% {
+		-webkit-transform: scale(1.0) rotate(720deg);
+		transform: scale(1.0) rotate(720deg);
+	}
+}
+
+.xiwang {
+	width: 7.70rem;
+	height: 3.08rem;
+	margin: -1.54rem -3.85rem;
+	background: url(../images/xiwang.png);
+	background-size: 100% 100%;
+	position: absolute;
+	left: 50%;
+	bottom: 1.80rem;
+	-webkit-transition: all 2s;
+	transition: all 2s;
+}
+
+.off .xiwang {
+	opacity: 0;
+}

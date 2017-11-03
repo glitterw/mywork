@@ -1,0 +1,243 @@
+@charset "utf-8"
+/* CSS Document */
+
+xxxxxxxxxxxxxx {}
+
+
+/*场景三*/
+
+#jing_3 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+	overflow: hidden;
+}
+
+.shu_3 {
+	display: block;
+	width: 3.26rem;
+	height: 2.56rem;
+	background: url(../images/shu_3.png);
+	background-size: 100% 100%;
+}
+
+.shu_3_L {
+	position: absolute;
+	top: 0;
+	left: -50%;
+	transition: all 2s;
+}
+
+.shu_3_R {
+	position: absolute;
+	top: 0;
+	right: -50%;
+	transform: rotateY(180deg);
+	transition: all 2s;
+}
+
+#jing_3.on .shu_3_L {
+	left: 0;
+}
+
+#jing_3.on .shu_3_R {
+	right: 0;
+}
+
+.lang {
+	transition: all 2s;
+	opacity: 0;
+}
+
+#jing_3.on .lang {
+	opacity: 1;
+}
+
+.lang_1 {
+	width: 100%;
+	height: 0.62rem;
+	background: url(../images/lang_1.png) 0 0 repeat;
+	background-size: auto 0.62rem;
+	position: absolute;
+	left: 0;
+	bottom: 0.30rem;
+	animation: langAn 5s -5s ease-out infinite;
+	z-index: 1;
+}
+
+.lang_2 {
+	width: 100%;
+	height: 0.62rem;
+	background: url(../images/lang_2.png) 0.39rem 0 repeat;
+	background-size: auto 0.62rem;
+	position: absolute;
+	left: 0;
+	bottom: 0.15rem;
+	animation: langAn 5s -3.33s ease-out infinite;
+	z-index: 2;
+}
+
+.lang_3 {
+	width: 100%;
+	height: 0.62rem;
+	background: url(../images/lang_2.png) 0 0 repeat;
+	background-size: auto 0.62rem;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	animation: langAn 5s -1.66s ease-out infinite;
+	z-index: 3;
+}
+
+@keyframes langAn {
+	0% {
+		transform: translate3D(0, 0, 0);
+	}
+	40% {
+		transform: translate3D(20px, -10px, 0);
+	}
+	100% {
+		transform: translate3D(0, 0, 0);
+	}
+}
+
+.chuan {
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	left: 0%;
+	bottom: 1.80rem;
+	z-index: 1;
+	transition: all 10s, opacity 2s;
+	opacity: 0;
+}
+
+#jing_3.on .chuan {
+	opacity: 1;
+}
+
+.chuan.in_1 {
+	left: 50%;
+	animation: chuan_1_An 3s -2s ease-out infinite;
+}
+
+.chuan.in_2 {
+	left: 50%;
+	animation: chuan_2_An 3s -2s ease-out infinite;
+}
+
+.chuan_1 {
+	width: 4.00rem;
+	height: 2.93rem;
+	background: url(../images/chuan_1.png);
+	background-size: 100% 100%;
+	position: absolute;
+	left: -2.00rem;
+	top: -1.50rem;
+	transform-origin: 50% 100%;
+	opacity: 0;
+	transition: opacity 2s;
+	transform: scale(0.3);
+}
+
+.chuan_2 {
+	width: 4.81rem;
+	height: 2.85rem;
+	background: url(../images/chuan_2.png);
+	background-size: 100% 100%;
+	position: absolute;
+	left: -2.40rem;
+	top: -1.40rem;
+	transform-origin: 50% 100%;
+	opacity: 0;
+	transition: opacity 2s 1s;
+	transform: scale(0.3);
+}
+
+.chuan.chunScale .chuan_1,
+.chuan.chunScale .chuan_2 {
+	animation: chunScaleAn 10s linear both;
+}
+
+@keyframes chunScaleAn {
+	0% {
+		transform: scale(0.3);
+	}
+	100% {
+		transform: scale(1.0);
+	}
+}
+
+.chuan.in_1 .chuan_1 {
+	opacity: 1;
+}
+
+.chuan.in_2 .chuan_2 {
+	opacity: 1;
+}
+
+@keyframes chuan_1_An {
+	0% {
+		transform: translate3D(-30px, 30px, 0);
+	}
+	40% {
+		transform: translate3D(30px, -30px, 0);
+	}
+	100% {
+		transform: translate3D(-30px, 30px, 0);
+	}
+}
+
+@keyframes chuan_2_An {
+	0% {
+		transform: translate3D(0, 0, 0);
+	}
+	40% {
+		transform: translate3D(10px, -5px, 0);
+	}
+	100% {
+		transform: translate3D(0, 0, 0);
+	}
+}
+
+.jiang_3_txt {
+	transition: all 2s;
+	opacity: 0;
+}
+
+#jing_3.on .jiang_3_txt {
+	opacity: 1;
+}
+
+.jiang_3_txt_1,
+.jiang_3_txt_2 {
+	display: block;
+	width: 5.95rem;
+	height: 1.09rem;
+	margin-left: -3.00rem;
+	margin-top: -1.55rem;
+	background: url(../images/jing3_txt_1.png);
+	background-size: 100% 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	opacity: 0;
+	transition: all 3s;
+}
+
+.jiang_3_txt_2 {
+	background: url(../images/jing3_txt_2.png);
+	background-size: 100% 100%;
+}
+
+.jiang_3_txt.in_1 .jiang_3_txt_1 {
+	opacity: 1;
+}
+
+.jiang_3_txt.in_2 .jiang_3_txt_2 {
+	opacity: 1;
+}

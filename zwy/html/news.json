@@ -1,0 +1,51 @@
+{
+    "statusCode": "200",
+    "status": "success",
+    "message": null,
+    "data": [
+        {
+            "MESSAGEID": "b353350e040548949b1adbc6370edb1e",
+            "TITLE": "258",
+            "PUBLISHER": "武汉",
+            "UPDATE_TIME": 1496298036000,
+            "IMAGEPATH": null,
+            "rn": 1
+        },
+        {
+            "MESSAGEID": "88930dda8978430b90bd95adaba9e38e",
+            "TITLE": " 3 ",
+            "PUBLISHER": "长沙",
+            "UPDATE_TIME": 1496298032000,
+            "IMAGEPATH": null,
+            "rn": 2
+        },
+        {
+            "MESSAGEID": "1ef5d6beebc942bc88b1d7e9d9995237",
+            "TITLE": " 789 ",
+            "PUBLISHER": "长沙",
+            "UPDATE_TIME": 1496198192000,
+            "IMAGEPATH": "http://f2.infobigdata.com/group1/M00/00/11/rBAyd1kpTESAfZcSAAACN7poCx0489.jpg",
+            "rn": 3
+        }
+    ],
+    "map": null,
+    "page": {
+        "pageIndex": 1,
+        "pageSize": 3,
+        "totalCount": 4,
+        "pageCount": 2,
+        "offset": 0,
+        "sort": null,
+        "order": null,
+        "firstPage": false,
+        "hasPrev": false,
+        "hasNext": true,
+        "lastPage": true,
+        "empty": false,
+        "firstResult": 0
+    },
+    "queryBean": null,
+    "total": 4,
+    "rows": null,
+    "listBean": null
+}

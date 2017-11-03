@@ -1,0 +1,96 @@
+.Mytime {
+	width: 282px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 12px;
+	line-height: 1.2em;
+	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.Mytime .prev {
+	position: absolute;
+	left: 0;
+}
+
+.Mytime .next {
+	position: absolute;
+	right: 0;
+}
+
+.Mytime .Year-Month {
+	height: 32px;
+	line-height: 32px;
+	font-size: 20px;
+	color: #333333;
+	text-align: center;
+}
+
+.Mytime .Year,
+.Mytime .Month {
+	display: inline-block;
+}
+
+.Mytime .Day,
+.Mytime .Date {
+	height: auto;
+	overflow: hidden;
+	padding-right: 1px;
+	padding-bottom: 1px;
+}
+
+.Mytime .Day span {
+	float: left;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.Mytime .Date {
+	padding-top: 14px;
+}
+
+.Mytime .Date span {
+	float: left;
+	display: inline-block;
+	width: 39px;
+	height: 39px;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	line-height: 40px;
+	text-align: center;
+	border: 1px solid #eeeeee;
+}
+
+
+/**/
+
+.Mytime .prev-Date {
+	color: #cecece;
+}
+
+.Mytime .this-Date {
+	color: #666666;
+}
+
+.Mytime .next-Date {
+	color: #666666;
+}
+
+.Mytime .mouseIn {
+	color: #9b5a63;
+	background: #e6d2d5;
+}
+
+.Mytime .mouseStart,
+.Mytime .mouseEnd,
+.Mytime .Date span:hover {
+	color: #FFFFFF;
+	background: #96515b;
+}

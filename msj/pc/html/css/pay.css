@@ -1,0 +1,122 @@
+/* 支付 */
+.main {
+    width: 1200px;
+    margin: 15px auto 0;
+}
+
+.main .title a {
+    font-size: 14px;
+    color: #666;
+}
+
+.main .way {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    margin: 20px 0;
+    font-size: 24px;
+    color: #333;
+    padding: 0 20px;
+    background: #f8f8f8;
+    box-sizing: border-box;
+}
+
+.main .cont {
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.main .cont p {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main .cont div {
+    font-size: 18px;
+    color: #333;
+}
+
+.main .cont div em {
+    color: #96515b;
+}
+
+.main .alipay {
+    width: 96.5%;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #333;
+    text-indent: 50px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../img/alipay.png) no-repeat 20px center;
+    border: 1px solid #96515b;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main .alipay img {
+    display: block;
+    float: right;
+    margin: 10px 10px 0 0;
+}
+
+.main .btn {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.main .btn .payBtn {
+    float: right;
+    padding: 10px 75px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    background: #96515b;
+    cursor: pointer;
+    user-select: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+
+/* 支付失败 */
+.paFail {
+    width: 1200px;
+    height: 162px;
+    margin: 40px auto;
+    background: url(../img/payFail.png) no-repeat center center;
+}
+
+/* 支付成功 */
+.paySuc {
+    width: 1200px;
+    height: 162px;
+    margin: 40px auto;
+    background: url(../img/paySuc.png) no-repeat top center;
+    position: relative;
+}
+
+.paySuc div {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.paySuc div a {
+    color: #1c45eb;
+}
+
+
+

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <meta name="Keywords" content="民宿加民宿加民宿加">
+    <meta name="Description" content="民宿加民宿加民宿加民宿加">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/pay.css" />
+    <link rel="stylesheet" type="text/css" href="css/Mytime.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/myOrder.css" />
+</head>
+
+<body>
+
+<header class="float_clear">
+    <a class="logo_1 left" href="http://www.jiaminsu.com/">
+        <img src="http://www.jiaminsu.com/statics/newindex/images/logo.png">
+    </a>
+    <nav class="nav_1 left">
+        <a href="#">首页</a>
+        <a href="#">分类</a>
+        <a href="#">内容</a>
+        <a class="active" href="#">民宿预订</a>
+        <a href="#">众创任务</a>
+        <a href="#">公告</a>
+    </nav>
+    <div class="loginBar-publish right">
+        <a href="javascript:;" style="display: none;">登录</a>
+        <a href="javascript:;" style="display: none;">注册</a>
+        <!--登录后-->
+        <div class="loginBarEnd">
+            <img class="loginBar_logo" src="img/头像.jpg" />
+            <div class="loginBar_content" style="display: none;">
+                <ii></ii>
+                <span class="loginBar_content_a">个人中心</span>
+                <span class="loginBar_content_a">房东中心</span>
+                <span class="loginBar_content_a">房客中心</span>
+                <span class="loginBar_exit">退出</span>
+            </div>
+        </div>
+        <!--登录后结束-->
+        <a class="publish" href="javascript:;" style="display: none;">发布房源</a>
+    </div>
+</header>
+
+    <div class="main">
+        <div class="title">
+            当前位置：<a href="">首页</a> > <a href="">民宿预订</a> > <a href="">台北民宿</a> > <a href="">台北胖达部屋</a> > <a href="">四人床位便宜划算</a> > <a href="">填写订单</a>
+        </div>
+
+        <div class="way">
+            填写订单
+        </div>
+
+        <!-- 订单 -->
+        <div class="myOrder">
+            <!-- 日期选择 -->
+            <div class="date">
+                <div class="title">
+                    <span>入住</span>
+                    <span>共 <em class="dayNum">0</em> 晚</span>
+                    <span>离开</span>
+                </div>
+                <div class="chooseTime">
+                    <div class="enter shijian">
+                        2017-02-15
+                    </div>
+                    <div class="leave shijian">
+                        2017-05-05
+                    </div>
+                </div>
+            </div>
+
+            <!-- 日期 -->
+            <form class="form">
+
+                <div class="shijian_xuanxiang" style="display: none;">
+                    <ii></ii>
+                    <span id="shijian_prev"></span>
+                    <span id="shijian_next"></span>
+                    <div class="Mytime left" id="Mytime1">
+                        <span class="prev">上</span>
+                        <span class="next">下</span>
+                        <div class="Year-Month">
+                            <h3 class="Year"><span>2000</span>年</h3>
+                            <h4 class="Month"><span>1</span>月</h4>
+                        </div>
+                        <div class="Day-Date">
+                            <h5 class="Day"><span>一</span><span>二</span><span>三</span> <span>四</span><span>五</span><span>六</span><span>日</span></h5>
+                            <div class="Date"><span>1</span><span>2</span><span>3</span> <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+                        </div>
+                    </div>
+                    <div class="Mytime left" id="Mytime2">
+                        <span class="prev">上</span>
+                        <span class="next">下</span>
+                        <div class="Year-Month">
+                            <h3 class="Year"><span>2000</span>年</h3>
+                            <h4 class="Month"><span>1</span>月</h4>
+                        </div>
+                        <div class="Day-Date">
+                            <h5 class="Day"><span>一</span><span>二</span><span>三</span> <span>四</span><span>五</span><span>六</span><span>日</span></h5>
+                            <div class="Date"><span>1</span><span>2</span><span>3</span> <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <!-- list -->
+            <ul>
+
+                <li>
+                    <span>联系人</span>
+                    <input type="text">
+                </li>
+
+                <li>
+                    <span>手机号码</span>
+                    <input type="text">
+                </li>
+
+                <li>
+                    <span>房间数</span>
+                    <div class="num">
+                        <div class="subtract"></div>
+                        <div class="roomNum">2</div>
+                        <div class="add"></div>
+                    </div>
+                </li>
+
+                <li class="roomList">
+
+                    <!--<div class="room">
+                        <span>房间<em>1</em>入住人姓名</span>
+                        <input type="text">
+                    </div>
+
+                    <div class="room">
+                        <span>房间<em>2</em>入住人姓名</span>
+                        <input type="text">
+                    </div>
+
+                    <div class="room">
+                        <span>房间<em>2</em>入住人姓名</span>
+                        <input type="text">
+                    </div>
+
+                    <div class="room">
+                        <span>房间<em>2</em>入住人姓名</span>
+                        <input type="text">
+                    </div>
+
+                    <div class="room">
+                        <span>房间<em>2</em>入住人姓名</span>
+                        <input type="text">
+                    </div>-->
+                    
+                </li>
+
+
+            </ul>
+
+            <!-- 总额 -->
+            <div class="total">
+                <div class="all">订单总额：￥<span>600</span></div>
+                <div class="totalDetail">费用明细</div>
+            </div>
+
+            <div class="deal">点击提交，即表示您同意并接受<a href="javascript:;">《民宿加使用协议》</a></div>
+
+            <!-- btn -->
+            <input type="button" class="orderBtn" value="提交订单">
+
+        </div>
+
+        <!-- 订单详情 -->
+        <div class="particulars">
+            <img src="img/pic1.jpg">
+            <ul>
+
+                <li>
+                    <span>民宿名称：</span>
+                    <span>丽江老房子束河元年度假别院</span>
+                </li>
+
+                <li>
+                    <span>房型名称：</span>
+                    <span>豪华双人房</span>
+                </li>
+
+                <li>
+                    <span>房型信息：</span>
+                    <span>建筑面积：18平方米；楼层：1-3层；床型：双人床1.8米；最多入住人数：2人</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<!-- 弹窗费用明细 -->
+<!--<div class="layerTotal">
+    <h2>费用明细</h2>
+    <ul>
+        <li>
+            <span>2016-09-10</span>
+            <span><em>2</em> 间</span>
+            <span><em>￥</em> 14444</span>
+        </li>
+    </ul>
+    <div class="allNum">
+        总额：￥<span>1680</span>
+    </div>
+</div>-->
+
+
+<!-- 底部 -->
+<footer style="position: static;overflow: hidden;">
+    <div class="foot">
+        <div class="l">
+            <img src="img/footLogo.png">
+        </div>
+        <div class="m">
+            <div>
+                <ul>
+                    <li>
+                        <a href="">关于我们</a>
+                    </li>
+                    <li>
+                        <a href="">用户协议</a>
+                    </li>
+                    <li>
+                        <a href="">免责声明</a>
+                    </li>
+                    <li>
+                        <a href="">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p class="t">
+                    <span>联系电话：027-65386823</span>
+                    <span>武汉中润普达信息技术有限公司</span>
+                    <span>备案号: 鄂ICP备14018646-7</span>
+                </p>
+                <p class="b">
+                    <span>邮箱：whzrpdmsk@163.com</span>
+                    <span>湖北省武汉市武昌区汉街万达总部国际B座508室</span>
+                </p>
+            </div>
+        </div>
+        <div class="r">
+            <img src="img/wCode.png">
+            <img src="img/iosCode.png">
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script src="js/Mytime.js" type="text/javascript"></script>
+<script>
+
+    $(function () {
+        /*时间*/
+        var thisDate = new Date();
+        var FullYear = thisDate.getFullYear();
+        var Month = thisDate.getMonth() + 1;
+        var thisDate = thisDate.getDate();
+        MytimeFn($('#Mytime1'), FullYear, Month);
+        MytimeFn($('#Mytime2'), FullYear, Month + 1);
+        timeClick($('.Mytime'));
+        $('#shijian_prev').click(function() {
+            $('#Mytime1 .prev,#Mytime2 .prev').click();
+            timeClick($('.Mytime'));
+        });
+        $('#shijian_next').click(function() {
+            $('#Mytime1 .next,#Mytime2 .next').click();
+            timeClick($('.Mytime'));
+        });
+        /*搜索*/
+        $('.mudidi').click(function() {
+            $(".mudidi_xuanxiang").css('display', 'block');
+        });
+        $(".mudidi_nav a").click(function(ev) {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+        $(".mudidi_nav a").mouseup(function(ev) {
+            ev.stopPropagation();
+        });
+
+        $('.mudidi_content').on('click', 'span', function() {
+            $('.mudidi').val($(this).text());
+            $(".mudidi_xuanxiang").css('display', 'none');
+        });
+        $('.shijian').click(function(ev) {
+            $(".shijian_xuanxiang").css('display', 'block');
+        });
+        var sj1 = '';
+        $('.Mytime .Date').on('mouseup', 'span', function(ev) {
+            $(".enter").html($('.Mytime').attr('minVla'))
+            $(".leave").html($('.Mytime').attr('maxVla'))
+            $(".dayNum").html(DateDiff($('.Mytime').attr('minVla'), $('.Mytime').attr('maxVla')))
+        });
+
+        $('.shijian_xuanxiang').on('mouseup', function(ev) {
+            ev.stopPropagation();
+        });
+
+        $(document).on('mouseup', function() {
+            $(".mudidi_xuanxiang").css('display', 'none');
+            $(".shijian_xuanxiang").css('display', 'none');
+        });
+
+
+
+        // 费用详情 
+        var json = 
+        [
+            {"date": "2016-02-08", "roomNum": "1", "price": "578",},
+            {"date": "2016-02-09", "roomNum": "4", "price": "235",},
+            {"date": "2016-02-11", "roomNum": "3", "price": "2578",},
+            {"date": "2016-02-12", "roomNum": "5", "price": "1332",},
+            {"date": "2016-02-13", "roomNum": "65", "price": "666",},
+            {"date": "2016-02-15", "roomNum": "2", "price": "1567",},
+            {"date": "2016-02-22", "roomNum": "1", "price": "1245",},
+            {"date": "2016-02-25", "roomNum": "21", "price": "1234",}
+        ]
+
+        var total = "66666";
+    
+        $(".totalDetail").on("click", function () {
+            var str = "";
+            for (var i = 0; i < json.length; i++) {
+                str += '<li><span>' + json[i].date + '</span><span><em>' + json[i].roomNum + '</em> 间</span><span><em>￥</em>' + json[i].price + '</span></li>';
+            }
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 0,
+                skin: 'myLayer',
+                closeBtn: 2,
+                area: ["450px", "auto"],
+                content: '<div class="layerTotal"><h2>费用明细</h2><ul>' + str + '</ul><div class="allNum">总额：￥<span>' + total + '</span></div></div>'
+            });
+
+        })
+
+        // 房间数 
+        roomList();
+        var add = $(".add"),
+            sub = $(".subtract"),
+            roomNum = $(".roomNum"),
+            n = 1;
+
+        sub.on("click", function () {
+            n--;
+            if (n < 1) {
+                n = 1;
+            }
+            roomNum.html(n);
+            roomList();
+        })
+
+        add.on("click", function () {
+            n++;
+            roomNum.html(n);
+            roomList();
+        })
+
+        // 生成 room 列表
+        function roomList () {
+            var l = parseInt($(".roomNum").html());
+            var str = "";
+            var n = 0;
+            for (var i = 0; i < l; i++) {
+                n++;
+                str += '<div class="room"><span>房间<em>' + n + '</em>入住人姓名</span><input type="text"></div>';
+                $(".roomList").html(str);
+            }
+            
+        }
+
+        //计算天数差的函数，通用  
+        function DateDiff(sDate1, sDate2) {    
+            var aDate, oDate1, oDate2, iDays;
+            if (aDate && oDate1 && oDate2 && iDays) {
+                aDate = sDate1.split("-")
+                oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])    
+                aDate = sDate2.split("-")
+                oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])
+                iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24)    // 相差的毫秒数转换为天数  
+                return iDays
+            }
+        } 
+
+    })
+
+</script>
+</body>
+
+</html>

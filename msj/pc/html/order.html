@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>民宿加</title>
+		<meta name="Keywords" content="民宿加民宿加民宿加">
+		<meta name="Description" content="民宿加民宿加民宿加民宿加">
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/order.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<!-- 头部 -->
+		<header class="float_clear">
+			<a class="logo_1 left" href="http://www.jiaminsu.com/">
+				<img src="http://www.jiaminsu.com/statics/newindex/images/logo.png">
+			</a>
+			<nav class="nav_1 left">
+				<a href="#">首页</a>
+				<a href="#">分类</a>
+				<a href="#">内容</a>
+				<a class="active" href="#">民宿预订</a>
+				<a href="#">众创任务</a>
+				<a href="#">公告</a>
+			</nav>
+			<div class="loginBar-publish right">
+				<a href="javascript:;" style="display: none;">登录</a>
+				<a href="javascript:;" style="display: none;">注册</a>
+				<!--登录后-->
+				<div class="loginBarEnd">
+					<img class="loginBar_logo" src="img/头像.jpg" />
+					<div class="loginBar_content" style="display: none;">
+						<ii></ii>
+						<span class="loginBar_content_a">个人中心</span>
+						<span class="loginBar_content_a">房东中心</span>
+						<span class="loginBar_content_a">房客中心</span>
+						<span class="loginBar_exit">退出</span>
+					</div>
+				</div>
+				<!--登录后结束-->
+				<a class="publish" href="javascript:;" style="display: none;">发布房源</a>
+			</div>
+		</header>
+		<hr class="hr_bottom" />
+
+		<div class="banner"></div>
+
+		<div class="order_main">
+			<div class="main_left left">
+				<div class="roomer_center">房客中心</div>
+				<ul>
+					<li class="act">我的订单</li>
+					<li>我的收藏</li>
+				</ul>
+			</div>
+			<div class="main_right right">
+				<div class="location">当前位置：房客中心>我的订单</div>
+				<div class="order_choose">
+					<div class="order_state">
+						<ul>
+							<li class="act2">全部订单</li>
+							<li>待确认</li>
+							<li>待入住</li>
+							<li>已入住</li>
+							<li>已取消</li>
+						</ul>
+					</div>
+
+					<div class="order_search">
+						<div class="order_num">订单号：<input /></div>
+						<div class="order_date">预定日期：<input placeholder="请选择入离日期" /></div>
+						<button>查询</button>
+					</div>
+				</div>
+				<!--待入住-->
+				<div class="order_frame">
+					<div class="order_condition">
+						<p>订单号：201601010001</p>
+						<p>预定时间：2016-10-10 10:30:12</p>
+						<span class="delete">删除订单</span>
+					</div>
+
+					<div class="order_content">
+						<img src="img/order-pic.png">
+						<div class="order_xq">
+							<h2>凤凰之友客栈</h2>
+							<p>￥200</p>
+						</div>
+						<div class="reprove">重发验证短信</div>
+						<div class="order_zt">
+							<p>待入住</p>
+							<div>订单详情</div>
+						</div>
+					</div>
+				</div>
+				<!--已入住-->
+				<div class="order_frame">
+					<div class="order_condition">
+						<p>订单号：201601010001</p>
+						<p>预定时间：2016-10-10 10:30:12</p>
+						<span class="delete">删除订单</span>
+					</div>
+
+					<div class="order_content">
+						<img src="img/order-pic.png">
+						<div class="order_xq">
+							<h2>凤凰之友客栈</h2>
+							<p>￥200</p>
+						</div>
+						<div class="order_zt">
+							<p>已入住</p>
+							<div>订单详情</div>
+							<div class="comment">写评论</div>
+						</div>
+					</div>
+				</div>
+				<!--已取消-->
+				<div class="order_frame">
+					<div class="order_condition">
+						<p>订单号：201601010001</p>
+						<p>预定时间：2016-10-10 10:30:12</p>
+						<span class="delete">删除订单</span>
+					</div>
+
+					<div class="order_content">
+						<img src="img/order-pic.png">
+						<div class="order_xq">
+							<h2>凤凰之友客栈</h2>
+							<p>￥200</p>
+						</div>
+						<div class="order_zt">
+							<p>已入住</p>
+							<div>订单详情</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="delete_out">
+					<div class="delete_frame">
+						<div class="close"></div>
+						<span>删除订单</span>
+						<p>订单删除后页面不再显示该订单，不代表取消订单</p>
+						<div class="btn">
+							<button class="btn1">确定</button>
+							<button class="btn2">取消</button>
+						</div>
+					</div>
+				</div>
+				<!--分页-->
+				<div id="Mpage1" class="Mpage" data-pages="18" data-curr="1"></div>
+			</div>
+		</div>
+
+		<!-- 底部 -->
+		<footer style="clear: both">
+			<div class="foot">
+				<div class="l">
+					<img src="img/footLogo.png">
+				</div>
+				<div class="m">
+					<div>
+						<ul>
+							<li>
+								<a href="">关于我们</a>
+							</li>
+							<li>
+								<a href="">用户协议</a>
+							</li>
+							<li>
+								<a href="">免责声明</a>
+							</li>
+							<li>
+								<a href="">联系我们</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<p class="t">
+							<span>联系电话：027-65386823</span>
+							<span>武汉中润普达信息技术有限公司</span>
+							<span>备案号: 鄂ICP备14018646-7</span>
+						</p>
+						<p class="b">
+							<span>邮箱：whzrpdmsk@163.com</span>
+							<span>湖北省武汉市武昌区汉街万达总部国际B座508室</span>
+						</p>
+					</div>
+				</div>
+				<div class="r">
+					<img src="img/wCode.png">
+					<img src="img/iosCode.png">
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/Mbase.js"></script>
+		<script src="js/common.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/*分页*/
+				PageFn('#Mpage2', 'hrefPage2');
+
+				$(document).on('click', '.order_state ul li', function() {
+					$(this).addClass('act2').siblings().removeClass('act2');
+				})
+			});
+		</script>
+		<!--我的订单-写评论-->
+		<div class="xiepingluW" style="display: none;">
+			<div class="xiepinglu">
+				<h4 class="xpl_h4">写评论</h4>
+				<div class="xpl_pingxing"><i></i><i></i><i></i><i></i><i></i></div>
+				<textarea class="xpl_wbk" placeholder="评价内容1000字以内"></textarea>
+				<div class="xpl_sctp overflow">
+					<div class="xpl_sctp_butt" style="overflow: hidden; position: relative;">
+						<input type="file" onchange="preview(this)" style="opacity: 0; font-size: 100px; position: absolute; right: 0;" />
+					</div>
+				</div>
+				<a class="xplX" href="javascript:;"></a>
+				<a class="xplTj" href="javascript:;">提交</a>
+				<div id="preview"></div>
+				<script type="text/javascript">
+				</script>
+			</div>
+			<script>
+				$(function() {
+					preview = function(file) {
+						if(file.files && file.files[0]) {
+							var reader = new FileReader();
+							reader.onload = function(evt) {
+								var img = $('<span class=xpl_sctp_img><img/></span>').prependTo('.xpl_sctp').find('img').attr('src', evt.target.result).get(0);
+								img.onload = function() { this.naturalWidth >= this.naturalHeight ? this.className = 'heng' : this.className = 'shu'; }
+							}
+							reader.readAsDataURL(file.files[0]);
+						}
+					}
+					/*评星*/
+					var xpl_pingxing = 0;
+					$(document).on('mouseover', ".xpl_pingxing i", function() {
+						$(".xpl_pingxing i").removeClass('on');
+						$(this).addClass("on").prevAll().addClass("on");
+					});
+					$(document).on('click', ".xpl_pingxing i", function() {
+						xpl_pingxing = $(this).index('.xpl_pingxing i');
+					});
+					$(document).on('mouseout', ".xpl_pingxing i", function() {
+						$(".xpl_pingxing i").removeClass('on');
+					});
+					$(document).on("mouseleave", ".xpl_pingxing", function() {
+						$(".xpl_pingxing i").slice(0, xpl_pingxing + 1).addClass("on");
+					});
+					/*评星结束*/
+					/*点击删除图片*/
+					$(document).on('click', '.xpl_sctp_img', function() {
+						$(this).remove();
+					});
+					/*保证图片不变形<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';"/>*/
+					$(".comment").click(function() {
+						var xiepingluW = $(".xiepingluW").css('display', 'block');
+						xiepingluW.find('.xpl_pingxing i').removeClass('on');
+						xiepingluW.find('.xpl_wbk').val('');
+						xiepingluW.find('.xpl_sctp_img').remove();
+					});
+					//点击X关闭
+					$(document).on('click', '.xplX', function() {
+						$('.xiepingluW').css('display', 'none');
+					});
+					//点击提交关闭
+					$(document).on('click', '.xplTj', function() {
+						$('.xiepingluW').css('display', 'none');
+					});
+				});
+			</script>
+		</div>
+		<!--我的订单-写评论结束-->
+		<!--删除订单-->
+		<div class="shanchudingdanW tcM">
+			<div class="shanchudingdan">
+				<div class="">
+					<h4 class="scdd_h4">删除订单</h4>
+					<h5 class="scdd_h5">订单删除后页面不再显示该订单，不代表取消订单</h5>
+				</div>
+				<a class="XX" href="javascript:;"></a>
+				<div class="Tj_Qx">
+					<a class="Tj" href="javascript:;">提交</a>
+					<a class="Qx" href="javascript:;">取消</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$(document).on('click', '.delete', function() {
+					$('.tcM').css('display', 'block');
+				});
+				$(document).on('click', '.XX,.Qx', function() {
+					$(this).parents('.tcM').css('display', 'none');
+				});
+				$(document).on('click', '.Tj', function() {
+					$(this).parents('.tcM').css('display', 'none');
+				});
+				var Bln = true;
+
+			})
+		</script>
+		<!--删除订单结束-->
+
+	</body>
+
+</html>

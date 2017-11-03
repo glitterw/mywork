@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>民宿加</title>
+	<meta name="Keywords" content="民宿加民宿加民宿加">
+	<meta name="Description" content="民宿加民宿加民宿加民宿加">
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/Mytime.css" />
+	<link rel="stylesheet" type="text/css" href="css/order.css" />
+	<link rel="stylesheet" type="text/css" href="css/fangxingxiangqing.css" />
+	<script src="./js/swiper-3.4.0.jquery.min.js"></script>
+	 <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+  
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+	.swiper-container img{
+		 width: 100%;
+        height: 100%;
+	}
+	.gallery-thumbs img{
+		height:initial;
+	}
+    .swiper-slide {
+        background-size: cover;
+        background-position: center;
+    }
+    .gallery-top {
+        height: 80%;
+        width: 100%;
+    }
+    .gallery-thumbs {
+        height: 20%;
+        box-sizing: border-box;
+        padding: 10px 0;
+    }
+    .gallery-thumbs .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-active {
+        opacity: 1;
+    }
+    
+    </style>
+</head>
+
+<body>
+	<wrap>
+		<!-- 头部 -->
+		<header class="float_clear">
+			<a class="logo_1 left" href="http://www.jiaminsu.com/">
+				<img src="http://www.jiaminsu.com/statics/newindex/images/logo.png">
+			</a>
+			<nav class="nav_1 left">
+				<a href="#">首页</a>
+				<a href="#">分类</a>
+				<a href="#">内容</a>
+				<a class="active" href="#">民宿预订</a>
+				<a href="#">众创任务</a>
+				<a href="#">公告</a>
+			</nav>
+			<div class="loginBar-publish right">
+				<a href="javascript:;" style="display: none;">登录</a>
+				<a href="javascript:;" style="display: none;">注册</a>
+				<!--登录后-->
+				<div class="loginBarEnd">
+					<img class="loginBar_logo" src="img/头像.jpg" />
+					<div class="loginBar_content" style="display: none;">
+						<ii></ii>
+						<span class="loginBar_content_a">个人中心</span>
+						<span class="loginBar_content_a">房东中心</span>
+						<span class="loginBar_content_a">房客中心</span>
+						<span class="loginBar_exit">退出</span>
+					</div>
+				</div>
+				<!--登录后结束-->
+				<a class="publish" href="javascript:;" style="display: none;">发布房源</a>
+			</div>
+		</header>
+		<hr class="hr_bottom" />
+		<div class="fangxingxiangqing">
+			<div class="mingshuxq_ss_1">
+				<div class="bern_1_h">
+					<form class="form">
+						<input class="mudidi" type="text" name="" id="" value="" placeholder="请选择目的地" />
+						<i></i>
+						<input class="shijian" type="text" name="" id="" value="" placeholder="请选择入离日期" />
+						<i></i>
+						<input class="jingdian" type="text" name="" id="" value="" placeholder="民宿名称、景点、城市" />
+						<input class="submit" type="submit" value="&nbsp;" />
+						<div class="mudidi_xuanxiang" style="display: none;">
+							<ii></ii>
+							<div class="mudidi_nav">
+								<a class="active" href="#">国内热门</a>
+								<a href="#">ABCD</a>
+								<a href="#">EFGHJ</a>
+								<a href="#">KLMN</a>
+								<a href="#">PQRST</a>
+								<a href="#">WXYZ</a>
+							</div>
+							<div class="mudidi_content">
+								<span>北京</span>
+								<span>上海</span>
+								<span>广州</span>
+								<span>成都</span>
+								<span>三亚</span>
+								<span>厦门</span>
+								<span>深圳</span>
+								<span>内蒙古</span>
+								<span>呼和浩特</span>
+								<span>广州</span>
+								<span>成都</span>
+								<span>三亚</span>
+								<span>厦门</span>
+								<span>深圳</span>
+							</div>
+						</div>
+						<div class="shijian_xuanxiang" style="display: none;">
+							<ii></ii>
+							<span id="shijian_prev"></span>
+							<span id="shijian_next"></span>
+							<div class="Mytime left" id="Mytime1">
+								<span class="prev">上</span>
+								<span class="next">下</span>
+								<div class="Year-Month">
+									<h3 class="Year"><span>2000</span>年</h3>
+									<h4 class="Month"><span>1</span>月</h4>
+								</div>
+								<div class="Day-Date">
+									<h5 class="Day"><span>一</span><span>二</span><span>三</span> <span>四</span><span>五</span><span>六</span><span>日</span></h5>
+									<div class="Date"><span>1</span><span>2</span><span>3</span> <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+								</div>
+							</div>
+							<div class="Mytime left" id="Mytime2">
+								<span class="prev">上</span>
+								<span class="next">下</span>
+								<div class="Year-Month">
+									<h3 class="Year"><span>2000</span>年</h3>
+									<h4 class="Month"><span>1</span>月</h4>
+								</div>
+								<div class="Day-Date">
+									<h5 class="Day"><span>一</span><span>二</span><span>三</span> <span>四</span><span>五</span><span>六</span><span>日</span></h5>
+									<div class="Date"><span>1</span><span>2</span><span>3</span> <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+								</div>
+							</div>
+						</div>
+					</form>
+
+					<!-- 收缩按钮 -->
+					<div class="slideList"></div>
+
+				</div>
+
+			</div>
+			<div class="location_2">当前位置：首页 &gt; 民宿预订 &gt; 台北民宿</div>
+			<div class="minsuxq_h">
+				<h2>凤凰之友客栈</h2>
+				<div class="minsuxq_p overflow">
+					<p class="order_site_1 left">浙江省湖州市德清县筏头乡庙前村1号</p>
+					<a class="chakanditu left" href="#">查看地图</a>
+					<div class="fengxiang_3 right">分享</div>
+					<div class="order_shouchang off right">收藏</div>
+				</div>
+				<div class="mstese_2">
+					<span>莫干山</span>
+					<span>度假酒店</span>
+					<span>泳池</span>
+				</div>
+			</div>
+			<div class="minsuxq_bern overflow">
+				<div class="minsuxq_bern_left left">
+					<!-- Swiper -->
+					<!--<div class="swiper-container swiper_3">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+						</div>
+						
+						<div class="swiper-pagination swiper-pagination_3"></div>
+						
+						<div class="swiper-button-next swiper-button-next_3"></div>
+						<div class="swiper-button-prev swiper-button-prev_3"></div>
+					</div>-->
+					<div class="swiper-container gallery-top">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+						</div>
+						<!-- Add Arrows -->
+						<div class="swiper-button-next swiper-button-white"></div>
+						<div class="swiper-button-prev swiper-button-white"></div>
+					</div>
+					<div class="swiper-container gallery-thumbs">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic1.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic2.jpg" /></div>
+							<div class="swiper-slide"><img src="img/pic3.jpg" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="minsuxq_bern_right right">
+					<p class="minsuxq_bern_right1"><img src="img/footLogo.png" /></p>
+					<p class="minsuxq_bern_right2">民宿主</p>
+					<p class="minsuxq_bern_right3"></p>
+					<p class="minsuxq_bern_right4">0755-8666 8888</p>
+				</div>
+			</div>
+			<div class="minsuxq_xq" id="minsuxq_xq0">
+				<div>
+					<div class="minsuxq_xq" id="minsuxq_xq_nav" style="height: 86px; width: 1200px;">
+						<p class="minsuxq_xq_nav">
+							<a class="active" href="#minsuxq_xq1">房型选择</a>
+							<a href="#minsuxq_xq2">民宿描述</a>
+							<a href="#minsuxq_xq3">房客点评</a>
+						</p>
+					</div>
+				</div>
+				<div class="minsuxq_xq1">
+					<i id="minsuxq_xq1" style="display:block;height: 0; position: relative; top: -100px;"></i>
+					<div class="order_content">
+						<a href="#"><img src="img/order-pic.png"></a>
+						<a href="#">
+							<div class="order_xq" style="width: 516px;">
+								<h2>凤凰之友客栈</h2>
+								<span class="order_text_2">房型信息：
+									<i>房间面积：18m²  床型信息：双人床（1床）   最多入住：2人</i>
+									<i>房间面积：18m²  床型信息：双人床（1床）   最多入住：2人</i>
+								</span>
+								<p class="order_site_1">浙江省湖州市德清县筏头乡庙前村1号</p>
+							</div>
+						</a>
+						<div class="order_jiage">￥<span>592 </span>起</div>
+						<a class="minsuxq_yd" href="#">立即预订</a>
+						<hr class="left hr_bottom" />
+					</div>
+					<div class="order_content">
+						<a href="#"><img src="img/order-pic.png"></a>
+						<a href="#">
+							<div class="order_xq" style="width: 516px;">
+								<h2>凤凰之友客栈</h2>
+								<span class="order_text_2">房型信息：
+									<i>房间面积：18m²  床型信息：双人床（1床）   最多入住：2人</i>
+									<i>房间面积：18m²  床型信息：双人床（1床）   最多入住：2人</i>
+								</span>
+								<p class="order_site_1">浙江省湖州市德清县筏头乡庙前村1号</p>
+							</div>
+						</a>
+						<div class="order_jiage">￥<span>592 </span>起</div>
+						<a class="minsuxq_wf" href="#">无房</a>
+						<hr class="left hr_bottom" />
+					</div>
+					<div class="order_content">
+						<a href="#"><img src="img/order-pic.png"></a>
+						<a href="#">
+							<div class="order_xq" style="width: 516px;">
+								<h2>凤凰之友客栈</h2>
+								<span class="order_text_2">房型信息：
+									<i>房间面积：18m²  床型信息：双人床（1床）   最多入住：2人</i>
+									<i>房间面积：18m²  床型信息：双人床（1床）   最多入住：2人</i>
+								</span>
+								<p class="order_site_1">浙江省湖州市德清县筏头乡庙前村1号</p>
+							</div>
+						</a>
+						<div class="order_jiage">￥<span>592 </span>起</div>
+						<a class="minsuxq_yd" href="#">立即预订</a>
+						<hr class="left hr_bottom" />
+					</div>
+					<a class="jiazaigengduo_2" href="javas:;"><i></i>点击查看更多评论</a>
+				</div>
+				<div class="minsuxq_xq2">
+					<i id="minsuxq_xq2" style="display:block;height: 0; position: relative; top: -100px;"></i>
+					<h5>民宿简介</h5>
+					<p>上海的西侧，从上海沿高速公路驱车2.5小时，就到达了中国首个生态县。这里有葱郁茂盛的原始森林，险崖突匹，有川流不息的瀑布清泉，清澈见底。有纯净清新的空气，泌人心脾。有历史悠久的文化底蕴，人文荟萃。有极其丰富的旅游资源，纵横分布。这就是安吉。</p>
+					<p>在安吉西侧海拔千米的原始森林大山，山脚S14高速公路已开通。出高速沿大山新建柏油路，一路向上20分钟，井空里大峡谷蜿蜒起伏矗立在面前。老树林度假别墅·安吉就座落在这条浙江最具原生态的峡谷内，遥望莫干山，遗世独立，返璞归真。 清晨,是空气的清新让您醒来；躺在床上，眺望着远山上的云开雾散。倘佯在浴缸里沐浴的是从千米峰顶接入的泉水，是负氧离子高达近万的森林灵气。极具挑战的井空里溯溪和高山上盘旋的柏油小路上山地车运动，在任意地方的停留都是美景，松鼠小鹿会向您问候，开阔的视野，让您去摒弃心中的浊气。</p>
+				</div>
+				<div class="minsuxq_xq3">
+					<i id="minsuxq_xq3" style="display:block;height: 0; position: relative; top: -100px;"></i>
+					<div class="fxxq_div_4_left_xq">
+						<h5 class="fxxq_h5_pingxing overflow">
+							<span class="fxxq_pinxing left"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+							<span class="fxxq_feng left">5.0 分</span>
+							<span class="fxxq_pinlun left">12条评论</span></h5>
+						<ul>
+							<li class="fxxq_pinlun_xq overflow">
+								<div class="fxxq_pinlun_xq_left left">
+									<img src="img/alipay.png">
+									<span>阿彬</span>
+								</div>
+								<div class="fxxq_pinlun_xq_reight left">
+									<div class="pingxing_xq_1 overflow">
+										<span class="fxxq_pinxing left"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+										<span class="fxxq_feng left">4.0 分</span>
+									</div>
+									<div class="pingxing_xq_2">
+										<p>这是一次非常值得的旅行。第一次去莫干山。之前知道莫干山住宿贵但不知道原来这么贵…狠狠心还是订了这家。这家还是算便宜的～只能说，不虚此行。首先要表扬的是运营总监新苗同学～</p>
+										<h6 class="fabushijian">发布于2016-12-27 10:23:43</h6>
+									</div>
+
+								</div>
+							</li>
+							<li class="fxxq_pinlun_xq overflow">
+								<div class="fxxq_pinlun_xq_left left">
+									<img src="img/alipay.png">
+									<span>阿彬阿彬阿彬阿彬</span>
+								</div>
+								<div class="fxxq_pinlun_xq_reight left">
+									<div class="pingxing_xq_1 overflow">
+										<span class="fxxq_pinxing left"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+										<span class="fxxq_feng left">4.0 分</span>
+									</div>
+									<div class="pingxing_xq_2">
+										<p>这是一次非常值得的旅行。第一次去莫干山。之前知道莫干山住宿贵但不知道原来这么贵…狠狠心还是订了这家。这家还是算便宜的～只能说，不虚此行。首先要表扬的是运营总监新苗同学～出行前、入住时都有问题必然帮我们解决。其次是大厨，这菜好吃的不得了，得到我们大家一致好评，住了一个晚上，吃了2顿午饭一个早饭一个晚饭，根本不想再出去找吃的…价格也很公道哦～第一次见到～～!超兴奋～下次想在下雪天去。很美哦～</p>
+										<div class="overflow">
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+										</div>
+										<h6 class="fabushijian">发布于2016-12-27 10:23:43</h6>
+									</div>
+
+								</div>
+							</li>
+							<li class="fxxq_pinlun_xq overflow">
+								<div class="fxxq_pinlun_xq_left left">
+									<img src="img/alipay.png">
+									<span>阿彬阿彬阿彬阿彬</span>
+								</div>
+								<div class="fxxq_pinlun_xq_reight left">
+									<div class="pingxing_xq_1 overflow">
+										<span class="fxxq_pinxing left"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+										<span class="fxxq_feng left">4.0 分</span>
+									</div>
+									<div class="pingxing_xq_2">
+										<p>这是一次非常值得的旅行。第一次去莫干山。之前知道莫干山住宿贵但不知道原来这么贵…狠狠心还是订了这家。这家还是算便宜的～只能说，不虚此行。首先要表扬的是运营总监新苗同学～出行前、入住时都有问题必然帮我们解决。其次是大厨，这菜好吃的不得了，得到我们大家一致好评，住了一个晚上，吃了2顿午饭一个早饭一个晚饭，根本不想再出去找吃的…价格也很公道哦～第一次见到～～!超兴奋～下次想在下雪天去。很美哦～</p>
+										<div class="overflow">
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+											<span class="xpl_sctp_img">
+													<img src="img/cover.png" onload="this.naturalWidth>=this.naturalHeight?this.className='heng':this.className='shu';" class="heng">
+												</span>
+										</div>
+										<h6 class="fabushijian">发布于2016-12-27 10:23:43</h6>
+									</div>
+
+								</div>
+							</li>
+						</ul>
+						<a class="jiazaigengduo_2" href="javas:;"><i></i>点击查看更多评论</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- 底部 -->
+		<footer style="clear: both">
+			<div class="foot">
+				<div class="l">
+					<img src="img/footLogo.png">
+				</div>
+				<div class="m">
+					<div>
+						<ul>
+							<li>
+								<a href="">关于我们</a>
+							</li>
+							<li>
+								<a href="">用户协议</a>
+							</li>
+							<li>
+								<a href="">免责声明</a>
+							</li>
+							<li>
+								<a href="">联系我们</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<p class="t">
+							<span>联系电话：027-65386823</span>
+							<span>武汉中润普达信息技术有限公司</span>
+							<span>备案号: 鄂ICP备14018646-7</span>
+						</p>
+						<p class="b">
+							<span>邮箱：whzrpdmsk@163.com</span>
+							<span>湖北省武汉市武昌区汉街万达总部国际B座508室</span>
+						</p>
+					</div>
+				</div>
+				<div class="r">
+					<img src="img/wCode.png">
+					<img src="img/iosCode.png">
+				</div>
+			</div>
+		</footer>
+
+	</wrap>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/Mbase.js"></script>
+	<script src="js/Mytime.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/swiper-3.4.0.jquery.min.js"></script>
+	<script src="js/common.js"></script>
+	 <script>
+    var galleryTop = new Swiper('.gallery-top', {
+		initialSlide :2,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 10,
+    });
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+		initialSlide :2,
+        spaceBetween: 10,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        slideToClickedSlide: true
+    });
+    galleryTop.params.control = galleryThumbs;
+    galleryThumbs.params.control = galleryTop;
+    
+    </script>
+	<script type="text/javascript">
+		$(function () {
+			/*时间*/
+			var thisDate = new Date();
+			var FullYear = thisDate.getFullYear();
+			var Month = thisDate.getMonth() + 1;
+			var thisDate = thisDate.getDate();
+			MytimeFn($('#Mytime1'), FullYear, Month);
+			MytimeFn($('#Mytime2'), FullYear, Month + 1);
+			timeClick($('.Mytime'));
+			$('#shijian_prev').click(function () {
+				$('#Mytime1 .prev,#Mytime2 .prev').click();
+				timeClick($('.Mytime'));
+			});
+			$('#shijian_next').click(function () {
+				$('#Mytime1 .next,#Mytime2 .next').click();
+				timeClick($('.Mytime'));
+			});
+			/*搜索*/
+			$('.mudidi').click(function () {
+				$(".mudidi_xuanxiang").css('display', 'block');
+			});
+			$(".mudidi_nav a").click(function (ev) {
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+			$(".mudidi_nav a").mouseup(function (ev) {
+				ev.stopPropagation();
+			});
+
+			$('.mudidi_content').on('click', 'span', function () {
+				$('.mudidi').val($(this).text());
+				$(".mudidi_xuanxiang").css('display', 'none');
+			});
+			$('.shijian').click(function (ev) {
+				$(".shijian_xuanxiang").css('display', 'block');
+			});
+			var sj1 = '';
+			var DateBln = false;
+			$('.Mytime .Date').on('mouseup', 'span', function (ev) {
+				if (DateBln) {
+					sj = $('.Mytime').attr('minVla') + '至' + $('.Mytime').attr('maxVla');
+					$('.shijian').val(sj);
+					DateBln = false;
+				} else {
+					DateBln = true;
+				}
+			});
+
+			$('.shijian_xuanxiang').on('mouseup', function (ev) {
+				ev.stopPropagation();
+			});
+
+			$(document).on('mouseup', function () {
+				$(".mudidi_xuanxiang").css('display', 'none');
+				$(".shijian_xuanxiang").css('display', 'none');
+			});
+			/*benl*/
+			var imgParentAll = $(".swiper-slide");
+			var swiper3 = new Swiper('.swiper_3', {
+				pagination: '.swiper-pagination_3',
+				nextButton: '.swiper-button-next_3',
+				prevButton: '.swiper-button-prev_3',
+				slidesPerView: 1,
+				paginationClickable: true,
+				spaceBetween: 30,
+				loop: true,
+				paginationBulletRender: function (swiper, index, className) {
+					return '<span class="' + className + '">' + imgParentAll.eq(index).html() + '</span>';
+				}
+			});
+			/*切换*/
+			$('.minsuxq_xq_nav a').click(function () {
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+			$(window).scroll(function () {
+				var scrollTop = $(window).scrollTop();
+				//var winH = document.documentElement.clientHeight;
+				var xqTop1 = $('#minsuxq_xq1').offset().top;
+				var xqTop2 = $('#minsuxq_xq2').offset().top - 50;
+				var xqTop3 = $('#minsuxq_xq3').offset().top - 50;
+				//console.log(scrollTop, xqTop1, xqTop2, xqTop3);
+				if (scrollTop < xqTop1) {
+					$('#minsuxq_xq_nav').removeClass('nav2fixed');
+				}
+				if (scrollTop >= xqTop1 && scrollTop < xqTop2) {
+					//console.log(1)
+					$('#minsuxq_xq_nav').addClass('nav2fixed');
+					$('.minsuxq_xq_nav a').eq(0).addClass('active').siblings().removeClass('active');
+				}
+				if (scrollTop >= xqTop2 && scrollTop < xqTop3) {
+					//console.log(2)
+					$('.minsuxq_xq_nav a').eq(1).addClass('active').siblings().removeClass('active');
+				}
+				if (scrollTop >= xqTop3) {
+					//console.log(3)
+					$('.minsuxq_xq_nav a').eq(2).addClass('active').siblings().removeClass('active');
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

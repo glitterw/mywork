@@ -1,0 +1,445 @@
+body {overflow: hidden;}
+ 
+/* 开红包 */
+.index {
+    width: 100%;
+    height: 30rem;
+    background: url(../images/bg.png) center center / 100% repeat;
+    overflow: visible;
+}
+
+.index .redPacket {
+    width: 85%;
+    height: 30rem;
+    margin: 0 auto;
+    background: url(../images/redPacket.png) top center / 100% no-repeat;
+    overflow: hidden;
+}
+
+.index .btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 13rem auto 0;
+    background: url(../images/open.png) center center / 100% no-repeat;
+}
+
+/* 没中奖 */
+main.not {
+    width: 100%;
+    height: 30rem;
+    background: url(../images/bg.png) center center / 100% repeat;
+    overflow: visible;
+}
+
+.not .redPacket {
+    width: 85%;
+    height: 30rem;
+    margin: 0 auto;
+    background: url(../images/not.png) top center / 100% no-repeat;
+    overflow: hidden;
+}
+
+.not .again {
+    width: 8rem;
+    height: 4.5rem;
+    margin: 7rem auto 0;
+}
+
+.not .again p {
+    font-size: .9rem;
+    color: #1f1717;
+    width: 58%;
+    padding: 0 21%;
+    line-height: 1.5rem;
+}
+
+.not .againBtn {
+    width: 6rem;
+    height: 1.75rem;
+    margin: .5rem auto 0;
+    background: url(../images/againBtn.png) center center / 100% no-repeat;
+    line-height: 1.75rem;
+    text-align: center;
+    font-size: .75rem;
+    color: #9b2429;
+}
+
+/* 中奖 */
+main.win {
+    width: 100%;
+    height: 30rem;
+    background: url(../images/bg.png) center center / 100% repeat;
+    overflow: visible;
+}
+
+.win .redPacket {
+    width: 85%;
+    height: 30rem;
+    margin: 0 auto;
+    background: url(../images/not.png) top center / 100% no-repeat;
+    overflow: hidden;
+}
+
+.win .again {
+    width: 8rem;
+    height: 4.5rem;
+    margin: 7rem auto 0;
+}
+
+.win .again p {
+    font-size: .9rem;
+    color: #1f1717;
+    width: 100%;
+    line-height: 1.5rem;
+    text-align: center;
+}
+
+.win .again p:nth-child(2) {
+    color: #9b2429;
+}
+
+.win .againBtn {
+    width: 6rem;
+    height: 1.75rem;
+    margin: .5rem auto 0;
+    background: url(../images/againBtn.png) center center / 100% no-repeat;
+    line-height: 1.75rem;
+    text-align: center;
+    font-size: .75rem;
+    color: #9b2429;
+}
+
+
+/* 答题 */
+main.answer {
+    width: 100%;
+    height: 30rem;
+    background: #000 url(../images/answer.png) top center / 100% no-repeat;
+    overflow: hidden;
+}
+
+.answer .rules {
+    float: right;
+    padding-right: 1.5rem;
+    font-size: .75rem;
+    color: #fdeacb;
+    margin: 1rem .5rem 0 0;
+    background: url(../images/rules.png) 93% 35% / 23% no-repeat;
+}
+
+.answer .footer {
+    position: absolute;
+    left: 25%;
+    bottom: 10%;
+    overflow: hidden;
+}
+
+.answer .footerBtn {
+    width: 8rem;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0 auto;
+    background: url(../images/footerBtn.png) center center / 100% no-repeat;
+}
+
+.answer .footer p {
+    text-align: center;
+    font-size: .6rem;
+    color: #c3ab8a;
+    margin-top: .2rem;
+}
+
+/* 规则弹窗 */
+
+/* 已关注 */
+.attention {
+    width: 100%;
+    height: 30rem;
+    background: rgba(0, 0, 0, .6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.attention .layer {
+    width: 14rem;
+    height: 19rem;
+    margin: 2.7rem auto 0;
+    background: url(../images/rulesWindow.png) center center / 80% no-repeat;
+    position: relative;
+}
+
+.attention .close {
+    width: 1.1rem;
+    height: 1.1rem;
+    background: url(../images/close.png) center center / 100% no-repeat;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+}
+
+/* 未关注 */
+.noAttention {
+    width: 100%;
+    height: 30rem;
+    background: rgba(0, 0, 0, .6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.noAttention .layer {
+    width: 14rem;
+    height: 19rem;
+    margin: 2.7rem auto 0;
+    background: url(../images/noAttention.png) center center / 80% no-repeat;
+    position: relative;
+}
+
+.noAttention .close {
+    width: 1.1rem;
+    height: 1.1rem;
+    background: url(../images/close.png) center center / 100% no-repeat;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+}
+
+/* 答题层 */
+.topic {
+    width: 100%;
+    height: 30rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, .7);
+}
+
+.topic .topicBg {
+    width: 100%;
+    height: 30rem;
+    margin-top: 3rem;
+    background: url(../images/topicBg.png) center center / 100% no-repeat;
+    overflow: hidden;
+}
+
+.topic .topicBg .close {
+    width: 1.1rem;
+    height: 1.1rem;
+    background: url(../images/close.png) center center / 100% no-repeat;
+    position: absolute;
+    right: 2rem;
+    top: 6rem;
+}
+
+
+/* 答错 */
+.wrong {
+    width: 8rem;
+    height: 10rem;
+    margin: 5rem auto 0;
+    padding: 2rem 1rem;
+}
+
+.wrong .title {
+    font-size: .9rem;
+    color: #1f1717;
+    text-align: center;
+}
+
+.wrong .content {
+    border: 1px dashed #9b2429;
+    background: #f7f2e7;
+    padding: 1rem 0;
+    font-size: .8rem;
+    color: #9b2429;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.wrong .wrongBtn {
+    width: 7rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: .7rem;
+    margin: 0 auto;
+    background: url(../images/wrongBtn.png) center center / 100% no-repeat;
+    color: #9b2429;
+}
+
+
+/* 回答正确 */
+.right {
+    width: 8rem;
+    height: 10rem;
+    margin: 5rem auto 0;
+    padding: 2rem 1rem;
+}
+
+.right .title {
+    font-size: .8rem;
+    color: #1f1717;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.right .wrongBtn {
+    width: 7rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: .7rem;
+    margin: 0 auto;
+    background: url(../images/wrongBtn.png) center center / 100% no-repeat;
+    color: #9b2429;
+}
+
+/* 题目列表 */
+.list {
+    width: 8rem;
+    height: 10rem;
+    margin: 5rem auto 0;
+    padding: .5rem .5rem 0;
+}
+
+.list .title {
+    border: 1px dashed #9b2429;
+    background: #f7f2e7;
+    line-height: 1rem;
+    padding: .5rem;
+    overflow: hidden;
+}
+
+.list .title span {
+    font-size: .7rem;
+    color: #9b2429;
+}
+
+.list .title span:first-child {
+    float: left;
+    height: auto;
+}
+
+.list .title span:last-child {
+    width: 82%;
+    float: right;
+    height: auto;
+    text-align: justify;
+}
+
+.list .content {
+    border: 1px dashed #9b2429;
+    background: #f7f2e7;
+    padding: 1rem 0;
+    font-size: .8rem;
+    color: #9b2429;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.list .wrongBtn {
+    width: 7rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: .7rem;
+    margin: 0 auto;
+    background: url(../images/wrongBtn.png) center center / 100% no-repeat;
+    color: #9b2429;
+}
+
+.list ul {
+    margin: .3rem;
+}
+
+.list ul li {
+    font-size: .6rem;
+    color: #241314;
+    padding: .2rem 0;
+    background: url(../images/underscore.png) bottom center / 100% no-repeat;
+}
+
+.list ul li span {
+    display: inline-block;
+    padding: 0 .5rem;
+}
+
+.list ul li:last-child {
+    background: none;
+}
+
+.list ul li.active {
+    color: #9b2429;
+    background: url(../images/underscoreActive.png) left center / 100% no-repeat;
+}
+
+
+/* 活动已经结束 */
+.end {
+    width: 8rem;
+    height: 12rem;
+    margin: 5rem auto 0;
+    padding: .5rem .5rem 0;
+    font-size: .8rem;
+    color: #000;
+    line-height: 12rem;
+    text-align: center;
+}
+
+
+
+
+.shareShade {
+    width: 100%;
+    height: 30rem;
+    background: rgba(0, 0, 0, .7);
+}
+
+.share {
+    position: absolute;
+    z-index: 9999;
+    right: 0;
+    width: 9rem;
+    padding: .9rem .5rem .5rem;
+    float: right;
+    font-size: .9rem;
+    color: #d0b989;
+    line-height: 1.2rem;
+    background: url(../images/share.png) center center / 95% no-repeat;
+}
+
+
+/* iphone4-iphone4s */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px){
+
+    .topic .topicBg {
+        height: 25rem;
+    }
+
+    .end, .list, .right, .wrong {
+        margin: 2.5rem auto 0;
+    }
+
+    .topic .topicBg .close {
+        top: 4rem;
+    }
+}
+
+/*分享页面 开始*/
+.noAttention .layer2 {
+    width: 13.1rem;
+    height: 20.1rem;
+    margin: 2.7rem auto 0;
+    background: url(../images/fx-box.png) center center / 80% no-repeat;
+    position: relative;
+}
+/*分享页面 结束*/

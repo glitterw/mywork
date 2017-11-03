@@ -1,0 +1,275 @@
+.main {
+    overflow: hidden;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* 填写订单 */
+.myOrder {
+    width: 795px;
+    float: left;
+    overflow: hidden;
+}
+
+.myOrder .date {
+    width: 420px;
+    height: 75px;
+    margin: 30px auto;
+}
+
+.myOrder .date span {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.myOrder .date span:nth-child(1), .myOrder .date span:nth-child(3) {
+    width: 160px;
+    font-size: 18px;
+    color: #96515b;
+}
+
+.myOrder .date span:nth-child(2) {
+    width: 90px;
+    font-size: 16px;
+    color: #666;
+}
+
+.myOrder .date .chooseTime {
+    width: 420px;
+    height: 40px;
+    background: url(../img/to.png) no-repeat center center;
+    margin-top: 20px;
+}
+
+.myOrder .date .enter, .myOrder .date .leave {
+    width: 125px;
+    height: 40px;
+    padding-left: 40px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    background: url(../img/chooseDate.png) no-repeat 8% center;
+    font-size: 18px;
+    color: #333;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.myOrder .date .enter {
+    float: left;
+}
+
+.myOrder .date .leave {
+    float: right;
+}
+
+/* 选择时间 */
+.shijian_xuanxiang {
+    left: 188px;
+    top: 250px;
+    z-index: 999;
+}
+
+/* 列表 */
+.myOrder ul li {
+    width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.myOrder ul li span {
+    display: inline-block;
+    font-size: 18px;
+    color: #333;
+    width: 160px;
+    height: 42px;
+    line-height: 42px;
+    float: left;
+}
+
+.myOrder ul li input {
+    width: 480px;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    float: left;
+}
+
+.myOrder ul li .num {
+    width: 500px;
+    height: 42px;
+    float: left;
+}
+
+.myOrder ul li .num div {
+    width: 60px;
+    height: 42px;
+    float: left;
+}
+
+.myOrder ul li .num div:first-child {
+    background: url(../img/subtract.png) no-repeat center center;
+    cursor: pointer;
+}
+
+.myOrder ul li .num div:nth-child(2) {
+    line-height: 42px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+.myOrder ul li .num div:last-child {
+    background: url(../img/add.png) no-repeat center center;
+    cursor: pointer;
+}
+
+/* 总额 */
+.myOrder .total {
+    width: 620px;
+    height: 80px;
+    border: 1px solid #e6e6e6;
+    background: #f8f8f8;
+    padding: 0 20px;
+    line-height: 80px;
+    color: #333;
+    font-size: 24px;
+    border-radius: 5px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.myOrder .total .all {
+    width: 200px;
+    float: left;
+}
+
+.myOrder .total .totalDetail {
+    width: 80px;
+    float: right;
+    font-size: 18px;
+    color: #96515b;
+    line-height: 80px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* 协议 */
+.myOrder .deal {
+    font-size: 16px;
+    color: #666;
+    margin: 20px 0;
+}
+
+.myOrder .deal a {
+    color: #1c45eb;
+}
+
+/* 提交按钮 */
+.myOrder .orderBtn {
+    width: 220px;
+    height: 40px;
+    background: #96515b;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    float: right;
+    border-radius: 5px;
+    margin-right: 140px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* 右侧详情 */
+.particulars {
+    width: 360px;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    float: right;
+}
+
+.particulars img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.particulars ul li {
+    width: 100%;
+    line-height: 30px;
+    color: #333;
+    font-size: 18px;
+}
+
+/* 入住人 */
+.room {
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+/* 弹窗 */
+.myLayer .layui-layer-setwin .layui-layer-close2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    margin-left: 0;
+    background: url(../js/layer/skin/default/close.png) no-repeat center center;
+}
+
+.myLayer .layui-layer-setwin .layui-layer-close2:hover {
+    background-position: 0 0;
+}
+
+.layerTotal {
+    width: 400px;
+    background: #fff;
+    padding: 25px;
+}
+
+.layerTotal h2 {
+    padding: 20px 0;
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+}
+
+.layerTotal ul li {
+    padding: 15px 0;
+    overflow: hidden;
+    font-size: 18px;
+    color: #333;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.layerTotal ul li span {
+    display: inline-block;
+    text-align: center;
+}
+
+.layerTotal ul li span:nth-child(1) {
+    width: 140px;
+}
+
+.layerTotal ul li span:nth-child(2) {
+    width: 105px;
+}
+
+.layerTotal ul li span:nth-child(3) {
+    width: 140px;
+}
+
+.layerTotal .allNum {
+    padding: 25px 0 15px;
+    font-size: 22px;
+    color: #333;
+    text-align: right;
+}

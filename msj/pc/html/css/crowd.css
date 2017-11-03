@@ -1,0 +1,233 @@
+/* banner */
+.swiper-container {
+    width: 1200px;
+    height: 410px;
+    margin: 20px auto 0;
+}
+
+/* nav */
+nav {
+    width: 1200px;
+    margin: 20px auto;
+    border: 1px solid #e6e6e6;
+    overflow: hidden;
+}
+
+nav .classify {
+    width: 100%;
+    height: 65px;
+    border-bottom: 1px dotted #e6e6e6;
+}
+
+nav li {
+    cursor: pointer;
+}
+
+.classify span {
+    padding: 0 25px;
+    line-height: 65px;
+    float: left;
+}
+
+.classify ul li {
+    float: left;
+    padding: 0 15px;
+    line-height: 65px;
+}
+
+.classify ul li.active {
+    color: #98525c;
+}
+
+.synthesize .syn {
+    float: left;
+}
+
+.synthesize .syn li {
+    padding: 0 25px;
+    line-height: 65px;
+    float: left;
+    position: relative;
+}
+
+.synthesize .syn li.active {
+    color: #98525c;
+}
+
+.synthesize .syn li:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 40%;
+    width: 1px;
+    height: 15px;
+    border: solid #e6e6e6;
+    border-width: 0 1px 0 0;
+}
+
+.synthesize .all {
+    float: left;
+    margin-left: 30px;
+}
+
+.all li {
+    text-align: right;
+    padding: 0 30px;
+    line-height: 65px;
+    float: left;
+    background: url(../img/check.png) no-repeat 10% center;
+}
+
+.all li.active {
+    color: #98525c;
+    background: url(../img/checked.png) no-repeat 10% center;
+}
+
+nav .task {
+    float: right;
+    line-height: 65px;
+    margin-right: 25px;
+}
+
+
+/* 列表 */
+.list {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.list ul {
+    overflow: hidden;
+}
+
+.list ul li {
+    width: 590px;
+    height: 232px;
+    float: left;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.list ul li:nth-child(even) {
+    margin-left: 20px;
+}
+
+.list .cover {
+    width: 300px;
+    height: 230px;
+    float: left;
+    
+}
+
+.list .cover img {
+    max-width: 100%;
+    height: 100%;
+}
+
+.list .cover span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px 8px;
+    background: rgba(0, 0, 0, .5);
+    font-size: 16px;
+    color: #fff;
+}
+
+.list .cont {
+    width: 288px;
+    box-sizing: border-box;
+    padding: 10px 15px 0;
+    float: left;
+}
+
+.list .cont h2 {
+    font-size: 24px;
+    color: #333;
+    height: 62px;
+    overflow: hidden;
+}
+
+.list .cont p {
+    font-size: 16px;
+    color: #999;
+    height: 70px;
+    line-height: 23px;
+    text-align: justify;
+    overflow: hidden;
+    /*text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;*/
+}
+
+.list .reward {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.list .reward span {
+    font-size: 16px;
+    line-height: 40px;
+    display: inline-block;
+}
+
+.list .reward .title {
+    color: #999;
+}
+
+.list .reward .price {
+    color: #98525c;
+}
+
+.list .reward .btn {
+    float: right;
+    padding: 10px;
+    line-height: 20px;
+    background: #98525c;
+    border-radius: 5px;
+    color: #fff;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.list .reading span {
+    float: right;
+    line-height: 28px;
+    padding-left: 25px;
+}
+
+.list .reading span:first-child {
+    margin-left: 18px;
+    background: url(../img/commentList.png) no-repeat 5% 55%;
+}
+
+.list .reading span:last-child {
+    background: url(../img/readNum.png) no-repeat 5% center;
+}
+
+/* 加载更多 */
+.loadMore {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    background: #f8f8f8 url(../img/loadMore.png) no-repeat 43% center;
+    font-size: 16px;
+    color: #999;
+    text-align: center;
+    cursor: pointer;
+    margin: 42px auto 90px;
+}
+
+/* 暂无状态 */
+.crowdEmpty {
+    width: 339px;
+    height: 227px;
+    margin: 75px auto 115px;
+    background: url(../img/crowdEmpty.png) no-repeat center center;
+}

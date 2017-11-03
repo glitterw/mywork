@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="http://www.jiaminsu.com/statics/newindex/css/index.css">
+    <link rel="stylesheet" href="http://www.jiaminsu.com/statics/newindex/css/reset.css">
+    <link rel="stylesheet" href="http://www.jiaminsu.com/statics/newindex/css/swiper.css">
+    <script type="text/javascript" src="statics/js/jphmember/jquery-1.8.3.min.js"></script>
+    <script src="http://www.jiaminsu.com/phpcms/templates/jiupaihao/script/jQuery.XDomainRequest.js"></script>
+    <script src="http://www.jiaminsu.com/phpcms/templates/jiupaihao/script/timeFormat.js"></script>
+    <script src="http://www.jiaminsu.com/phpcms/templates/jiupaihao/package/ue/layer/layer.js"></script>
+    <script src="http://www.jiaminsu.com/statics/newindex/js/swiper.jquery.js"></script>
+    <style>
+    .layui-layer{
+        top:300px !important;
+    }
+    </style>
+    <title>民宿加</title>
+</head>
+
+<body>
+
+<!-- 头部 -->
+<header>
+    <nav>
+
+        <div class="logo">
+            <img src="" alt="">
+        </div>
+        
+        
+    </nav>
+</header>
+
+<script>
+$(function () {
+    $('.userImg').mouseover(function () {
+        $('.userOut').css('display','block');
+
+    });
+    $('.userImg').mouseout(function () {
+        $('.userOut').css('display','none');
+    });
+});
+
+var action = '';
+document.onkeydown = function(e) {
+    var theEvent = window.event || e;
+    var code = theEvent.keyCode || theEvent.which;
+    var keywords = $("#search_txt").val();
+    if(code == 13 && keywords == ''){
+        layer.msg('请输入搜索信息！');
+        return;
+    }
+    if (code == 13 && $('#search_txt').is(':focus')) {
+                      search(); 
+            }
+};
+function search(){
+    var txt = document.getElementById("search_txt");
+    if(action == 'types') {
+        window.location.href = "http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=search&type=jph&keywords=" + encodeURIComponent(txt.value.replace(/<\/?[^>]*>/g,''));
+    } else {
+        window.location.href = "http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=search&keywords=" + encodeURIComponent(txt.value.replace(/<\/?[^>]*>/g,''));
+    }
+}
+function searchjph(){
+    var txt = document.getElementById("searchjph_txt") || document.getElementById("search_txt");
+    window.location.href = "http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=search&type=jph&keywords=" + encodeURIComponent(txt.value.replace(/<\/?[^>]*>/g,''));
+}
+function ajaxlogout(){
+    $.ajax({
+        url: 'http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=logout',
+        cache: false,
+        type: 'get',
+        dataType: 'json',
+        success: function(data) {
+            window.location.href = "http://admin.jiaminsu.com/f/a/logout";
+        },
+        error: function(err) {
+            window.location.href = "http://admin.jiaminsu.com/f/a/logout";
+        }
+    });
+}
+
+$(function(){
+
+        var l = $(".client").offset().left;
+
+        $(".client").hover(function(){
+            $(".eCode").css({
+                left: l + 10,
+                top: 58
+            }).show()
+        }, function(){
+            $(".eCode").hide()
+        })
+
+
+    })
+</script>
+
+
+<!-- banner -->
+<article class="banner">
+    <div class="swiper-container">
+        <div class="swiper-wrapper" id="bannerArea">            
+        </div>
+        <!-- 分页 -->
+        <div class="swiper-pagination swiper-pagination-white swiper-pagination-clickable swiper-pagination-bullets"></div>
+        <!-- 左右箭头 -->
+        <div class="swiper-button-next swiper-button-white"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+
+    </div>
+</article>
+
+
+
+    <div class="main1">
+        <div class="mtitle">
+            <p>世界很美</p>
+            <span>和你一起去看看</span>
+        </div>
+        <div id="videoArea">
+        </div>
+    </div>
+
+    <div class="main2">
+        <div class="mtitle">
+            <p>民宿精选</p>
+            <span>给我们一个理由去旅行</span>
+        </div>
+        <!--<div class="sort">
+            <a href="javascript:void(0);" onclick="getjphbytype(1,'personjph');" class="sort_1">民宿主<span class="sort_out"></span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(4,'businessjph');" class="sort_2">民宿爱好者<span class="sort_out"></span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(3,'unionjph');" class="sort_3">民宿专家<span class="sort_out"></span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(5,'mediajph');" class="sort_4">民宿设计师<span class="sort_out"></span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(6,'politicaljph');" class="sort_5">民宿建造者<span class="sort_out"></span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(8,'zhongrunjph');" class="sort_6">商家<span class="sort_out"></span></a>
+        </div>-->
+        <div class="sort">
+            <a href="javascript:void(0);" onclick="getjphbytype(1,'personjph');" class="sort_1"><span class="sort_out act">民宿主</span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(4,'businessjph');" class="sort_2"><span class="sort_out">民宿爱好者</span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(3,'unionjph');" class="sort_3"><span class="sort_out">民宿专家</span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(5,'mediajph');" class="sort_4"><span class="sort_out">民宿设计师</span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(6,'politicaljph');" class="sort_5"><span class="sort_out">民宿建造者</span></a>
+            <a href="javascript:void(0);" onclick="getjphbytype(8,'zhongrunjph');" class="sort_6"><span class="sort_out">商家</span></a>
+        </div>
+
+    </div>
+
+    <div class="main3">
+        <div class="main3_l" id="jphTypeArea">
+            
+        </div>
+
+        <div class="main3_r">
+            <!--公告-->
+            <div class="notice">
+                <div class="main3_r_root"></div>
+                <div class="main3_r_title">公告 <a href="http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=noticelist" target="_blank">更多</a></div>
+                <ul id="noticeArea">
+                </ul>
+            </div>
+            <!--推荐-->
+            <div class="recommend">
+                <div class="main3_r_root"></div>
+                <div class="main3_r_title">推荐民宿号</div>
+                <ul id="recommendJphArea">
+                    
+                </ul>
+            </div>
+            <!--排行榜-->
+            <div class="rank">
+                <div class="main3_r_root"></div>
+                <div class="main3_r_title">热门排行榜</div>
+                <ul id="rankArea">
+                    
+                </ul>
+            </div>
+
+            <!--意见反馈-->
+            <div class="feedback">
+                <div class="main3_r_root"></div>
+                <div class="main3_r_title">意见反馈</div>
+                <p>联系方式（必填）</p>
+                <input id="email" type="text" maxlength="11" placeholder="您的手机号" />
+                <p>您的意见（必填）</p>
+                <textarea id="content" name="feedback-content" class="content" maxlength="140" placeholder="请填写您的意见，不超过140字" id="content"></textarea>
+                <button type="submit" class='submit-btn'>提交</button>
+                <div class="error" style="color:red;"></div>
+            </div>
+
+        </div>
+    </div>
+
+<!-- 底部 -->
+<footer>
+    <div class="foot">
+        <div class="l">
+            <img src="http://www.jiaminsu.com//statics/newindex/images/footLogo.png">
+        </div>
+        <div class="m">
+            <div>
+                <ul>
+                    <li><a href="http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=aboutus">关于我们</a></li>
+                    <li><a href="http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=agreement">用户协议</a></li>
+                    <li><a href="http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=disclaimer">免责声明</a></li>
+                    <li><a href="http://www.jiaminsu.com/index.php?m=content&c=jiupaihao&a=contact">联系我们</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="t">
+                    <span>联系电话：4006969819</span>
+                    <span>武汉中润普达信息技术有限公司</span>
+                    <span>备案号: 鄂ICP备14018646-7</span>
+                </p>
+                <p class="b">
+                    <span>邮箱：whzrpdmsk@163.com</span>
+                    <span>湖北省武汉市武昌区汉街万达总部国际B座508室</span>
+                </p>
+            </div>
+        </div>
+        <div class="r">
+            <img src="http://www.jiaminsu.com//statics/newindex/images/wCode.png">
+            <img src="http://www.jiaminsu.com//statics/newindex/images/iosCode.png">
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+
+    var userid = '';
+    var POSTURL = 'http://webapi.jiaminsu.com/';
+    var JPHAPP_PATH = 'http://www.jiaminsu.com/';
+    var loginurl = 'http://sso.jiaminsu.com/sso/action/goLogin?retUrl=http%3A%2F%2Fwww.jiaminsu.com%2Findex.php%3F';
+</script>
+<script src="http://www.jiaminsu.com/statics/js/jphmember/index.js"></script>
+<script>
+
+    $(function () {
+        /*$('.sort a').mouseover(function () {
+            $(this).find('.sort_out').css('display','block');
+        });
+        $('.sort a').mouseout(function () {
+            $(this).find('.sort_out').css('display','none');
+        });*/
+
+        var l=$('.sort_out');
+        for (var i=0; i<l.length; i++) {
+            l[i].onclick = function () {
+                for (var i = 0; i < l.length; i++) {
+                    l[i].className = '';
+                }
+                this.className = 'act'
+            }
+        }
+
+        // $('.userImg').mouseover(function () {
+        //     $('.userOut').css('display','block');
+
+        // });
+        // $('.userImg').mouseout(function () {
+        //     $('.userOut').css('display','none');
+        // });
+    });
+
+
+    $(function(){
+    
+        var l = $(".client").offset().left;
+
+        $(".client").hover(function(){
+            $(".eCode").css({
+                left: l + 10,
+                top: 58
+            }).show()
+        }, function(){
+            $(".eCode").hide()
+        });
+
+
+    });
+$('.submit-btn').click(function() {
+    checkinput();
+});
+function checkinput(){
+    if ($('#email').val() == "" || ($('#email').val() != "" && !/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/.test($('#email').val()))) {
+        var errorMsg = '请输入正确的手机号.';
+        $('.error').html(errorMsg);
+        $('#email').focus();
+        return false;
+    }
+    //验证意见
+    if ($('#content').val() == "" || $('#content').val().length < 6) {
+        var errorMsg = '意见至少输入6个字.';
+        $('.error').html(errorMsg);
+        $('#content').focus();
+        return false;
+    }
+    //$('.feedback').hide();
+    var url = 'http://webapi.jiaminsu.com/'+'v3/suggestion/create';
+    $.ajax({
+        url: url,
+        cache: false,
+        type: 'POST',
+        data: {
+            userId: "",
+            contact: $('#email').val(),
+            content: $('#content').val()
+        },
+        dataType: 'json',
+        success: function(data) {
+            if(data.resultCode == 10000) {
+                layer.msg('提交成功');
+            } else {
+                layer.msg(data.resultMessage);
+            }
+            $('#email').val('');
+            $('#content').val('');
+        },
+        error: function(err) {
+            layer.msg('提交失败');
+            $('#email').val('');
+            $('#content').val('');
+        }
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,672 @@
+/* 面包屑 */
+.headerTitle {
+    width: 1200px;
+    margin: 20px auto;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 主体 */
+.main {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 85px;
+}
+
+.mainLeft {
+    width: 800px;
+    float: left;
+}
+
+.mainRight {
+    width: 375px;
+    height: 666px;
+    float: left;
+    margin-left: 20px;
+}
+
+/* 每日猜 */
+.guess {
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+}
+
+.guess .title {
+    font-size: 24px;
+    color: #333;
+}
+
+.guess .title h2 {
+    display: inline-block;
+}
+
+.guess .title span {
+    color: #98525c;
+    padding-left: 30px;
+    background: url(../img/crowdMoney.png) no-repeat left center;
+    margin-left: 15px;
+}
+
+.guess .time {
+    font-size: 14px;
+    color: #999;
+    margin: 15px 0 10px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.guess .time span:last-child {
+    padding-left: 20px;
+    margin-left: 20px;
+    background: url(../img/readNum.png) no-repeat left center;
+}
+
+.guess .crowdDetail img {
+    max-width: 100%;
+    margin: 10px 0;
+}
+
+.guess .crowdDetail p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.guess .crowdDetail .tips {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background: #f8f8f8;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.guess .crowdDetail .tips a {
+    color: #98525c;
+}
+
+.guess .crowdDetail .shareBox {
+    margin: 0 auto;
+}
+
+.guess .crowdDetail .shareBox span {
+    display: inline-block;
+    padding-left: 25px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    margin: 20px 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.guess .crowdDetail .shareBox span:nth-child(1) {
+    background: url(../img/collect.png) no-repeat left center;
+    margin-right: 10px;
+}
+
+.guess .crowdDetail .shareBox span:nth-child(1).active {
+    background: url(../img/collected.png) no-repeat left center;
+    margin-right: 10px;
+}
+
+.guess .crowdDetail .shareBox span:nth-child(2) {
+    background: url(../img/like.png) no-repeat left center;
+}
+
+.guess .crowdDetail .shareBox span:nth-child(2).active {
+    background: url(../img/liked.png) no-repeat left center;
+}
+
+.share {
+    position: relative;
+    text-align: center;
+}
+
+.guess .crowdDetail .shareListBox {
+    width: 120px;
+    height: 180px;
+    border: 1px solid #e6e6e6;
+    padding: 10px;
+    background: #fff;
+    position: absolute;
+    z-index: 99;
+    left: 200px;
+}
+
+.guess .crowdDetail .shareListBox::before {
+    content: "";
+    background: url(../img/shareArrow.png) no-repeat center center;
+    width: 10px;
+    height: 6px;
+    position: absolute;
+    left: 48%;
+    top: -6px;
+}
+
+.guess .crowdDetail .shareListBox span {
+    height: 45px;
+    line-height: 45px;
+    padding-left: 50px;
+    font-size: 14px;
+    color: #333;
+    float: left;
+    cursor: pointer;
+}
+
+.guess .crowdDetail .shareListBox span:nth-child(1) {
+    background: url(../img/wx.png) no-repeat 20% center;
+}
+
+.guess .crowdDetail .shareListBox span:nth-child(2) {
+    background: url(../img/pyq.png) no-repeat 20% center;
+}
+
+.guess .crowdDetail .shareListBox span:nth-child(3) {
+    background: url(../img/qq.png) no-repeat 20% center;
+}
+
+.guess .crowdDetail .shareListBox span:nth-child(4) {
+    background: url(../img/qqkj.png) no-repeat 20% center;
+}
+
+
+.guess .crowdDetail .joinTitle {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.guess .crowdDetail .joinList {
+    padding: 10px 8px;
+    border: 1px solid #e6e6e6;
+}
+
+.guess .crowdDetail .joinList img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 5px 7px ;
+}
+
+/* 评论 */
+.comment {
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.comment .commentBox h2 {
+    font-size: 18px;
+    color: #333;
+    text-indent: 25px;
+    background: url(../img/commentBox.png) no-repeat left center;
+}
+
+.comment .commentBox textarea {
+    width: 100%;
+    height: 160px;
+    resize: none;
+    border: 1px solid #e6e6e6;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    margin: 10px 0;
+}
+
+.comment .commentBox .btns {
+    overflow: hidden;
+    height: 40px;
+}
+
+.comment .commentBox .insertImg {
+    width: 105px;
+    height: 25px;
+    position: relative;
+    float: left;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.comment .commentBox .insertImg input {
+    width: 105px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+}
+
+.comment .commentBox .insertImg span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 105px;
+    height: 25px;
+    text-align: right;
+    line-height: 25px;
+    font-size: 18px;
+    text-align: right;
+    color: #666;
+    background: url(../img/insertImg.png) no-repeat left center;
+}
+
+.comment .commentBox .publish {
+    float: right;
+    height: 40px;
+}
+
+.comment .commentBox .publish span:nth-child(2) {
+    padding: 0 30px;
+    display: block;
+    height: 100%;
+    line-height: 40px;
+    background: #98525c;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    float: right;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.comment .commentBox .publish span:nth-child(1) {
+    float: right;
+    font-size: 16px;
+    color: #666;
+    margin-left: 15px;
+}
+
+.comment .commentBox .publish span:nth-child(1) em {
+    color: #98525c;
+    line-height: 40px;
+}
+
+.comment .commentList h2 {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.comment .commentList h2 span {
+    color: #333;
+}
+
+.commentList ul li {
+    padding: 25px 0;
+    border-bottom: 1px solid #e6e6e6;
+    overflow: hidden;
+}
+
+.commentList ul li .user {
+    float: left;
+    width: 80px;
+}
+
+.commentList ul li .user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+.commentList ul li .user div {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.commentList ul li .userComment {
+    width: 666px;
+    float: left;
+    margin-left: 10px;
+}
+
+.commentList ul li .userComment h3 {
+    display: inline-block;
+    font-size: 18px;
+    color: #333;
+    height: 30px;
+    line-height: 30px;
+}
+
+.commentList ul li .userComment .time {
+    font-size: 14px;
+    color: #999;
+    margin-left: 5px;
+}
+
+.commentList ul li .userComment .commentContent {
+    width: 100%;
+    height: 102px;
+    line-height: 102px;
+    background: #f6f6f6;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin-top: 12px;
+}
+
+/* 加载更多 */
+.loadMore {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    background: #f8f8f8 url(../img/loadMoreArrow.png) no-repeat 39% center;
+    font-size: 16px;
+    color: #999;
+    text-align: center;
+    cursor: pointer;
+    margin: 30px 0 10px 0;
+}
+
+
+/* 右侧列表 */
+.intro {
+    width: 100%;
+    padding: 20px 20px 30px;
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
+}
+
+.intro h2, .recommend h2 {
+    font-size: 24px;
+    color: #333;
+    height: 45px;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+}
+
+.intro h2::after, .recommend h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95px;
+    height: 4px;
+    background: #98525c;
+}
+
+.intro .subTitle {
+    font-size: 16px;
+    color: #333;
+    margin: 15px 0;
+}
+
+.intro .subTitle em {
+    color: #999;
+}
+
+.intro p {
+    font-size: 16px;
+    color: #666;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.recommend {
+    width: 375px;
+    border: 1px solid #e6e6e6;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 20px 20px 0 20px;
+}
+
+.recommend ul li {
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.recommend ul li img {
+    width: 100px;
+    height: 75px;
+    float: left;
+}
+
+.recommend ul li div {
+    float: left;
+    height: 75px;
+    line-height: 75px;
+    width: 212px;
+    overflow: hidden;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* 登录后才能评论 */
+.loginComment {
+    width: 765px;
+    height: 158px;
+    line-height: 158px;
+    border: 1px solid #e6e6e6;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.loginComment a {
+    color: #98525c;
+}
+
+/* 结束后的获奖信息 */
+.winner {
+    width: 100%;
+    padding: 20px 20px 0;
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.winner h2 {
+    font-size: 24px;
+    color: #333;
+    height: 45px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.winner h2 span {
+    display: inline-block;
+    height: 100%;
+    border-bottom: 4px solid #98525c;
+    box-sizing: border-box;
+}
+
+.winnerBox {
+    margin: 25px 0;
+    overflow: hidden;
+}
+
+.winnerBox img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    float: left;
+    margin: 5px 16px;
+}
+
+/* 精彩结果 */
+.result, .resultTime {
+    width: 390px;
+    padding: 30px 0;
+    margin: 0 auto;
+}
+
+.resultTime {
+    width: 300px;
+}
+
+.result p, .resultTime p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* 答案 */
+.answer h2 {
+    width: 100%;
+    padding: 35px 0;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+}
+
+.answer p {
+    font-size: 16px;
+    color: #333;
+    line-height: 28px;
+    text-align: justify;
+}
+
+/* 获奖者 */
+.commentList ul li .winMoney {
+    font-size: 14px;
+    color: #fff;
+    background: #ca6574 url(../img/winMoney.png) no-repeat left center;
+    float: right;
+    padding: 0 10px 0 20px;
+    height: 30px;
+    line-height: 30px;
+}
+
+/* 评论 */
+.commentP {
+    padding: 30px 0;
+    font-size: 16px;
+    color: #333;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.commentImg {
+    overflow: hidden;
+}
+
+.commentImg img {
+    width: 140px;
+    height: 105px;
+    float: left;
+    margin: 0 25px 20px 0;
+}
+
+.removeCommentBtn {
+    overflow: hidden;
+}
+
+.removeCommentBtn span {
+    font-size: 16px;
+    color: #333;
+    float: right;
+    cursor: pointer;
+}
+
+.removeCommentBtn span:first-child {
+    margin-left: 30px;
+}
+
+/* 新增评论区图片上面 */
+.uploadImg {
+    width: 100%;
+    height: 320px;
+    background: #f6f6f6;
+    margin: 20px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.uploadShow {
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    background: url(../img/uploadShow.png) no-repeat center center;
+}
+
+.uploadImg:before {
+    content: "";
+    position: absolute;
+    left: 50px;
+    top: -12px;
+    width: 23px;
+    height: 13px;
+    background: url(../img/uploadImgBefore.png) no-repeat center center;
+}
+
+.uploadImg .imgTitle {
+    overflow: hidden;
+}
+
+.uploadImg .imgTitle .imgLength {
+    float: left;
+    padding-left: 25px;
+    background: url(../img/imgLength.png) no-repeat left 40%;
+}
+
+.uploadImg .imgList {
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.uploadImg .addImg {
+    position: relative;
+    width: 130px;
+    height: 102px;
+    float: left;
+    margin: 0 40px 25px 0;
+}
+
+.uploadImg .addImg input {
+    width: 130px;
+    height: 102px;
+    float: left;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.uploadImg .uploaded {
+    width: 130px;
+    height: 102px;
+    float: left;
+    margin: 0 40px 25px 0;
+    border: 1px solid #e6e6e6;
+    position: relative;
+}
+
+.uploadImg .uploaded .del {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    background: url(../img/del.png) no-repeat center center;
+}
+
+.uploadImg .uploaded img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,356 @@
+/* 顶部搜索 */
+.searchBox {
+    width: 1200px;
+    border: 1px solid #e6e6e6;
+    margin: 20px auto 0;
+    position: relative;
+}
+
+.shijian_xuanxiang, .mudidi_xuanxiang {
+    background: #fff;
+    z-index: 120;
+}
+
+/* 日历 */
+.bern_1_h {
+    width: 1000px;
+    margin: 0 auto;
+    position: static;
+}
+
+.bern_1_h form {
+    border: 1px solid #98525c;
+    border-radius: 5px;
+    margin: 30px 0 0 !important;
+}
+
+.choose {
+    width: 1075px;
+    margin: 30px 55px 0 100px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* 滑块 */
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+
+.ui-widget-header {
+    background: #98525c;
+}
+
+.ui-widget.ui-widget-content {
+    border: none;
+    background: #ccc;
+    border-radius: 0;
+}
+
+.ui-slider .ui-slider-handle {
+    border-radius: 50px;
+    border: 2px solid #98525c;
+    background: #fff;
+    outline: none;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.6rem;
+}
+
+.progress {
+    overflow: hidden;
+    height: 30px;
+}
+
+.progress .price {
+    float: left;
+    font-size: 16px;
+    color: #333;
+    margin-right: 25px;
+    line-height: 30px;
+}
+
+.progress input {
+    font-size: 16px;
+    color: #333 !important;
+    margin-left: 53px;
+    width: 140px;
+    margin-top: 5px;
+}
+
+.progress .pro {
+    float: left;
+    width: 750px;
+    margin-top: 10px;
+}
+
+.genre {
+    margin-top: 35px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.genre .title {
+    font-size: 16px;
+    color: #333;
+    float: left;
+    margin-right: 15px;
+}
+
+.genre .genreList {
+    float: left;
+    width: 1010px;
+}
+
+.genre .genreList span {
+    float: left;
+    width: 87px;
+    height: 32px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    line-height: 32px;
+    margin: 0 8px 10px; 
+    cursor: pointer;
+    user-select: none;
+}
+
+.genre .genreList span.active {
+    background: #98525c;
+    color: #fffefe;
+    border: 1px solid #98525c;
+}
+
+
+/* slideList */
+.slideList {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 36px;
+    top: 30px;
+    background: url(../img/arrow-top.png) no-repeat center center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.slideList.active {
+    background: url(../img/arrow-down.png) no-repeat center center;
+}
+
+/* btn */
+.genreBtn {
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    right: 6px;
+    top: 0;
+    background: url(../img/arrow-top.png) no-repeat center center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.genreBtn.active {
+    background: url(../img/arrow-down.png) no-repeat center center;
+}
+
+
+/* 列表页 */
+.list {
+    width: 1200px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    padding: 35px 40px;
+    border: 1px solid #e6e6e6;
+}
+
+.list .listTitle {
+    width: 1150px;
+    height: 50px;
+    padding: 10px 30px;
+    background: #f8f8f8;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.list .listNav span {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    display: block;
+    float: left;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.list .listNav span.active {
+    background: #98525c;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.list .listTitle .total {
+    float: right;
+    line-height: 25px;
+    font-size: 14px;
+    color: #999;
+}
+
+.list ul {
+    width: 1120px;
+    display: block;
+}
+
+.list ul li {
+    width: 100%;
+    overflow: hidden;
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.list ul li:last-child {
+    border-bottom: none;
+}
+
+.list ul li .cover {
+    width: 350px;
+    height: 200px;
+    float: left;
+    cursor: pointer;
+}
+
+.list ul li .cover img {
+    max-width: 100%;
+    height: 100%;
+}
+
+.list ul li .detail {
+    width: 740px;
+    height: 200px;
+    float: right;
+}
+
+.list .detail .detailTitle {
+    overflow: hidden;
+}
+
+.list .detail .detailTitle h2 {
+    font-size: 24px;
+    color: #333;
+    height: 40px;
+    line-height: 40px;
+    width: 80%;
+    float: left;
+}
+
+.list .detail .detailTitle .price {
+    width: 20%;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    color: #98525c;
+    text-align: right;
+}
+
+.list .detail .detailTitle .price i {
+    font-size: 24px;
+}
+
+.list .detail .detailTitle .price em {
+    font-size: 36px;
+}
+
+.list .detail p {
+    font-size: 16px;
+    color: #999;
+    width: 80%;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 10px 0;
+    line-height: 25px;
+}
+
+.list .detail .adress {
+    font-size: 16px;
+    color: #666;
+    padding-left: 25px;
+    background: url(../img/adress.png) no-repeat left center;
+    margin: 36px 0 20px;
+}
+
+.list .detail .key {
+    float: left;
+}
+
+.list .detail .key span {
+    padding: 2px 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #666;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.list .tag .grade {
+    width: 80px;
+    height: 15px;
+    float: right;
+}
+
+.list .tag .grade i {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url(../img/grade.png) no-repeat center center;
+    float: left;
+    cursor: pointer;
+}
+
+.list .tag .grade i.active {
+    background: url(../img/grade-active.png) no-repeat center center;
+}
+
+/* 加载更多 */
+.loadMore {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    background: #f8f8f8 url(../img/loadMore.png) no-repeat 43% center;
+    font-size: 16px;
+    color: #999;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 价格按钮 */
+.listNav span:last-child.active {
+    text-align: left;
+    text-indent: 10px;
+    user-select: none;
+    background: #98525c url(../img/arrow-top.png) no-repeat 88% 55% !important;
+}
+
+.listNav span:last-child.cut {
+    text-align: left;
+    text-indent: 10px;
+    user-select: none;
+    background: #98525c url(../img/arrow-down.png) no-repeat 88% 55% !important;
+}

@@ -1,0 +1,281 @@
+/* 订单详情 */
+wrap {
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+.orderDetail {
+    width: 1000px;
+    border: 1px solid #e6e6e6;
+    overflow: hidden;
+}
+
+.orderDetail h2 {
+    height: 45px;
+    font-size: 16px;
+    color: #333;
+    line-height: 45px;
+    padding: 0 20px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #e6e6e6;
+    font-weight: bold;
+}
+
+.orderMain {
+    border-bottom: 1px solid #ccc;
+}
+
+.orderMain .orderTitle .title {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    text-indent: 30px;
+    padding: 30px 0 35px;
+    background: url(../img/orderTitle.png) no-repeat 43.5% center;
+}
+
+.orderMain .orderNum {
+    font-size: 20px;
+    color: #666;
+    text-align: center; 
+}
+
+.orderMain .orderNum i, .orderMain .orderNum em {
+    color: #98525b;
+}
+
+.orderMain .orderState {
+    width: 754px;
+    height: 140px;
+    margin: 35px auto 40px;
+    position: relative;
+    background: url(../img/pointBg.png) repeat-x center 32.5%;
+}
+
+.orderMain .orderState .stepNum {
+    font-size: 24px;
+    color: #a3acb5;
+    text-align: center;
+}
+
+.orderMain .orderState .stepBg {
+    width: 35px;
+    height: 20px;
+    margin: 5px auto;
+    background: #fff url(../img/stepBg.png) no-repeat center center; 
+}
+
+.orderMain .orderState .stepState {
+    width: 150px;
+    height: 40px;
+    background: url(../img/stepState.png) no-repeat top center;
+    font-size: 14px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+}
+
+.orderState span {
+    padding: 5px 15px;
+    background: #a3acb5;
+    border-radius: 5px;
+}
+
+.orderMain .orderState .stepTime {
+    font-size: 16px;
+    color: #666;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.orderMain .orderState .stepOne,
+.orderMain .orderState .stepTwo,
+.orderMain .orderState .stepThree {
+    position: absolute;
+    top: 0;
+}
+
+.orderMain .orderState .stepOne.active .stepNum,
+.orderMain .orderState .stepTwo.active .stepNum,
+.orderMain .orderState .stepThree.active .stepNum,
+.orderMain .orderState .stepOne.active .stepTime,
+.orderMain .orderState .stepTwo.active .stepTime,
+.orderMain .orderState .stepThree.active .stepTime {
+    color: #98525b;
+}
+
+.orderMain .orderState .stepOne.active .stepState,
+.orderMain .orderState .stepTwo.active .stepState,
+.orderMain .orderState .stepThree.active .stepState{
+    background: url(../img/stepState_active.png) no-repeat top center;
+}
+
+.orderMain .stepOne.active .stepState span,
+.orderMain .stepTwo.active .stepState span,
+.orderMain .stepThree.active .stepState span {
+    background: #98525b;
+}
+
+.orderMain .orderState .stepOne {
+    left: 30px;
+}
+
+.orderMain .orderState .stepTwo {
+    left: 305px;
+}
+
+.orderMain .orderState .stepThree {
+    left: 570px;
+}
+
+.orderList {
+    padding: 25px 50px;
+    height: 450px;
+}
+
+.orderList ul li {
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+}
+
+.orderList ul li span {
+    text-align: right;
+    display: inline-block;
+    font-size: 20px;
+    color: #333;
+    height: 50px;
+    line-height: 50px;
+}
+
+.orderList ul li span:nth-child(1) {
+    width: 100px;
+}
+
+.orderList ul li span:nth-child(2) {
+    font-weight: bold;
+}
+
+.orderList ul li:first-child span:nth-child(2) {
+    font-size: 24px;
+    color: #98525b;
+}
+
+.orderList ul li:first-child em {
+    font-size: 14px;
+    color: #98525b;
+    display: inline-block;
+    line-height: 20px;
+    vertical-align: middle;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.orderList ul li:nth-child(3) em {
+    font-size: 14px;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+/* 订单状态 - 已取消 */
+.cancel .orderTitle .title {
+    background: url(../img/cancel.png) no-repeat 43.5% center;
+}
+
+.cancel .orderNum {
+    width: 60%;
+    padding: 0 20%;
+    text-align: left;
+    line-height: 28px;
+} 
+
+/* 订单状态 - 待入住 */
+.live .orderTitle {
+    padding-bottom: 60px;
+}
+
+/* 订单状态 - 暂无 */
+.empty {
+    width: 100%;
+    height: 668px;
+    background: url(../img/empty.png) no-repeat center center;
+}
+
+/* 我的点评 */
+.remark {
+    width: 1000px;
+    float: left;
+}
+
+.remark ul li {
+    border: 1px solid #e6e6e6;
+    margin-bottom: 20px;
+}
+
+.remarkTitle {
+    padding: 0 20px;
+    height: 45px;
+    border-bottom: 1px solid #e6e6e6;
+    line-height: 45px;
+    color: #333;
+    font-size: 16px;
+    background: #f8f8f8;
+}
+
+.remarkTitle span:last-child {
+    font-size: 14px;
+    margin-left: 45px;
+}
+
+.remarkCont {
+    padding: 35px 20px 30px;
+}
+
+.remarkCont .point span {
+    width: 15px;
+    height: 15px;
+    background: url(../img/collect.png) no-repeat center center;
+    display: inline-block;
+}
+
+.remarkCont .point span.lighten {
+    background: url(../img/collected.png) no-repeat center center;
+}
+
+.remarkCont .point span.half {
+    background: url(../img/collectedHalf.png) no-repeat center center !important;
+}
+
+.remarkCont .point div {
+    display: inline-block;
+    font-size: 16px;
+    color: #666;
+    margin-left: 20px;
+}
+
+.remarkCont p {
+    margin: 25px 0;
+    font-size: 16px;
+    color: #333;
+    text-align: justify;
+    line-height: 25px;
+}
+
+.remarkCont .imgList {
+    overflow: hidden;
+}
+
+.remarkCont .imgList img {
+    width: 140px;
+    height: 105px;
+    float: left;
+    margin-right: 19px;
+    margin-bottom: 20px;
+}
+
+.remarkCont .time {
+    font-size: 14px;
+    color: #999;
+}

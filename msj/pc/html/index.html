@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>民宿加</title>
+		<meta name="Keywords" content="民宿加民宿加民宿加">
+		<meta name="Description" content="民宿加民宿加民宿加民宿加">
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/Mytime.css" />
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<wrap>
+			<header class="float_clear">
+				<a class="logo_1 left" href="http://www.jiaminsu.com/">
+					<img src="http://www.jiaminsu.com/statics/newindex/images/logo.png">
+				</a>
+				<nav class="nav_1 left">
+					<a href="#">首页</a>
+					<a href="#">分类</a>
+					<a href="#">内容</a>
+					<a class="active" href="#">民宿预订</a>
+					<a href="#">众创任务</a>
+					<a href="#">公告</a>
+				</nav>
+				<div class="loginBar-publish right">
+					<a href="javascript:;" style="display: none;">登录</a>
+					<a href="javascript:;" style="display: none;">注册</a>
+					<!--登录后-->
+					<div class="loginBarEnd">
+						<img class="loginBar_logo" src="img/头像.jpg" />
+						<div class="loginBar_content" style="display: none;">
+							<ii></ii>
+							<span class="loginBar_content_a">个人中心</span>
+							<span class="loginBar_content_a">房东中心</span>
+							<span class="loginBar_content_a">房客中心</span>
+							<span class="loginBar_exit">退出</span>
+						</div>
+					</div>
+					<!--登录后结束-->
+					<a class="publish" href="javascript:;" style="display: none;">发布房源</a>
+				</div>
+			</header>
+			<div class="bern_1">
+				<!-- Swiper -->
+				<div class="swiper-container" id="swiper_container_1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="img/pic1.jpg" /><span>古城客栈</span></div>
+						<div class="swiper-slide"><img src="img/pic1.jpg" /><span>古城客栈</span></div>
+						<div class="swiper-slide"><img src="img/pic1.jpg" /><span>古城客栈</span></div>
+						<div class="swiper-slide"><img src="img/pic1.jpg" /><span>古城客栈</span></div>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination swiper-pagination1"></div>
+					<!-- Add Arrows -->
+					<div class="swiper-button-next swiper-button-next1"></div>
+					<div class="swiper-button-prev swiper-button-prev1"></div>
+				</div>
+				<div class="bern_1_h">
+					<h3 class="h3">去旅行，去生活。 </h3>
+					<h4 class="h4">预订独特的体验和房源，融入当地文化。</h4>
+					<form class="form">
+						<input class="mudidi" type="text" name="" id="" value="" placeholder="请选择目的地" />
+						<i></i>
+						<input class="shijian" type="text" name="" id="" value="" placeholder="请选择入离日期" />
+						<i></i>
+						<input class="jingdian" type="text" name="" id="" value="" placeholder="民宿名称、景点、城市" />
+						<input class="submit" type="submit" value="&nbsp;" />
+						<div class="mudidi_xuanxiang" style="display: none;">
+							<ii></ii>
+							<div class="mudidi_nav">
+								<a class="active" href="#">国内热门</a>
+								<a href="#">ABCD</a>
+								<a href="#">EFGHJ</a>
+								<a href="#">KLMN</a>
+								<a href="#">PQRST</a>
+								<a href="#">WXYZ</a>
+							</div>
+							<div class="mudidi_content">
+								<span>北京</span>
+								<span>上海</span>
+								<span>广州</span>
+								<span>成都</span>
+								<span>三亚</span>
+								<span>厦门</span>
+								<span>深圳</span>
+								<span>内蒙古</span>
+								<span>呼和浩特</span>
+								<span>广州</span>
+								<span>成都</span>
+								<span>三亚</span>
+								<span>厦门</span>
+								<span>深圳</span>
+							</div>
+						</div>
+						<div class="shijian_xuanxiang" style="display: none;">
+							<ii></ii>
+							<span id="shijian_prev"></span>
+							<span id="shijian_next"></span>
+							<div class="Mytime left" id="Mytime1">
+								<span class="prev">上</span>
+								<span class="next">下</span>
+								<div class="Year-Month">
+									<h3 class="Year"><span>2000</span>年</h3>
+									<h4 class="Month"><span>1</span>月</h4>
+								</div>
+								<div class="Day-Date">
+									<h5 class="Day"><span>一</span><span>二</span><span>三</span> <span>四</span><span>五</span><span>六</span><span>日</span></h5>
+									<div class="Date"><span>1</span><span>2</span><span>3</span> <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+								</div>
+							</div>
+							<div class="Mytime left" id="Mytime2">
+								<span class="prev">上</span>
+								<span class="next">下</span>
+								<div class="Year-Month">
+									<h3 class="Year"><span>2000</span>年</h3>
+									<h4 class="Month"><span>1</span>月</h4>
+								</div>
+								<div class="Day-Date">
+									<h5 class="Day"><span>一</span><span>二</span><span>三</span> <span>四</span><span>五</span><span>六</span><span>日</span></h5>
+									<div class="Date"><span>1</span><span>2</span><span>3</span> <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="remenchengshi">
+				<h4 class="remenchengshi_h4">热门城市</h4>
+				<ul class="remenchengshi_ul overflow">
+					<li>
+						<h5>北京</h5>
+						<img src="img/pic_1.png" />
+					</li>
+					<li>
+						<h5>北京</h5>
+						<img src="img/pic_1.png" />
+					</li>
+					<li>
+						<h5>北京</h5>
+						<img src="img/pic_1.png" />
+					</li>
+					<li>
+						<h5>北京</h5>
+						<img src="img/pic_1.png" />
+					</li>
+					<li>
+						<h5>北京</h5>
+						<img src="img/pic_1.png" />
+					</li>
+					<li>
+						<h5>北京</h5>
+						<img src="img/pic_1.png" />
+					</li>
+				</ul>
+			</div>
+			<div class="remenjingdian">
+				<h4 class="remenjingdian_h4">热门景点</h4>
+				<div class="remenjingdian_swiper">
+					<!-- Swiper -->
+					<div class="swiper-container" id="swiper_container_2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="img/pic1.jpg" />
+								<h5>御龙山</h5>
+							</div>
+							<div class="swiper-slide">
+								<img src="img/pic2.jpg" />
+								<h5>御龙山</h5>
+							</div>
+							<div class="swiper-slide">
+								<img src="img/pic1.jpg" />
+								<h5>御龙山</h5>
+							</div>
+							<div class="swiper-slide">
+								<img src="img/pic2.jpg" />
+								<h5>御龙山</h5>
+							</div>
+						</div>
+						<!-- Add Pagination -->
+						<!--<div class="swiper-pagination"></div>-->
+						<!-- Add Arrows -->
+					</div>
+					<div class="swiper-button-next swiper-button-next2"></div>
+					<div class="swiper-button-prev swiper-button-prev2"></div>
+				</div>
+			</div>
+			<div class="jingxuanminsu">
+				<h4 class="jingxuanminsu_h4">精选民宿</h4>
+				<ul class="ms_ul overflow">
+					<li>
+						<div class="ms_img">
+							<img src="img/pic2.jpg" />
+							<span>￥<i>268</i>起</span>
+						</div>
+						<div>
+							<h5 class="msh5 overflow"><span class="msmingchen left">凤凰小城居客栈</span><span class="mspingxing right"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></h5>
+							<div class="mstese overflow">
+								<span>外面就是洱海</span>
+								<span>看星星</span>
+								<span>看日出</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ms_img">
+							<img src="img/pic2.jpg" />
+							<span>￥<i>268</i>起</span>
+						</div>
+						<div>
+							<h5 class="msh5 overflow"><span class="msmingchen left">凤凰小城居客栈</span><span class="mspingxing right"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></h5>
+							<div class="mstese overflow">
+								<span>外面就是洱海</span>
+								<span>看星星</span>
+								<span>看日出</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ms_img">
+							<img src="img/pic2.jpg" />
+							<span>￥<i>268</i>起</span>
+						</div>
+						<div>
+							<h5 class="msh5 overflow"><span class="msmingchen left">凤凰小城居客栈</span><span class="mspingxing right"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></h5>
+							<div class="mstese overflow">
+								<span>外面就是洱海</span>
+								<span>看星星</span>
+								<span>看日出</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ms_img">
+							<img src="img/pic2.jpg" />
+							<span>￥<i>268</i>起</span>
+						</div>
+						<div>
+							<h5 class="msh5 overflow"><span class="msmingchen left">凤凰小城居客栈</span><span class="mspingxing right"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></h5>
+							<div class="mstese overflow">
+								<span>外面就是洱海</span>
+								<span>看星星</span>
+								<span>看日出</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ms_img">
+							<img src="img/pic2.jpg" />
+							<span>￥<i>268</i>起</span>
+						</div>
+						<div>
+							<h5 class="msh5 overflow"><span class="msmingchen left">凤凰小城居客栈</span><span class="mspingxing right"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></h5>
+							<div class="mstese overflow">
+								<span>外面就是洱海</span>
+								<span>看星星</span>
+								<span>看日出</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ms_img">
+							<img src="img/pic2.jpg" />
+							<span>￥<i>268</i>起</span>
+						</div>
+						<div>
+							<h5 class="msh5 overflow"><span class="msmingchen left">凤凰小城居客栈</span><span class="mspingxing right"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></h5>
+							<div class="mstese overflow">
+								<span>外面就是洱海</span>
+								<span>看星星</span>
+								<span>看日出</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- 底部 -->
+			<footer style="clear: both">
+				<div class="foot">
+					<div class="l">
+						<img src="img/footLogo.png">
+					</div>
+					<div class="m">
+						<div>
+							<ul>
+								<li>
+									<a href="">关于我们</a>
+								</li>
+								<li>
+									<a href="">用户协议</a>
+								</li>
+								<li>
+									<a href="">免责声明</a>
+								</li>
+								<li>
+									<a href="">联系我们</a>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<p class="t">
+								<span>联系电话：027-65386823</span>
+								<span>武汉中润普达信息技术有限公司</span>
+								<span>备案号: 鄂ICP备14018646-7</span>
+							</p>
+							<p class="b">
+								<span>邮箱：whzrpdmsk@163.com</span>
+								<span>湖北省武汉市武昌区汉街万达总部国际B座508室</span>
+							</p>
+						</div>
+					</div>
+					<div class="r">
+						<img src="img/wCode.png">
+						<img src="img/iosCode.png">
+					</div>
+				</div>
+			</footer>
+
+		</wrap>
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/Mbase.js"></script>
+		<script src="js/Mytime.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/swiper-3.4.0.jquery.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/index.js" type="text/javascript"></script>
+
+	</body>
+
+</html>

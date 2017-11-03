@@ -1,0 +1,134 @@
+@charset "UTF-8";
+body {
+  padding-bottom: 0; }
+
+body.bgd-grey {
+  background: #F4F4F4;
+  padding-bottom: 0.96rem; }
+
+.hao-head {
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 3.6rem;
+  margin-bottom: 0.3rem;
+  padding: 0 0.3rem;
+  background: url("../images/user-bg.png") no-repeat;
+  background-size: 100%;
+  color: #fff; }
+  .hao-head .user-img {
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: 0.7rem 0.35rem 0 0.45rem;
+    border: 0.05rem solid #B3B9DB;
+    border-radius: 50%;
+    overflow: hidden; }
+    .hao-head .user-img img {
+      width: 100%;
+      height: 100%; }
+  .hao-head .user-content {
+    flex: 1; }
+    .user-name {
+      font-size: 0.36rem; }
+
+    .user-info {
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      margin-bottom: 0.5rem;
+      font-size: 0.26rem; }
+      .user-info > div {
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start; }
+        .user-info > div > span {
+          margin: 0 0.15rem; }
+        .user-info > div p > span {
+          margin-right: 0.15rem; }
+      .user-info .btn-subscribe {
+        margin-right: 0.4rem; }
+  .hao-head .user-intro {
+    font-size: 0.3rem;
+    line-height: 0.48rem; }
+
+/*个人中心页面 开始*/
+.user-head {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 2.2rem;
+  background: #fff;
+  font-size: 0.34rem;
+  color: #333; }
+  .user-head .u-img {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0 0.4rem 0 0.5rem;
+    border-radius: 50%; }
+    .user-head .u-img img {
+      width: 100%;
+      height: 100%; }
+
+.u-title {
+  width: 100%;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  padding: 0 0.4rem;
+  font-size: 0.36rem;
+  color: #666; }
+
+.my-collect, .my-trace, .my-summary, .my-feedback {
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 1.1rem;
+  padding: 0 0.2rem 0 0.4rem;
+  background: #fff; }
+  .my-collect i, .my-trace i, .my-summary i, .my-feedback i {
+    background: url("../images/icon-heart1.png") no-repeat center;
+    background-size: 0.33rem 0.3rem; }
+
+.my-collect {
+  border-bottom: 1px solid #F3F3F3; }
+
+.my-trace i {
+  background: url("../images/icon-trace2.png") no-repeat center;
+  background-size: 0.36rem 0.34rem; }
+
+.my-summary i {
+  background: url("../images/icon-user.png") no-repeat center;
+  background-size: 0.37rem 0.3rem; }
+
+.my-feedback i {
+  background: url("../images/icon-msg.png") no-repeat center;
+  background-size: 0.32rem 0.32rem; }
+
+.r-arrow::after {
+  content: '';
+  display: block;
+  width: 0.47rem;
+  height: 0.47rem;
+  background: url("../images/icon-arrow.png") no-repeat center;
+  background-size: 100%; }
+
+.detail-name {
+  -webkit-align-items: center;
+  align-items: center;
+  width: auto;
+  font-size: 0.34rem;
+  color: #333; }
+  .detail-name i {
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-right: 0.12rem; }
+
+.btn-quit a {
+  background: #fff; }
+
+/*个人中心页面 结束*/
+
+/*# sourceMappingURL=user.css.map */

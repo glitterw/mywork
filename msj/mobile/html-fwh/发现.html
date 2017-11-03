@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>发现</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/common.css">
+
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth / 7.50 + "px");
+    $(function () {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 'auto',
+     /*   freeMode: true,*/
+       /* breakpoints: {
+          1024: {
+            slidesPerView: 6,
+            spaceBetween: 60
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 40
+          },
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          },
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          }
+        }*/
+        slidesPerView: 3,
+        spaceBetween: 20
+      });
+    })
+  </script>
+</head>
+<body ontouchstart class="flex-col">
+
+  <!--头部tab栏 开始-->
+  <header class="find-header flex-box">
+    <div class="nav-container flex-box">
+      <div class="swiper-container">
+        <nav class="swiper-wrapper">
+          <div class="swiper-slide">我的头条</div>
+          <div class="swiper-slide">民俗</div>
+          <div class="swiper-slide">美食</div>
+          <div class="swiper-slide">游记</div>
+          <div class="swiper-slide">语录</div>
+          <div class="swiper-slide">历史</div>
+          <div class="swiper-slide">历史</div>
+        </nav>
+      </div>
+
+    </div>
+
+    <div class="btn-add flex-box">
+      <img src="images/icon-navAdd.png" alt="添加按钮">
+    </div>
+  </header>
+  <!--头部tab栏 结束-->
+
+  <!--主体列表页 开始-->
+  <div id="mainBox">
+    <div class="main-content-box">
+      <section class="list-box flex-box">
+        <a class="lf-part" href="#">
+          <img src="images/img1.png" alt="">
+        </a>
+        <div class="rt-part flex-col">
+          <a class="list-title text-ellipsis" href="#">江南城外花如雨，美墅春色可撩人</a>
+          <div class="btm-msg flex-box">
+            <div class="lf-detail flex-box">
+              <img src="images/user-header.png" alt="用户头像">
+              <span class="text-ellipsis">民宿加</span>
+            </div>
+            <div class="rt-detail">
+              <span>2017-04-20</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="list-box flex-box">
+        <a class="lf-part" href="#">
+          <img src="images/img2.png" alt="">
+        </a>
+        <div class="rt-part flex-col">
+          <a class="list-title text-ellipsis" href="#">江南城外花如雨，美墅春色可撩人</a>
+          <div class="btm-msg flex-box">
+            <div class="lf-detail flex-box">
+              <img src="images/user-header.png" alt="用户头像">
+              <span class="text-ellipsis">民宿加</span>
+            </div>
+            <div class="rt-detail">
+              <span>2017-04-20</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="list-box flex-box">
+        <a class="lf-part" href="#">
+          <img src="images/img3.png" alt="">
+        </a>
+        <div class="rt-part flex-col">
+          <a class="list-title text-ellipsis" href="#">江南城外花如雨，美墅春色可撩人</a>
+          <div class="btm-msg flex-box">
+            <div class="lf-detail flex-box">
+              <img src="images/user-header.png" alt="用户头像">
+              <span class="text-ellipsis">民宿加</span>
+            </div>
+            <div class="rt-detail">
+              <span>2017-04-20</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="list-box flex-box">
+        <a class="lf-part" href="#">
+          <img src="images/img4.jpg" alt="">
+        </a>
+        <div class="rt-part flex-col">
+          <a class="list-title text-ellipsis" href="#">江南城外花如雨，美墅春色可撩人</a>
+          <div class="btm-msg flex-box">
+            <div class="lf-detail flex-box">
+              <img src="images/user-header.png" alt="用户头像">
+              <span class="text-ellipsis">民宿加</span>
+            </div>
+            <div class="rt-detail">
+              <span>2017-04-20</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="list-box flex-box">
+        <a class="lf-part" href="#">
+          <img src="images/img1.png" alt="">
+        </a>
+        <div class="rt-part flex-col">
+          <a class="list-title text-ellipsis" href="#">江南城外花如雨，美墅春色可撩人</a>
+          <div class="btm-msg flex-box">
+            <div class="lf-detail flex-box">
+              <img src="images/user-header.png" alt="用户头像">
+              <span class="text-ellipsis">民宿加</span>
+            </div>
+            <div class="rt-detail">
+              <span>2017-04-20</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+  <div class="load-more">
+    <a href="#">加载更多</a>
+  </div>
+  <!--主体列表页 结束-->
+
+  <!--公用底部tab栏 开始-->
+  <footer class="main-foot">
+    <nav class="flex-box">
+      <a href="#" class="tab-find flex-col active">
+        <i></i>
+        <span>发现</span>
+      </a>
+      <a href="#" class="tab-trace flex-col">
+        <i></i>
+        <span>追踪</span>
+      </a>
+      <a href="#" class="tab-weekly flex-col">
+        <i></i>
+        <span>周报</span>
+      </a>
+      <a href="#" class="tab-user flex-col">
+        <i></i>
+        <span>我的</span>
+      </a>
+    </nav>
+  </footer>
+  <!--公用底部tab栏 结束-->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

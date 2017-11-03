@@ -1,0 +1,982 @@
+/* CSS Document */
+@charset "utf-8";
+/*
+*@action 首页相关样式表
+*@author wpx
+*@time   2017/4/19
+*/
+
+/*首页样式 开始*/
+.wrap-box{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background-color: #fff;
+    margin: auto;
+    color: #666;
+    margin-bottom: 1.06rem;
+}
+
+.wrap-box>.part0 .part01{
+    padding: .2rem .2rem 0 .2rem;
+}
+.part0 .search{
+    width: 100%;
+    height: .68rem;
+    line-height: .68rem;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    font-size: .3rem;
+    text-align: center;
+    display: block;
+}
+.part0 .search>span{
+    padding-left: .56rem;
+    background: url("../images/search-gray.png") no-repeat left;
+    background-size:.3rem .3rem;
+    color: #666;
+}
+.part0 .swiper-box{
+    margin-top: .48rem;
+    padding: 0 0 .46rem .2rem;
+}
+.part0 .swiper-box .title{
+    font-size: .36rem;
+}
+.part0 .swiper-box .images{
+    margin-top: .28rem;
+}
+.part-item{
+    margin: auto;
+    width: 100%;
+    height: auto;
+    padding-bottom: .5rem;
+    /*text-align: center;*/
+}
+.part-item>.part1-des{
+    width: 3.51rem;
+    height: 1.22rem;
+    margin: 0 auto;
+    background: url("../images/part1.png")no-repeat center;
+    background-size:100% 100%;
+}
+.part-item>.part2-des{
+    width: 3.71rem;
+    height: 1.26rem;
+    margin: 0 auto;
+    background: url("../images/part2.png")no-repeat center;
+    background-size:100% 100%;
+}
+.part-item>.part3-des{
+    width: 3.19rem;
+    height: 1.32rem;
+    margin: 0 auto;
+    background: url("../images/part3.png")no-repeat center;
+    background-size:100% 100%;
+}
+
+.part-item>.product-box{
+    width: 100%;
+    height: auto;
+    margin: .3rem auto 0;
+    position: relative;
+}
+.part-item>.product-box .big-img-box{
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.part-item>.product-box .big-img{
+    width: 100%;
+    height:4.22rem;
+}
+.part-item>.product-box .text-box{
+    width: 5.5rem;
+    height: 2.1rem;
+    background: url("../images/title-bg.png")no-repeat center;
+    background-size:100% 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    text-align: center;
+    color: #fff;
+    padding: .3rem 0;
+}
+.text-box>div{
+    width: 100%;
+    height: 1.3rem;
+    position: relative;
+}
+.text-box>div>.name{
+    font-size: .44rem;
+    position: relative;
+    top: 0;
+    max-width: 5rem;
+    text-align: center;
+    display: inline-block;
+}
+.text-box>div>.name em{
+    display: inline-block;
+    width: .15rem;
+}
+
+.text-box>div>.name .part2{
+    max-width: 3.1rem;
+    text-align: left;
+    display: inline-block;
+}
+.text-box>div>.name>i+i{
+    margin-left: 0.15rem;
+}
+.text-box>div>.other{
+    font-size: .28rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.text-box>div>.other>span{
+    width: 2.68rem;
+    float: left;
+}
+
+
+.text-box>div>.other .user{
+    height: 0.4rem;
+    max-width: 2rem;
+    background: url(../images/title-icon1.png)no-repeat left;
+    background-size: 0.28rem 0.32rem;
+    display: inline-block;
+    padding-left: 0.35rem;
+    float: right;
+    color: #fff;
+}
+.text-box>div>.other .city{
+    height: 0.4rem;
+    max-width: 2rem;
+    background: url(../images/title-icon2.png)no-repeat left;
+    background-size: 0.22rem 0.30rem;
+    display: inline-block;
+    padding-left: 0.35rem;
+    float: left;
+    margin-left: 0.28rem;
+    color: #fff;
+}
+.product-pics{
+    margin-top: 0.2rem;
+    padding: 0 0.2rem;
+    width: 7.5rem;
+}
+.product-pics .book-house{
+    display: inline-block;
+    vertical-align: top;
+    width: 2.24rem;
+    height: auto;
+}
+.product-pics .pic-item+.pic-item{
+    margin-left: 0.16rem;
+}
+.product-pics .pic-item>a>img{
+    width: 2.26rem;
+    height:1.27rem;
+}
+.product-pics .pic-item>.type{
+    width: 100%;
+    font-size: .28rem;
+    color: #000;
+}
+.product-pics .pic-item>.price{
+    width: 100%;
+    font-size: .24rem;
+}
+.index-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1.06rem;
+    line-height: 1.06rem;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    z-index: 99;
+    box-sizing: border-box;
+}
+.index-footer>nav{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap:nowrap;
+        flex-wrap:nowrap;
+    -webkit-box-pack:justify;
+        -ms-flex-pack:justify;
+            justify-content:space-between;
+    height: 100%;
+    width: 100%;
+    padding: 0.06rem 0;
+
+}
+.index-footer>nav>.tab{
+    height: 100%;
+    width: 2.5rem;
+    text-align: center;
+    font-size: .28rem;
+    margin: 0 auto;
+}
+.index-footer>nav>.tab+.tab{
+    border-left: 1px solid #ccc;
+}
+.index-footer>nav>.tab>a{
+    display: inline-block;
+    line-height: 1rem;
+    margin: 0 auto;
+}
+.index-footer>nav>.tab>a{
+    display: inline-block;
+}
+.index-footer>nav>.tab .book-house{
+    width: auto;
+    height: 100%;
+    background: url(../images/icon/tab-icon1.png) no-repeat left;
+    background-size: .4rem .37rem;
+    padding-left: .63rem;
+}
+.index-footer>nav>.tab .book-house:hover,.index-footer>nav>.tab.active .book-house{
+    background: url(../images/icon/tab-icon1-h.png) no-repeat left;
+    background-size: .4rem .37rem;
+    color: #98525c;
+}
+.index-footer>nav>.tab .make-house{
+    width: auto;
+    height: 100%;
+    background: url(../images/icon/tab-icon2.png) no-repeat left;
+    background-size: .45rem .41rem;
+    padding-left: .63rem;
+}
+.index-footer>nav>.tab a:hover,.index-footer>nav>.tab a:active,.index-footer>nav>.tab a:visited,.index-footer>nav>.tab a:link{
+    color: #333;
+}
+.index-footer>nav>.tab .make-house:hover,.index-footer>nav>.tab.active .make-house{
+    background: url(../images/icon/tab-icon2-h.png) no-repeat left;
+    background-size: .45rem .41rem;
+    color: #98525c;
+}
+.index-footer>nav>.tab .user{
+    width: auto;
+    height: 100%;
+    background: url(../images/icon/tab-icon3.png) no-repeat left;
+    background-size: .45rem .41rem;
+    padding-left: .63rem;
+}
+.index-footer>nav>.tab .user:hover,.index-footer>nav>.tab.active .user{
+    background: url(../images/icon/tab-icon3-h.png) no-repeat left;
+    background-size: .45rem .41rem;
+    color: #98525c;
+}
+
+.images .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height:4.4rem;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+    box-sizing: content-box;
+}
+.swiper-slide a img{
+    width:7.5rem;
+    height:4.22rem;
+}
+.swiper-container {
+    width: 100%;
+    height: 3.3rem;
+}
+.swiper-slide .slideimg{
+    width: 4.4rem;
+    max-width: 4.4rem;
+    height: 3.3rem;
+}
+.images .swiper-slide {
+    font-size: 18px;
+    background: #fff;
+    width: 4.4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    height: 3.3rem;
+}
+/*首页样式 结束*/
+
+/*带有标题返回按钮的头部 开始*/
+.header-title-back{
+    width: 100%;
+    height: .9rem;
+    line-height: .9rem;
+    font-size: .3rem;
+    color:#000;
+    background-color: #fff;
+    padding: 0 .2rem;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+.header-title-back .back{
+    width: .22rem;
+    height: .38rem;
+    background: url("../images/city-back.png") no-repeat center;
+    background-size: .22rem .38rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .35rem;
+}
+.header-title-back .title{
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 6.4rem
+}
+
+/*带有标题返回按钮的头部 结束*/
+
+/*民宿详情页样式 开始*/
+.detail-box{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    margin: auto;
+    margin: .9rem 0 1.2rem 0;
+}
+.detail-box .slide-box{
+    background-color: #fff;
+}
+.detail-box .slide-list{
+    width: 100%;
+    height: 4.22rem;
+    background-color: #eee;
+}
+.detail-box .slide-list .swiper-container {
+    width: 100%;
+    height: 4.22rem;
+}
+.detail-box .slide-list .swiper-pagination {
+    width: .9rem;
+    height: .4rem;
+    z-index: 10;
+    background-image: -webkit-linear-gradient( 90deg, rgba(0,0,0,0.50196) 0%, rgba(0,0,0,0.30196) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgba(0,0,0,0.50196) 0%, rgba(0,0,0,0.30196) 100%);
+    border-radius: .5rem;
+    text-align: center;
+    line-height: .4rem;
+    left: 6.3rem;
+    bottom: .3rem;
+    font-size: .28rem;
+    color: #fff;
+}
+
+.detail-box .title-box{
+    margin: .3rem 0;
+    padding: 0 .2rem;
+}
+.title-box .title{
+    font-size:.36rem;
+    color: #000;
+}
+.tags-box{
+    font-size: .28rem;
+    color: #666;
+    padding-bottom: .3rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.tag{
+    display: inline-block;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: .5rem;
+    padding: .06rem .3rem;
+    max-width: 10em;
+    overflow: hidden;
+    margin-top: .22rem;
+    cursor: pointer;
+    color: #666;
+    margin-right:0.1rem;
+}
+
+/*民宿详情页底部 开始*/
+.detail-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    z-index: 99;
+}
+.detail-footer .price{
+    width: 4.5rem;
+    display: inline-block;
+    padding-left: .66rem;
+    font-size: .24rem;
+    color: #666;
+    -webkit-box-flex:3;
+        -ms-flex-positive:3;
+            flex-grow:3;
+     background: linear-gradient(to top, #eeeeee 0%,#ffffff 100%);
+    background: -webkit-linear-gradient(bottom, #eeeeee 0%,#ffffff 100%);
+    line-height: 1rem;
+}
+.detail-footer .price>em{
+    font-size: .48rem;
+    color: #98525c;
+}
+.detail-footer .order-button{
+    font-size: .36rem;
+    color: #fff;
+    background: linear-gradient(to top, #98535d 0%,#ba737d 100%);
+    background: -webkit-linear-gradient(bottom, #98535d 0%,#ba737d 100%);
+    width: 3rem;
+    height: 1rem;
+    display: inline-block;
+    text-align: center;
+    -webkit-box-flex:2;
+        -ms-flex-positive:2;
+            flex-grow:2;
+}
+a.order-button:hover{
+    color: #fff;
+}
+a.order-button:active{
+    background-color:#98525c;
+}
+/*民宿详情页底部 结束*/
+/*民宿详情 内容部分 开始*/
+.detail-content-box{
+    margin: .3rem 0;
+}
+.detail-content-box .type-tab{
+    background-color: #fff;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    font-size: .3rem;
+    color: #333;
+}
+.detail-content-box .type-tab .item1 {
+    text-align: right;
+    padding-right: .65rem;
+    text-align: right;
+    width: 50%;
+}
+
+.detail-content-box .type-tab .item2 {
+    text-align: left;
+    padding-left: .65rem;
+    width: 50%;
+}
+.detail-content-box .type-tab  .type-name{
+    display: inline-block;
+    width: 1.6rem;
+    text-align: center;
+}
+.detail-content-box .type-tab  .type-name.active{
+    border-bottom: 2px solid #98525c;
+    color: #98525c;
+    line-height: .76rem;
+}
+
+.detail-part1{
+    background-color: #fff;
+    padding: .3rem .2rem .4rem;
+    margin-bottom: .1rem;
+}
+
+.owner-icon{
+    width: .98rem;
+    height: .98rem;
+    line-height: .98rem;
+    border: 1px solid rgb(204, 204, 204);
+    background-color:#fff;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.owner-icon>img{
+    width: .98rem;
+    height:.98rem;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+.owner-info{
+    display: inline-block;
+    margin-left: .27rem;
+    font-size: .3rem;
+    color: #333;
+    vertical-align: middle;
+}
+.owner-info>.info-item+.info-item{
+    margin-top: .2rem;
+}
+.owner-info>.info-item>span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.owner-info>.info-item>span:first-child{
+    width: 5em;
+}
+.owner-info>.info-item>span:last-child{
+    width: 4.2rem;
+}
+.owner-address-box{
+    font-size: .3rem;
+    color: #333;
+    margin-top: .3rem;
+}
+/*.owner-address-box:before{*/
+    /*content: '';*/
+    /*width: .22rem;*/
+    /*height: .3rem;*/
+    /*background: url("../images/city-location.png") no-repeat center;*/
+    /*background-size: 100%;*/
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+/*}*/
+.owner-address-box .owner-address{
+    display: inline-block;
+}
+.owner-address>span{
+    display: inline-block;
+    vertical-align: text-top;
+}
+.owner-address>span:nth-child(1) {
+    background: url(../images/city-location.png) no-repeat left;
+    background-size: .22rem .3rem;
+    padding-left: .3rem;
+}
+.owner-address>span:nth-child(2){
+    width: 5.7rem;
+}
+.detail-part2{
+    background-color: #fff;
+    padding: .4rem .2rem .5rem;
+    margin-top: .1rem;
+}
+.detail-part2 .content{
+    font-size: .28rem;
+    color: #333;
+}
+.detail-part2 .content>img{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.detail-part2 .content>p+img{
+    margin-top: .5rem;
+}
+.detail-part2 .content>img+p{
+    margin-top: .3rem;
+}
+.detail-part3{
+    background-color: #fff;
+    margin-top: .2rem;
+    width: 100%;
+
+}
+.detail-part3 .score-box{
+    padding: 0 .2rem ;
+    height: .8rem;
+    width: 100%;
+    line-height: .8rem;
+}
+.detail-part3 .score-box>span{
+    display: inline-block;
+}
+.detail-part3 .score-box>span:nth-child(1){
+    font-size: .3rem;
+    color: #98525c;
+    float: left;
+}
+.detail-part3 .score-box>span:nth-child(1){
+    font-size: .3rem;
+    color: #98525c;
+    float: left;
+}
+.detail-part3 .score-box>span:nth-child(2){
+    font-size: .24rem;
+    color: #666;
+    float: right;
+}
+.score{
+    font-size: .24rem;
+    color:#ffb400;
+    display: inline-block;
+}
+
+.start{
+    width: .24rem;
+    height: .22rem;
+    display: inline-block;
+    background: url(../images/un-star.png)no-repeat center;
+    background-size: 100%;
+}
+.start.on{
+    background: url(../images/star.png)no-repeat center;
+    background-size: 100%;
+
+}
+.start.half{
+    background: url(../images/half-star.jpg)no-repeat center;
+    background-size: 100%;
+}
+.comment-box{
+    margin: 0 .2rem;
+    padding: .4rem 0;
+}
+.comment-user-box>.owner-icon,.comment-user-box>.comment-score,.comment-user-box>.comment-score,.comment-user-box>.comment-time{
+    display: inline-block;
+    vertical-align: middle;
+    height: 1rem;
+}
+.comment{
+    font-size: .28rem;
+    color: #333;
+    margin-left: 1.2rem;
+    margin-top: .15rem;
+}
+.comment-score .user-name{
+    font-size: .36rem;
+    color: #000;
+}
+.comment-score>p+p{
+    margin-top: .1rem;
+}
+.comment-score>.score-box{
+    padding: 0;
+    margin-left: 0;
+    line-height: normal;
+    height: initial;
+}
+.comment-score>.score-box .start-list{
+    display: inline-block;
+}
+.comment-score{
+    margin-left: .2rem;
+}
+.comment-time{
+    font-size: .24rem;
+    color: #666;
+    float: right;
+}
+.detail-part3>.comment-box:last-child{
+    border-bottom: 1px solid #ccc;
+}
+.comment .img-list{
+    margin-top: .3rem;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+.comment .img-list>img{
+    width: 1.88rem;
+    height: 1.06rem;
+    margin-bottom: .1rem;
+    margin-right: .05rem;
+}
+
+.detail-part3 .load-more{
+    height: 1.1rem;
+    width: 100%;
+    line-height: 1.1rem;
+    text-align: center;
+}
+
+
+.more-button{
+    /*width: 1.58rem;*/
+    width: 7em;
+    height: 0.48rem;
+    line-height: .48rem;
+    padding:0 .2rem 0 .35rem;
+    border-radius: 5px;
+    border: 1px solid rgb(152, 82, 92);
+    text-align: center;
+    font-size: .24rem;
+    color: #98525c;
+    display: inline-block;
+    background: url("../images/add.png")no-repeat left;
+    background-size: .14rem .14rem;
+    -ms-background-position-x: .2rem;
+    background-position-x: .2rem;
+}
+.load-more a:active {
+    background: url("../images/add.png")no-repeat left;
+    background-size: .14rem .14rem;
+    -ms-background-position-x: .2rem;
+    background-position-x: .2rem;
+}
+.load-more a:hover {
+    color: #98525c;
+}
+/*民宿详情 内容部分 结束*/
+
+/*民宿详情页样式 结束*/
+
+/*公共元素 开始*/
+.border-bottom-ccc{
+    border-bottom: 1px solid #ccc;
+}
+.bg-color-eee{
+    background-color: #eee;
+}
+/*下拉滚动*/
+.scroll-option-box{
+    position: fixed;
+    top: .9rem;
+    width: 100%;
+    background-color: #fff;
+    font-size: .3rem;
+    color: #333;
+    max-height: 4.86rem;
+    overflow: scroll;
+    z-index: 50;
+    box-sizing: border-box;
+    display: none;
+}
+.scroll-option-box .moption{
+    display: block;
+    height: .82rem;
+    line-height: .82rem;
+    padding: 0 .4rem;
+}
+.scroll-option-box .moption:hover,.scroll-option-box>.moption.active{
+    background: url("../images/red-selected-line.png")no-repeat left;
+    background-size: .08rem .4rem;
+    color: #98525c;
+}
+.scroll-option-box .moption:last-child{
+    border-bottom: none;
+}
+/*公共元素 结束*/
+/*********************************************************************************/
+/*城市列表页面 开始*/
+.header-title-back.list{
+    padding: .1rem 0;
+    box-sizing: border-box;
+}
+.header-title-back.list .title{
+    max-width: 6em;
+}
+.header-title-back.list>div{
+    line-height:.7rem;
+}
+.header-title-back.list>div+div{
+    border-left: 1px solid #ccc;
+}
+
+.header-title-back.list .city {
+    padding-left:.2rem;
+}
+.header-title-back.list .city>span{
+    /*width: .22rem;*/
+    /*height: .38rem;*/
+    background: url("../images/city-back.png") no-repeat left;
+    background-size: .22rem .38rem;
+    display: inline-block;
+    padding-left: .3rem;
+}
+
+.header-title-back.list .select-box{
+    text-align: center;
+}
+
+.select-box>span{
+    background: url(../images/city-down-choose.png)no-repeat right;
+    background-size: .2rem .1rem;
+    text-align: center;
+    padding-right: .28rem;
+}
+.select-box.on>span{
+    background: url(../images/red-up-choose.png)no-repeat right;
+    background-size: .2rem .1rem;
+    color:#98525c;
+}
+.ms-list-box {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    margin: .9rem auto 0;
+}
+.ms-list-box .ms-list-item{
+     width: 100%;
+     margin-bottom: .2rem;
+     background-color: #fff;
+ }
+.ms-list-box.nothing{
+    width: 100%;
+    height: 100%;
+    color: #ccc;
+    text-align: center;
+    font-size: .28rem;
+    padding: 1.3rem 0;
+    background-color: #fff;
+    margin: 0;
+}
+.ms-list-box .ms-list-item .item-img{
+   width: 100%;
+   height: 4.22rem;
+   overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+.ms-list-box .ms-list-item .item-img .item-price{
+    position: absolute;
+    left: 0;
+    bottom: .4rem;
+    width: 1.6rem;
+    height: .6rem;
+    line-height: .6rem;
+    background-size: 100%;
+    background: url(../images/money-bg.png) no-repeat center;
+    color: #fff;
+    font-size: .24rem;
+    text-align: center;
+}
+.item-price>em{
+    font-size: .36rem;
+    margin-right: .02rem;
+}
+.ms-list-box .ms-list-item .item-img>img{
+    width: 100%;
+    height: 4.22rem;
+    display: inline-block;
+    position: relative;
+}
+.ms-list-box .ms-list-item .title-box {
+    margin: .3rem 0;
+    padding: 0 .2rem;
+}
+.ms-list-box .ms-list-item .owner-address-box .owner-address {
+    color: #666;
+}
+.ms-list-box .ms-list-item+.load-more{
+    display: block;
+}
+.ms-list-box .load-more{
+    text-align: center;
+    margin: .1rem 0 .5rem;
+    display: none;
+}
+.mengcheng{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0.9rem;
+    left: 0;
+    z-index: 800;
+}
+.mengceng:after {
+    content: '';
+    display: block;
+    margin-top: .9rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.1);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 30;
+}
+body.mengceng{
+    height: auto;
+}
+/*房型介绍 开始*/
+.type-detail{
+    padding-bottom: .5rem;
+    background-color: #fff;
+}
+.type-detail .time-range{
+    height: .74rem;
+    line-height: .74rem;
+    font-size: .26rem;
+    text-align: center;
+}
+.type-detail .time-range>span+span{
+    border-left: 1px solid #ccc;
+}
+.type-detail .time-range>span>em+em{
+   margin-left: .25rem;
+}
+.house-type{
+    padding: .27rem .27rem 0;
+}
+.house-type>.type-img{
+    width: 6.9rem;
+    height: 3.94rem;
+    display: block;
+    margin: 0 auto;
+}
+.house-type .type-title{
+    font-size: .26rem;
+    color: #333;
+    margin-top: .3rem;
+}
+.house-type .type-info{
+    font-size: .24rem;
+    color: #999999;
+    margin-top: .3rem;
+}
+.house-type .type-price-box{
+    height: .7rem;
+    line-height: .7rem;
+    border-bottom: 1px dashed #ccc;
+    border-top: 1px dashed #ccc;
+    margin-top: .3rem;
+}
+.house-type .type-price-box .type-price{
+    font-size: .3rem;
+    color: #98525c;
+    float: left;
+}
+.house-type .type-price-box .type-price>.price-title{
+    font-size: .24rem;
+    margin-right:.24rem;
+}
+.house-type .type-price-box>.book{
+    display: inline-block;
+    float: right;
+    width: 1.7rem;
+    height: .52rem;
+    line-height: .52rem;
+    font-size: .24rem;
+    color: #fff;
+    background-color: #98525c;
+    margin-top:  .08rem;
+    border-radius: .1rem;
+    text-align: center;
+
+}
+.house-type .type-price-box>.book.full{
+    background-color:#999;
+}
+
+
+/*房型介绍 结束*/
+/*城市列表页面 结束*/
+/*********************************************************************************/
+
+

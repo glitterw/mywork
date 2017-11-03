@@ -1,0 +1,170 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+header,
+footer,
+nav,
+section,
+content {
+  display: block;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #666;
+}
+
+a:active {
+  background: none;
+}
+
+img {
+  border: none;
+  -ms-interpolation-mode: bicubic;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input {
+  border-radius: 0;
+  border: none;
+  outline: none;
+}
+
+i,
+b,
+em {
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  font-family: "microsoft yahei", Arial;
+}
+
+label,
+button {
+  cursor: pointer;
+}
+
+button,
+input {
+  *overflow: visible;
+}
+
+iframe {
+  border: 0;
+  outline: none;
+}
+
+/* 输入框placeholder字体颜色*/
+::-webkit-input-placeholder {
+  font-family: inherit;
+  color: #999;
+}
+
+:-moz-placeholder {
+  font-family: inherit;
+  color: #999;
+}
+
+::-moz-placeholder {
+  font-family: inherit;
+  color: #999;
+}
+
+:-ms-input-placeholder {
+  font-family: inherit;
+  color: #999;
+}
+
+/*去掉点击边框*/
+*:focus {
+  outline: none;
+}
+
+/*文本显示一行,溢出省略...*/
+.text-ellipsis {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.flex-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.flex-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.empty-page {
+  width: 100%;
+  height: 100vh;
+  background: url("../images/empty.png") no-repeat center;
+  background-size: 4.75rem 0.95rem;
+}
+
+.page-404 {
+  width: 100%;
+  height: 100vh;
+  background: url("../images/404.png") no-repeat center;
+  background-size: 2.8rem 2.2rem;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc2V0LmNzcyIsInJlc2V0LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsaUJBQWlCO0FDRWpCO0VBQ0UsVUFBUztFQUNULFdBQVU7RUFDViwrQkFBc0I7VUFBdEIsdUJBQXNCO0NEQXZCOztBQ0dEO0VBQ0UsZ0JBQWU7RUFDZiwwQ0FBeUM7RUFDekMsWUFBVztDREFaOztBQ0dEOzs7OztFQUtFLGVBQWM7Q0RBZjs7QUNHRDtFQUNFLGlCQUFnQjtDREFqQjs7QUNHRDtFQUNFLHNCQUFxQjtFQUNyQixZQUFXO0VBQ1gsZ0JBQWU7Q0RBaEI7O0FDR0Q7RUFDRSxZQUFXO0NEQVo7O0FDR0Q7RUFDRSxpQkFBZ0I7Q0RBakI7O0FDR0Q7RUFDRSxhQUFZO0VBQ1osZ0NBQStCO0NEQWhDOztBQ0dEO0VBQ0UsMEJBQXlCO0NEQTFCOztBQ0dEO0VBQ0UsaUJBQWdCO0VBQ2hCLGFBQVc7RUFDWCxjQUFhO0NEQWQ7O0FDR0Q7OztFQUdFLG1CQUFrQjtDREFuQjs7QUNHRDtFQUNFLGdCQUFlO0VBQ2Ysb0JBQW1CO0NEQXBCOztBQ0dEOzs7O0VBSUUsZ0JBQWU7RUFDZixzQ0FBcUM7Q0RBdEM7O0FDRUQ7O0VBRUUsZ0JBQWU7Q0RDaEI7O0FDRUQ7O0dBRUUsa0JBQWtCO0NEQ25COztBQ0VEO0VBQ0UsVUFBUztFQUNULGNBQWE7Q0RDZDs7QUNFRCx1QkFBdUI7QUFDdkI7RUFDRSxxQkFBb0I7RUFDcEIsWUFBVztDRENaOztBQ0VEO0VBQ0UscUJBQW9CO0VBQ3BCLFlBQVc7Q0RDWjs7QUNFRDtFQUNFLHFCQUFvQjtFQUNwQixZQUFXO0NEQ1o7O0FDRUQ7RUFDRSxxQkFBb0I7RUFDcEIsWUFBVztDRENaOztBQ0VELFVBQVU7QUFDVjtFQUNFLGNBQWE7Q0RDZDs7QUNFRCxrQkFBa0I7QUFDbEI7RUFDRSxxQkFBb0I7RUFDcEIsaUJBQWdCO0VBQ2hCLHdCQUF1QjtFQUN2Qiw2QkFBNEI7Q0RDN0I7O0FDRUQ7RUFDRSxxQkFBb0I7RUFDcEIscUJBQW9CO0VBRXBCLGNBQWE7RUFDYiwwQkFBeUI7RUFDekIsdUJBQXNCO0VBRXRCLCtCQUE4QjtFQUM5Qiw0QkFBMkI7RUFDM0IseUJBQXdCO0VBRXhCLG9CQUFtQjtFQUNuQixnQkFBZTtFQUNmLHlCQUF3QjtFQUN4QixzQkFBcUI7RUFFckIsd0JBQXVCO0NEQ3hCOztBQ0VEO0VBQ0UscUJBQW9CO0VBQ3BCLHFCQUFvQjtFQUVwQixjQUFhO0VBRWIsNkJBQXNCO0VBQXRCLDhCQUFzQjtNQUF0QiwyQkFBc0I7VUFBdEIsdUJBQXNCO0VBQ3RCLDBCQUF5QjtFQUN6Qix1QkFBc0I7RUFDdEIsNEJBQTJCO0VBQzNCLHlCQUF3QjtFQUV4QixvQkFBbUI7RUFDbkIsZ0JBQWU7Q0RDaEI7O0FDRUQ7RUFDRSxZQUFXO0VBQ1gsY0FBYTtFQUNiLHdEQUF1RDtFQUN2RCxpQ0FBZ0M7Q0RDakM7O0FDRUQ7RUFDRSxZQUFXO0VBQ1gsY0FBYTtFQUNiLHNEQUFxRDtFQUNyRCwrQkFBOEI7Q0RDL0IiLCJmaWxlIjoicmVzZXQuY3NzIn0= */

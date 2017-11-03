@@ -1,0 +1,162 @@
+@import "variable";
+body{
+  padding: 0.3rem 0;
+}
+
+/*简介页面 开始*/
+.sum-banner{
+  width: 6.9rem;
+  height: 3.45rem;
+  margin: 0 0.3rem 0.3rem;
+  text-align: center;
+  overflow: hidden;
+  background: url("../images/banner.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+
+.sum-title{
+  width: 2.63rem;
+  height: 0.55rem;
+  margin: 0 0 0.2rem 0.3rem;
+}
+
+.sum-intro{
+  margin-bottom: 0.2rem;
+  padding: 0 0.3rem;
+  font-size: 0.32rem;
+  line-height: 0.7rem;
+  color:$fc6;
+}
+
+.img-wave{
+  margin-bottom: 0.2rem;
+  width: 7.5rem;
+  height: 0.4rem;
+}
+
+.code-box{
+  width: 100%;
+  margin: 0.3rem 0;
+  text-align: center;
+  img{
+    margin-left: 0.92rem;
+    width: 4.22rem;
+    height: 3.3rem;
+  }
+}
+
+.sum-msg{
+  width: 100%;
+  text-align: center;
+  font-size: 0.3rem;
+  color:$fc6;
+}
+/*简介页面 结束*/
+
+/*意见反馈页面 开始*/
+.feedback{
+  padding:0 0.3rem;
+  font-size: 0.3rem;
+}
+
+.radio-box{
+  width: 100%;
+  height: 0.9rem;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 0.34rem;
+  color:$fc3;
+
+  .btn-radio{
+    width: 50%;
+    text-align: center;
+  }
+
+  input[type='radio']{
+    display: none;
+  }
+
+  label{
+    padding-left: 0.5rem;
+    background: url("../images/icon-unchecked.png") no-repeat left;
+    background-size: 0.26rem 0.26rem;
+
+    &.active{
+      background: url("../images/icon-checked.png") no-repeat left;
+      background-size: 0.26rem 0.26rem;
+    }
+  }
+
+}
+
+.suggest{
+  width: 100%;
+  height: 4rem;
+  margin-bottom: 0.3rem;
+  padding: 0.2rem;
+  resize: none;
+  border: 1px solid $bdc;
+}
+
+.tel-num{
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.3rem;
+  padding: 0.2rem;
+  border: 1px solid $bdc;
+}
+
+.feedback-tips{
+  color:$fc6;
+  margin-bottom: 0.6rem;
+}
+
+.btn-submit{
+  display: block;
+  width: 100%;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  background:-moz-linear-gradient(#B66672, #98525C);
+  background:-webkit-linear-gradient(#B66672, #98525C);
+  background:-o-linear-gradient(#B66672, #98525C);
+  background: linear-gradient(#B66672, #98525C);
+  text-align: center;
+  font-size: 0.3rem;
+  color:#fff;
+}
+/*意见反馈页面 结束*/
+
+/*创建追踪任务页面 开始*/
+.create-task{
+  padding: 0;
+}
+
+.task-banner{
+  width: 100%;
+  height: 2.8rem;
+  text-align: center;
+  overflow: hidden;
+
+  img{
+    width: 7.5rem;
+    height: 2.79rem;
+  }
+}
+
+.task-tips{
+  line-height: 0.85rem;
+  font-size:0.3rem;
+  color:#333;
+}
+/*创建追踪任务页面 结束*/
+
+
+
+
+
+
+
+
+
+
+

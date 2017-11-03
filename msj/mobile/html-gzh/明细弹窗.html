@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>明细弹窗</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .alert_mainback {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1px;
+            z-index: 1000;
+        }
+        
+        .alert_alertdetail {
+            width: 5.36rem;
+            height: 7.6rem;
+            background-color: white;
+            margin-top: 0.9rem;
+            padding: 1px;
+            margin-left: 1.07rem;
+            padding-left: 0.26rem;
+            overflow: hidden;
+            padding-right: 0.26rem;
+
+        }
+        
+        .alert_title {
+            width: 2rem;
+            height: 0.3rem;
+            margin-top: 0.3rem;
+            margin-left: 0.14rem;
+            color: #666;
+            font-size: 0.26rem;
+        }
+        
+        .mx_detail {
+            width: 4.84rem;
+            height: 0.75rem;
+            color: #666;
+            line-height: 0.75rem;
+            border-bottom: solid 1px #ccc;
+            font-size: 0.24rem;
+            padding-left: 0.14rem;
+            margin-top: 0.1rem;
+            padding-right: 0.14rem;
+
+        }
+        
+        .mx_detail>.date {
+            flex: 147;
+            text-align: left;
+        }
+        
+        .mx_detail>.num {
+            flex: 108;
+            text-align: right;
+        }
+        
+        .mx_detail>.money {
+            flex: 203;
+            max-width: 2.03rem;
+            overflow: hidden;
+            padding-left: 1rem;
+            text-align: right;
+        }
+        
+        .alert_alertdetail>.sum {
+            width: 4.84rem;
+            text-align: right;
+            margin-top: 0.5rem;
+            padding-right: 0.26rem
+        }
+    </style>
+</head>
+
+<body>
+    <div class="alert_mainback">
+        <div class="alert_alertdetail">
+            <h3 class="alert_title">费用明细</h3>
+
+            <div class="flex-box mx_detail">
+                <span class="flex-item date">2016-09-10</span>
+                <span class="flex-item num">2间</span>
+                <span class="flex-item money">¥168</span>
+
+            </div>
+            <div class="flex-box mx_detail">
+                <span class="flex-item date">2016-09-10</span>
+                <span class="flex-item num">2间</span>
+                <span class="flex-item money">¥168</span>
+
+            </div>
+            <div class="flex-box mx_detail">
+                <span class="flex-item date">2016-09-10</span>
+                <span class="flex-item num">2间</span>
+                <span class="flex-item money">¥168</span>
+
+            </div>
+            <div class="flex-box mx_detail">
+                <span class="flex-item date">2016-09-10</span>
+                <span class="flex-item num">2间</span>
+                <span class="flex-item money">¥168</span>
+
+            </div>
+            <div class="flex-box mx_detail">
+                <span class="flex-item date">2016-09-10</span>
+                <span class="flex-item num">2间</span>
+                <span class="flex-item money">¥168</span>
+
+            </div>
+
+            <h3 class="alert_title sum">总价：¥1680</h3>
+
+
+
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

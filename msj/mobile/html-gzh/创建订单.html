@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建订单</title>
+    <link rel="stylesheet" href="css/search.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/mylayer.css" type="text/css">
+    <link rel="stylesheet" href="css/city-person-jack.css" type="text/css">
+
+ <style>
+        *{
+            box-sizing: border-box!important;
+        }
+    </style>
+
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth / 7.50 + "px");
+			//如果设计稿是750px的,而屏幕的物理尺寸小于750px,则css中1rem等于设计稿上100px;
+    </script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <script src="js/search.js"></script>
+</head>
+
+<body class="body_padding">
+    <div class="center_div">
+    <div class="body_padding">
+    <div class="order_write clear">
+        <img src="images/city-back.png" alt="">
+        <p>订单填写</p>
+    </div>
+    <div class="order_description">
+        <img src="images/backImg.jpg" alt="">
+        <p class="order_des_title">莫干山 朴宿·喜度 精品民宿莫干山 朴宿·喜度 莫干山 朴宿·喜度 精品民宿莫干山 朴宿·喜度莫干山 朴宿·喜度 精品民宿莫干山 朴宿·喜度</p>
+        <p class="order_des_class">豪华大床房</p>
+    </div>
+    <div class="date_choice">
+        <div class="date_ruzhu">
+            <div class="ruzhu_detail clear"><img src="images/ruzhu.png" alt="">
+                <p>入住</p>
+            </div><img src="images/line.png" alt="" class="date_xian">
+            <p class="date_p">4月15日</p>
+        </div>
+        <p class="date_num">一晚</p>
+        <div class="date_tuifang">
+            <div class="ruzhu_detail clear"><img src="images/tuifang.png" alt="">
+                <p>退房</p>
+            </div><img src="images/line.png" alt="" class="date_xian">
+            <p class="date_p">4月16日</p>
+        </div>
+    </div>
+
+    <div class="personal">
+        <p class="personal_title">住几间:</p>
+        <div class="personal_detail">
+            <div class="jian">
+                <img src="images/jianhao.png" alt="" class="jian_img">
+            </div>
+            <p class="personal_num">2间</p>
+            <div class="jia">
+                <img src="images/jiahao.png" alt="" class="jia_img">
+            </div>
+        </div>
+    </div>
+    <div class="personal">
+        <p class="personal_title">手机号码:</p><input type="text" class="personal_detail personal_input" placeholder="请输入手机号" name="phone">
+    </div>
+    <div class="personal">
+        <p class="personal_title">联系人:</p><input type="text" class="personal_detail personal_input" placeholder="请输入姓名" name="name">
+    </div>
+</div>
+
+    <div class="tijiao">
+        <div class="tiJiao_color">
+<p class="zonge">总额：<span class="zonge_left">¥<span class="zonge_money">650</span></span>
+        </p><a href="javascript:" class="mingxi">明细</a>
+        </div>
+        
+        <p class="yuding">提交</p>
+    </div>
+    </div>
+
+<!--明细 弹窗 开始-->
+    <div class="alert_mainback" style="display: none">
+        <div class="alert_alertdetail">
+            <h3 class="alert_title">费用明细</h3>
+            <div class="flex-box mx_detail">
+                <span class="flex-item date">2016-09-10</span>
+                <span class="flex-item num">2间</span>
+                <span class="flex-item money">¥168</span>
+            </div>
+            <h3 class="alert_title sum">总价：¥1680</h3>
+        </div>
+    </div>
+
+    <!--明细 弹窗 结束-->
+    <!--弹出层包含的js文件 开始-->
+    <script src="./layui/layui.js" charset="utf-8"></script>
+    <script src="./js/my-layer.js" charset="utf-8"></script>
+    <script src="./js/readyload.js" charset="utf-8"></script>
+    <!--弹出层包含的js文件 结束-->
+</body>
+
+</html>

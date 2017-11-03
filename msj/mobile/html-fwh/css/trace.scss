@@ -1,0 +1,205 @@
+@import "variable";
+body{
+  background: #F4F4F4;
+}
+
+/*追踪页面头部 开始*/
+.trace-head{
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 100%;
+ /* height: 2.2rem;*/
+  height: 2.67rem;
+  background: #F4F4F4;
+  padding: 0 0.3rem;
+  .trace-btns{
+    width: 100%;
+    margin-bottom: 0.15rem;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    a{
+      width: 2.38rem;
+      height: 0.95rem;
+      line-height: 0.64rem;
+      background: url("../images/nav-trace.png") no-repeat center;
+      background-size: 100% 100%;
+      text-align: center;
+      font-size: 0.34rem;
+      color:$fc9;
+
+      &.active{
+        background: url("../images/nav-trace1.png") no-repeat center;
+        background-size: 100% 100%;
+        color:#fff;
+      }
+    }
+  }
+
+  /*.trace-info{
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: 0.34rem;
+    color: $fc6;
+    > i{
+      width: 0.39rem;
+      height: 0.34rem;
+      margin-right: 0.1rem;
+      background: url("../images/icon-video.png") no-repeat;
+      background-size: 100%;
+    }
+  }*/
+
+  .search-trace{
+    width: 100%;
+    height: 0.68rem;
+    border:1px solid #98525C;
+    border-radius: 0.05rem;
+
+    input{
+      width: 5.8rem;
+      height: 100%;
+      padding: 0.15rem 0.3rem;
+      background: #fff;
+      border-radius: 0.05rem;
+      font-size: 0.28rem;
+      color:#a2a2a2;
+    }
+
+    a{
+      flex: 1;
+      height: 0.66rem;
+      background: #98525C;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      align-items: center;
+
+      img{
+        width: 0.3rem;
+        height: 0.3rem;
+      }
+    }
+  }
+
+
+}
+/*追踪页面头部 结束*/
+
+/*追踪页面主体 开始*/
+.trace-box{
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 1.54rem;
+  margin-bottom: 0.15rem;
+  padding: 0 0.3rem;
+  background: #fff;
+  .trace-img{
+    margin: 0.15rem 0.3rem 0 0;
+    img{
+      width: 0.74rem;
+      height: 0.74rem;
+    }
+  }
+
+  .trace-content{
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    flex: 1;
+    height: 100%;
+    padding: 0.2rem 0;
+    font-size: 0.34rem;
+    color:#000;
+    .trace-title{
+      max-width: 13em;
+      height: 0.5rem;
+      -webkit-line-clamp: 1;
+    }
+    .trace-details{
+      -webkit-justify-content: flex-start;
+      justify-content: flex-start;
+      font-size: 0.3rem;
+      color:$fc9;
+
+      .trace-time{
+        margin-right: 0.5rem;
+      }
+
+      span:first-child{
+        padding: 0 0.05rem;
+        color:$fc6;
+      }
+
+      span:last-child{
+        padding: 0 0.05rem;
+        color:$fc3;
+      }
+    }
+  }
+}
+/*追踪页面主体 结束*/
+
+.load-more a{
+  background: #fff;
+}
+
+/*任务页面 开始*/
+.task-tab{
+  width: 100%;
+  height: 0.76rem;
+  margin-bottom: 0.4rem;
+
+  > nav{
+    width: 5.76rem;
+    height: 0.76rem;
+    line-height: 0.76rem;
+    font-size: 0.34rem;
+    text-align: center;
+
+    > p{
+      width:50%;
+      background: #fff;
+      color: #999;
+      box-shadow: 0 0 0.1rem 0 #ccc;
+
+      &.active{
+        background:(left bottom,#98525C,#E08491);
+        background:-webkit-linear-gradient(left bottom,#98525C,#E08491);
+        background:-o-linear-gradient(left bottom,#98525C,#E08491);
+        background: linear-gradient(left bottom,#98525C,#E08491);
+        color:#fff;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .task-add{
+    width: 0.76rem;
+    height: 0.76rem;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    line-height: 0.76rem;
+    background: #fff;
+    border-radius: 0.08rem;
+
+    img{
+      width: 0.4rem;
+      height: 0.4rem;
+    }
+  }
+}
+/*任务页面 结束*/
+
+
+
+
+
+
+
+
+
+
+
+

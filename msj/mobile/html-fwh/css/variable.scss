@@ -1,0 +1,22 @@
+$fc3:#333;
+$fc6:#666;
+$fc9:#999;
+$fcred:#98525c;
+$fcred2:#cdbed3;
+$bdc:#F3F3F3;
+$bgcred:#F5F1F8;
+
+@function px2rem ($px) {
+  @return $px / 75px * 1rem;
+}
+
+@mixin bgsize($width,$height){
+  background-size: $width $height;
+}
+
+@mixin gradientBlockVertical($insideColor:#fff,$bdColor1:#D87886,$bdColor2:#98535D) {
+  border:1px solid transparent;
+  background-clip:padding-box,border-box;
+  background-origin:padding-box,border-box;
+  background-image:linear-gradient($insideColor,$insideColor),linear-gradient($bdColor1,$bdColor2);
+}

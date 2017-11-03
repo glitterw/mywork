@@ -1,0 +1,548 @@
+@charset "utf-8";
+
+
+
+body , html{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    font-size: 0.3rem;
+    color: #000;
+}
+
+
+.change-nickname-content *,
+.city-list-content *,
+.mine-comment-content *,
+.comment-minsu-content *{box-sizing: content-box;}
+
+
+/*个人中心确定按钮*/
+.jack-confirm-bt{
+    position:fixed;
+    bottom:0;
+    background-size: 100%;
+    background-image: url("../images/person-central-bt-bg.jpg");
+    height: 1rem;
+    width: 7.5rem;
+}
+
+.jack-confirm-bt>p {
+    font-size: 0.36rem;
+    color: #fff;
+    margin: auto;
+}
+
+
+/*个人中心头部*/
+.jack-head{
+    width: 7.50rem;
+    height: 0.9rem;
+    background-color: #fff;
+}
+
+.jack-back{
+    width: 0.22rem;
+    margin: auto 0;
+    height: 0.38rem;
+    padding-right: 0.3rem;
+    padding-left: 0.2rem;
+}
+
+.jack-head > span{
+    margin: auto 0;
+}
+
+
+.city-list-content{
+    width: 7.50rem;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #eee;
+}
+.city-list-head{
+    position: fixed;
+    top: 0;
+    margin: 0 auto;
+    z-index: 1000;
+    width: 7.50rem;
+    height: 0.9rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ccc;
+}
+
+.city-back{
+    width: 0.22rem;
+    margin: auto 0;
+    height: 0.38rem;
+    padding-right: 0.3rem;
+}
+
+.city-list-head>div:nth-child(1){
+    width: 2.5rem;
+    padding-left: 0.2rem;
+
+}
+
+.city-list-head>div:nth-child(1) img{
+    margin: auto 0;
+}
+
+.city-list-head>div:nth-child(1) span{
+    margin: auto 0;
+}
+
+.city-list-head>div:nth-child(2){
+    width: 2.5rem;
+    height: 0.68rem;
+    background-image: url("../images/city-head-bg.png");
+    background-size: 100%;
+    margin: auto 0;
+}
+.area-select{
+    margin: auto;
+}
+
+.area-select>img{
+    width: 0.2rem;
+    height: 0.1rem;
+    margin-left: 0.2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.city-list-head>div:nth-child(3){
+    height: 0.9rem;
+    width: 2.5rem;
+}
+
+.money-select{
+    margin: auto;
+}
+.money-select>img{
+    width: 0.2rem;
+    height: 0.1rem;
+    margin-left: 0.2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.city-list-head *{
+
+}
+
+
+.area-select-shade{
+    display: none;
+    width: 7.5rem;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0.9rem;
+    left: 0;
+    z-index: 800;
+}
+
+.select-item{
+    width: 100%;
+    height: 0.8rem;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    background-size: 100%;
+}
+
+.select-item .area-desp{
+    position: relative;
+    margin: auto 0;
+    padding-left: 0.2rem;
+    border-left: 0.08rem solid #ffffff;
+}
+
+.select-item  .area-desp.active{
+    border-left: 0.08rem solid #98525c;
+    color: #98525c;
+    line-height: .4rem;
+}
+
+
+.money-select-shade{
+    display: none;
+    top: 0.9rem;
+    left: 0;
+    width: 7.5rem;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 801;
+}
+
+
+.city-list-content .list{
+    position: relative;
+    top: 0.9rem;
+    width: 7.5rem;
+    background-color: #eee;
+}
+
+.city-list-content .item{
+    margin-bottom: 0.2rem;
+    width: 7.5rem;
+    background-color: #fff;
+}
+
+.city-list-content .item-iv{
+    width: 7.5rem;
+    height: 4.2rem;
+    position: relative;
+}
+
+
+.item-iv img{
+    width: 100%;
+    height: 100%;
+}
+
+.city-list-content .money{
+    position: absolute;
+    z-index: 500;
+    top: 3.2rem;
+    width: 1.6rem;
+    height: 0.6rem;
+}
+.city-list-content .money:after{
+    content:'';
+    z-index: 2;
+    background-image: url("../images/money-bg.png");
+    background-size: 100%;
+    position:absolute;
+    width: 1.6rem;
+    height: 0.6rem;
+    display:block;
+    left:0;
+    top:0;
+}
+.city-list-content .money>p{
+    margin-left: 0.2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 0.24rem;
+    color: #fff;
+    z-index: 10;
+}
+.city-list-content .money span{
+    font-size: 0.36rem;
+    z-index: 10;
+}
+
+.city-list-content .item>p{
+    margin-top: 0.25rem;
+    margin-left: 0.2rem;
+    font-size: 0.36rem;
+}
+
+.city-list-content .location{
+    margin-top: 0.2rem;
+}
+
+.city-list-content .location>img{
+    width: 0.22rem;
+    height: 0.3rem;
+    margin: auto ;
+    margin-left: 0.2rem;
+    margin-right: 0.1rem;
+}
+.city-list-content .location>p{
+    font-size: 0.28rem;
+    color: #333;
+}
+
+.city-list-content .item-tips{
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.city-list-content .item-tips>p{
+    text-align: center;
+    font-size: 0.28rem;
+    color: #666;
+    padding: 0.08rem  0.3rem;
+    margin-right: 0.1rem;
+    border-radius: 0.22rem;
+    border:1px solid #cdcdcd;
+}
+
+.city-list-content footer{
+    background-color: #eee;
+    margin-top: -0.2rem;
+    height: 1.1rem;
+    width: 7.5rem;
+}
+
+.city-list-content footer>.add-more{
+    width: 1.6rem;
+    height: 0.5rem;
+    margin: auto;
+    background-size: 100%;
+    background-image: url("../images/city-item-more.png");
+}
+.add-more p{
+    color: #98525c;
+    font-size: 0.24rem;
+    margin: auto 0;
+    margin-left: 0.45rem;
+}
+.city-list-content footer>p{
+    display: none;
+    margin: auto;
+    color: #333;
+}
+
+
+
+
+.change-nickname-content{
+    width: 7.50rem;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #eee;
+}
+
+
+
+.input-nickname {
+    width: 7.5rem;
+    position: relative;
+}
+
+
+.input-nickname>input {
+    outline: none;
+    margin-top: 0.3rem;
+    width: 6.9rem;
+    height: 0.6rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    border: solid 0.5px #d4d4d4;
+    border-radius: 5px;
+    font-size: 0.3rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+.clear-input-nickname {
+    width: 0.32rem;
+    height: 0.32rem;
+    position: absolute;
+    left: 6.8rem;
+    top: .45rem;
+    display: none;
+}
+
+.change-nickname-content>p{
+    font-size: 0.18rem;
+    color: #666666;
+    margin-top: 0.1rem;
+    margin-left: 0.35rem;
+}
+.commnet-minsu{
+    background-color: #eee;
+
+}
+.comment-minsu-content{
+    width: 7.50rem;
+    margin: 0 auto;
+    background-color: #eee;
+}
+.comment-minsu-content .start-list{
+
+}
+.comment-minsu-content .comment-star{
+    height: 0.88rem;
+    width: 7.4rem;
+    background-color: #fff;
+    margin-top: 0.2rem;
+    padding-left: 0.1rem;
+}
+
+.comment-star .start{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+    margin: auto 0;
+    width: 0.42rem;
+    height: 0.4rem;
+    margin-left: 0.2rem;
+    display: inline-block;
+    background: url(../images/un-star.png)no-repeat center;
+    background-size: 100%;
+}
+.comment-star .start.on{
+    background: url(../images/star.png)no-repeat center;
+    background-size: 100%;
+
+}
+
+.comment-star .start.half{
+    background: url(../images/half-star.jpg)no-repeat center;
+    background-size: 100%;
+}
+
+
+.comment-minsu-content .comment-star .fen-shu{
+    color: #ffb400;
+    position: relative;
+    left: 3.3rem;
+    margin: auto 0;
+}
+
+.comment-minsu-content textarea{
+    display: block;
+    width: 6.9rem;
+    height: 5rem;
+    border: none;
+    resize : none;
+    padding: 0.3rem;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+
+.comment-img{
+    width: 7.5rem;
+    background-color: #fff;
+    padding-bottom: 0.2rem;
+    font-size: 0px;
+}
+.comment-img img{
+    height: 1.26rem;
+    width: 2.24rem;
+    margin-left: 0.19rem;
+    margin-top: 0.2rem;
+}
+.upload-comment-iv{
+    position: relative;
+    display: inline-block;
+    height: 1.26rem;
+    width: 2.24rem;
+}
+.upload-comment-iv>img{
+    height: 1.26rem;
+    width: 2.24rem;
+    margin-left: 0.19rem;
+    margin-top: 0.2rem;
+
+}
+
+.upload-comment-iv>input{
+    height: 1.26rem;
+    width: 2.24rem;
+    margin-left: 0.19rem;
+    margin-top: 0.2rem;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+}
+
+.mine-comment{
+    background-color: #eee;
+    min-height: 100%;
+    height: auto;
+}
+
+.mine-comment-content{
+    width: 7.50rem;
+    margin: 0 auto;
+    background-color: #eee;
+}
+
+.mine-comment-content .comment-star{
+    height: 0.88rem;
+    width: 7.4rem;
+    background-color: #fff;
+    margin-top: 0.2rem;
+    padding-left: 0.1rem;
+}
+.mine-comment-content .comment-star img{
+    margin: auto 0;
+    width: 0.42rem;
+    height: 0.4rem;
+    margin-left: 0.2rem;
+}
+.mine-comment-content .comment-star .fen-shu{
+    color: #ffb400;
+    position: relative;
+    left: 3.3rem;
+    margin: auto 0;
+}
+
+.mine-comment-text{
+    width: 6.9rem;
+    background-color: #fff;
+    padding: 0.3rem;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+
+.mine-comment-img{
+    width: 7.5rem;
+    background-color: #fff;
+    font-size: 0;
+    padding-bottom: 0.2rem;
+}
+.mine-comment-img img{
+    height: 1.26rem;
+    width: 2.24rem;
+    margin-left: 0.19rem;
+    margin-top: 0.2rem;
+}
+
+.comment-img .img-item{
+    position: relative;
+}
+.comment-img .img-item>i{
+    width: .25rem;
+    height: .24rem;
+    position: absolute;
+    top: -1.4rem;
+    background: url(../images/close.png)no-repeat center;
+    background-size: 70%;
+    display: inline-block;
+    left: 2.29rem;
+    z-index: 40;
+    border-radius: 50%;
+    border: 1px solid #98525c;
+    cursor: pointer;
+}
+/*404页面************************************************/
+.error-wrap{
+    position: fixed;
+    width: 100%;
+    top: 1.1rem;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #fff;
+}
+.error-wrap>div{
+    position: absolute;
+    top: calc(50% - 1.1rem);
+    left: 50%;
+    width: 4rem;
+    height: 3.5rem;
+    display: block;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    /*background: url("../images/error404.png") no-repeat center;*/
+}
+.error-wrap .error{
+    width: 3.5rem;
+    height: 3.5rem;
+    display: block;
+}
+.error-wrap .error-tips{
+    color: #666;
+    width: 100%;
+    text-align: center;
+}
+/*404页面************************************************/

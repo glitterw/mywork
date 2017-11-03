@@ -1,0 +1,390 @@
+@charset "UTF-8";
+body {
+  min-height: 100vh;
+  padding-bottom: 0.96rem;
+  background: #fff; }
+
+/*发现页面头部 开始*/
+.find-header {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid #F3F3F3; }
+  .find-header .nav-container {
+    width: 6rem;
+    height: 100%;
+    margin-left: 0.3rem;
+    line-height: 0.92rem;
+    font-size: 0.34rem;
+    color: #666; }
+  .swiper-slide {
+    text-align: center;
+    border-bottom: 0.07rem solid transparent; }
+    .swiper-slide.swiper-slide-active {
+      color: #98525c;
+      border-color: #98525c; }
+
+  .btn-add {
+    flex: 1;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 100%;
+    border-left: 1px solid #F3F3F3; }
+    .btn-add img {
+      width: 0.4rem;
+      height: 0.4rem; }
+
+/*发现页面头部 结束*/
+/*列表内容 开始*/
+.list-box {
+  width: 100%;
+  height: 1.8rem;
+  padding: 0 0.3rem;
+  margin-bottom: 0.3rem;
+  overflow: hidden; }
+  .list-box:first-child {
+    margin-top: 0.3rem; }
+  .list-box .lf-part {
+    width: 2.4rem;
+    height: 1.8rem;
+    margin-right: 0.3rem;
+    overflow: hidden; }
+    .list-box .lf-part img {
+      width: 2.4rem;
+      height: 1.8rem; }
+  .list-box .rt-part {
+    flex: 1;
+    height: 100%;
+    -webkit-justify-content: space-between;
+    justify-content: space-between; }
+    .list-title {
+      font-size: 0.34rem;
+      color: #333;
+      line-height: 0.48rem;
+      height: 1rem;
+      -webkit-line-clamp: 2; }
+    .btm-msg {
+      -webkit-align-items: center;
+      align-items: center;
+      height: 0.5rem;
+      color: #999;
+      font-size: 0.3rem; }
+      .btm-msg .lf-detail {
+        -webkit-align-items: center;
+        align-items: center; }
+        .btm-msg .lf-detail img {
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 50%;
+          margin-right: 0.15rem; }
+        .btm-msg .lf-detail span {
+          width: 5em;
+          height: 0.4rem; }
+          .btm-msg .lf-detail span.read-msg {
+            width: auto; }
+      .btm-msg .collect-box {
+        -webkit-align-items: center;
+        align-items: center;
+        color: #999; }
+        .btm-msg .collect-box img {
+          width: 0.26rem;
+          height: 0.24rem;
+          margin-right: 0.15rem; }
+
+/*列表内容 结束*/
+/*加载更多，退出按钮，显示历史周报按钮 开始*/
+.load-more, .btn-quit, .show-weekly {
+  width: 100%;
+  height: 0.8rem;
+  padding: 0 0.3rem;
+  margin: 0.3rem 0 0.55rem; }
+  .load-more a, .btn-quit a, .show-weekly a {
+    display: block;
+    line-height: 0.78rem;
+    border: 1px solid #F3F3F3;
+    text-align: center;
+    color: #98525c;
+    font-size: 0.28rem; }
+
+/*加载更多，退出按钮，显示历史周报按钮 结束*/
+/*公共固定底部 开始*/
+.main-foot {
+  width: 100%;
+  height: 0.96rem;
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-top: 1px solid #F3F3F3;
+  font-size: 0.24rem; }
+  .main-foot nav {
+    width: 100%; }
+    .main-foot nav a {
+      width: 20%;
+      height: 0.95rem;
+      -webkit-align-items: center;
+      align-items: center;
+      color: #cdbed3; }
+      .main-foot nav a i {
+        width: 0.4rem;
+        height: 0.5rem;
+        margin-bottom: 0.05rem; }
+      .main-foot nav a.active {
+        color: #98525c; }
+      .main-foot nav a.tab-find i {
+        background: url("../images/tab-icon1.png") no-repeat;
+        background-size: 0.42rem 0.32rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-find.active i {
+        background: url("../images/tab-icon11.png") no-repeat;
+        background-size: 0.42rem 0.32rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-trace i {
+        background: url("../images/tab-icon2.png") no-repeat;
+        background-size: 0.37rem 0.37rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-trace.active i {
+        background: url("../images/tab-icon21.png") no-repeat;
+        background-size: 0.37rem 0.37rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-weekly i {
+        background: url("../images/tab-icon3.png") no-repeat;
+        background-size: 0.31rem 0.36rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-weekly.active i {
+        background: url("../images/tab-icon31.png") no-repeat;
+        background-size: 0.31rem 0.36rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-user i {
+        background: url("../images/tab-icon4.png") no-repeat;
+        background-size: 0.32rem 0.36rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-user.active i {
+        background: url("../images/tab-icon41.png") no-repeat;
+        background-size: 0.32rem 0.36rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-task i {
+        background: url("../images/tab-icon5.png") no-repeat;
+        background-size: 0.37rem 0.37rem;
+        background-position: bottom; }
+      .main-foot nav a.tab-task.active i {
+        background: url("../images/tab-icon51.png") no-repeat;
+        background-size: 0.37rem 0.37rem;
+        background-position: bottom; }
+
+/*公共固定底部 结束*/
+.btn-unsubscribe,
+.btn-delete {
+  align-self: center;
+  -webkit-align-self: center;
+  width: 1.3rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.28rem;
+  color: #98525c;
+  text-align: center;
+  border: 1px solid transparent;
+  background-clip: padding-box,border-box;
+  background-origin: padding-box,border-box;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(#D87886, #98535D); }
+  .btn-unsubscribe:focus,
+  .btn-delete:focus {
+    background: #F5F1F8; }
+
+.btn-order {
+  align-self: center;
+  -webkit-align-self: center;
+  width: 1.3rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.28rem;
+  color: #98525c;
+  text-align: center;
+  border: 1px solid transparent;
+  background-clip: padding-box,border-box;
+  background-origin: padding-box,border-box;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(#D87886, #98535D); }
+  .btn-order:focus {
+    background: #F5F1F8; }
+  .btn-order::before {
+    content: '订阅'; }
+  .btn-order.active {
+    color: #999;
+    background: #fff;
+    border: none; }
+    .btn-order.active::before {
+      content: '已订阅'; }
+
+.btn-subscribe {
+  display: inline-block;
+  width: 1.3rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 0.25rem;
+  font-size: 0.28rem;
+  color: #fff;
+  text-align: center; }
+  .btn-subscribe.active {
+    background: rgba(255, 255, 255, 0.2);
+    border: none; }
+    .btn-subscribe.active:after {
+      content: '已订阅'; }
+  .btn-subscribe:after {
+    content: '+ 订阅'; }
+  .btn-subscribe:active, .btn-subscribe:visited {
+    color: #fff; }
+
+/*周报页面 开始*/
+.weekly-head, .daily-paper {
+  position: relative;
+  width: 100%;
+  height: 2.6rem;
+  background: #fff;
+  font-size: 0.36rem;
+  color: #333; }
+  .weekly-head .shade-box, .daily-paper .shade-box {
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../images/weekly-bg1.png") no-repeat;
+    background-size: 100% 100%; }
+    .weekly-head .shade-box.opt-2, .daily-paper .shade-box.opt-2 {
+      background: url("../images/weekly-bg2.png") no-repeat;
+      background-size: 100% 100%; }
+      .weekly-head .shade-box.opt-2 .weekly-title::after, .daily-paper .shade-box.opt-2 .weekly-title::after {
+        content: '民宿加一周要闻'; }
+  .weekly-head .weekly-title, .daily-paper .weekly-title {
+    width: 5.9rem;
+    height: 1.2rem;
+    padding: 0 0.3rem 0 0.15rem;
+    line-height: 1rem;
+    background: url("../images/rect.png") no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    -webkit-line-clamp: 1; }
+    .weekly-head .weekly-title::after, .daily-paper .weekly-title::after {
+      content: '汇聚行业最新动态'; }
+
+.daily-tab {
+  width: 100%;
+  height: 1.5rem;
+  line-height: 0.65rem;
+  text-align: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-size: 0.34rem;
+  color: #666; }
+  .daily-tab .opt-daily, .daily-tab .opt-weekly {
+    width: 2.38rem;
+    height: 0.95rem;
+    margin: 0.45rem 0.4rem auto;
+    background: url("../images/daily-paper2.png") no-repeat center;
+    background-size: 100% 100%; }
+    .daily-tab .opt-daily.active, .daily-tab .opt-weekly.active {
+      background: url("../images/daily-paper1.png") no-repeat center;
+      background-size: 100% 100%;
+      color: #fff; }
+  .daily-tab .opt-weekly {
+    background: url("../images/weekly-1.png") no-repeat center;
+    background-size: 100% 100%; }
+    .daily-tab .opt-weekly.active {
+      background: url("../images/weekly-2.png") no-repeat center;
+      background-size: 100% 100%;
+      color: #fff; }
+
+.weekly-box {
+  display: block;
+  width: 100%;
+  height: 1.52rem;
+  color: #000; }
+  .weekly-box:active {
+    background: #F7F7F7;
+    color: #98525c; }
+  .weekly-box > div {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 6.9rem;
+    height: 100%;
+    margin: 0 0.3rem;
+    border-bottom: 1px solid #F3F3F3; }
+    .weekly-box > div > i {
+      width: 0.6rem;
+      height: 0.6rem;
+      margin: 0 0.3rem 0 0.2rem;
+      background: url("../images/icon-news.png") no-repeat center;
+      background-size: 0.47rem 0.55rem; }
+  .weekly-box .weekly-rpart {
+    flex: 1;
+    height: 100%;
+    -webkit-justify-content: center;
+    justify-content: center; }
+    .weekly-box .weekly-rpart .weekly-tit {
+      width: 100%;
+      height: 0.42rem;
+      margin-bottom: 0.15rem;
+      font-size: 0.34rem;
+      -webkit-line-clamp: 1; }
+    .weekly-box .weekly-rpart .weekly-time {
+      font-size: 0.28rem;
+      color: #999; }
+      .weekly-box .weekly-rpart .weekly-time span:first-child {
+        margin-right: 0.36rem; }
+
+.weekly-container {
+  display: none; }
+  .weekly-container .weekly-box {
+    height: 1.8rem; }
+    .weekly-container .weekly-box:active {
+      background: #F7F7F7;
+      color: #98525c; }
+    .weekly-container .weekly-box > div > i {
+      align-self: flex-start;
+      width: 0.6rem;
+      height: 0.6rem;
+      margin: 0.3rem 0.3rem 0 0.2rem;
+      background: url("../images/weekly-icon.png") no-repeat center;
+      background-size: 0.48rem 0.53rem; }
+    .weekly-container .weekly-box .weekly-rpart .weekly-tit {
+      margin-top: 0;
+      height: 0.9rem;
+      -webkit-line-clamp: 2; }
+
+/*周报页面 结束*/
+.trace-tips {
+  width: 6.9rem;
+  height: 0.66rem;
+  line-height: 0.66rem;
+  margin: 0.3rem auto 0;
+  background: -moz-linear-gradient(#E0828F, #98525C);
+  background: -webkit-linear-gradient(#E0828F, #98525C);
+  background: -o-linear-gradient(#E0828F, #98525C);
+  background: linear-gradient(#E0828F, #98525C);
+  border-radius: 0.05rem;
+  color: #fff;
+  text-align: center;
+  font-size: 0.3rem; }
+  .trace-tips img {
+    width: 0.28rem;
+    height: 0.28rem;
+    margin-right: 0.1rem;
+    vertical-align: middle; }
+
+.task-square-box {
+  display: none; }
+
+/*# sourceMappingURL=common.css.map */

@@ -1,0 +1,215 @@
+*{padding:0;margin:0;}
+
+html,body{
+    width:100%;
+    height:100%;
+padding-bottom:0;
+font-size:0.12rem;
+font-family: "微软雅黑";
+}
+
+ul li{list-style: none}
+#subscibe{
+    width:100%;
+    height:100%;
+    background:#fff;
+    margin:0 auto;
+}
+
+.main{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.left-column{
+    width:28%;
+    height:100%;
+    overflow: auto;
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    border-right:1px solid #eee
+    /*background:papayawhip;*/
+}
+ul.left-list{
+    width:100%;
+    height:auto;
+}
+ul.left-list li{
+    padding: 0.01rem 0;
+    width: 100%;
+    text-align: center;
+    margin: 0.32rem 0;
+    font-size: 0.3rem;
+}
+.right-column{
+    width:72%;
+    height:100%;
+    /*overflow: auto;*/
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
+    left:28%;
+    /*background:paleturquoise;*/
+}
+.right-list{
+    width:auto !important;
+    height:auto !important;
+    padding-left: 0.3rem;
+    padding-top: 0.15rem;
+}
+ul.right-list li{
+    border-bottom:1px solid #eee;
+    padding:0.3rem 0;
+}
+.column-name{
+    text-align: center;
+     padding:0.2rem 0.1rem;
+    /*font-weight:600;*/
+    font-size:0.36rem;
+    background:#f3f3f3;
+
+}
+dl.list-content {
+    padding-right: 0.3rem;
+    /*width: 84%;*/
+}
+dl.list-content > dd{
+    display:inline-block;
+}
+dl.list-content > dd:first-child{
+    width:16%;
+}
+dl.list-content > dd:first-child img{
+    width:100%;
+    border-radius: 50%;
+}
+dl.list-content > dd:last-child{
+    width:20%;
+    vertical-align: text-bottom;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right:0.3rem;
+}
+
+
+dl.list-content > dd:nth-child(2){
+    width:53%;
+    vertical-align: top;
+    margin-left:2%
+}
+p.main-title {
+    font-size: 0.34rem;
+    /*font-weight: bold;*/
+    margin-bottom: 0.4rem;
+    display: -webkit-box;
+    /*line-height: 30px;*/
+    height: 0.45rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+p.subhead{
+    color: #999999;
+    font-size: 0.3rem;
+    /*font-weight: 600;*/
+    display: -webkit-box;
+    /*line-height: 30px;*/
+    max-height: 0.42rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+span.on-order {
+    padding: 0.055rem 0;
+    width: 100%;
+    border: 1px solid #d87986;
+    display: block;
+    text-align: center;
+    border-radius: 0.2rem;
+    color:#d87986;
+    font-size:0.25rem;
+}
+.end{
+    padding: 0.11rem 0rem;
+    width: 100%;
+    background:#f5f1f8;
+    display: block;
+    border:none !important;
+    text-align: center;
+    border-radius: 0.2rem;
+    color:#d87986;
+    font-size:0.25rem;
+}
+.on-order:before{
+ content:"+";
+ display:inline-block;
+ color:#d87986;
+ margin-right:0.02rem;
+}
+
+.type-up .column-name:after{
+    content:"";
+    display:inline-block;
+    width:0.28rem;
+    height:0.28rem;
+    vertical-align: baseline;
+    background:url('../images/icon_11.png')no-repeat center;
+    background-size:100% auto;
+}
+.type-dwn .column-name:after{
+    content:"";
+    display:inline-block;
+    width:0.28rem;
+    height:0.28rem;
+    vertical-align: baseline;
+    background:url('../images/icon_10.png')no-repeat center;
+    background-size:100% auto;
+}
+.on{
+    color:#98525c;
+    border-left:2px solid #98525c;
+}
+
+dl.list-content {
+    position: relative;
+}
+
+#right_swiper,#left_swiper {
+    width: 100%;
+    height: 100%;
+}
+.scroll ,.scroll_letf{
+    height: auto !important;
+}
+
+span.more {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: #98525c;
+    padding: 0.15rem 0;
+    /*border: 1px solid #eee;*/
+    font-size: 0.26rem;
+    /* margin-left: 5%; */
+    margin-top: 0.2rem;
+     margin-bottom: 0.2rem;
+}
+
+.loading:before{
+    content:"";
+    display:inline-block;
+    width:0.25rem;
+    height:0.25rem;
+    background:url(../images/load.gif)no-repeat center;
+    background-size:cover;
+    vertical-align:middle;
+    margin-right: 0.05rem;
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>任务</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/trace.css">
+
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth / 7.50 + "px");
+  </script>
+</head>
+<body ontouchstart class="flex-col">
+
+  <!--追踪头部 开始-->
+  <section class="trace-head flex-col">
+   <div class="task-tab flex-box">
+     <nav class="flex-box">
+       <p class="active">我的追踪任务</p>
+       <p>追踪任务广场</p>
+     </nav>
+     <div class="task-add flex-col"><img src="images/btn-add.png" alt="添加按钮图片"></div>
+   </div>
+
+    <div class="search-trace flex-box">
+      <input type="text" placeholder="搜索我的追踪">
+      <a href="#" class="flex-box">
+        <img src="images/search-btn.png" alt="搜索按钮">
+      </a>
+    </div>
+  </section>
+  <!--追踪头部 结束-->
+
+
+  <!--主体列表页 开始-->
+
+  <section class="trace-task-box">
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪民宿设计</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-unsubscribe">退订</a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪产业链等动态</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>私有任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-delete">删除</a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪产业链等动态</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>私有任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-delete">删除</a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪产业链等动态</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-unsubscribe">退订</a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪产业链等动态</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-delete">删除</a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪产业链等动态</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>私有任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-delete">删除</a>
+    </section>
+
+    <div class="load-more">
+      <a href="#">加载更多</a>
+    </div>
+  </section>
+
+  <section class="task-square-box">
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪民宿设计</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-order"></a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪民宿设计</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-order active"></a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪民宿设计</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-order"></a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪民宿设计</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-order active"></a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪民宿设计</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-order"></a>
+    </section>
+    <section class="trace-box flex-box">
+      <div class="trace-img">
+        <img src="images/icon-trace.png" alt="追踪头像">
+      </div>
+      <div class="trace-content flex-col">
+        <p class="trace-title text-ellipsis">追踪民宿设计</p>
+        <div class="trace-details flex-box">
+          <p class="trace-time">20分钟前</p>
+          <p>公开任务</p>
+        </div>
+      </div>
+      <a href="#" class="btn-order active"></a>
+    </section>
+
+    <div class="load-more">
+      <a href="#">加载更多</a>
+    </div>
+  </section>
+
+  <!--主体列表页 结束-->
+
+  <!--公用底部tab栏 开始-->
+  <footer class="main-foot">
+    <nav class="flex-box">
+      <a href="#" class="tab-find flex-col">
+        <i></i>
+        <span>发现</span>
+      </a>
+      <a href="#" class="tab-task flex-col active">
+        <i></i>
+        <span>任务</span>
+      </a>
+      <a href="#" class="tab-trace flex-col">
+        <i></i>
+        <span>追踪</span>
+      </a>
+      <a href="#" class="tab-weekly flex-col">
+        <i></i>
+        <span>日报</span>
+      </a>
+      <a href="#" class="tab-user flex-col">
+        <i></i>
+        <span>我的</span>
+      </a>
+    </nav>
+  </footer>
+  <!--公用底部tab栏 结束-->
+
+  <script>
+    //任务页面头部tab栏切换
+    $(function () {
+      $('.task-tab').on('click','nav p',function () {
+        var that = this;
+        var index = $(that).index();
+        console.log(index)
+        $(this).addClass('active').siblings().removeClass('active');
+        if(index === 0){
+          $('.trace-task-box').show();
+          $('.task-square-box').hide();
+        }else if(index === 1){
+          $('.trace-task-box').hide();
+          $('.task-square-box').show();
+        }else{return;}
+      });
+    })
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

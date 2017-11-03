@@ -1,0 +1,753 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.clear {
+    display: block;
+    overflow: hidden;
+    }
+
+ 
+       
+
+/*搜索*/
+
+.search {
+    width: 7.5rem;
+    height: 1.1rem;
+    position: relative;
+    display: block;
+}
+
+.search>p {
+    float: left;
+    color: #98525c;
+    font-size: 0.3rem;
+    margin-left: 0.3rem;
+    margin-top: 0.4rem;
+}
+
+.search>input {
+    outline: none;
+    float: left;
+    margin-left: 0.3rem;
+    width: 5.2rem;
+    height: 0.7rem;
+    
+    margin-top: 0.24rem;
+    border: solid 1px #d4d4d4;
+    border-radius: 5px;
+    font-size: 0.3rem;
+    padding:0rem 0.2rem ;
+
+}
+
+.clearBtn {
+    width: 0.32rem;
+    height: 0.32rem;
+    position: absolute;
+    right: 1.3rem;
+    top: 0.43rem;
+    display: none;
+}
+
+.searchImg {
+    float: right;
+    margin-right: 0.3rem;
+    margin-top: 0.44rem;
+    width: 0.3rem;
+    height: 0.3rem;
+}
+
+.recommend {
+    width: 7.5rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    overflow: hidden;
+    padding-bottom: 1rem;
+}
+
+.recommend_title {
+    font-size: 0.36rem;
+    text-align: center;
+}
+
+.recommend_city {
+    text-align: center;
+    font-size: 0.3rem;
+    color: #98525c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.recommend_top {
+    margin-top: 0.5rem;
+
+}
+
+.recommend_city_top {
+    margin-top: 0.28rem;
+
+}
+
+.searchResult {
+    display: block;
+    width: 7.5rem;
+    margin-top: 0.2rem;
+    display: none;
+}
+
+.searchResult_address {
+    width: 7.5rem;
+    height: 0.77rem;
+    background-color: #eee;
+}
+
+.searchResult_address_img {
+    float: left;
+    width: 0.22rem;
+    height: 0.3rem;
+    margin-left: 0.3rem;
+    margin-top: 0.24rem;
+}
+
+.searchResult_address_title {
+    float: left;
+    margin-left: 0.1rem;
+    margin-top: 0.16rem;
+    color: #98525c;
+    font-size: 0.3rem;
+}
+
+.searchResult_minsu_img {
+    float: left;
+    width: 0.29rem;
+    height: 0.29rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.searchResult_city {
+    width: 7.5rem;
+    height: 0.77rem;
+    background-color: white;
+    border: 0px solid #eee;
+    border-bottom-width: 0.5px;
+}
+
+
+.searchResult_city_img {
+    float: right;
+    margin-right: 0.3rem;
+    width: 0.17rem;
+    height: 0.28rem;
+    margin-top: 0.23rem;
+}
+
+.searchResult_city_name {
+    margin-left: 0.6rem;
+    margin-top: 0.18rem;
+    font-size: 0.3rem;
+    color: #000;
+    float: left;
+}
+
+.searchResult_minsu_name {
+    margin-left: 0.6rem;
+    margin-top: 0.18rem;
+    font-size: 0.3rem;
+    color: #666;
+    float: left;
+}
+.searchResult_city:hover{
+  background: linear-gradient(to top, #98535d 0%,#ba737d 100%);
+    background: -webkit-linear-gradient(bottom, #98535d 0%,#ba737d 100%);
+}
+.searchResult_city:hover span ,.searchResult_city:hover p{
+color: white;
+;
+
+}
+.searchResult_minsu_name>span {
+    color: #000;
+}
+
+
+/*我的订单*/
+
+.portrait {
+    width: 7.5rem;
+    height: 3rem;
+    background-image: url(../images/portrait_back.jpg);
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.portrait_headImg {
+    position: absolute;
+    width: 1.28rem;
+    height: 1.28rem;
+    top: 0.8rem;
+    left: 0.5rem;
+    border-radius: 0.64rem;
+
+}
+
+.portrait_name {
+    position: absolute;
+    left: 2.2rem;
+    top: 0.9rem;
+    font-size: 0.36rem;
+    color: white;
+}
+
+.portrait_num {
+    position: absolute;
+    top: 1.6rem;
+    left: 2.2rem;
+    width: 1.4rem;
+    height: 0.4rem;
+    border: solid 0.5px white;
+    border-radius: 2px;
+    font-size: 0.24rem;
+    color: #ddb2b7;
+    text-align: center;
+    line-height: 0.4rem;
+}
+
+.portrait_jiantou {
+    position: absolute;
+    width: 0.15rem;
+    height: 0.26rem;
+    right: 0.24rem;
+    top: 1.04rem;
+}
+
+.portrait_change {
+    position: absolute;
+    font-size: 0.24rem;
+    color: #ddb2b7;
+    right: 0.6rem;
+    top: 1rem;
+}
+
+.myorder {
+    width: 7.5rem;
+    height: 0.8rem;
+    background-color: #eee;
+}
+
+.myorder_img {
+    float: left;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+    width: 0.52rem;
+    height: 0.38rem;
+}
+
+.myorder_order {
+    float: left;
+    margin-left: 0.18rem;
+    margin-top: 0.19rem;
+    font-size: 0.3rem;
+    color: black;
+}
+
+.change {
+    width: 7.5rem;
+    height: 0.8rem;
+    border: solid 0px #eee;
+    border-bottom-width: 0.5px;
+}
+
+.change_jxz {
+    float: left;
+    margin-left: 2rem;
+    margin-top: 0.25rem;
+    color: black;
+    font-size: 0.3rem;
+    line-height: 0.3rem;
+}
+
+.change_yjs {
+    float: left;
+    margin-left: 2rem;
+    margin-top: 0.25rem;
+    font-size: 0.3rem;
+    color: black;
+    line-height: 0.3rem;
+}
+
+.change_xian {
+    float: left;
+    width: 1.24rem;
+    height: 2px;
+    background-color: #98525c;
+    margin-left: 1.82rem;
+    margin-top: 0.23rem;
+    position: relative;
+}
+
+.change_choice {
+    color: #98525c;
+}
+
+.change_no_choice {
+    color: black;
+}
+
+.list_jxz {
+    display: none;
+    margin-bottom: 1.06rem;
+}
+
+.list_yjs {
+    display: none;
+    margin-bottom:1.06rem;
+}
+
+.order_detail {
+    width: 7.5rem;
+    height: 3.8rem;
+    border: solid 0px #eee;
+    border-bottom-width: 0.1rem;
+}
+
+.order_detail_height {
+    height: 2.8rem;
+}
+
+.detail_title {
+    float: left;
+    width: 5.4rem;
+    height: 0.4rem;
+    margin-top: 0.32rem;
+    margin-left: 0.2rem;
+    color: black;
+    font-size: 0.32rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-height: 0.4rem;
+}
+
+.detail_bq_yellow {
+    float: right;
+    width: 1.2rem;
+    height: 0.54rem;
+    text-align: center;
+    margin-right: 0;
+    margin-top: 0.2rem;
+    background-image: url(../images/jinxingzhong.png);
+    background-size: 100% 100%;
+    color: white;
+    font-size: 0.24rem;
+    padding-top: 0.1rem;
+}
+
+.detail_bg {
+    background-image: url(../images/jieshu.png);
+}
+
+.detail_img {
+    float: left;
+    margin-top: 0.32rem;
+    margin-left: 0.2rem;
+    width: 2.56rem;
+    height: 1.44rem;
+}
+
+.detail_date {
+    float: left;
+    margin-left: 0.23rem;
+    margin-top: 0.3rem;
+    height: 0.24rem;
+    width: 4.5rem;
+}
+
+.detail_date>p {
+    color: #666;
+    font-size: 0.24rem;
+}
+
+.detail_num {
+    margin-left: 0.2rem;
+    color: #666;
+    font-size: 0.24rem;
+}
+
+.detail_top {
+    margin-top: 0.15rem;
+}
+
+.detail_top_money {
+    margin-top: 0.15rem;
+}
+
+.detail_money {
+    color: #98525c;
+    font-size: 0.32rem;
+    margin-left: 0.08rem;
+}
+
+.detail_xian {
+    float: left;
+    margin-left: 0.2rem;
+    margin-top: 0.3rem;
+    width: 7.1rem;
+    height: 1px;
+border-bottom: dotted 0.5px #eee;
+}
+
+.detail_cancel {
+    float: right;
+    margin-right: 0.25rem;
+    margin-top: 0.23rem;
+    width: 1.6rem;
+    height: 0.54rem;
+    line-height: normal;
+    border: solid 1px #98525c;
+    color: #98525c;
+    font-size: 0.3rem;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #fff;
+
+    
+}
+
+.detail_width {
+    width: 2.6rem;
+}
+
+
+/*创建订单*/
+
+.order_write {
+    position: fixed;
+    width: 100%;
+    height: 0.9rem;
+    background-color: white;
+}
+
+.order_write>img {
+    float: left;
+    width: 0.22rem;
+    height: 0.38rem;
+    margin-left: 0.2rem;
+    margin-top: 0.25rem;
+}
+
+.order_write>p {
+    float: left;
+    margin-left: 0.3rem;
+    margin-top: 0.25rem;
+    font-size: 0.3rem;
+    color: black;
+}
+
+.order_description {
+    width: 7.5rem;
+    height: 2rem;
+    border: solid 0 #eee;
+    border-top-width: 0.2rem;
+    margin-top: 0.9rem;
+    background-color: white;
+}
+
+.order_description>img {
+    float: left;
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+    width: 2.56rem;
+    height: 1.44rem;
+}
+
+.order_des_title {
+    word-break: break-word;
+    float: left;
+    margin-left: 0.25rem;
+    margin-top: 0.28rem;
+    width: 4rem;
+    font-size: 0.32rem;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /*height: 0.82rem;*/
+}
+
+.order_des_class {
+    float: left;
+    margin-left: 0.25rem;
+    margin-top: 0.15rem;
+    font-size: 0.28rem;
+    color: #666;
+}
+
+.body_padding {
+    padding-top: 0.1px;
+    background-color: #eee;
+    margin-bottom:1rem;
+}
+
+.date_choice {
+    width: 7.5rem;
+    height: 2.22rem;
+    background-color: #eee;
+}
+
+.date_ruzhu {
+    float: left;
+    margin-left: 0.2rem;
+    margin-top: 0.25rem;
+    width: 2.56rem;
+    height: 1.8rem;
+    border: solid 0.5px #ccc;
+    border-radius: 0.1rem;
+    padding: 1px;
+    font-size: 0px;
+    background-color: white;
+}
+
+.date_tuifang {
+    float: right;
+    margin-right: 0.2rem;
+    margin-top: 0.25rem;
+    width: 2.56rem;
+    height: 1.8rem;
+    border: solid 0.5px #ccc;
+    border-radius: 0.1rem;
+    font-size: 0px;
+        background-color: white;
+
+}
+
+.date_num {
+    text-align: center;
+    float: left;
+    line-height: 0.6rem;
+    margin-left: 0.3rem;
+    margin-top: 0.8rem;
+    width: 1.36rem;
+    height: 0.6rem;
+    font-size: 0.3rem;
+    line-height: 0.6rem;
+    background-image: url(../images/num.png);
+    background-size: 100% 100%;
+    color: #666;
+}
+
+.ruzhu_detail {
+    width: 2.56rem;
+    height: 0.46rem;
+    margin-top: 0.25rem;
+    margin-left: 0;
+}
+
+.ruzhu_detail>img {
+    float: left;
+    margin-left: 0.7rem;
+    margin-top: 0;
+    width: 0.43rem;
+    height: 0.46rem;
+}
+
+.ruzhu_detail>p {
+    float: left;
+    margin-left: 0.1rem;
+    margin-top: 0.05rem;
+    color: black;
+    font-size: 0.28rem;
+}
+
+.date_xian {
+    margin-top: 0.2rem;
+    margin-left: 0.17rem;
+    width: 2.14rem;
+    height: 0.5px;
+}
+
+.date_p {
+    text-align: center;
+    width: 2.56rem;
+    margin-top: 0.12rem;
+    margin-left: 0;
+    color: #98525c;
+    font-size: 0.44rem;
+}
+
+.personal {
+    width: 7.5rem;
+    height: 0.9rem;
+    border: solid 0px #eee;
+    border-bottom-width: 0.5px;
+    background-color: white;
+}
+
+.personal_title {
+    float: left;
+    color: black;
+    font-size: 0.3rem;
+    margin-left: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.personal_detail {
+    float: right;
+    width: 2.56rem;
+    height: 0.6rem;
+    margin-right: 0.2rem;
+    margin-top: 0.15rem;
+    border: solid 0.5px #ccc;
+    border-radius: 5px;
+    color: #666;
+    font-size: 0.28rem;
+    text-align: center;
+
+}
+
+.personal_input {
+    outline: none;
+}
+
+.personal_num {
+    float: left;
+    margin-left: 0.2rem;
+    line-height: 0.6rem;
+    width: 1.16rem;
+    height: 0.55rem;
+    border: solid 0px #ccc;
+    border-left-width: 0.5px;
+    border-right-width: 0.5px;
+    color: #666;
+    font-size: 0.28rem;
+    text-align: center;
+}
+
+.jian {
+    float: left;
+    margin-left: 0rem;
+    margin-top: 0rem;
+    width: 0.5rem;
+    height: 0.6rem;
+}
+
+.jia {
+    float: left;
+    margin-left: 0rem;
+    margin-top: 0rem;
+    width: 0.5rem;
+    height: 0.6rem;
+}
+
+.jian_img {
+    width: 0.2rem;
+    height: 2px;
+    margin-left: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.jia_img {
+    width: 0.2rem;
+    height: 0.2rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.tijiao {
+    width: 7.5rem;
+    height: 1rem;
+    position: fixed;
+    bottom: 0;
+    border: solid 0 #ccc;
+    border-bottom-width: 0.5px;
+    background-color: white;
+}
+
+.zonge {
+    margin-top: 0.25rem;
+    margin-left: 0.3rem;
+    float: left;
+    color: #666;
+    font-size: 0.3rem;
+}
+
+.zonge_left {
+    margin-left: 0.2rem;
+}
+
+.zonge_money {
+    color: #98525c;
+    font-size: 0.44rem;
+    margin-left: 0.1rem;
+}
+
+.yuding {
+    float: right;
+    text-align: center;
+    margin-right: 0;
+    margin-top: 0;
+    height: 1rem;
+        line-height: 1rem;
+    width: 2.9rem;
+    font-size: 0.36rem;
+    background-color: #98525c;
+    color: white;
+    background: linear-gradient(to top, #98535d 0%,#ba737d 100%);
+    background: -webkit-linear-gradient(bottom, #98535d 0%,#ba737d 100%);
+
+}
+.mingxi{
+    font-size: 0.3rem;
+    color: #666;
+    float: left;
+    margin-top: 0.3rem;
+    margin-left: 0.9rem;
+border-bottom: 1px solid #666;
+height: 0.4rem;
+    
+}
+.tiJiao_color{
+    float: left;
+    margin-left: 0;
+    width: 4.6rem;
+    height: 100%;
+    background:linear-gradient(to top, #eeeeee 0%,#ffffff 100%);
+    background: -webkit-linear-gradient(bottom, #eeeeee 0%,#ffffff 100%);
+
+}
+
+/*我的订单空白页*/
+.blank_page{
+    width: 7.5rem;
+    display: block;
+    text-align: center;
+    background-color: #eee;
+    height: 8.54rem;
+    padding-top: 1.8rem;
+}
+.blankpic{
+    width: 4.34rem;
+    height: 2.38rem;
+    background-size: 100% 100%;
+    display: block;
+    background-image: url(../images/nothing.png);
+    margin: 0 auto ;
+}
+.word{
+    width: 7.5rem;
+    font-size: 0.3rem;
+    color: #333;
+    text-align: center;
+}

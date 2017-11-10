@@ -1,0 +1,20 @@
+insert into re_area (name,state) 
+ select area,1 from re_library  group by area
+insert into re_library_type (name)  select libray_type from re_library  group by libray_type
+
+update re_library a inner join re_library_type b  on a.library_type=b.name set a.library_type_id=b.id
+update re_library a inner join re_area b  on a.area=b.name set a.area_id=b.id
+
+//得分表行政区对应ID
+update  re_score a inner join re_area b  on a.area=b.name set a.area_id=b.id
+//问卷调查表对应行政区ID
+update  re_question  a inner join re_area b  on a.area=b.name set a.area_id=b.id
+
+//批量地址转换坐标
+http://localhost/reader/index.php?m=Home&c=Address&a=index
+
+
+select a.occupation,b.code,b.norm,b.name from re_question a  inner join re_norm b on a.occupation=b.code  where b.norm='职业'
+update  re_question a  inner join  re_norm b on a.buy_num=b.code   set a.buy_num_name=b.name where b.norm='年购书量'
+update  re_question a  inner join  re_norm b on a.education=b.code   set a.education_name=b.name where b.norm='教育水平'
+update  re_question a  inner join re_norm b on a.cost=b.code   set a.cost_name=b.name where b.norm='年购书费用'

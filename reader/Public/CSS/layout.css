@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,ul,li,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6,input,textarea,button,table,tr,td,th,select,img,p,form{margin:0; padding:0; list-style:none;font:normal normal normal 14px/150% "Microsoft YaHei","SimSun";}
+body{min-width:1100px;}
+.storyIcon{ background:url(../Images/icon.png) no-repeat;}
+.logo a img{border:none;}
+
+/*float*/
+.fl{float:left;}
+.fr{float:right;}
+.tl{ text-align:left;}
+.tr{ text-align:right;}
+.tc{ text-align:center;}
+.clear{clear:both;font-size:1px;height:0;visibility:hidden;line-height:0;}
+.clearfix:after{content:"";display:block;clear:both;}
+.marginAuto{ margin:0 auto;}
+
+/*width*/
+.width100{width:100%;}
+.width1200{width:1100px;}
+.WidthLeftBox{width:200px;}
+.WidthRightBox{width:1000px;}
+.overflow{overflow:hidden;}
+.height100{ height:100%;}
+.width1100{width:1100px;}
+
+/*fontSize*/
+.fontSize12px{font-size:12px;}.fontSize14px{font-size:14px;}.fontSize16px{font-size:16px;}.fontSize18px{font-size:18px;}.fontSize20px{font-size:20px;}.fontSize22px{font-size:22px;}.fontSize24px{font-size:24px;}
+
+/*Color and Background*/
+.fontColor,.fontLink,.fontColorHover:hover{color:#0177d1;}
+.fontColor000{color:#000;}.fontColor333{color:#333;}.fontColor666{color:#666;}.fontColor999{color:#999;}
+.backgorund{ background:#0177d1;}
+.backgorundColor{ background-color:#f2f5f8; border-radius:3px;}
+
+.storyMapTitle li,.bookLeft dl dd i,.bookLeft dl dt i{color:#0177d1;}
+.storyMapTitle li.active,.PartitionBox li a.active,.PartitionBox li a:hover,.readBook ul li.active,.readBook ul li:hover{background:#0177d1;}
+
+/*margin*/
+.mar_b10{ margin-bottom:10px;}
+.mar_b20{ margin-bottom:20px;}
+.mar_b30{ margin-bottom:30px;}
+.mar_b50{ margin-bottom:50px;}
+.mar_t20{ margin-top:20px;}
+
+/*table*/
+table{ width:100%; border-spacing:0; border-collapse:collapse;}
+
+/*border*/
+.borderSolid{border-color:#c4c4c4; border-style:solid;}
+
+/*postion*/
+.absolute{position:absolute;}
+.relative{position:relative;}
+.fixed{position:fixed;}
+/*layout*/
+#wraper{}
+#header{z-index:9;}
+#container{}
+#footer{ height:69px; line-height:69px; background:url(../Images/footer_bg.png) repeat-x;}
+#footer p{ height:69px; line-height:69px; color:#fff; text-align:center;}
+a{ text-decoration:none;}
+
+/*header*/
+.headerBg{border-width:0;border-bottom-width:1px; height:80px; background:#fff; }
+.headerBg ul li{float:left; height:45px;line-height:45px; margin:0 10px; }
+.headerBg ul li a{color:#666; font-size:18px; height:45px; padding:0 10px;display:block; margin-top:30px;}
+.headerBg ul li a:hover,.headerBg ul li a.active{color:#0177d1; border-bottom:5px solid #0177d1;}
+
+/*footer*/
+.foot{bottom:0;}

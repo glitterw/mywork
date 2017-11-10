@@ -1,0 +1,649 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>全民阅读指数</title>
+<link  href="/reader/Public/CSS/layout.css" type="text/css" rel="stylesheet" />
+<link href="/reader/Public/CSS/master.css" type="text/css" rel="stylesheet" />
+<script src="/reader/Public/Js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="/reader/Public/Js/layout.js" type="text/javascript"></script>
+<script src="/reader/Public/Js/jquery-form.js" type="text/jscript"></script>
+<script src="/reader/Public/Js/echarts.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="wraper">
+	<!--header begin-->
+     	<div id="header" class="width100 relative">
+        	<div class="headerBg width100 borderSolid">
+            	<div class="width1100 marginAuto">
+                    <ul class="fr">
+                       	<li><a href="<?php echo U('Home/Index/map');?>" >图书总动员</a></li>
+                    	<li><a href="<?php echo U('Home/Index/reader');?>">全民阅读指数</a></li>
+                    	<li><a href="<?php echo U('Home/Index/book');?>" class="active">读书之城</a></li>
+                    </ul>
+                    <div class="logo fl"><a href="<?php echo U('Home/Index/index');?>" target="_self"><img src="/reader/Public/Images/logo.png" /></a></div>
+                </div>
+            </div>
+        </div>
+    	<!--header end-->
+    <div id="container" class="width1100 marginAuto">
+    	<!--人员属性-->
+    	<div class="Staff width100">
+        	<!--标题-->
+        	<div class="title mar_b30">
+            	<h2 class="fl fontSize20px"><span></span>人员属性</h2>
+          <div class="selectBox width215 fr">
+                	<div class="selectList" id="selectList05">
+                        <span id="Staff01" class="fontSize14px fontColor666">选择区域</span><i class="arrow arrowL"></i>
+                        <ul>
+                        <li onclick="setArea(0)">全市</li>
+						<?php if(is_array($redingCity)): $key = 0; $__LIST__ = $redingCity;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($key % 2 );++$key;?><li onclick="setArea(<?php echo ($val['area_id']); ?>)"><?php echo ($val['area']); ?></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            	<form method="post" target="_blank"  name="cityform" action="<?php echo U('Home/Book/getReadingCity');?>"   id="cityform">
+					<input name="areaId" id="areaId" type="hidden" value="0" />
+				</form>
+            <!--标题结束-->
+            <div class="StaffTop backgorundColor mar_b30">
+				<table class="sex_list">
+                	<tbody id="sexInfo"> </tbody>
+                </table>
+			</div>
+            
+            <div class="StaffBottom overflow">
+           	 	<div class="Staff_age backgorundColor fl">
+               		<h3 class="fontSize16px fontColor666">年龄分布</h3>
+					<!--
+					<img src="/reader/Public/Images/updata/Staff_age.png" width="335" height="200" /> 
+					-->
+               		<div class="ageBar" style="width:100%;height:300px;"></div>
+                </div>
+                <div class="Staff_age backgorundColor fl">
+                	<h3 class="fontSize16px fontColor666">职业分布</h3>
+					<!--
+					<img src="/reader/Public/Images/updata/Staff_occupation.png" width="335" height="200" />
+					-->
+               		<div class="careerBar" style="width:335px;height:300px;"></div>
+                </div>
+               <div class="Staff_age backgorundColor nomar fl">
+                	<h3 class="fontSize16px fontColor666">学历分布</h3>
+					<!--
+					<img src="/reader/Public/Images/updata/educational.png" width="335" height="200" />
+					-->
+               		<div class="collegeBar" style="width:335px;height:300px;"></div>
+                </div>
+          </div>
+          <div class="Staff_explanation fontSize14px fontColor999">说明：本处统计的人员信息来自于匿名问卷，为参与问卷调查的人员信息。</div>
+        </div>
+        <!--人员属性结束-->
+        
+        <!--阅读之城认知度分析-->
+        <div class=" recognition overflow width100">
+        	<!--标题-->
+        	<div class="title mar_b30">
+            	<h2 class="fl fontSize20px"><span></span>阅读之城认知度分析</h2>
+                <div class="selectBox width165 fr">
+                	<div class="selectList" id="selectList06">
+                        <span id="Staff02" class="fontSize14px fontColor666">选择职业</span><i class="arrow arrowL"></i>
+                        <ul>
+                            <?php if(is_array($redingCareer)): $key = 0; $__LIST__ = $redingCareer;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($key % 2 );++$key;?><li onclick="setCareer(<?php echo ($val['occupation_type']); ?>)"><?php echo ($val['occupation_name']); ?></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="selectBox width165 fr">
+                	<div class="selectList" id="selectList07">
+                        <span id="Staff03" class="fontSize14px fontColor666">选择教育水平</span><i class="arrow arrowL"></i>
+                        <ul>
+                            <?php if(is_array($redingColege)): $key = 0; $__LIST__ = $redingColege;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($key % 2 );++$key;?><li onclick="setColege(<?php echo ($val['education_type']); ?>)"><?php echo ($val['education_name']); ?></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="selectBox width165 fr">
+                	<div class="selectList" id="selectList08">
+                        <span id="Staff04" class="fontSize14px fontColor666">选择性别</span><i class="arrow arrowL"></i>
+                        <ul>
+                            <li onclick="setSexByAreaId(1)">男</li>
+                            <li onclick="setSexByAreaId(2)">女</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="selectBox width165 fr">
+                	<div class="selectList" id="selectList09">
+                        <span id="Staff05" class="fontSize14px fontColor666">选择城区</span><i class="arrow arrowL"></i>
+                        <ul>
+                        <li onclick="setCity(0)">全市</li>
+                            <?php if(is_array($redingCity)): $key = 0; $__LIST__ = $redingCity;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($key % 2 );++$key;?><li onclick="setCity(<?php echo ($val['area_id']); ?>)"><?php echo ($val['area']); ?></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
+                    </div>
+                </div>
+				<form method="post" target="_blank"  name="cityform2" action="<?php echo U('Home/Book/getReadingBottom');?>"   id="cityform2">
+					<input name="area_Id" id="area_Id" type="hidden" value="0" />
+					<input name="sex_Id" id="sex_Id" type="hidden" value="0" />
+					<input name="colege_Id" id="colege_Id" type="hidden" value="0" />
+					<input name="career_Id" id="career_Id" type="hidden" value="0" />
+				</form>
+            </div>	
+            <!--标题结束-->
+            <div class=" recognition_con overflow mar_b20">
+           	 	<div class=" recognition_left backgorundColor fl">
+                	<h3 class="fontSize16px fontColor666">读书之城认知度及重要性统计分析</h3>
+					<!--
+					<img src="/reader/Public/Images/updata/recognition_left.png" width="660" height="480" /> 
+					-->
+					<div class="cityPin" style="width:660px;height:480px;"></div>
+               		
+                </div>
+                <div class=" recognition_right fr">
+                	<div class="rihgtTop backgorundColor">
+						<h3 class="fontSize16px fontColor666">2015年度市民购书数量分布图</h3>
+						<!--
+						<img src="/reader/Public/Images/updata/recognition_right01.png" width="390" height="205" />
+						-->
+               			<div class="buyBook" style="width:390px;height:205px;"></div>
+                    </div>
+                    <div class="rihgtBottom backgorundColor">
+						<h3 class="fontSize16px fontColor666">2015年度市民购书花费分布图</h3>
+						<!--
+						<img src="/reader/Public/Images/updata/recognition_right01.png" width="390" height="205" />
+						-->
+               			<div class="payBook" style="width:390px;height:205px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="Satisfaction_con">
+            	<div class="Satisfaction_left backgorundColor fl">
+                 	<h3 class="fontSize16px fontColor666">公共设施满意度综合得分</h3>
+               		<!--
+					<img src="/reader/Public/Images/updata/Satisfaction_left.png" width="530" height="305" />
+					-->
+               		<div class="butRadar" style="width:530px;height:305px;"></div>
+                </div>
+                <div class="Satisfaction_right fr">
+                	<h2 class="fontSize24px fontColor666">综合评分：<i id="score">65</i>   <span class="fontColor333">各项得分如</span></h2>
+                    <table>
+                    	<tbody id="radarInfo"> </tbody> 
+                    </table>
+                    <div class="explanation fontSize14px fontColor999">
+                    	<p>说明：</p>
+                        <p>1.公共设施满意度从4个维度进行评价，各个维度最高分为100分，依据问卷结果加权得到分值。</p>
+                        <p>2.本处统计的认知度信息来自于匿名问卷，为参与抽样调查人员反馈的结果。</p>
+                    </div>
+                </div>
+            </div>
+            <!---->
+        </div>
+        <!--阅读之城认知度分析结束-->
+     </div>
+    <!--底部-->
+    <div id="footer">
+    	<p class="width1100 marginAuto">武汉全民阅读</p>	
+    </div>
+    <!--底部结束-->
+</div>
+	<script type="text/javascript">
+		/*初始化调用各个模块图形数据*/
+		$(function(){
+			$('.selectList').find('ul li').click(function(){
+				var selectval = $(this).html();	
+				$(this).parents(".selectList").find("span").html(selectval);
+				$(this).parent("ul").slideUp();
+			});
+			getTopChartsByAjax();
+			getBottomChartsByAjax();
+      
+		});
+		//选择区单个区域调用年龄、职业、学历分布数据
+		function setArea(areaId){
+			$("#areaId").val(areaId);
+			getTopChartsByAjax();
+		}
+
+		//单个区域调用认知度、购书数量、花费、满意度数据
+		function setCity(areaId){
+			$("#area_Id").val(areaId);
+			//$("#cityform2").submit();
+			getBottomChartsByAjax();
+		}
+		//性别调用认知度、购书数量、花费、满意度数据
+		function setSexByAreaId(sexId){
+			$("#sex_Id").val(sexId);
+			//$("#cityform2").submit();
+			getBottomChartsByAjax();
+		}
+		//学历调用认知度、购书数量、花费、满意度数据
+		function setColege(colId){
+			$("#colege_Id").val(colId);
+			//$("#cityform2").submit();
+			getBottomChartsByAjax();
+		}
+		//职业调用认知度、购书数量、花费、满意度数据
+		function setCareer(carId){
+			$("#career_Id").val(carId);
+			//$("#cityform2").submit();
+			getBottomChartsByAjax();
+		}
+
+		//ajax获取年龄、职业、学历分布数据
+		function getTopChartsByAjax(){
+			//$("#cityform").submit();
+			//return ;
+			$("#cityform").ajaxSubmit({
+				type:'post',
+				//成功返回
+				success:function(data){
+					if(data){
+						loadTopChats(data);
+					}else{
+						alert("暂无该区数据");
+					}
+				//失败信息
+				},error:function(XmlHttpRequest,textStatus,errorThrown){
+					alert("请求失败");
+				}	
+			});
+		}
+		
+		//ajax获取认知度、购书数量、花费、满意度数据
+		function getBottomChartsByAjax(){
+			$("#cityform2").ajaxSubmit({
+				type:'post',
+				//成功返回
+				success:function(data){
+					if(data){
+						loadBottomChats(data);
+					}else{
+						alert("暂无该区数据");
+					}
+				//失败信息
+				},error:function(XmlHttpRequest,textStatus,errorThrown){
+					alert("请求失败");
+				}	
+			});
+		}
+
+
+
+		//加载上半部分模块的图形(性别、年龄、职业、学历)
+		function loadTopChats(data){
+			var sexInfo = data.sexInfo;
+			setSex(sexInfo);
+			setAgeBarChart(data);
+			setCareerBarChart(data);
+			setCollegeBarChart(data);
+		}
+		//加载下半部分模块图形(重要性、购书数量、购书花费、满意度)
+		function loadBottomChats(data){
+			var knowInfo = data.knowInfo;
+			var buyInfo = data.buyInfo;
+			var payInfo = data.payInfo;
+			var radarInfo = data.radarInfo;
+
+			setCityPinChart(knowInfo);
+			setBuyBookBarChart(buyInfo);
+			setPayBookBarChart(payInfo);
+			setButRadarChart(radarInfo);
+			
+		}
+		//性别比例分布图
+		function setSex(sexInfo){
+			//男士显示头像个数
+			var sexNum1 = sexInfo.scaleNum1;
+			//女士显示头像
+			var sexNum2 = sexInfo.scaleNum2;
+			//循环各个头像标签
+			var malehtml = '',maleshowhtml = '',female = '',femaleshowhtml = '';
+			for(var i=0; i < sexNum1; i++){
+				maleshowhtml += '<span class="male"></span>';
+				female += '<span class="female female-shadow"></span>';
+			}
+			for(var i=0; i < sexNum2; i++){
+				malehtml += '<span class="male male-shadow"></span>';
+				femaleshowhtml += '<span class="female"></span>';
+			}
+			var html = '<tr><td class="tr ratio">'+sexInfo.scale1+'</td><td class="tl ratio">'+sexInfo.scale2+'</td></tr>';
+			html += '<tr class="StaffHeight" valign="top"><td class="tr">';
+			html += malehtml;
+			html += maleshowhtml;
+            html += '</td><td class="tl">';
+			html += femaleshowhtml;
+			html += female;
+            html += '</td></tr>';                	
+                                	    
+           $("#sexInfo").html(html);           
+		}
+		/*年龄分布图*/
+		function setAgeBarChart(ageInfo){
+			var myChart = echarts.init($(".ageBar")[0]);
+			var option = {
+				xAxis: {
+					type: 'value',
+					show: false
+				},
+				yAxis: {
+					type: 'category',
+					axisLabel: {
+						show : true,
+						rotate: 60
+					},
+					data:ageInfo.ageName
+				},
+				//调整坐标系的高度宽度
+				grid: [{x: 40, y: 10}],
+				series: [
+					{
+						name: '年龄分布图',
+						type: 'bar',
+						barCategoryGap: '50%',
+						label: {
+							normal: {
+								show : true,
+								position: 'right',
+								formatter: '{c}'
+							}
+						},
+						data:ageInfo.ageNum
+					}
+				],
+				color : ['#496df4','#96706d', '#97b553', '#8d99b3', '#e5ce0c','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+			};
+			myChart.setOption(option);
+		}
+		//职业分布图
+		function  setCareerBarChart(careerInfo){
+			var myChart = echarts.init($(".careerBar")[0]);
+			var option = {
+				xAxis: {
+					type: 'category',
+					 data:careerInfo.carName,
+					 axisLabel: {
+						show: true,
+						interval: '0',
+						inside: false,
+						rotate: 60,
+						margin: 8,
+						formatter: null,
+						textStyle: {
+						color: '#333',
+						fontStyle: 'normal',
+						fontWeight: 'normal',
+						fontFamily: 'sans-serief',
+						fontSize: 12,
+						}
+					} 
+				},
+				yAxis: {
+					type: 'value'
+				},
+				grid: [{x: 40, y: 10}],
+				series: [
+					{
+						 name:'Acutal',
+						 type:'bar',
+						 itemStyle: {
+							normal: {
+								color: 'tomato',
+								barBorderColor: 'tomato',
+								label : {
+									show: true, position: 'top'
+								}
+							}
+						},
+						data:careerInfo.carNum
+					}
+				]
+			};
+			myChart.setOption(option);
+		}
+		//学历分布图
+		function setCollegeBarChart(collegeInfo){
+			var myChart = echarts.init($(".collegeBar")[0]);
+			var option = {
+				xAxis: {
+					type: 'value',
+					show: false
+				},
+				yAxis: {
+					type: 'category',
+					data: collegeInfo.colName,
+					 axisLabel: {
+						show: true,
+						interval: '0',
+						inside: false,
+						rotate: 60,
+						margin: 8,
+						formatter: null,
+						textStyle: {
+						color: '#333',
+						fontStyle: 'normal',
+						fontWeight: 'normal',
+						fontFamily: 'sans-serief',
+						fontSize: 12,
+						}
+					} 
+				},
+				
+				grid: [{x: 40, y: 10}],
+				 
+				series: [
+					{
+						name: '学历分布图',
+						type: 'bar',
+						barCategoryGap: '50%',
+						label: {
+							normal: {
+								show : true,
+								position: 'right',
+								formatter: '{c}'
+							}
+						},
+						data : collegeInfo.colNum
+					}
+				],
+				color : ['#6aa9f5','#96706d', '#97b553', '#8d99b3', '#e5ce0c','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+			};
+			myChart.setOption(option);
+		}
+		//阅读之城认知度分析
+		function setCityPinChart(knowInfo){
+			var myChart = echarts.init($(".cityPin")[0]);
+			var option = {
+				title : {
+					text : '全民阅读认知的重要性',
+					 x : 'center'
+				},
+				series:[
+					{
+						name:'市民活动认知度统计',
+						type:'pie',
+						selectedMode: 'single',
+						radius: ['10%', '30%'],
+						label: {
+							normal: {
+								position: 'inner'
+							}
+						},
+						labelLine: {
+							normal: {
+								show: false
+							}
+						},
+						data:[
+							{value:knowInfo.isNKnow, name:'不知道', selected:true},
+							{value:knowInfo.isKnow, name:'知道'}
+						],
+						label: {
+							normal: {
+								show : true,
+								formatter: '{b}{d}%'
+							}
+						}
+					},{
+						name:'访问来源',
+						type:'pie',
+						radius: ['50%', '70%'],
+						data:[
+							{value:knowInfo.opNum5, name:'可有可无'},
+							{value:knowInfo.opNum4, name:'不重要'},
+							{value:knowInfo.opNum3, name:'一般'},
+							{value:knowInfo.opNum2, name:'比较重要'},
+							{value:knowInfo.opNum1, name:'十分重要'}
+						],
+						label: {
+							normal: {
+								show : true,
+								formatter: '{b}{d}%'
+							}
+						}
+					}
+				]
+			};
+			myChart.setOption(option);
+		}
+		//城市购书数量分布
+		function setBuyBookBarChart(buyInfo){
+			var myChart = echarts.init($(".buyBook")[0]);
+			var option = {
+				xAxis: {
+					type: 'category',
+					//data: ['不购买','2本以下','2-10本','10-20本','20本以上']
+					//show: false
+					data:buyInfo.buyName,
+					 axisLabel: {
+						show: true,
+						interval: '0',
+						inside: false,
+						rotate: 60,
+						margin: 8,
+						formatter: null,
+						textStyle: {
+						color: '#333',
+						fontStyle: 'normal',
+						fontWeight: 'normal',
+						fontFamily: 'sans-serief',
+						fontSize: 12,
+						}
+					} 
+				},
+				yAxis: {
+					type: 'value'
+				},
+				//调整坐标系的高度宽度
+				grid: [{x: 40, y: 10}],
+				series: [
+					{
+						name: '购书数量分布图',
+						type: 'bar',
+						barWidth : 20,
+						//barCategoryGap: '50%',
+						label: {
+							normal: {
+								show : true,
+								position: 'top',
+								formatter: '{c}'
+							}
+						},
+						//data: [122, 234, 206, 174, 308]
+						data:buyInfo.buyNum
+					}
+				],
+				color : ['#6aa9f5','#96706d', '#97b553', '#8d99b3', '#e5ce0c','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+			};
+			myChart.setOption(option);
+		}
+		//城市购书花费分布
+		function setPayBookBarChart(payInfo){
+			var myChart = echarts.init($(".payBook")[0]);
+			var option = {
+				xAxis: {
+					type: 'category',
+					//data: ['不购买','2本以下','2-10本','10-20本','20本以上']
+					data:payInfo.payName,
+					//show: false
+					 axisLabel: {
+						show: true,
+						interval: '0',
+						inside: false,
+						rotate: 60,
+						margin: 8,
+						formatter: null,
+						textStyle: {
+						color: '#333',
+						fontStyle: 'normal',
+						fontWeight: 'normal',
+						fontFamily: 'sans-serief',
+						fontSize: 12,
+						}
+					} 
+				},
+				yAxis: {
+					type: 'value'
+				},
+				//调整坐标系的高度宽度
+				grid: [{x: 40, y: 10}],
+				series: [
+					{
+						name: '购书花费分布图',
+						type: 'bar',
+						barCategoryGap: '50%',
+						barWidth : 20,
+						label: {
+							normal: {
+								show : true,
+								position: 'top',
+								formatter: '{c}'
+							}
+						},
+						//data: [122, 234, 206, 174, 308]
+						data:payInfo.payNum
+					}
+				],
+				color : ['#6aa9f5','#96706d', '#97b553', '#8d99b3', '#e5ce0c','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+			};
+			myChart.setOption(option);
+		}
+		//公共设施满意度得分
+		function setButRadarChart(radarInfo){
+			var myChart = echarts.init($(".butRadar")[0]);
+			var option = {
+				 radar:{
+					 indicator: [
+						{text: '文献资源', max: 100},
+						{text: '硬件设施', max: 100},
+						{text: '阅读环境', max: 100},
+						{text: '服务态度', max: 100}
+					],
+					center: ['50%','50%'],
+					radius: 80
+				 },
+				 series:[
+					 {
+						type: 'radar',
+						data: [
+							{
+								name: '某软件',
+								//value: [89,87,88,0]
+								value:radarInfo.radarNum
+							}
+						]
+					}
+				]
+			};
+			myChart.setOption(option);
+		
+			var html = '<tr><th>评估项目名称</th><th>得分</th></tr>';
+			html += '<tr><td>硬件设施满意度</td><td>'+radarInfo.radar1+'</td></tr>';
+			html += '<tr><td>文献资源满意度</td><td>'+radarInfo.radar2+'</td></tr>';
+			html += '<tr><td>阅读环境满意度</td><td>'+radarInfo.radar3+'</td></tr>';
+			html += '<tr><td>服务态度满意度</td><td>'+radarInfo.radar4+'</td></tr>';
+			  
+			 $("#score").text(radarInfo.radarAve);				   
+             $("#radarInfo").html(html);                           
+                            
+		}
+	</script>
+</body>
+</html>

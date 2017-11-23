@@ -1,0 +1,53 @@
+/**
+*@action 公共样式定义
+*@author wpx
+*@date   2017/10/27
+**/ 
+/* 头部背景色 */
+@header-bg-color: #ff0033;
+/* 头部字体颜色 */
+@header-color:#fff;
+@content-w:6.4rem;
+@header-h:0.9rem; 
+@padding-outer:.3rem;
+
+.header{
+	width: 100%;
+	height: @header-h; 
+	background-color: @header-bg-color; 
+    color: @header-color;
+    background-image: url(../img/index-logo.png);
+    //background-image: url(../img/logo.svg);
+    background-size: 3.20rem .40rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0 @padding-outer;
+}
+.city{
+	display: inline-block;
+    height: .9rem;
+    line-height: .9rem;
+    font-size: .26rem;
+}
+.city:after{
+    content: '';
+    display: inline-block;
+    background: url(/static/img/go.6f31a7d.png) no-repeat center;
+    background-size: .22rem .13rem;
+    width: .22rem;
+    height: .9rem;
+    vertical-align: middle;
+    margin-left: .09rem;
+    transition:transform 2s;
+}
+.city.show:after{
+	//animation: gorotate 2s;
+	transform:rotateZ(180deg);
+}
+
+// 旋转
+@keyframes gorotate
+{
+from {transform:rotateZ(0deg);}
+to {transform:rotateZ(180deg);}
+}

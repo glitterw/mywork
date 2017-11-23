@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>九派荐书</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/frameStyle.css"/>
+
+</head>
+<body>
+<div id="wrap" class="flex-wrap flex-vertical">
+	<header><!-- 还得写个header撑起空白区域 --></header>
+    <div id="main" class="flex-con findBg">
+		<div class="findBox">
+        	<img src="../image/findBtn01.png" onclick="openWin('win_recommend','win_recommend.html')"/>
+        	<img src="../image/findBtn02.png" onclick="openBooklist()"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+    
+    }
+//打开书单
+function openBooklist(){ 
+ //openWin("win_booklist","win_booklist.html");
+	api.openWin({
+		name : "win_booklist",
+		url : "win_booklist.html",
+		bounces : false,
+		vScrollBarEnabled : false,
+		hScrollBarEnabled : false,
+		allowEdit:true,
+		reload:true,
+		animation : {
+			type : "push", //动画类型（详见动画类型常量）
+			subType : "from_right", //动画子类型（详见动画子类型常量）
+			duration : 300 //动画过渡时间，默认300毫秒
+		}
+	});
+
+}
+</script>

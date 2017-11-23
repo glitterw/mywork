@@ -1,0 +1,39 @@
+/*首页图片轮播*/
+.pagination{position: absolute;z-index: 20;right: 10px;bottom: 10px;}
+.swiper-pagination-switch{display: inline-block;width: 8px;height: 8px;border-radius: 8px;background: #555;margin-right: 5px;opacity: 0.8;border: 1px solid #fff;cursor: pointer;}
+.swiper-active-switch{background: #fff;}
+.swipe{width: 100%;background-color: #fff;overflow: hidden;position: relative;padding-bottom: 10px; height:350px;}
+.swipe-wrap{overflow: hidden;position: relative;}
+.swipe-wrap .swipe-box{float: left;width: 100%;position: relative;}
+.swipe-box img{width:100%;}
+.swipe .title-box{width:100%;position: absolute; bottom:30px;}
+.swipe .title-box-ul{text-align: center;list-style: none;margin: 0;padding: 0;padding-right: 10px;}
+.swipe .title-box li{display: inline-block;width: 10px;height: 10px;border-radius: 10px;background: #fff;margin: 0 2px;cursor: pointer; opacity:0.5;}
+.swipe .title-box li.active{ background:#fff; opacity:1;}
+
+
+/*标题*/
+.indexTit{ height:60px; line-height:60px; margin-bottom:20px;}
+.indexTit i.greenLine{ background:#32b2a1; width:8px; height:34px; float:left; margin:14px 12px 0 0;}
+.indexTit h1{ font-size:36px; color:#333; float:left;}
+.indexTit .indexMore{ background:url(../image/moreIcon_green.png) no-repeat right center; height:60px; float:right; padding-right:20px; color:#32b2a1; font-size:24px; background-size:12px;}
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+/*首页图片轮播*/
+.pagination{z-index: 20;right: 5px;bottom: 5px;}
+.swiper-pagination-switch{4width: 4px;height: 4px;border-radius: 4px;margin-right: 3px;opacity: 0.8;}
+.swipe{ height:175px;}
+.swipe{padding-bottom: 5px;}
+.swipe .title-box{width:100%;position: absolute; bottom:15px;}
+.swipe .title-box-ul{padding-right: 3px;}
+.swipe .title-box li{width: 5px;height: 5px;border-radius: 5px; margin: 0 1px;cursor: pointer; opacity:0.5;}
+.swipe .title-box li.active{ background:#fff; opacity:1;}
+
+/*标题*/
+.indexTit{ height:30px; line-height:30px; margin-bottom:10px;}
+.indexTit i.greenLine{  width:4px; height:17px; margin:7px 6px 0 0;}
+.indexTit h1{ font-size:18px;}
+.indexTit .indexMore{ height:30px; padding-right:10px; font-size:14px; background-size:7px}
+
+ }

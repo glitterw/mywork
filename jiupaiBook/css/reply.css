@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*荐书评论回复*/
+.replyBox{ border-top:solid 1px #e3e3e3; padding-top:30px; padding-bottom:120px;}
+.reviwTit{ font-weight:bold; color:#666; font-size:30px; height:40px; line-height:40px;}
+.replyBoxUL li{ border-bottom:solid 1px #d1d1d1; padding:25px 30px 25px 0; display:block;}
+.replyCont{ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; line-height:130%; font-size:26px; color:#666; margin-left:60px;word-break:break-all;　word-wrap:break-word;}
+
+/*写回复*/
+.whriteReplyBox{ display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: center; -webkit-box-align: center; -webkit-align-items: center; -webkit-justify-content: center; background:#fff; position:fixed; bottom:0; z-index:2; width:100%; border-top:solid 1px #e3e3e3;}
+.whriteReplyBox02,.sendBtn{-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;}
+.whriteReplyBox02{ position: relative; display: flex; -webkit-box-align: center; -webkit-align-items: center; flex: 1;}
+.whriteReplyBox02 .replyarea{ font-size:28px; color:#999;padding:0 20px 0 50px; display: block; width: 100%; height:40px; line-height:40px; outline:none; margin:30px 0; max-height:200px;}
+.sendBtn{ color:#32b2a1; font-size:32px; margin-right:30px;position:relative; z-index: 99; text-align:right; }
+
+/*评论列表*/
+.nameGroup{ float:left; margin-left:20px; margin-bottom:30px;}
+.nameGroup h1{ font-size:28px; display:block; line-height:20px;}
+.nameGroup .starDL dd{ width:23px; height:22px; margin:0 2px; background-size:23px;}
+.reviewBtn{ height:100px; line-height:100px; color:#fff; font-size:36px; text-align:center; position:fixed; bottom:0; background:#32b2a1; display:block; width:100%;}
+
+/*评分*/
+.scoreBox{ text-align:center; padding:50px 0;}
+.scoreBox h1{ font-size:36px; color:#666; height:80px; line-height:80px;}
+.scoreBox .starDL{ height:66px;}
+.scoreBox .starDL dd{ width:71px; height:66px; margin:0 2px; background-size:71px;}
+
+.commentBox{ position:relative; margin-top:30px;}
+.commentBox textarea{ height:250px; background:#fff; border:solid 1px #d1d1d1; padding:25px 2.5%; border-radius:8px; width:95%; color:#ccc; font-size:36px; line-height:150%;}
+.statistics{ position:absolute; bottom:20px; right:20px; font-size:28px; color:#666;}
+
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+/*荐书评论回复*/
+.replyBox{padding-top:15px; padding-bottom:60px;}
+.reviwTit{ font-size:15px; height:20px; line-height:20px;}
+.replyBoxUL li{ padding:12px 15px 12px 0;}
+.replyCont{font-size:13px; margin-left:30px;　　}
+
+/*写回复*/
+.whriteReplyBox02 .replyarea{ font-size:14px; padding:0 10px 0 25px; height:20px; line-height:20px; margin:15px 0; max-height:100px;}
+.sendBtn{ font-size:16px; margin-right:15px; }
+
+/*评论列表*/
+.nameGroup{ margin-left:10px; margin-bottom:10px;}
+.nameGroup h1{ font-size:14px; line-height:15px;}
+.nameGroup .starDL dd{ width:11px; height:11px; background-size:11px;}
+.reviewBtn{ height:50px; line-height:50px; font-size:18px;}
+
+/*评分*/
+.scoreBox{ padding:25px 0;}
+.scoreBox h1{ font-size:18px; height:40px; line-height:40px;}
+.scoreBox .starDL{ height:33px;}
+.scoreBox .starDL dd{ width:35px; height:33px; margin:0 2px; background-size:35px;}
+
+.commentBox{ margin-top:15px;}
+.commentBox textarea{ height:125px; padding:12px 2.5%; border-radius:4px; width:95%; color:#ccc; font-size:18px;}
+.statistics{ bottom:10px; right:10px; font-size:14px;}
+
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>我收藏的书单内容</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/list.css"/>
+    <style>
+     	html,body{ background:#f4f4f4; height:100%}
+		#wrap{ display:table; width:100%; height:100%;}
+		header,.twoNavTable,.collecBookBox{ display:table-row;}
+
+    </style>
+
+</head>
+<body>
+<div id="wrap" class="hidden">
+    <div class="empty30"></div>
+    <!--详情 begin-->
+    <div class="collecBookBox">  
+    <div style="display:table; width:100%; height:100%;">
+     	<div class="bookListGroup">
+        	<ul id="booklist">
+        
+            	<!--<li>
+                	<div class="bookPad"> 
+                        <div class="bookCollectionPic"><img src="../image/other/book01.jpg" /></div>
+                        <h1>万历十五年</h1>
+                        <div class="bookCollectWord">
+                            <strong class="fl">"</strong>
+                            <p>我们不再是小孩，也许在成长的路上，还遇见了很多坎坷。但我们依旧拥有一颗努力向上的心。我们一路往前，变成最好的自己。</p>
+                            <strong class="fr">"</strong>
+                        </div>
+                        <div class="linkGroup"><span class="like like_active"></span>2012人</div>
+                    </div>
+                </li>-->
+          
+            </ul>
+        </div>
+        
+        <div class="countList mar_t30"  id="count">2/10</div>
+        
+        </div>
+    </div>
+    <!--详情 end-->
+</div>
+</body> 
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/book.js"></script>		
+<script type="text/javascript">
+apiready = function() {  
+  initBooklist(); 
+}
+//初始化书单
+function initBooklist(){
+    var booklist=api.pageParam.booklist;
+    var imgPath=booklist.imgPath;
+	var html='';
+
+	html='<li>';
+	html+='	<div class="bookPad" onclick="openBooklistDetail('+booklist.id+')">'; 
+	html+='        <div class="bookCollectionPic"><img src="'+getBookImgPath(imgPath)+'" /></div>';
+	if(booklist.title.length > 11) {
+		booklist.title = booklist.title.substring(0,11) + '...';
+	}
+	html+='        <h1>'+booklist.title+'</h1>';
+	html+='        <div class="bookCollectWord">';
+	html+='            <strong class="fl">"</strong>';
+	html+='            <p>'+booklist.info+'</p>';
+	html+='            <strong class="fr">"</strong>';
+	html+='        </div>';
+	html+='        <div class="linkGroup"><span class="like like_active"></span>'+booklist.goodNum+'人</div>';
+	html+='    </div>';
+	html+='</li>';
+
+/*
+	html='<li>';
+	html+='	<div class="bookPad" onclick="openBooklistDetail('+booklist.id+')"> ';
+	html+='        <div class="bookCollectionPic"><img src="'+getBookImgPath(imgPath)+'" /></div>';
+	html+='        <h1>'+booklist.title+'</h1>';
+	html+='        <div class="bookCollectWord">';
+	html+='            <strong class="fl">“</strong>';
+	html+='            <p>'+booklist.info+'</p>';
+	//html+='				<p>我们不再是小孩，也许在成长的路上，还遇见了很多坎坷。但我们依旧拥有一颗努力向上的心。我们一路往前，变成最好的自己。我们一路往前，变成最好的自己...。</p>'
+	html+='            <strong class="fr">”</strong>';
+	html+='        </div>';
+	html+='        <div class="linkGroup"><span class="like like_active"></span>'+booklist.goodNum+'人</div>';
+	html+='    </div>';
+	html+='</li>'; 
+	*/
+	$api.html($api.byId("booklist"),html);
+	var text=api.pageParam.no+'/'+api.pageParam.sum;
+	$api.html($api.byId("count"), text);
+	$api.removeCls($api.byId("wrap"), "hidden");
+}
+
+//打开书单详情
+function openBooklistDetail(booklistId){
+	var pageParam={
+		barTitle:"书单详情",
+		frmName:"booklistDetail",
+		frmUrl:"frm_booklistDetail.html",
+		className:"greenBg", 
+		booklistId:booklistId
+	}
+   openCommonWinNew(pageParam);
+}
+</script>
+</html>

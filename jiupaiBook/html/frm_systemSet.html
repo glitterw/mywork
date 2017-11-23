@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>系统设置</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/systemSet.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/user.css"/>
+
+</head>
+<body>
+<div id="wrap" class="flex-wrap flex-vertical">
+	<!--header bgin-->
+    <!--<header class="headLine">
+        <span class="back fl"><img src="../image/back_green.png" /></span>
+        <h1>设置</h1>
+    </header> -->
+	<!--header end--> 
+	<div id="main" class="flex-con main_b mar_tb30">
+		<div class="setUp marB20 bg_fff borderB">
+			<div class="setHei setBorder picture">
+				<span class="fl">推送消息</span>
+				<input type="checkbox" class="aui-switch aui-switch-primary aui-pull-right marT" checked>
+			</div>
+			<div class="setHei setBorder picture" onclick="clearCache();">
+                <i class="fl"></i>
+                <span class="fl on">清除缓存</span>
+                <em class="fr" id="curCacheNum">0 MB</em>
+			</div>
+		</div>
+        
+      <div class="setBottom bg_fff mar_t20">
+         <div class="setHei setBorder" onclick="openCommonWin('关于九派荐书','aubout','frm_about.html')">
+            	<span class="fl">关于我们</span>
+                <i class="morePic fr"><img src="../image/moreIcon.png" ></i>
+          </div>
+          <div class="setHei setBorder hidden">
+          	<span class="fl">应用评分</span>
+              <i class="morePic fr"><img src="../image/moreIcon.png" ></i>
+          </div>
+          <div class="setHei setBorder" onclick="openCommonWin('意见反馈','opinion','frm_opinion.html')">
+            	<span class="fl" >意见反馈</span>
+                <i class="morePic fr"><img src="../image/moreIcon.png" ></i>
+          </div>
+			
+          <div class="setHei setBorder " id="loginOut" >
+            	<input type="button"  class="userSubBtn" value="退出系统"  onclick="loginOut()"/> 
+          </div>
+        </div>
+    </div>
+</div>	
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+	       var userEntity = sessionAgent.getLoginInfo();
+	       if(!sessionAgent.isLogin(userEntity)){
+	       		$api.addCls($api.byId("loginOut"), "hidden");
+	       }
+			api.getCacheSize(function(ret, err) {
+				cacheSize = (parseInt(ret.size) / 1024) / 1024;
+				cacheSize = cacheSize.toFixed(2);
+				$api.byId("curCacheNum").innerText = cacheSize + ' MB';
+			});
+		
+	};
+	function clearCache() {
+		api.showProgress({
+			model : false
+		});
+		api.clearCache(function(ret, err) {
+			$api.text($api.byId("curCacheNum"),"0 MB");
+			$api.rmStorage('img_0');
+			$api.rmStorage('img_1');
+			$api.rmStorage('img_2');
+			api.hideProgress();
+			api.toast({
+				msg : '清除缓存完成',
+				duration : 2000,
+				location : 'middle'
+			});
+		});
+	}	
+	
+</script>
+</html>

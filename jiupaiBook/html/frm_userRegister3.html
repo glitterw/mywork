@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>个人资料</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/user.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/my.css"/>
+	</head>
+	<body>
+		<!--header bgin-->
+		<!--<header class="headLine">
+		<span class="back fl"><img src="../image/back_green.png" /></span>
+		<h1>个人资料</h1>
+		</header>-->
+		<!--header end-->
+		<div class="marAuto">
+			<!--上传头像 beign-->
+			<div  class="myHead" onclick="selectImg(200,200)" ></div>
+			<input type="hidden" id="imgPath" value="" />
+			<!--上传头像 end-->
+			<!--男女-->
+			<div class="genderBox">
+				<div class="gender male" onclick="selectSex(2)" id="sex2">
+					男<img src="../image/iconMale.png" />
+				</div>
+				<div class="gender female" onclick="selectSex(1)" id="sex1">
+					女<img src="../image/iconFemale.png" />
+				</div>
+				<input type="hidden" id="sex" value="2" />
+			</div>
+			<dl class="registerDL">
+				<!--昵称-->
+				<dd>
+					<div class="inputBox">
+						<input type="text" placeholder="昵称" class="userInput" id="nickName"/>
+					</div>
+				</dd>
+				<dt>
+					<input type="button" class="userSubBtn" value="完成"  onclick="register()"/>
+				</dt>
+			</dl>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/checkData.js"></script>
+	<script type="text/javascript" src="../script/user.js"></script>
+	<script type="text/javascript">
+		apiready = function() { 
+		}
+
+		//加载图片
+		function loadImg(sevicePath){ 
+		  var imgTag='<img src="'+ajaxAgent.serverAction+sevicePath+'">';
+		  $api.html($api.dom(".myHead"),imgTag);
+		  $api.val($api.byId("imgPath"), sevicePath); 
+		}
+		//提交注册
+		function register() {
+			var sex =  $api.val($api.byId("sex"));
+			var imgPath = $api.val($api.byId("imgPath")); 
+			var telno = "";
+			if (api.pageParam.telNo)
+				telno = api.pageParam.telNo;
+			else
+				telno = ""; 
+			if (sex != 1 && sex != 2) {
+				toastNetErr("请选择性别！");
+				return false;
+			}
+			var nickName = $api.val($api.byId("nickName"));
+			nickName = $api.trim(nickName);
+			if (isEmpty(nickName)) {
+				toastNetErr('请填写昵称！');
+				return false;
+			}else if(nickName.length>20) {
+				toastNetErr('请输入小于20个字的昵称！');
+				return false; 
+			} else {
+				var actionUrl = ajaxAgent.serverAction;
+				actionUrl += '/jpjs/userinfo/jpjs_register';
+				showProgress();
+				api.ajax({
+					url : actionUrl,
+					method : 'post',
+					timeout : 50,
+					dataType : 'json',
+					returnAll : false,
+					data : {
+						values : {
+							telno : telno,
+							passWord : api.pageParam.password,
+							sex : sex,
+							nickName : nickName,
+							imgPath:imgPath
+						}
+						 
+					}
+				}, function(ret, err) {
+					api.hideProgress(); 
+					if (ret) {
+						if (ret.result == 1) {
+							
+						
+							api.alert({
+								msg : "注册成功！"
+							}, function(ret, err) {
+								api.closeWin("common_userRegister"); 
+							});
+						} else {
+							toastNetErr(ret.msg);
+						}
+					} else {
+						toastNetErr(err.statusCode);
+					}
+				});
+			}
+		}
+	</script>
+</html>

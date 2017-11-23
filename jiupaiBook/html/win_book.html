@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>图书详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bookInfo.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/list.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/leaderboard.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+	<style>
+    	html,body{ background:#f4f4f4;}
+    </style>
+</head>
+<body>
+	<!--header bgin--> 
+    <header class="greenBg">
+    	<div  class="relative">  
+	    	<span class="back fl"  onclick="goBack()"><img src="../image/back_white.png" /></span>
+			<h1>图书详情</h1>
+	        <span class="fr infoCollection mar_r30 mar_t20" onclick="shareBook()"><img src="../image/shareIcon.png" /></span>
+        	<span class="fr infoCollection mar_r20 mar_t20"  id="collect" onclick="collectBook()"><img src="../image/icon_info_collect.png" /></span>	         	        
+        </div>
+        <input type="hidden"  name="isCollect" id="isCollect" value="0"/>
+    </header>
+	<!--header end--> 
+</body> 
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript"> 
+	var y=0;
+	var userEntity;
+	apiready = function() {
+		var header=$api.dom("header");
+		if(header){
+			setStatusBar(header);
+			y=$api.offset(header).h;
+		}
+		userEntity = sessionAgent.getLoginInfo();  
+		isCollect();
+		openFram(y);  
+	}
+
+// 点击分享按钮，弹出分享框
+function shareBook(){
+	//打开分享对话框 
+		api.openFrame({
+		    name: 'shareBox',
+		    url: 'frm_shareBook.html',
+		    rect: {
+		        x: 0,
+		        y: y,
+		        w: 'auto',
+		        h: 'auto'
+		    },
+		    pageParam: {
+		        bookId:api.pageParam.bookId, 
+		    },
+		    bounces: false,
+		    bgColor: 'rgba(0,0,0,0.3)',
+		    vScrollBarEnabled: true,
+		    hScrollBarEnabled: false,
+		    reload: true, 
+		});   	 
+		
+ 
+}
+
+//获取用户是否收藏了图书
+function isCollect(){ 
+		if (sessionAgent.isLogin(userEntity)) {//判断用户是否收藏过此书 
+			var actionUrl=ajaxAgent.serverAction + '/jpjs/userinfo/ifFavBook';
+			var values={
+				userId:userEntity.userId,
+				bookId:api.pageParam.bookId
+			}
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : values
+				}
+			}, function(ret, err) { 
+				if (ret) {
+					if (ret.result== 1) { 
+					 	if(ret.isFavorite==1){
+					 		 $api.html($api.byId("collect"),'<img src="../image/icon_info_collect_active.png" />'); 
+					 		 $api.val($api.byId("isCollect"), 1);
+					 	}else{
+					 		 $api.html($api.byId("collect"),'<img src="../image/icon_info_collect.png" />'); 
+					 		 $api.val($api.byId("isCollect"), 0);					 	
+					 	}
+					 }
+				} 
+			}); 
+		}else{ 
+		 	$api.html($api.byId("collect"),'<img src="../image/icon_info_collect.png" />');
+		 	$api.val($api.byId("isCollect"), 0); 
+		}	
+}
+
+//收藏操作
+function collectBook(){ 
+if (sessionAgent.isLogin(userEntity)) {
+	/*
+	if(userEntity.isVerify==0){
+		toastNetErrBottom("该账号已经被冻结，请联系管理员");
+		return false;
+	}*/
+	  var isCollect=$api.val($api.byId("isCollect")); 
+	  var actionUrl='';
+	  var values=[];
+	  var isFavorite=0;
+	  if(isCollect==1){
+	     isFavorite=0; 
+	  }else{ 
+	     isFavorite=1; 	  
+	  } 
+	  actionUrl=ajaxAgent.serverAction + '/jpjs/userinfo/jpjs_userFavOption';	  
+	  values={
+	 	userId:userEntity.userId,
+	 	bookId:api.pageParam.bookId,
+	 	isFavorite:isFavorite
+	  };
+		api.ajax({
+			url : actionUrl,
+			method : 'post',
+			timeout : 50,
+			dataType : 'json',
+			returnAll : false,
+			data : {
+				values : values
+			}
+		}, function(ret, err) {  
+			if (ret) {
+				if (ret.result== 1) { 
+					if(isFavorite==1){
+				 		 $api.html($api.byId("collect"),'<img src="../image/icon_info_collect_active.png" />'); 
+				 		 $api.val($api.byId("isCollect"), 1);
+			 		 }else{
+				 		 $api.html($api.byId("collect"),'<img src="../image/icon_info_collect.png" />'); 
+				 		 $api.val($api.byId("isCollect"), 0); 
+			 		 }				 	 
+				 }else{ 
+				 	toastNetErrBottom(ret.msg);
+				 }
+			} 
+		}); 	  
+	 
+  }else{ 
+    toastNetErr("请登录后操作！");
+  }
+
+}
+
+	//打开fram
+	function openFram(y) { 
+		api.openFrame({
+			name : 'book',
+			url : 'frm_book.html',
+			rect : {
+				x : 0,
+				y : y,
+				w : 'auto',
+				h : 'auto'
+			},
+			pageParam : {
+				bookId:api.pageParam.bookId	 
+			},
+			bounces : false,
+			delay : 100,
+			reload : true,
+			allowEdit:true
+		});
+	} 
+			
+	//搜索页
+	function search(key){
+
+		api.openWin({
+			name : "common_searchList",
+			url : "win_search.html",
+			bounces : false,
+			vScrollBarEnabled : false,
+			hScrollBarEnabled : false,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam:{
+				frmName:"frm_searchList",
+				frmUrl:"frm_searchList.html",
+			    keyWord:key
+		    }
+		});	 
+	 
+	}
+	
+	
+ 
+</script>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>全民荐书列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+	<style>
+    	html,body{ background:#fff;}
+    </style>
+</head>
+<body>
+	<!--header bgin-->
+    <header>
+        <div  class="relative">    
+	    	<span class="back fl" onclick="goBack()"><img src="../image/back_green.png" /></span>
+			<h1>全民荐书</h1>
+			<span class="fr HeadEdit mar_r30 mar_t20"><img src="../image/rcmdIcon02.png" onclick="publishBook(0)"/></span>		    
+        </div>
+    </header>
+	<!--header end-->
+
+    <!--导航 begin-->
+    <div class="ticketsFilterBox" id="FilterBox">
+        <ul id="twoNav">
+            <!--<li class="active"><span>全部</span></li>
+            <li><span>科技</span></li>
+            <li><span>文学</span></li>
+            <li><span>历史</span></li>
+            <li><span>童书</span></li>-->
+        </ul> 
+    </div>
+		<input type="hidden" id="classId" value="0">
+        <input type="hidden" id="orderBy" value="2">    
+<!--    <div class="twoNavBox scrollMenu" id="FilterBox">
+    	<ul class="twoNav fourNav" id="twoNav">
+            <li class="active">全部</li>
+            <li>科技</li>
+            <li>文学</li>
+            <li>历史</li>
+            <li>童书</li>
+        </ul>
+    </div>
+-->    <!--导航 end--> 
+
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/iscroll.js"></script>
+<script type="text/javascript" src="../script/classScroll.js"></script>	
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/user.js"></script>
+<script type="text/javascript"> 
+	var y=0;
+	apiready = function() {
+		var header=$api.dom("header"); 
+		if(header){
+			setStatusBar(header);
+			y=$api.offset(header).h;
+		}
+		var bar=$api.byId("FilterBox");
+		if(bar){
+			y=y+$api.offset(bar).h;
+		} 
+		openFram(2);
+		classList(); 
+	}
+	
+	function openFram(orderBy) { 
+	    var classId=$api.val($api.byId("classId")); 
+		api.openFrame({
+			name : "recommendList",
+			url : "frm_recommendList.html",
+			rect : {
+				x : 0,
+				y : y,
+				w : 'auto',
+				h : 'auto'
+			},
+			bounces : false,
+			delay : 100,
+			reload : true,
+			allowEdit:true,
+			pageParam : {
+				classId : classId,
+				orderBy : orderBy,
+				frmY:y
+			}
+		});
+	}	
+
+ 
+</script>
+</html>

@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header" class="header-box index">
+            <!--红色头部 开始-->
+            <header class="index-header ">
+                <span class="change-city " id="cityName">武汉</span>
+            </header>
+            <!--红色头部 结束-->
+            <!-- 我要投资头部  开始-->
+            <header class="invest-header border-bottom">
+                <span class="title">我要投资</span>
+                <span class="confirm"><input type="button" value="确定" id="submit-invest"></span>
+            </header>
+            <!-- 我要投资头部  结束-->
+        </div>
+        <div id="main">
+
+        </div>
+        <div id="footer">
+            <footer class="index-footer  flex-box">
+                <div class="flex-item news active" index='0'>
+                    <span>
+                    <!-- <i id="test">业务新闻</i> -->
+                    <i id="test">政务信息</i>
+                </span>
+                </div>
+                <div class="flex-item market" index='1'>
+                    <span>
+                    <!-- <i>信息查询</i> -->
+                    <i>企业信息</i>
+                </span>
+                </div>
+                <!-- <div class="flex-item fund" index='2'>
+                    <span>
+                    <i>数据分析</i>
+                </span>
+                </div> -->
+                <!-- <div class="flex-item post-box"       index='3'>
+                <span>
+                    <i>我要投资</i>
+                </span>
+            </div> -->
+            </footer>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+
+        keyBack();
+        //获取当前的城市
+        initCityType();
+
+        //状态栏字体为白色，适用于深色背景
+        var header = $api.dom(".header-box"); //$api.byId('header');
+        //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+        $api.fixStatusBar(header);
+        api.setStatusBarStyle({
+            style: 'light'
+        });
+        //动态计算header的高度，因iOS7+和Android4.4+上支持沉浸式效果，
+        //因此header的实际高度可能为css样式中声明的44px加上设备状态栏高度
+        //其中，IOS状态栏高度为20px，Android为25px
+        var headerH = $api.offset(header).h;
+        //footer高度为css样式中声明的30px
+        var footerH = $api.offset($api.byId('footer')).h;
+        //frame的高度为当前window高度减去header和footer的高度
+        //console.log("footerh:"+footerH);
+        var frameH = api.winHeight - headerH - footerH;
+        var frames = [{
+                name: 'news',
+                url: 'frm-news.html',
+                bgColor: '#fff'
+            }, {
+                name: 'market',
+                url: 'frm-market.html',
+                bgColor: '#fff'
+            }
+            // , {
+            //     name: 'fund',
+            //     url: 'frm-fund.html',
+            //     bgColor: '#fff'
+            // }
+        ];
+        //初始化
+        funIniGroup(headerH, frameH);
+        //底部tab绑定点击事件
+        footerSwitch();
+        //openLeftWin();
+
+        //updateCity("测试3");
+        //submitInvest();
+
+    };
+
+
+    //初始化城市类型
+    function initCityType() {
+        var userCity = getPrefs("userCity");
+        if (userCity != null && userCity != "") {
+            var obj = JSON.parse(userCity);
+            $api.text($api.byId('cityName'), obj.cityName);
+            setPrefs("cityType", obj.cityType);
+        } else {
+            setPrefs("cityType", 0); //默认为全部城市
+        }
+
+    }
+    //打开侧边滑动窗
+    function openLeftWin() {
+        $api.addEvt($api.byId('cityName'), 'click', function() {
+            api.openDrawerPane({
+                type: 'left'
+            });
+
+        });
+
+    }
+
+    //创建framegroup
+    function createFrameGroup(frmY, frmH) {
+        var frames = [];
+        frames.push({
+            name: 'news',
+            url: 'frm-news.html',
+            bounces: false,
+            allowEdit: true,
+            pageParam: {
+                frmY: frmY,
+                frmH: frmH
+            }
+        });
+        frames.push({
+            name: 'search',
+            url: 'frm-search.html',
+            bounces: true,
+            pageParam: {
+                frmY: frmY,
+                frmH: frmH
+            }
+        });
+
+        return frames;
+    }
+    //初始化页面
+    function funIniGroup(frmY, frmH) {
+        var frames = createFrameGroup(frmY, frmH);
+        api.openFrameGroup({
+            name: 'index-group',
+            scrollEnabled: false, //true,
+            rect: {
+                x: 0,
+                y: frmY,
+                w: 'auto',
+                h: frmH
+            },
+            index: 0,
+            preload: 0,
+            frames: frames
+        }, function(ret, err) {
+
+        });
+    }
+    // 随意切换按钮
+    function footerSwitch() {
+        var listDoms = $api.domAll('.index-footer>div');
+          console.log(listDoms.length);
+        for (var i = 0; i < listDoms.length; i++) {
+            $api.addEvt(listDoms[i], 'click', function() { 
+                if ($api.dom('.index-footer>.active')) {
+                    $api.removeCls($api.dom('.index-footer>.active'), 'active');
+                }
+                $api.addCls(this, 'active');
+                //切换frameGroup
+                var index = $api.attr(this, 'index');
+                api.closeFrameGroup({
+                    name: 'search-list-group'
+                });
+                api.closeFrame({
+                    name: 'newsall'
+                });
+
+
+                api.setFrameGroupIndex({
+                    name: 'index-group',
+                    index: index,
+                    reload: true,
+                });
+
+            });
+        }
+
+    }
+
+    function changeHeader(index) {
+        if (index == 3) { //我要投资，更换头部
+            //invest-header
+            if ($api.dom('.header-box')) {
+                $api.removeCls($api.dom('.header-box'), 'index');
+            }
+            $api.addCls($api.dom('.header-box'), 'invest'); //index-header
+
+        } else {
+            if ($api.dom('.header-box')) {
+                $api.removeCls($api.dom('.header-box'), 'invest');
+            }
+            $api.addCls($api.dom('.header-box'), 'index'); //index-header
+        }
+
+        if (index == 0) {
+            cityShow();
+        } else {
+            cityHidden();
+        }
+    }
+
+
+    //修改城市
+    function updateCity(cityName) {
+        var cityNameOld = $api.text($api.byId('cityName'));
+        if (cityNameOld != cityName) {
+            $api.text($api.byId('cityName'), cityName);
+            var cityType = 1;
+            if (cityName == "武汉") {
+                cityType = 1;
+            } else if (cityName == "长沙") {
+                cityType = 2;
+            } else if (cityName == "合肥") {
+                cityType = 3;
+            } else if (cityName == "南昌") {
+                cityType = 4;
+            } else {
+                cityType =1;
+            }
+            setPrefs("cityType", cityType);
+            api.setFrameGroupIndex({
+                name: 'index-group',
+                index: 0,
+                reload: true,
+            });
+
+            //重新加载首页
+            // api.setFrameGroupIndex({
+            //           name : 'index-group',
+            //           index : 0,
+            //           reload:true,
+            // 	});
+
+            // api.setFrameGroupIndex({
+            //     name: 'list-group',
+            //     index: 0,
+            //     reload: true,
+            // });
+
+        } else {
+            console.log("没有变化");
+        }
+        $api.removeCls($api.byId('cityName'), 'active');
+
+    }
+
+    //点击提交填写的投资表单
+    function submitInvest() {
+        $api.addEvt($api.byId("submit-invest"), 'click', function() {
+            var jsfun = 'submitCheck();';
+            api.execScript({
+                name: 'myIndex',
+                frameName: 'post-box',
+                script: jsfun
+            });
+
+        });
+
+    }
+    //修改按钮的属性
+    function disabledButton(disabledVal) {
+        $api.attr($api.byId("submit-invest"), "disabled", disabledVal);
+    }
+
+    //隐藏城市切换选择区域
+    function cityHidden() {
+        $api.addCls($api.dom(".change-city"), 'hidden');
+    }
+    //展示城市切换选择区域
+    function cityShow() {
+        if ($api.dom(".change-city.hidden")) {
+            $api.removeCls($api.dom(".change-city.hidden"), 'hidden');
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>我的-已登陆</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/my.css"/>
+	</head>
+	<body>
+		<!--header bgin-->
+		<!--<header class="greenBg">
+			<div class="relative">
+				<h1>我的</h1>
+				<span class="mySet" onclick="openCommonWin('系统设置','systemSet','frm_systemSet.html')" ><img src="../image/icon_mySet.png" /></span>			
+			</div>			
+		</header>-->
+		<!--header end-->
+		<!--我的头像 begin-->
+		<div class="myTopBox greenBg " >
+			<div class="myHead"   id="myHead" onclick="openWinLogin()"></div>
+			<div class="myNameBox" id="myNameBox">
+				<p class="loginBtn"  onclick="openWinLogin()"></p>
+				<!--<p class="myName">王小萌<img src="../image/iconMale_white.png" /></p>-->
+			</div>
+		</div>
+		<!--我的头像 end-->
+		<!--我的列表 begin-->
+		<div class="myListBox mar_tb30 bgfff">
+			<ul class="myListUL">
+				<li>
+					<h1 onclick=" openMyData(1)">我的收藏</h1>
+				</li>
+				<li>
+					<h1 onclick="openMyData(2)">我的推荐</h1>
+				</li>
+				<li>
+					<h1 onclick="openMyData(3)">我的足迹</h1>
+				</li>
+				<li id="message">
+                    <h1 onclick="openMyData(4)" id="myMsg">我的消息</h1>
+                    <p class="messageNum hidden" id="messageNum"></p>
+                </li>	
+			</ul>
+		</div>
+		<!--我的列表 end-->
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/sessions.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/user.js"></script>
+	<script type="text/javascript" src="../script/event.js"></script>
+	<script>
+		var userEntity;
+		var userId;
+		var frmY;
+		var newMsgNum = 0; //新消息数默认为0
+		var newMsgNumComment = 0; //默认评论消息0
+		var newMsgNumSystem = 0;  //默认系统通知0
+//		var frmType = 0;
+		
+		apiready = function() { 
+		 
+			frmY = api.pageParam.frmY;			
+			updateUserInfo();
+			userEntity = sessionAgent.getLoginInfo();
+			//获取用户的合法性，重新session
+			reLoadUserEntity(userEntity); 
+		};
+		
+		//获得新消息数量		
+		function getNewMsgNum() {	
+			
+			userId = userEntity.userId;
+			if(sessionAgent.isLogin(userEntity)) { 
+				var actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/queryNotRead';
+				api.ajax({
+	                url: actionUrl,
+	                method: 'post',
+	                timeout: 50,
+	                dataType: 'json',
+	                returnAll: false,
+	                data: {
+	                	values: {userId: userId} 
+	                }        
+                }, function(ret, err) {
+                	if(ret) {
+                		if(ret.result == 1) { 
+                			newMsgNum = ret.newMsgNum;
+                			newMsgNumComment = ret.newMsgNumComment;
+                			newMsgNumSystem = ret.newMsgNumSystem;
+                			if(newMsgNum > 0) {   //有新消息时,给样式,填消息数字
+//              				message(newMsgNum);
+								message(newMsgNum,newMsgNumComment,newMsgNumSystem);		
+							} 
+                		} else {
+                			toastNetErrBottom(ret.msg);
+                		}
+                	} else {
+                		if(err.statusCode == 0) {
+                			sendIndexNetError(frmY,api.pageParam.frmH);
+				     		api.hideProgress();  
+							toastNetErrBottom('网络异常,请稍后再试哦!'); 
+                		} else {
+                			toastNetErrBottom('服务请求失败!');
+                		}
+                	}
+                });	
+			}
+		}
+		
+
+		//app里显示     消息数 和 样式	 |这个不需要改|
+		function message(newMessageNum,newMsgNumC,newMsgNumS) {
+//		function message(newMessageNum) {
+			var myMsg = $api.byId('myMsg');
+			var messageNum = $api.byId('messageNum');
+			newMsgNumComment = newMsgNumC;  //作用于消息页面某type被读完，存数据。便于再点击"我的消息"去跳转frmType.
+            newMsgNumSystem = newMsgNumS;   //其他页面读后更新这俩参数，给win_myMessage打开frm用
+			if(newMessageNum > 0 && newMessageNum < 100){//当前新消息数量(其他页面读了)  	
+				$api.css(myMsg, 'background:none;');
+				$api.text(messageNum, newMessageNum);
+				$api.removeCls(messageNum, 'hidden');
+				api.execScript({   //执行红点显隐
+					 name: 'root',
+		             script: 'dotted();'
+		        });		
+			} else if(newMessageNum >= 100) {
+				$api.css(myMsg, 'background:none;');
+				$api.text(messageNum, '99+');
+				$api.removeCls(messageNum, 'hidden');
+				api.execScript({   //执行红点显隐
+					 name: 'root',
+		             script: 'dotted();'
+		        });		
+			} else { //目前新消息数量<=0 
+				$api.html($api.byId('message'),'<h1 onclick="openMyData(4)" id="myMsg">我的消息</h1><p class="messageNum hidden" id="messageNum"></p>'); 
+				api.execScript({   //执行红点显隐
+					 name: 'root',
+		             script: 'killDot();'
+		        });
+			} 
+		}
+				
+		//修改用户信息
+		function updateUserInfo() {
+			userEntity = sessionAgent.getLoginInfo();
+			if(userEntity.isVerify==0){
+				toastNetErrBottom("该账号已经被冻结，请联系管理员");
+				return false;
+			}
+			if (sessionAgent.isLogin(userEntity)) {
+				var myHead = $api.dom(".myHead");
+				if (myHead) { 
+					var img = '<img src="' + ajaxAgent.serverAction + userEntity.iconPath + '"  onclick="editInfo()"/>';
+					$api.html(myHead, img); 
+					$api.removeAttr(myHead, 'onclick');
+				}
+				var myNameBox = $api.dom(".myNameBox");
+				if (myNameBox) {
+					var nameHtml = '<p class="myName" onclick="editInfo()">' + userEntity.nickName;
+					if (userEntity.sex == 1)
+						nameHtml = nameHtml + '<img src="../image/iconFemale.png" /></p>';
+					else if (userEntity.sex == 2)
+						nameHtml = nameHtml + '<img src="../image/iconMale.png" /></p>';
+					$api.html(myNameBox, nameHtml);
+				}
+				getNewMsgNum();//
+				api.parseTapmode();
+				
+			} else {
+				cleanUserInfo();
+				//退出系统时调用updateUserInfo
+				$api.html($api.byId('message'),'<h1 onclick="openMyData(4)" id="myMsg">我的消息</h1><p class="messageNum hidden" id="messageNum"></p>'); 
+				api.execScript({   //执行红点显隐
+					 name: 'root',
+		             script: 'killDot();'
+		        });
+			}
+			//$api.removeCls($api.dom("body"), "hidden");
+		}
+
+		//打开我的数据
+		function openMyData(type) {
+			userEntity = sessionAgent.getLoginInfo();//重新获取 
+			if(userEntity.isVerify==0){
+				toastNetErrBottom("该账号已经被冻结，请联系管理员");
+				return false;
+			}
+			if (sessionAgent.isLogin(userEntity)) {
+				if (type == 1) {
+					openWin('myFavorite', 'win_myFavorite.html');
+				} else if (type == 2) {
+					openWin('myRecommend', 'win_myRecommend.html');
+				} else if (type == 3) {
+					openCommonWin('我的足迹', 'myFootmark', 'frm_myFootmark.html');
+				} else if (type == 4) {
+					//判断打开哪个frame
+					var frmType = 0;
+					if(newMsgNumComment == 0 && newMsgNumSystem > 0) {
+						frmType = 1;
+					} else {
+						frmType = 0;
+					}
+
+//					api.alert({ msg: '执行'});
+					openWin('myMessage', 'win_myMessage.html');
+					api.addEventListener({
+                        name:'viewdisappear'
+                    },function(ret,err){//离开当前window后去执行
+						api.execScript({ 
+							name: 'myMessage',
+		                    script: 'selectTab('+frmType+');' 
+	                    });
+                    });										
+				}
+			} else {
+				//toastNetErr("请登录后操作！");
+				openWinLogin();
+			}
+		}
+
+		//清除用户信息
+		function cleanUserInfo() {
+			$api.html($api.dom(".myHead"), '');
+			//给默认头像添加点击事件
+			$api.attr($api.dom(".myHead"), 'onclick','openWinLogin()');
+			$api.html($api.dom(".myNameBox"), '<p class="loginBtn" onclick="openWinLogin()" >点击登录</p>');
+			api.parseTapmode();
+		}
+
+		//编辑资料
+		function editInfo() {  
+			openCommonWin('个人资料', 'userEditInfo', 'frm_userEditInfo.html')
+		}
+	</script>
+</html>

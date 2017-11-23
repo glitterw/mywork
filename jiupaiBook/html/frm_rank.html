@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>排行榜</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/leaderboard.css"/>
+</head>
+<body> 
+    <!--列表 begin-->
+    <div class="bgfff">
+        <div class="marLeft">
+            <div class="leaderboardList">
+            	<ul class="rankingUL" id="list"> 
+                <!--<li>  
+                        <h1>暂无数据！</h1> 
+                    </li>
+
+                	<li>
+                    	<em><img src="../image/other/iconPaihang.png"/></em>
+                        <h1><span>纽约时报中文网年度中文书推荐</span><img src="../image/fireIcon.png" class="fire marAuto" /></h1>
+                        <span class="morePic"><img src="../image/moreIcon.png" /></span>
+                    </li>
+
+                	<li>
+                    	<em><img src="../image/other/iconPaihang.png"/></em>
+                        <h1>凤凰网好书榜</h1>
+                        <span class="morePic"><img src="../image/moreIcon.png" /></span>
+                    </li>-->
+                </ul>
+            </div> 
+        </div> 
+    </div>
+    <!--列表 end-->
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script> 
+<script type="text/javascript" src="../script/rank.js"></script>
+<script type="text/javascript" src="../script/event.js"></script> 
+<script type="text/javascript">  
+	var page=1;
+	var pageNum=10;
+	var totalNum=0;
+	var rankType;
+	apiready = function() {  
+		rankType=getPrefs('rankType'); 
+		setRefreshHeader();
+		api.addEventListener({
+			name : 'scrolltobottom'
+		}, function(ret, err) { 
+			var sumNum = page * pageNum; 
+			if (sumNum >= totalNum) { 
+				var msg = '暂无数据...';
+				if (totalNum == 0)
+					msg = '暂无数据...';
+				else
+					msg = '已经到底了...';
+				api.toast({
+					msg : msg,
+					duration : 3000,
+					location : "bottom"
+				});
+			} else {
+				page++;
+				getList(rankType);
+				//api.parseTapmode();
+			}
+		}); 
+ 		getList(rankType); 
+ }
+
+//头部刷新
+function setRefreshHeader() {
+   
+	api.setRefreshHeaderInfo({
+		visible : true,
+		bgColor : '#ccc',
+		textColor : '#fff',
+		textDown : '下拉刷新...',
+		textUp : '松开刷新...',
+		showTime : true
+	}, function(ret, err) { 
+	    page=1;
+		getList(rankType);
+		api.refreshHeaderLoadDone();
+	});
+}
+	
+ 
+	//获取一级榜单
+	function getList(rankType) {  
+		 var actionUrl = ajaxAgent.serverAction + '/jpjs/playlist/jpjs_playlistOne';
+		 var values={
+			 page:page,
+			 pageNum:pageNum,
+			 type:rankType
+		 }  
+		showProgress(); 
+		api.ajax({
+			url : actionUrl,
+			method : 'post',
+			timeout : 50,
+			dataType : 'json',
+			returnAll : false,
+			data : {
+				values : values
+			}
+		}, function(ret, err) { 
+			if (ret) {
+				if (ret.result == 1) { 
+				   makelist(ret);
+				   api.parseTapmode();
+				   api.hideProgress();  
+				   return true; 
+				} else { 
+					toastNetErrBottom(ret.msg);
+				}
+			} else {
+			    //发送网络监听
+			    sendIndexNetError(api.pageParam.frmY,api.pageParam.frmH);
+			    api.hideProgress();  
+			    toastNetErrBottom("网络异常,请稍后再试！"); 
+	 
+			} 
+			
+		});
+	} 
+	//制作模板
+	function makelist(ret) {
+	 	var html = ''; 
+		if(ret.totalNum) totalNum=ret.totalNum; 
+		 
+		if(totalNum==0){//暂无数据
+			html='<li>';  
+			html+='    <h1>暂无数据！</h1>'; 
+			html+='</li>';	
+		}else if(ret.list){ 
+			for(var i=0;i<ret.list.length;i++){
+				var obj=ret.list[i];
+				var imgPath= ajaxAgent.serverAction+"/"+obj.img_path; 
+				var func="openRankList("+obj.id+",'"+obj.rankName+"',0,'','')";
+				html+='<li onClick="'+func+'"> ';
+				html+='	<em><img src="'+imgPath+'"/></em>';
+				html+='    <h1><span>'+obj.rankName+'</span>';
+				if(obj.hot==1)html+='<img src="../image/fireIcon.png" class="fire marAuto" />';
+				html+='</h1>';
+				html+='    <span class="morePic"><img src="../image/moreIcon.png" /></span>';
+				html+='</li>';
+			} 
+		} 
+		if(page==1){$api.html($api.byId("list"), html);
+		}else{
+		  $api.append($api.byId("list"), html);
+		}
+		api.parseTapmode();
+	}
+	
+
+	
+ 
+</script> 
+</html>

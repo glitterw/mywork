@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>荐书详情-回复-发送</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+</head>
+<body>
+ 
+    
+    <!--荐书详情 begin-->   
+    <div class="bgfff linedc" id="info">
+      <div class="rcmdDetailsList marLeft">
+            <!--<div class="rcmdGroupTit linedc">
+                <h1>三国机密之见龙卸甲</h1>
+                <span class="morePic"><img src="../image/moreIcon.png" /></span>
+            </div>
+            
+            <div class="rcmdGroup">
+                <div class="rcmdHead">
+                    <div class="rcmdHeadBox">
+                        <em class="headPic"><img src="../image/headPic.png" /></em>
+                        <p>糖糖</p>
+                    </div>
+                    <span>2016-6-15</span>
+                </div>
+                <div class="rcmdBubbleBox">1587年的历史事件也是以后掀起波澜的机缘。换一个视角来解读历史1587年的历史事件也是以后掀起波澜的机缘。换一个视角史。</div>
+                <div class="rcmdReview">
+                    <div class="reviews reviews_active fr">1000</div>
+                    <div class="like like_active fr mar_r20">99</div>
+                </div>
+            </div>-->
+             
+        </div>
+    
+    </div>
+    <!--荐书详情 end-->  
+    
+    <!--评论回复列表 begin--> 
+    <div class="mar_tb30 bgfff replyBox hidden" id="replyList">
+    	<div class="marLeft">
+        	<h1 class="reviwTit">评论回复</h1>
+            <!--list begin-->
+          <ul class="replyBoxUL" id="list">
+        	 <!--<li>
+                   <div class="rcmdHead">
+                        <div class="rcmdHeadBox"> 
+                            <p>暂无评论！</p>
+                        </div> 
+                    </div>
+                </li> 
+            	<li>
+                    <div class="rcmdHead">
+                        <div class="rcmdHeadBox">
+                            <em class="headPic"></em>
+                            <p>糖糖</p>
+                        </div>
+                        <span>2016-6-15</span>
+                    </div>
+                    <div class="replyCont"></div>
+                </li> -->
+            </ul>
+            <!--list end-->
+        </div>
+    </div>
+    <!--评论回复列表 end--> 
+	<!--写回复 begin-->
+ <div class="whriteReplyBox" id="footer">
+        <div class="whriteReplyBox02 fl">
+            <textarea placeholder="写回复"   oninput="updateHeight(this,200,'回复内容请控制在200个字已内!')"  class="replyarea fl"  id="txtBox" contenteditable="true"    ></textarea>
+        </div>
+        <div class="sendBtn fr" onclick="saveReply()">发送</div>
+   </div>
+
+    <!--写回复 end-->
+ 
+</body> 
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script> 
+<script type="text/javascript" src="../script/book.js"></script> 
+<script type="text/javascript" src="../script/sessions.js"></script> 
+<script type="text/javascript" src="../script/checkData.js"></script> 
+<script type="text/javascript"> 
+var page=1;
+var pageNum=10;
+var totalNum=0;
+var userEntity ;
+apiready = function() {  
+	userEntity = sessionAgent.getLoginInfo();
+	getDetail();
+	beginLoad();  
+}
+ 
+//获取荐书详情
+function getDetail(){
+	 var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_bookRecDetails';
+	 var values={ 
+		 recommendId:api.pageParam.recommendId, 
+	 }
+	 
+	showProgress(); 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {  
+		api.hideProgress();  
+		if (ret) { 
+		//alertInfo(ret);
+			if (ret.result == 1) {//操作成功，修改图标状态
+			   var book=ret.book;
+			   var user=ret.user;
+			   var recommend=ret.recommend;
+			   var userImg='';
+			   if(user.iconPath && user.iconPath!=''){
+					userImg='<img src="'+ajaxAgent.serverAction +user.iconPath+'" />'; 
+				} 
+			   var html='';
+				html+='<div class="rcmdDetailsList marLeft">';
+				html+='    <div class="rcmdGroupTit linedc" onClick="openBookDetail('+book.id+')">';
+				html+='        <h1>'+book.bookName+'</h1>';
+				html+='        <span class="morePic"><img src="../image/moreIcon.png" /></span>';
+				html+='    </div> ';
+				html+='    <div class="rcmdGroup">';
+				html+='        <div class="rcmdHead">';
+				html+='            <div class="rcmdHeadBox">';
+				html+='                <em class="headPic">'+userImg+'</em>';
+				html+='                <p>'+user.nickName+'</p>';
+				html+='            </div>';
+				html+='            <span>'+recommend.addtime+'</span>';
+				html+='        </div>';
+				html+='        <div class="rcmdBubbleBox">'+recommend.content+'</div>';
+				html+='        <div class="rcmdReview">';
+				html+='            <div class="reviews reviews_active fr" id="commentNum">'+recommend.commentNum+'</div>';
+				html+='            <div class="like like_active fr mar_r20" id="goodNum">'+recommend.goodNum+'</div>';
+				html+='        </div>';
+				html+='    </div> ';
+				html+='</div>'; 
+			    $api.html($api.byId("info"),html); 
+			    //$api.removeCls($api.byId("info"), 'hidden');
+			   
+			   return true; 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		} else { 
+ 			toastNetErr('网络连接错误！');
+		} 
+		
+	});
+}
+
+
+//修改点赞数
+function updateGoodNum(isGood){
+	var obj=$api.byId("goodNum");
+ 	var thisGoodNum=parseInt($api.text(obj)); 
+	if(isGood==0){//取消点赞 
+		$api.text(obj, thisGoodNum-1);  
+	}else{//点赞   
+		$api.text(obj, thisGoodNum+1);	
+	}  	
+}
+
+
+//修改评论数
+function updateCommentNum(){
+	var obj=$api.byId("commentNum");
+ 	var thisCommentNum=parseInt($api.text(obj));  
+	$api.text(obj, thisCommentNum+1); 
+}
+
+function getList() { 
+	 var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_bookRecReply';
+	 var values={
+		 page:page,
+		 pageNum:pageNum,
+		 recommendId:api.pageParam.recommendId, 
+	 }  
+	 getListContent(actionUrl,values); 
+}
+
+//制作模板
+function makelist(ret) {   
+	var html='';
+	if(ret.totalNum) totalNum=ret.totalNum; 
+	if(page==1 && totalNum==0){//暂无数据
+		html+='<li id="nothing">';
+		html+='    <div class="rcmdHead">';
+		html+='        <div class="rcmdHeadBox"> ';
+		html+='            <p>暂无评论！</p>';
+		html+='        </div> ';
+		html+='    </div>';
+		html+='</li>'; 
+	}else if(ret.list){ 
+		html=''; 
+		for (var i = 0; i < ret.list.length; i++) { 
+			var user=ret.list[i].user;//推荐人对象
+			var reply=ret.list[i].reply;//荐书对象
+			var userImg='';
+			if(user.iconPath && user.iconPath!=''){
+				userImg='<img src="'+ajaxAgent.serverAction +user.iconPath+'" />'; 
+			} 
+			html+='<li>';
+			html+='    <div class="rcmdHead">';
+			html+='        <div class="rcmdHeadBox">';
+			html+='            <em class="headPic">'+userImg+'</em>';
+			html+='            <p>'+user.nickName+'</p>';
+			html+='        </div>';
+			html+='        <span>'+reply.addtime+'</span>';
+			html+='    </div>';
+			html+='    <div class="replyCont">'+reply.content+'</div>';
+			html+='</li> ';
+		} 
+	} 
+	if (page == 1) {
+		$api.html($api.byId("list"), html);
+		$api.removeCls($api.byId("replyList"), 'hidden');
+	} else {
+		$api.append($api.byId("list"), html);
+	} 
+	api.parseTapmode();
+}
+
+/* 
+//打开推荐详情
+function openDetail(recommendId){ 
+  	api.openWin({
+		name : "recommendDetail",
+		url : "win_recommendDetail.html",
+		bounces : false,
+		vScrollBarEnabled : false,
+		hScrollBarEnabled : false,
+		animation : {
+			type : "push", //动画类型（详见动画类型常量）
+			subType : "from_right", //动画子类型（详见动画子类型常量）
+			duration : 300 //动画过渡时间，默认300毫秒
+		},
+		pageParam :{
+			recommendId:recommendId,
+			bookId:api.pageParam.bookId 
+		}
+	});		
+
+}
+*/
+//保存回复
+function saveReply(){
+  if (sessionAgent.isLogin(userEntity)) {//登录后评论
+	/*
+	if(userEntity.isVerify==0){
+		toastNetErrBottom("该账号已经被冻结，请联系管理员");
+		return false;
+    }*/	
+    var content=$api.val($api.byId("txtBox"));
+    if(isEmpty(content)){
+    	toastNetErr("请输入回复内容！");
+    	return false;
+    }else {
+    	if(content.length>200){
+	     toastNetErr("回复内容请控制在200个字以内!"); 
+	  	 return false;  
+	  	}
+    
+    }
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_recReply';
+	var values={
+		 userId:userEntity.userId,
+		 recommendId:api.pageParam.recommendId,
+		 content:content,
+	} 
+	showProgress(); 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+		api.hideProgress();  
+		if (ret) { 
+			if (ret.result == 1) {//操作成功，修改图标状态 
+			   $api.val($api.byId("txtBox"),"");
+			   updateCommentNum();//修改回复数
+			   toastNetErr('成功发送！'); 
+			   if(ret.user){ 
+					var user=ret.user;//推荐人对象
+					var reply=ret.reply;//荐书对象
+					var userImg='';
+					if(user.iconPath && user.iconPath!=''){
+						userImg='<img src="'+ajaxAgent.serverAction +user.iconPath+'" />'; 
+					} 
+					var html='';
+					html='<li>';
+					html+='    <div class="rcmdHead">';
+					html+='        <div class="rcmdHeadBox">';
+					html+='            <em class="headPic">'+userImg+'</em>';
+					html+='            <p>'+user.nickName+'</p>';
+					html+='        </div>';
+					html+='        <span>'+reply.addtime+'</span>';
+					html+='    </div>';
+					html+='    <div class="replyCont">'+reply.content+'</div>';
+					html+='</li> ';			   
+			   		
+			   		//
+			   		if($api.byId("nothing")){
+			   			$api.remove($api.byId("nothing"));
+			   		}
+			   		//添加到第一条
+			   		$api.prepend($api.byId("list"), html);
+			   		api.parseTapmode();
+			   } 
+			   return true; 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		} else { 
+ 			toastNetErr('网络连接错误！');
+		} 
+		
+	});	
+  }else{
+    toastNetErr('请登录后操作！');
+  } 		
+
+}
+
+</script>
+</html>

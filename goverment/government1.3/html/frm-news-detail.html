@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>新闻详情页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+
+    	}
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="detail-box  hidden" id="box">
+         <h5 id="title">市局消保局受邀参加消费维权座谈会</h5>
+         <p class="other"><span id="unit-name">长沙市工商局</span> <span id="publish-date">2016-12-22</span> </p>
+         <img src="../image/m-img/detail-pic.jpg" class="detail-img " id="pigImgs">
+         <div id="content" class="info">
+
+         <!--<p align="left" class="MsoListParagraph" style="text-align: left;">'
+           <span>为推进全省工商和市场监管工作会议精神的落实，</span><span lang="EN-US">5</span><span>月<span lang="EN-US">16</span>日，省工商局党组成员、副局长阳芳华带队省工商局办公室、商标处、广告处、企业注册局、消保处有关负责同志，</span><span>赴长沙开展专项督查</span><span>。</span></p>
+           <p align="left" class="MsoListParagraph" style="text-align: left;"><span>当天上午，芳华同志一行来到市工商局机关，听取了长沙市局党组书记、局长卓精华有关商事制度改革、市场监管执法、<span lang="EN-US">12315</span>体系建设、系统自身建设等方面的工作情况和目前长沙工商工作中存在的问题以及下段工作安排的汇报。芳华同志高度评价长沙工商工作，指出，今年来，长沙工商贯彻落实省局和市委、市政府的部署和要求，脚踏实地，改革创新，工作呈现四个方面的特点：一是紧扣重点抓落实，二是联系实际抓落实，三是改革创新抓落实，四是强化保障抓落实。对下阶段工作，他强调指出，要强化责任担当，切实强化市场监管执法的力度；要深化改革创新，探索工商工作发展的新方式、新经验；要站在讲政治的高度，全面加强十九大期间广告监管工作。</span></p>
+           <p align="left" class="MsoNormal"><span>下午，在市局谢朝晖副局长的陪同下，芳华同志一行先后走进雷锋工商所和雷锋精神公益广告基地。在雷锋工商所，督察组听取了高新分局、雷锋工商所的工作情况汇报，芳华同志对工商所年报工作、“僵尸”市场主体情况、执法办案情况进行了询问了解。他指出，雷锋工商所各项基础工作扎实，队伍管理和作风建设上了新台阶；高新分局在商事制度改革工作中走在前列，为全省商事制度改革树立了标杆；要继续发扬雷锋精神和改革创新精神，做好工商工作。他强调，基层工商部门要认真履职，落实市场监管职责，加大执法监管力度。</span></p><p><span></span><span></span></p><p align="left" class="MsoNormal"><span>在雷锋精神公益广告基地，督查组观看了雷锋精神公益广告优秀作品，听取了雷锋精神公益广告基地建设有关情况汇报。芳华同志充分肯定雷锋精神公益广告基地建设“定位高、建设快、作品优”，并殷切希望基地尽快完善场地建设，大力开展雷锋精神公益广告推介，建立常态化的雷锋精神公益广告研究、征集、发布、培训机制，积极做好第<span lang="EN-US">24</span>届中国国际广告节等会议的有关筹备工作。</span>
+         </p>-->
+        <!--<p>
+             由本局立案调查的“长沙嘉熙润滑油有限公司”等324户公司成立后无正当理由超过六个月未开业的，或者开业后自行停业连续六个月以上的
+             由本局立案调查的“长沙嘉熙润滑油有限公司”等324户公司成立后无正当理由超过六个月未开业的，或者开业后自行停业连续六个月以上的
+
+         </p>-->
+         <!--<img src="../image/m-img/detail-pic.jpg">-->
+      <!--  <p>
+            由本局立案调查的“长沙嘉熙润滑油有限公司”等324户公司成立后无正当理由超过六个月未开业的，或者开业后自行停业连续六个月以上的
+        </p>
+        <p>
+            由本局立案调查的“长沙嘉熙润滑油有限公司”等324户公司成立后无正当理由超过六个月未开业的，或者开业后自行停业连续六个月以上的
+        </p>-->
+         </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		getNewsInfo();
+	};
+
+//获取详情
+ function getNewsInfo() {
+	 var actionUrl = ajaxAgent.serverAction + '/messageInfo/messageDetail/json';
+	 var webName="newsInfo";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 newsId:api.pageParam.newsId,
+		 newsType:api.pageParam.newsType
+	 }
+	 //console.log('actionUrl:'+JSON.stringify(actionUrl));
+	 //console.log('detail:'+JSON.stringify(values));
+	 showProgress();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+
+	     //console.log('detail_result:'+JSON.stringify(ret));
+		if (ret) {
+			if (ret.status == "success") {
+			    //alert( ret.data.imageUrl);
+			    if(ret.data.imageUrl!=null) {
+			    	$api.attr($api.byId("pigImgs"), "src", ret.data.imageUrl);
+			    }else{
+			        $api.remove($api.byId("pigImgs"));
+			    }
+			    $api.html($api.byId("title"), ret.data.title);
+			    $api.html($api.byId("unit-name"), ret.data.publishUnit);
+			    $api.html($api.byId("publish-date"), ret.data.publishDate);
+			    $api.html($api.byId("content"), ret.data.content);
+			    //console.log('content:'+JSON.stringify(ret.data.content));
+			    $api.removeCls($api.dom(".detail-box.hidden"),"hidden");
+
+			    api.hideProgress();
+			   return true;
+
+			} else {
+               toastNetErrBottom("服务器请求错误！");
+			}
+
+		} else {
+		     //sendNetError(frmY,frmH);
+		     //api.hideProgress();
+			 toastNetErrBottom('网络异常,请稍后再试哦!');
+
+		}
+
+
+	});
+}
+
+
+</script>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>通知公告</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css" />
+	<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+	<script>
+		document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+	</script>
+	<style>
+		body {
+			min-height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<!--轮播图 开始-->
+	<div id="slider" class="my-slider">
+		<!-- <p class="nothing">暂无图片</p> -->
+	</div>
+	<img src="" id="myimg">
+	<!--轮播图 结束-->
+	<!--新闻类型tab切换 开始-->
+	<!-- <nav class="news-tab flex-box border-bottom" id="type-tab"> -->
+	<!-- <span class="flex-item active" index='0'><i>通知公告</i></span> -->
+	<!-- <span class="flex-item active" index='0'><i>政务信息</i></span>
+		<span class="flex-item" index='1'><i>业务信息</i></span>
+		<span class="flex-item more"></span>
+	</nav> -->
+	<!--新闻类型tab切换 结束-->
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+	apiready = function() {
+		var sliderBoxH = $api.offset($api.byId('slider')).h;
+		//tab切换
+		//newsSwithch();
+		//类型tab的高度
+		///var tabH = $api.offset($api.byId('type-tab')).h;
+		// var frameGroupY = api.pageParam.frmY + sliderBoxH + tabH; //frame开始加载的位置
+		// var frameGroupH = api.frameHeight - (sliderBoxH + tabH); //frame的高度
+
+		var frameGroupY = api.pageParam.frmY + sliderBoxH; //frame开始加载的位置
+		var frameGroupH = api.frameHeight - sliderBoxH; //frame的高度
+		//console.log("headerH:"+api.pageParam.frmY+" winH:"+api.winHeight+"frameH:"+api.frameHeight+"tabH:"+tabH+" frameGroupY:"+frameGroupY+ "frameGroupH:"+frameGroupH);
+		var cityType = getPrefs("cityType");
+		var UIScrollPicture = api.require('UIScrollPicture');
+		//openSlideNew(UIScrollPicture,sliderBoxH);
+		// createFrameGroup(frameGroupY, frameGroupH, cityType);
+
+		getSliderList(sliderBoxH, cityType, UIScrollPicture);
+		openNewsFrame(frameGroupY, frameGroupH);
+	};
+
+	//更新图片数据
+	function reloadPics(paths, UIScrollPicture) {
+		UIScrollPicture.reloadData({
+			data: {
+				paths: paths
+			}
+		});
+
+	}
+	//从服务器请求轮播图信息
+	function getSliderList(divH, cityType, UIScrollPicture) {
+		var actionUrl = ajaxAgent.serverAction + '/message/appPicList';
+		var webName = "slider";
+		var secretCode = creatSecretCode("slider");
+		var values = {
+			secretCode: secretCode, //安全码
+			webName: webName, //模块名称
+			page: 1, //页码
+			pageNum: 6, //一页的数量
+			city: 0 // cityType, //城市类型
+		}
+		showProgress();
+		api.ajax({
+			url: actionUrl,
+			method: 'post',
+			timeout: 50,
+			dataType: 'json',
+			returnAll: false,
+			data: {
+				values: values
+			}
+		}, function(ret, err) {
+
+			api.hideProgress();
+			if (ret) {
+				if (ret.statusCode == "200") {
+					if (ret.total > 0) {
+						//imagesCache(ret.data);//缓存图片
+						var pics = getPaths(ret);
+						UIScrollPicture.show();
+						openSlide(pics.paths, divH, pics.others, UIScrollPicture);
+					} else {
+						UIScrollPicture.hide();
+						$api.html($api.byId("slider"), '<p class="nothing">暂无图片</p>');
+						return false;
+					}
+
+				} else {
+					toastNetErrBottom("服务器请求错误！");
+				}
+
+			} else {
+				toastNetErrBottom('网络异常,请稍后再试哦!');
+			}
+
+
+		});
+
+	}
+
+	//服务器图片地缓存到本地
+	function imagesCache(httpData) {
+		var i = 0;
+		while (i < httpData.length) {
+			(function(imgUrl, l) {
+				//console.log('imgUrl:' + imgUrl);
+				api.imageCache({
+					url: imgUrl
+				}, function(ret, err) {
+					var url = ret.url;
+					//setPrefs('silder_'+l,url);
+					//console.log('url:' + url);
+					//$api.attr($api.byId("myimg"), 'src', url);
+				});
+       i++;
+			})( httpData[i]['IMGURL'], i);
+		}
+
+		// for (var i = 0; i < httpData.length; i++) {
+		// 	var imgUrl = httpData[i]['IMGURL'];
+		// 	console.log('imgUrl:' + imgUrl);
+		// 	api.imageCache({
+		// 		url: imgUrl
+		// 	}, function(ret, err) {
+		// 		var url = ret.url;
+		// 		console.log('url:' + url);
+		// 		//$api.attr($api.byId("myimg"), 'src', url);
+		//
+		// 	});
+		//
+		// }
+
+	}
+	//制作模板
+	function getPaths(ret) {
+		if (ret.total != null) {
+			totalNum = ret.total;
+			if (totalNum == 0) { //暂无数据
+				var pics = {
+					paths: [
+						'widget://image/m-img/slide1.jpg',
+						'widget://image/m-img/slider1.jpg',
+						'widget://image/m-img/slider2.jpg'
+					],
+					others: [{
+							id: 1,
+							newsType: 1
+						}, {
+							id: 2,
+							newsType: 2
+						}, {
+							id: 3,
+							newsType: 3
+						}
+
+					]
+
+				};
+				return pics;
+			} else if (ret.data) {
+				var paths = new Array();
+				var others = new Array();
+				for (var i = 0; i < ret.data.length; i++) {
+					paths.push(ret.data[i]['IMGURL']);
+					var txt = '{"id":"' + ret.data[i].NEWSID + '","newsType":' + ret.data[i].NEWSTYPE + '}';
+					others.push(JSON.parse(txt));
+				}
+
+				var pics = {
+					paths: paths,
+					others: others
+				};
+				return pics;
+			}
+		} else {
+			toastNetErrBottom('数据错误!');
+			return false;
+		}
+
+	}
+
+	//打开fram
+	function openNewsFrame(y, h) {
+		api.openFrame({
+			name: 'newsall',
+			url: 'frm-news-all.html',
+			rect: {
+				x: 0,
+				y: y,
+				w: 'auto',
+				h: h
+			},
+			pageParam: {
+				name: 'test'
+			},
+			bounces: true,
+			bgColor: 'rgba(0,0,0,0)',
+			vScrollBarEnabled: true,
+			hScrollBarEnabled: true,
+			allowEdit: true,
+			reload: true,
+		});
+
+
+	}
+	// //创建framegroup 3个类型的新闻列表页
+	// function createFrameGroup(y, h, cityType) {
+	// 	api.openFrameGroup({
+	// 		name: 'list-group',
+	// 		rect: {
+	// 			x: 0,
+	// 			y: y,
+	// 			w: 'auto',
+	// 			h: h
+	// 		},
+	// 		preload: 0,
+	// 		frames: [
+	// 		// 	{
+	// 		// 	name: 'notice',
+	// 		// 	url: 'frm-news-notice.html',
+	// 		// 	bgColor: '#fff',
+	// 		// 	allowEdit: true,
+	// 		// },
+	// 		 {
+	// 			name: 'zw',
+	// 			url: 'frm-news-zw.html',
+	// 			allowEdit: true,
+	// 			bgColor: '#fff'
+	// 		}, {
+	// 			name: 'yw',
+	// 			url: 'frm-news-yw.html',
+	// 			allowEdit: true,
+	// 			bgColor: '#fff'
+	// 		}]
+	// 	}, function(ret, err) {
+	// 		var index = ret.index;
+	// 		if ($api.dom('.news-tab>.active')) {
+	// 			$api.removeCls($api.dom('.news-tab>.active'), 'active');
+	// 		}
+	// 		$api.addCls($api.dom('.news-tab>span[index="' + index + '"]'), 'active');
+	// 		api.setFrameGroupIndex({
+	// 			name: 'list-group',
+	// 			index: index,
+	// 			reload: true,
+	// 		});
+	//
+	// 	});
+	// }
+	// //四个tab切换
+	// function newsSwithch() {
+	// 	var listDoms = $api.domAll('.news-tab>span');
+	// 	for (var i = 0; i < listDoms.length; i++) {
+	// 		$api.addEvt(listDoms[i], 'click', function() {
+	// 			if ($api.dom('.news-tab>.active')) {
+	// 				$api.removeCls($api.dom('.news-tab>.active'), 'active');
+	// 			}
+	// 			$api.addCls(this, 'active');
+	// 			//切换frameGroup
+	// 			var index = $api.attr(this, 'index');
+	// 			api.setFrameGroupIndex({
+	// 				name: 'list-group',
+	// 				index: index,
+	// 				reload: true,
+	// 			});
+	// 		});
+	// 	}
+	// }
+	//图片轮播
+	/*
+	 * @param   obj  paths
+	 * @divH    int  图片的高度
+	 * @otherInfo   obj  图片对应的跳转信息
+	 */
+	function openSlide(paths, divH, otherInfo, UIScrollPicture) {
+		UIScrollPicture.open({
+			rect: {
+				x: 0,
+				y: 0,
+				w: api.winWidth,
+				h: divH
+			},
+			data: {
+				paths: paths,
+				//captions : ['apicloud', 'apicloud', 'apicloud']
+			},
+			auto: false,
+			loop: false,
+			styles: {
+				caption: {
+					height: 35,
+					color: '#E0FFFF',
+					size: 13,
+					bgColor: '#696969',
+					position: 'bottom'
+				},
+				indicator: {
+					align: 'center',
+					color: '#FFFFFF',
+					activeColor: '#ff0033'
+				}
+			},
+			//placeholderImg : 'widget://res/slide1.jpg',
+			contentMode: 'scaleToFill',
+			interval: 3,
+			fixedOn: api.frameName,
+			loop: true,
+			auto: true,
+			fixed: false,
+		}, function(ret, err) {
+			if (ret.eventType == 'click') {
+				if (otherInfo[ret.index]) openNewsDetail(otherInfo[ret.index].id, otherInfo[ret.index].newsType);
+			}
+		});
+	}
+</script>
+
+</html>

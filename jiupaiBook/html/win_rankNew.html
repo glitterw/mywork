@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>童书榜</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/list.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bangdan.css"/>
+	</head>
+	<body >
+		<!--header bgin-->
+		<header class="greenBg">
+			<div  class="relative">
+				<span class="back fl" onclick="goBack()"><img src="../image/back_white.png" /></span>
+				<h1>
+				<div class="headNameBox">
+					<div class="headName" id="rankName">一级榜单的名称</div>
+					<span class="arrowB" onclick="switchInfo()"></span>
+				</div></h1>
+			</div>
+		</header>
+		<!--header end-->
+		<div class="headInfoBox hidden"  id="rankInfo"></div>
+		<!--下拉菜单 begin-->
+		<div class="slideDownBox " id="childrenRank">
+			<div class="slideTitBox">
+				<div class="slideTabTit " id="selectChildren" onclick="openframBox(1)">
+					<p id="childrenName" class="slideTapP"></p><span class="arrowB02" ></span>
+				</div>
+				<div class="slideLine"></div>
+				<div class="slideTabTit "  id="selectYear" onclick="openframBox(2)" >
+					<p id="year" class="slideTapP"></p><span class="arrowB02" ></span>
+				</div>
+			</div> 
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>  
+	<script type="text/javascript">
+		/*
+		 * 本窗口的参数有以下几个
+		 * rankId:一级榜单的id
+		 * rankName:一级榜单的名称
+		 * childrenId:二级榜单的id
+		 * childrenName:二级榜单的名称
+		 * rankYear:二级榜单的年份
+		 */
+		var sumH=0;//窗体头部总高度
+		var headerH=0;//头部的高度
+		var rankInfoH=0;//一级榜单介绍的div高度
+		var childrenRankH=0;//二级榜单筛选条件的高度
+		var header,rankInfoDiv,childrenRankH;
+		var rankType=0;//一级榜单所属的分类
+		apiready = function() {   
+		  header=$api.dom("header");
+		  setStatusBar(header);//修正状态栏
+		  $api.text($api.byId("rankName"), api.pageParam.rankName);
+		  rankInfoDiv=$api.byId("rankInfo");
+		  childrenRankDiv=$api.byId("childrenRank"); 
+		  getRankInfo();//获取简介  
+		  //initFrmGroup(); 
+		}
+		//计算窗口头部的高度
+		function countHeaderH(){ 
+		  headerH=$api.offset(header).h;
+		  rankInfoH=$api.offset(rankInfoDiv).h; 
+		  childrenRankH=$api.offset(childrenRankDiv).h; 
+		  sumH=headerH+rankInfoH+childrenRankH;  
+		}
+		//获取榜单的介绍
+		function getRankInfo() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/playlist/jpjs_queryPlaylist';
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : {
+						rankId : api.pageParam.rankId
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					//页面加载书的图片
+					if (ret.result == 1) {
+						$api.html($api.byId("rankInfo"), '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ret.info.remark);
+						$api.addCls(rankInfoDiv, 'hidden'); 
+						rankType = ret.info.type;
+						initBookList();
+					} else {
+						$api.html($api.byId("rankInfo"), "");
+						$api.addCls(rankInfoDiv, 'hidden'); 
+					}
+				}
+			});
+		}		
+
+
+//其他页面跳转过来的情况
+function initBookList(){
+   if(api.pageParam.childrenId && api.pageParam.childrenId>0){ 
+   		$api.text($api.byId("childrenName"), api.pageParam.childrenName);//赋值  
+		  if(rankType!=4 ){//非热销榜单类型，取出选中二级榜单的年份 
+		      if(api.pageParam.rankYear!=""){
+			  	  $api.text($api.byId("year"), api.pageParam.rankYear);
+			  	  setRankInfo(api.pageParam.childrenId,api.pageParam.childrenName,api.pageParam.rankYear);
+			  	  initFrmGroup(api.pageParam.childrenId,api.pageParam.childrenName,api.pageParam.rankYear);
+		  	  }else{
+		  	  
+		  	  	getRankYear(api.pageParam.childrenId,api.pageParam.childrenName);
+		  	  }  
+		  }else{//热销榜单没有年份选择项，则把年份选择清空，隐藏选择框 
+		     $api.addCls($api.byId("selectYear"), "hidden");
+			 setRankInfo(api.pageParam.childrenId,api.pageParam.childrenName,"");
+		     initFrmGroup(api.pageParam.childrenId,api.pageParam.childrenName,""); 
+		  }  
+  }else{ 
+     getChildren();//获取二级榜单 
+  
+  }
+ 
+}
+
+
+	    //一级榜单介绍信息的开关
+	    function switchInfo(){ 
+	    	var className="";
+	    	className=$api.attr($api.byId("rankInfo"),'class'); 
+	    	if(className.indexOf("hidden")>0){//展开
+	    	    $api.removeCls(rankInfoDiv, 'hidden');
+	    	    
+	    	}else{//关闭
+	    	    $api.addCls(rankInfoDiv, 'hidden'); 
+	    	}
+	    	//调整fram的高度 
+	    	updateFramHeight();
+	    	
+	    }
+	    //初始化fram组
+	    function initFrmGroup(thisChildrenId,thisChildrenName,thisYear){ 
+	        countHeaderH();//计算frm距离头部的高度
+			var frames = [];
+			frames.push({
+				name : 'rankBookList',
+				url : 'frm_rankBookList.html',
+				bgColor : '#f4f4f4',
+				bounces : false,
+				pageParam:{ 
+				  rankId: thisChildrenId,
+				  rankName:thisChildrenName,
+				  thisYear:thisYear,
+				  fatherId:api.pageParam.rankId
+				}
+				
+			});
+			frames.push({
+				name : 'selectRankBox',
+				url : 'frm_selectRankBox.html',
+				bounces: false,
+			    bgColor: 'rgba(0,0,0,0.3)',
+			    vScrollBarEnabled: true,
+			    hScrollBarEnabled: false,
+			    reload: true,
+				pageParam:{ 
+				  rankId: thisChildrenId,
+				  rankName:thisChildrenName,
+				  thisYear:thisYear,
+				  fatherId:api.pageParam.rankId,
+				  rankType:rankType
+				}
+		
+			});
+			api.openFrameGroup({
+				name : 'rankGroup',
+				scrollEnabled : false,
+				rect : {
+					x : 0,
+					y : sumH,
+					w : api.winWidth,
+					h : 'auto'
+				},
+				index : 0,
+				frames : frames
+			}, function(ret, err) {
+					
+			});	  
+	    }
+
+	//调整fram的高度
+	function updateFramHeight(){
+		countHeaderH();//重新计算高度
+		api.setFrameGroupAttr({
+		    name: 'rankGroup', 
+			rect : {
+				x : 0,
+				y : sumH,
+				w : 'auto',
+				h : 'auto'
+			}
+		});	
+		/*	
+		api.setFrameGroupIndex({
+			name : 'rankGroup',
+			index : 0,
+			reload:true,  
+		});*/
+	}
+  
+  //获取二级榜单的列表
+function getChildren() {
+	var thisChildrenId=0;//当前被选择的二级榜单的id
+	var thisChildrenName="";//当前被选择的二级榜单的名称
+	if(api.pageParam.childrenId>0){
+		 thisChildrenId=api.pageParam.childrenId; 
+		 thisChildrenName=api.pageParam.childrenName; 
+	 }
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/playlist/jpjs_playlistTwo';
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				fatherId : api.pageParam.rankId,
+				page : 1,
+				pageNum : 0
+			}
+		}
+	}, function(ret, err) {
+		if (ret) {
+			var html = '';
+			if (ret.result == 1) {
+				if (ret.list.length > 0) {  
+					  var id=0;
+					  var name="";
+					   if(thisChildrenId==0){ 
+							thisChildrenId=ret.list[0].id;
+							thisChildrenName=ret.list[0].name;
+					   }
+					   updateRankValue(thisChildrenId,thisChildrenName);
+					    
+				}else{
+					api.closeWin();//一级榜单下面没有二级榜单，则关闭窗口
+				}
+			}else{
+			   toastNetErr(ret.msg);
+			}
+		}else{
+		  toastNetErr("服务器请求错误！"); 
+		}
+	});
+}
+
+//修改选择框中被选中的二级榜单的值
+function updateRankValue(thisChildrenId,thisChildrenName){
+  $api.text($api.byId("childrenName"), thisChildrenName); 
+  //alert(thisChildrenName);
+  if(rankType!=4){//非热销榜单类型，取出选中二级榜单的年份 
+  	  getRankYear(thisChildrenId,thisChildrenName);
+  }else{//热销榜单没有年份选择项，则把年份选择清空，隐藏选择框
+    
+     $api.addCls($api.byId("selectYear"), "hidden");
+	 setRankInfo(thisChildrenId,thisChildrenName,"");
+     initFrmGroup(thisChildrenId,thisChildrenName,""); 
+  }
+  
+}
+//修改选择框中被选择中的二级榜单的年份
+function updateRankYear(thisChildrenId,thisChildrenName,thisYear){
+	$api.text($api.byId("year"), thisYear);
+	setRankInfo(thisChildrenId,thisChildrenName,thisYear);
+	initFrmGroup(thisChildrenId,thisChildrenName,thisYear);
+	 
+}
+
+
+//修改选择框中被选中的二级榜单的值
+function updateRankValueNew(thisChildrenId,thisChildrenName,thisYear){
+  $api.text($api.byId("childrenName"), thisChildrenName); 
+  if(rankType!=4){//非热销榜单类型，取出选中二级榜单的年份 
+      setRankInfo(thisChildrenId,thisChildrenName,thisYear);
+  	  //getRankYear(thisChildrenId,thisChildrenName);
+  }else{//热销榜单没有年份选择项，则把年份选择清空，隐藏选择框
+     setRankInfo(thisChildrenId,thisChildrenName,""); 
+     $api.addCls($api.byId("selectYear"), "hidden"); 
+  }  
+     api.setFrameGroupIndex({
+		name : 'rankGroup',
+		index : 0,
+		reload:true,  
+	});    
+  
+}
+//修改选择框中被选择中的二级榜单的年份
+function updateRankYearNew(thisChildrenId,thisChildrenName,thisYear){ 
+	$api.text($api.byId("childrenName"), thisChildrenName); 
+	$api.text($api.byId("year"), thisYear);
+	setRankInfo(thisChildrenId,thisChildrenName,thisYear);
+	api.setFrameGroupIndex({
+		name : 'rankGroup',
+		index : 0,
+		reload:true,  
+	});  
+	 
+}
+
+//记录偏好值
+function setRankInfo(rankId,rankName,rankYear){
+     var rankInfo={
+         fatherId:api.pageParam.rankId,
+         rankId:rankId,
+         rankName:rankName,
+         year:rankYear 
+     }
+     setPrefs("rankInfo",$api.jsonToStr(rankInfo)); //记录偏好 
+}
+ 
+//获取二级榜单的年份
+function getRankYear(thisChildrenId,thisChildrenName) {  
+	var thisYear="";//当前被选择的年份值
+	if(api.pageParam.rankYear!="")thisYear=api.pageParam.rankYear;
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/playlist/jpjs_playlistYear';//'/jpjs/playlist/jpjs_playlistYear';
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				rankId : thisChildrenId,
+				name:thisChildrenName,
+				page : 1,
+				pageNum : 0
+			}
+		}
+	}, function(ret, err) {  
+		if (ret) {
+			var html = '';
+			var thisYear='';
+			if (ret.result == 1) {
+				if (ret.list.length > 0) { 
+					if(thisYear==""){
+					 	thisYear = ret.list[0].year; 
+					 }
+					 updateRankYear(thisChildrenId,thisChildrenName,thisYear);
+				} else {//没有获取年份的把年份选择项屏蔽
+					$api.addCls($api.byId("selectYear"), "hidden");
+				}
+			}else{//没有年份 
+			  $api.addCls($api.byId("selectYear"), "hidden");
+			}  
+		} 
+	});
+}
+	    
+ 
+
+//把选择页面加载到页面上
+function openframBox(type){
+    setPrefs("rankSelectType",type); //记录下拉选择类型
+	updateFramHeight();//修改fram的高度
+	api.setFrameGroupIndex({
+		name : 'rankGroup',
+		index : 1,
+		reload:true,  
+	});  
+}
+
+		
+	</script>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>搜索页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/search.css"/>
+    <style>
+    	html,body{ background:#f4f4f4;}
+    </style>
+
+</head>
+<body>
+	<!--header bgin-->
+    <header class="greenBg">
+		<div class="searchBox">
+        	<div class="searchBox02 fl">
+                <input type="text" class="searchInput fl"  id="keyWord" value=""  oninput="getkeyWords(this.value)"  onchange="search(this.value)" />
+            	<span class="delBtn" onclick="clearnInpu()"></span>
+            </div>
+            <span class="searchBtn fr" onclick="goBack()">取消</span>
+        </div>
+    </header>
+	<!--header end-->
+
+
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/checkData.js"></script>
+<script type="text/javascript" src="../script/event.js"></script> 
+<script type="text/javascript"> 
+var y=0;
+	apiready = function() {  
+		var header=$api.dom("header");
+		if(header){
+			setStatusBar(header);
+			y=$api.offset(header).h;
+		}
+		if(api.pageParam.keyWord){
+			$api.val($api.byId("keyWord"), api.pageParam.keyWord);
+		}
+		openFram(y);  
+	    //网络异常监听
+	    listenNewError();
+	}
+
+	//打开fram
+	function openFram(y) { 
+		api.pageParam.y=y; 
+		api.openFrame({
+			name : api.pageParam.frmName,
+			url : api.pageParam.frmUrl,
+			rect : {
+				x : 0,
+				y : y,
+				w : 'auto',
+				h : 'auto'
+			},
+			pageParam : api.pageParam,
+			bounces : true,
+			delay : 100,
+			reload : true
+		});
+	} 
+			
+ //去服务器获取与输入的词相关的匹配词
+ function getkeyWords(inputKeyword){
+    if(isEmpty(inputKeyword)){
+    	api.closeFrame({name: 'keywords'});
+    	return true;
+    }
+ 	var  actionUrl=ajaxAgent.serverAction+'/jpjs/bookinfo/queryForListByKeyWord';
+	
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				keyWord:inputKeyword,
+			}
+		}
+	}, function(ret, err) {  
+			if (ret.result == 1 && ret.totalNum>0) { //匹配到了关键词
+			   openKeyWordList(inputKeyword,ret.list);
+			   return true; 
+			}else {
+			   api.closeFrame({name: 'keywords'});
+		    
+			} 
+		
+		
+	});	 
+ 
+ }
+
+   //打开匹配词页面
+   function openKeyWordList(keyWord,listObj){
+		api.openFrame({
+		    name: 'keywords',
+		    url: 'frm_keywords.html',
+		    rect: {
+		        x: 0,
+		        y: y,
+		        w: 'auto',
+		        h: 'auto'
+		    },
+		    pageParam: {
+		        keyword: keyWord,
+		        list:listObj
+		    },
+		    bounces: false,
+		    bgColor: 'rgba(0,0,0,0.3)',
+		    vScrollBarEnabled: true,
+		    hScrollBarEnabled: false,
+		    reload: true,
+		    allowEdit:true,
+		});   	 
+   
+   }
+
+//选中备选关键词后执行该函数
+function selectedKeyword(keyWord){
+  api.closeFrame({
+	  name: 'keywords'
+  });
+  $api.val($api.byId("keyWord"),keyWord);
+  search(keyWord);
+}
+	//搜索页
+	function search(key){ 
+
+		api.openFrame({
+	        name: 'frm_searchList',
+	        url: 'frm_searchList.html',
+	        rect: {
+		        x:0,
+		        y:y,
+		        w :'auto',
+				h :'auto'
+	        },
+			pageParam:{ 
+			    keyWord:key,
+			    frmY:y
+		    },
+		    reload:true,
+
+        }); 
+	}
+
+	//搜索页
+	function searchOld(key){
+		api.openWin({
+			name : "common_searchList",
+			url : "win_search.html",
+			bounces : false,
+			vScrollBarEnabled : false,
+			hScrollBarEnabled : false, 
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam:{
+				frmName:"frm_searchList",
+				frmUrl:"frm_searchList.html",
+			    keyWord:key
+		    }
+		});	 
+	 
+	}
+	
+//清空输入框里的内容
+function clearnInpu(){
+
+ $api.val($api.byId("keyWord"),"");
+}	
+ 
+</script>
+
+</html>

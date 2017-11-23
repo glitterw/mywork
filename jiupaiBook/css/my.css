@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{ background:#f4f4f4;}
+
+/*已登陆*/
+.myNameBox{ text-align:center; color:#fff;}
+.myNameBox p{ margin-bottom:35px;}
+.myName{ font-size:32px;}
+.myName img{ margin-bottom:-5px;}
+.mySet{margin-right:30px; margin-top:23px; float:right}
+.mySet,.mySet img{ width:42px; height:42px; }
+.mySet img{ float:left;}
+/*未登陆*/
+.loginBtn{ font-size:36px; color:#fff;}
+
+.myTopBox{ width:100%; display:inline-block; margin-top:-1px;}
+.myHead,.myHead img{ width:168px; height:168px; border-radius:100%;}
+.myHead{ margin:30px auto; background:#efefef url(../image/icon_default.png) no-repeat; background-size:168px 168px;}
+
+/*列表*/
+.myListBox{ min-height:570px; border-top:solid 1px #dcdcdc; border-bottom:solid 1px #dcdcdc;}
+.myListUL{ margin-left:30px;}
+.myListUL li{display: -moz-box; display: -webkit-box; display: box; border-bottom:solid 1px #dcdcdc; padding-right:30px; height:100px; line-height:100px; background:url() no-repeat 20px center; background-size: 38px 50px;}
+.myListUL li h1,.myListUL li i{ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;}
+.myListUL li h1{ font-weight:normal; font-size:32px; color:#666; padding-left:80px; background:url(../image/moreIcon.png) no-repeat right center; background-size:15px;}
+.myListUL li:nth-child(1){ background-image:url(../image/icon_my_collect.png);}
+.myListUL li:nth-child(2){ background-image:url(../image/icon_my_praise.png);}
+.myListUL li:nth-child(3){ background-image:url(../image/icon_my_footprint.png);}
+.myListUL li:nth-child(4){ background-image:url(../image/icon_my_message.png); background-position:10px center; background-size:48px 48px;}
+.myListUL li:nth-child(4) h1{ background:;}
+.messageNum{ min-width:21px; padding:0 10px; height:41px; color:#fff; background:#fe0000; text-align:center; line-height:41px; margin:30px 0 0 0; font-size:24px; border-radius:41px;}
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+
+/*已登陆*/
+.myNameBox p{ margin-bottom:17px;}
+.myName{ font-size:16px;}
+.myName img{ margin-bottom:-3px; width:18px; margin-left:5px;}
+.mySet{ margin-right:15px; margin-top:11px; }
+.mySet,.mySet img{ width:21px; height:21px; }
+
+/*未登陆*/
+.loginBtn{ font-size:18px; color:#fff;}
+
+.myHead,.myHead img{ width:84px; height:84px; }
+.myHead{ margin:15px auto; background-size:84px 84px;}
+
+/*列表*/
+.myListBox{ min-height:285px; }
+.myListUL{ margin-left:15px;}
+.myListUL li{ padding-right:15px; height:50px; line-height:50px; background:url() no-repeat 10px center; background-size: 19px 25px;}
+.myListUL li:nth-child(4){ background-position:5px center; background-size:24px 24px;}
+
+.myListUL li h1{ font-weight:normal; font-size:16px; color:#666; padding-left:40px; background-size:7px;}
+.messageNum{ min-width:10.5px; padding:0 5px; height:20.5px; line-height:20.5px; margin:15px 0 0 0; font-size:12px; border-radius:20.5px;}
+
+}

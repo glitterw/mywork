@@ -1,0 +1,88 @@
+/**/
+.bookListBox{ width:100%;}
+.bookListBoxUL li{ display:box; display:-webkit-box; display:-moz-box; margin-bottom:20px; border-bottom:solid 1px #d1d1d1; padding-bottom:20px;}
+
+.bookList_r{ box-flex:1; -webkit-box-flex:1; -moz-box-flex:1}
+.bookList_r h1{ font-size:32px; color:#333;}
+.bookList_r h2{ font-weight:normal; color:#999; font-size:26px; margin:10px 0 10px 0;}
+
+.bookList_r_box,.slideTitBox{display:box; display:-webkit-box; display:-moz-box;}
+
+.starDL dt{ font-size:26px; color:#f47973; margin-left:20px;}
+
+.bookList_r_info{ background:url() no-repeat left center; height:30px; line-height:30px; color:#999; font-size:26px; margin-top:30px; overflow:hidden;}
+.reviewIcon{ background-image:url(../image/reviewIcon.png); padding-left:30px;}
+reviewIcon_active{background-image:url(../image/reviewIcon.png); }
+
+/*书单列表*/
+.collecBookBox{ overflow:hidden;}
+.bookListGroup{ width:100%; display:table-row;}
+.bookListGroup ul li{ background:#fff; width:80%; margin:0 10%; border:solid 1px #cfcacb; position:absolute; top:0; height:100%; display:table;}
+.bookPad{ padding:0% 8%; width:84%; display:table-cell; vertical-align:middle; position:relative;}
+.bookCollectionPic,.bookCollectionPic img{ width:228px; height:345px;}
+.bookCollectionPic{ margin: 0 auto;}
+.bookListGroup ul{ height:100%; position:relative; width:100%; overflow:hidden;}
+.bookListGroup ul li h1{ font-size:48px; color:#000; text-align:center; margin:8% 0 10% 0;}
+.bookCollectWord{ display:inline-block;}
+.bookCollectWord strong{ font-size:48px; color:#32b2a1; height:10px; line-height:20px;}
+.bookCollectWord > strong:nth-child(3){ margin-top:10px;}
+.bookCollectWord p{ width:80%; margin:0; padding:0 10%; display:inline-block; text-align:left; text-indent:2em; font-size:24px; color:#666; line-height:150%;}
+.linkGroup{ text-align:center; font-size:24px; color:#32b2a1;  width:100%; position:absolute; left:0 ;bottom:4%;}
+.linkGroup .like{ margin-right:10px; background-position:right center; display:inline;}
+.countList{ text-align:center; color:#000; font-size:24px; height:100px; display:table-row; line-height:100px;}
+.empty30{display:table-row; height:44px}
+.twoNavTable{ height:98px;}
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+.bookListBoxUL li{ margin-bottom:10px; padding-bottom:10px;}
+.bookList_r h1{ font-size:16px;}
+.bookList_r h2{font-size:13px; margin:5px 0 5px 0;}
+
+.starDL dt{ font-size:13px; margin-left:10px;}
+.like{height:15px; line-height:19px; color:#999; font-size:13px; padding-right:17px; background-size:15px;}
+
+.bookList_r_info{ height:15px; line-height:15px; color:#999; font-size:13px; margin-top:15px; background-size: 16px;}
+.reviewIcon{ padding-left:20px;}
+
+/*书单列表*/
+.bookPad{ padding:0% 10%;}
+.bookCollectionPic,.bookCollectionPic img{ width:114px; height:172.5px;}
+.bookListGroup ul li h1{ font-size:18px;}
+.bookCollectWord strong{ font-size:24px; height:5px; line-height:10px;}
+.bookCollectWord > strong:nth-child(3){ margin-top:5px;}
+.bookCollectWord p{ text-indent:1em; font-size:12px;}
+.linkGroup{ font-size:12px;}
+.linkGroup .like{ margin-right:5px; background-position:right center;}
+.countList{ font-size:14px; height:50px; line-height:50px;}
+.empty30{height:22px}
+.twoNavTable{ height:49px;}
+
+ }
+ @media (max-width: 320px) { 
+.bookPad{ padding:5% 5%;}
+.countList{ font-size:14px; height:30px; line-height:30px;}
+
+ }
+@media all and (orientation :landscape) {
+.bookCollectionPic,.bookCollectionPic img{ width:150px; height:223px;}
+.bookListGroup ul li h1{ font-size:30px; color:#000; text-align:center; margin:8% 0 3% 0;}
+}
+
+/*  @media (min-width: 375px) { 
+.bookPad{ padding:25% 10%;}
+.linkGroup{ margin-top:10%;}
+.countList{ font-size:12px; height:50px;}
+ }
+
+  @media (min-width: 414px) { 
+.bookPad{ padding:25% 10%;}
+.linkGroup{ margin-top:10%;}
+.countList{ font-size:12px; height:80px;}
+ }
+  @media  (min-width: 415px) and (max-width: 750px) { 
+.bookPad{ padding:25% 10%;}
+.countList{ height:100px;}
+.linkGroup{ margin-top:10%;}
+ }
+*/

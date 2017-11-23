@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>忘记密码</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/user.css"/>
+
+</head>
+<body>
+ 
+    <div class="marAuto">
+    	<dl class="registerDL padTop24">
+        	<dd>
+            	<span class="userIcon iconPhone"></span>
+                <div class="inputBox"><input name="telNo" id="telNo" type="text" placeholder="请输入注册手机号码" class="userInput"></div>
+            </dd>
+            <dt><input type="button" class="userSubBtn" value="下一步"   onclick="repasswd2()"/></dt>
+        </dl>
+    </div>
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/checkData.js"></script> 
+<script type="text/javascript"> 
+	apiready = function() {   
+		 
+	}
+	//忘记密码第二步 验证手机号是否为注册用户，然后发送验证码，成功后跳转到下一步
+	function repasswd2(){
+		var  telNo=$api.val($api.byId("telNo")); 
+		telNo=$api.trim(telNo);
+		if(!isEmpty(telNo)){
+			isRegCellPhone(telNo);
+			return true;
+		}else{ 
+			toastNetErr("请输入注册手机号码！");
+			return false;
+		} 
+
+	} 
+
+//验证用户手机号码是否已经注册
+function isRegCellPhone(telNo){ 
+	var actionUrl = ajaxAgent.serverAction;
+	actionUrl += '/jpjs/userinfo/jpjs_checkPhone'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				telNo : telNo 
+			}
+		}
+	}, function(ret, err) { 
+		if(ret){
+			if(ret.isRegister==0){ 
+				 sendCode(telNo);
+			}
+			else{ 
+			    toastNetErr("请输入注册手机号码！"); 
+				return false;
+			}
+		}
+		else{
+		   toastNetErr(err.statusCode);
+		   return false;
+		}
+		
+	});		
+}
+
+//发送验证码
+function sendCode(telNo){
+	var codeStr=rand6();
+	var actionUrl = ajaxAgent.serverAction;
+	actionUrl += '/jpjs/userinfo/sendSMSCode';
+	showProgress();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				telNo : telNo,
+				codeStr : codeStr
+			}
+		}
+	}, function(ret, err) { 
+	    api.hideProgress(); 
+		if(ret){
+			if(ret.result==1){ 
+		 		var  pageParam={
+					frmName:"userRepasswd2",
+					frmUrl:"frm_userRepasswd2.html",
+					barTitle:"忘记密码",
+					telNo:telNo,
+					seviceCode:codeStr
+				}
+				openCommonWinNew(pageParam);
+			}
+			else{
+			    sendError(telNo); 
+				return false;
+			}
+		}
+		else{
+		   toastNetErr(err.msg);
+		}
+		
+	});	
+
+}
+
+//验证码发送失败 
+</script>
+
+</html>

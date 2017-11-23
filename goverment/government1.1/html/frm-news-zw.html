@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>政务信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+
+    	}
+    </style>
+</head>
+<body>
+
+<!--列表页 开始-->
+<div class="list-box " id="list">
+ <div class="item border-bottom">
+     <div class="text-content">
+         <p class="title">市局消保局受邀参加消费维权座谈会</p>
+         <p class="other"><span >长沙市工商局</span> <span >2016-12-22</span> </p>
+     </div>
+     <!--<img src="../image/m-img/news-pic1.jpg" class="info-img">-->
+ </div>
+    <div class="item border-bottom">
+       <div class="text-content">
+            <p class="title">营业执照作废信息公告</p>
+           <p class="other"><span >长沙市工商局</span> <span >2016-12-22</span> </p>
+       </div>
+        <!--<img src="../image/m-img/news-pic2.jpg" class="info-img">-->
+    </div>
+    <div class="item border-bottom">
+        <div class="text-content">
+            <p class="title">长沙市工商行政管理局关于企业、农民专业合作社、个体工商户报送２０１6年度年度报告</p>
+
+            <p class="other"><span >长沙市工商局</span> <span >2016-12-22</span> </p>
+        </div>
+    </div>
+    <div class="item border-bottom">
+        <div class="text-content">
+            <p class="title">长沙市工商行政管理局关于企业、农民专业合作社、个体工商户报送２０１6年度年度报告</p>
+            <p class="other"><span >长沙市工商局</span> <span >2016-12-22</span> </p>
+         </div>
+    </div>
+</div>
+<!--列表页 结束-->
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+var page=1;
+var pageNum=3;
+var totalNum=0;
+var city=0;
+apiready = function() {
+  city=getPrefs("cityType");
+	console.log('city:'+city);
+	setPrefs("oldCityType_zw",city);
+		console.log('oldCityType_zw:'+getPrefs("oldCityType_zw"));
+	beginLoad();
+
+}
+
+
+function getList() {
+ 	// var city=getPrefs("cityType");
+	 var actionUrl = ajaxAgent.serverAction + '/messageInfo/list/json';//'/jpjs/playlist/jpjs_queryPlayBooks';
+	 var webName="notice";
+	 var secretCode=creatSecretCode(webName);
+
+	 //比较城市是否改变
+
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 page:page,//页码
+		 pageNum:pageNum,//一页的数量
+		 city:city,//城市类型
+		 messageType:2
+	 }
+	 getListContent(actionUrl,values);
+}
+
+
+//制作模板
+function makelist(ret) {
+	var html='';
+	if(ret.total!=null){
+	 totalNum=ret.total;
+	if(page==1 && totalNum==0){//暂无数据
+		html='  <div class="item border-bottom">';
+		html+='    <div class="text-content">';
+		html+='         <p class="title">暂无数据！</p>';
+		html+='     </div> ';
+		html+=' </div>';
+	}else if(ret.data){
+		//console.log("政务信息："+JSON.stringify(ret.data));
+		html='';
+		for (var i = 0; i < ret.data.length; i++) {
+			var obj=ret.data[i];
+			var func="openNewsDetail('"+obj.newsId+"',2)";
+			html+='<div class="item border-bottom" onclick="'+func+'">';
+			html+='        <div class="text-content">';
+			html+='            <p class="title">'+obj.title+'</p>';
+			html+='';
+			html+='            <p class="other"><span >'+obj.publishUnit+'</span> <span >'+obj.publishDate+'</span> </p>';
+			html+='        </div>';
+			html+='    </div>';
+		}
+	}
+	if (page == 1) {
+		$api.html($api.byId("list"), html);
+		$api.removeCls($api.byId("list"), "hidden");
+	} else {
+		$api.append($api.byId("list"), html);
+	}
+	api.parseTapmode();
+ }else{
+     toastNetErrBottom('数据格式错误!');
+ }
+}
+
+
+</script>
+</html>

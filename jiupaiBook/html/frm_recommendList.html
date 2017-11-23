@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no" />
+    <title>全民荐书列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+	<style>
+    	html,body{ background:#fff;}
+    </style>
+</head>
+<body>
+	<!--header bgin-->
+    <!--<header>
+    	<span class="back fl"><img src="../image/back_green.png" /></span>
+		<h1>全民荐书</h1>
+        <span class="fr HeadEdit mar_r30 mar_t20"><img src="../image/iconEdit.png" /></span>
+    </header>-->
+	<!--header end-->
+
+    <!--导航 begin-->
+    <!--<div class="twoNavBox">
+    	<ul class="twoNav">
+            <li class="active">全部</li>
+            <li>科技</li>
+            <li>文学</li>
+            <li>历史</li>
+            <li>童书</li>
+        </ul>
+    </div>-->
+    <!--导航 end-->
+    
+	<!--tab切换 begin-->
+    <div class="tabTitBox marAuto mar_t30 " id="orderby">
+    	<ul >
+        	<li class="active"  id="addtime"  onclick="selectBar(this,2)">时间</li>
+            <li  id="hot"  onclick="selectBar(this,1)" >热度</li>
+        </ul>
+        <input type="hidden" id="orderbyValue" value="2"> 
+    </div>
+    
+	<!--tab切换 end-->
+    
+    <!--荐书详情列表 begin-->  
+    <div class="rcmdDetailsList marLeft" id="list">
+    	<!--01 begin-->
+        <!--<div class="allRcmdBox linedc">
+           <h1>三国机密之见龙卸甲</h1>
+            <div class="rcmdLRbox">
+                <div class="rcmdBookPic bookList_pic">
+                    <img src="../image/other/book01.jpg" />
+                    <div class="iconjian"><span>荐</span></div>
+                </div>
+                <div class="rcmdRightBox mar_r30">
+                    <div class="rcmdHead">
+                        <div class="rcmdHeadBox">
+                            <em class="headPic"><img src="../image/headPic.png" /></em>
+                            <p>糖糖</p>
+                        </div>
+                        <span>2016-6-15</span>
+                    </div>
+                    <div class="rcmdBubbleBox"><p>1587年的历史事件也是以后掀起波澜的机缘。换一个视角来解读历史1587年的历史事件也是以后掀起波澜的机缘。换一个视…</p></div>
+                </div>
+            </div>
+            <div class="rcmdReview">
+                <div class="iconRcmd fl">1000</div>
+                <div class="reviews reviews_active fr mar_r30">999</div>
+                <div class="like like_active fr mar_r20">10000</div>
+            </div>
+        </div> -->
+    	<!--01 end--> 
+
+    	<!--01 begin-->
+        <!--<div class="allRcmdBox linedc" >  
+            <div class="rcmdLRbox"> 暂无数据！</div> 
+        </div>-->
+    	<!--01 end-->   
+    </div>
+    <!--荐书详情列表 end-->   
+
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script>
+<script type="text/javascript" src="../script/book.js"></script>  
+<script type="text/javascript">
+var page = 1;
+var pageNum = 10; 
+var totalNum = 0;//总量
+apiready = function() { 
+	changeOrderBy();
+	beginLoad();
+}
+
+//修改排序规则、
+function changeOrderBy(){
+	var orderBy=api.pageParam.orderBy;
+	var addtimeObj=$api.byId("addtime");
+	var hotObj=$api.byId("hot");
+	if(orderBy==2){
+		$api.removeCls(hotObj, 'active');
+		$api.addCls( addtimeObj, 'active');
+	}else if(orderBy==1){
+		$api.removeCls( addtimeObj, 'active');
+		$api.addCls( hotObj, 'active'); 
+	}
+}
+//获取免费数据列表
+function getList() { 
+	 var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_peopleRecBook';
+	 var values={
+		 page:page,
+		 pageNum:pageNum, 
+		 classId:api.pageParam.classId,
+		 orderBy:api.pageParam.orderBy
+	 }  
+	 getListContent(actionUrl,values); 
+}
+
+//制作模板
+function makelist(ret) {
+
+	var html='';
+	if(ret.totalNum) totalNum=ret.totalNum;  
+	if(page==1 && totalNum==0){//暂无数据 
+		loadNothing(api.pageParam.frmY,'auto');
+	}else if(ret.list){ 
+		//alertInfo(ret.list);
+		html=''; 
+		for (var i = 0; i < ret.list.length; i++) {
+			var obj=ret.list[i];
+			var iconPath='';
+			if(obj.iconPath!=''){
+			iconPath=ajaxAgent.serverAction+obj.iconPath; 
+			}
+			var imgPath='';
+			if(obj.imgPath){
+			  imgPath=obj.imgPath;
+			} 
+			var func="openRecommendList("+obj.bookId+",'"+obj.bookName+"')";
+			html+='         <div class="allRcmdBox linedc" onclick="'+func+'">';
+			html+='           <h1>'+obj.bookName+'</h1>';
+			html+='            <div class="rcmdLRbox">';
+			html+='                <div class="rcmdBookPic bookList_pic">';
+			html+='                    <img src="'+getBookImgPath(imgPath)+'" />';
+			html+='                    <div class="iconjian"><span>荐</span></div>';
+			html+='                </div>';
+			html+='                <div class="rcmdRightBox mar_r30">';
+			html+='                    <div class="rcmdHead">';
+			html+='                        <div class="rcmdHeadBox">'; 
+			html+='                            <em class="headPic">';
+			if(iconPath!=''){
+			html+='						<img src="'+iconPath+'" />';
+			}
+			html+='						</em>';
+			html+='                            <p>'+obj.nickName+'</p>';
+			html+='                        </div>';
+			html+='                        <span>'+obj.create_time+'</span>';
+			html+='                    </div>';
+			html+='                    <div class="rcmdBubbleBox"><p>'+obj.reason+'</p></div>';
+			html+='                </div>';
+			html+='            </div>';
+			html+='            <div class="rcmdReview">';
+			html+='                <!--<div class="iconRcmd fl">0</div>-->';
+			html+='                <div class="reviews reviews_active fr mar_r30">'+obj.commentNum+'</div>';
+			html+='                <div class="like like_active fr mar_r20">'+obj.goodNum+'</div>';
+			html+='            </div>';
+			html+='        </div> ';
+		} 
+	} 
+	if (page == 1) {
+		$api.html($api.byId("list"), html);
+	} else {
+		$api.append($api.byId("list"), html);
+	} 
+}
+
+//选择改变样式
+function selectBar(obj,orderBy){
+	var addtimeObj=$api.byId("addtime");
+	var hotObj=$api.byId("hot");
+	if(orderBy==2){
+		$api.removeCls(hotObj, 'active');
+		$api.addCls( addtimeObj, 'active');
+	}else if(orderBy==1){
+		$api.removeCls( addtimeObj, 'active');
+		$api.addCls( hotObj, 'active'); 
+	}
+    api.execScript({
+    	name:'win_recommend',
+	    script: 'openFram('+orderBy+');'
+    }); 
+}
+
+//保存回复
+function saveReply(){
+  if (sessionAgent.isLogin(userEntity)) {//登录后评论
+    var content=$api.val($api.byId("txtBox"));
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_recReply';
+	var values={
+		 userId:userEntity.userId,
+		 recommendId:api.pageParam.recommendId,
+		 content:content,
+	} 
+	//alertInfo(values);
+	showProgress(); 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+		api.hideProgress();  
+		if (ret) { 
+			if (ret.result == 1) {//操作成功，修改图标状态 
+			   toastNetErr('成功发送！'); 
+			   return true; 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		} else { 
+ 			toastNetErr('网络连接错误！');
+		} 
+		
+	});	
+  }else{
+    toastNetErr('请登录后操作！');
+  } 		
+
+}
+
+</script>
+</html>

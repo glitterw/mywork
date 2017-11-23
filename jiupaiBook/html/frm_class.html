@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>分类</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/fenlei.css"/>
+    <style>
+    	html,body{ background:#f4f4f4;}
+    </style>
+
+</head>
+<body>
+	<!--header bgin-->
+    <!--<header class="greenBg">
+    	<span class="back fl"><img src="../image/back_white.png" /></span>
+        <h1>分类</h1>
+    </header>-->
+	<!--header end--> 
+    <!--01 begin-->
+	<div class="fenleiTit bgfff"><span class="fl">文学</span></div>    
+    <!--<ul class="fenleiUL marAuto">
+    	<li class="loading"> 
+        	<div class="bookFenlei">
+            	<img src="../image/loading_more.gif"/>
+            </div>
+            <p class="fenleiLine"></p>   
+    	</li>    	
+    	<li>    		
+        	<div class="bookFenlei" onclick="openCommonWin('小说','classBookList','frm_classBookList.html')">
+            	<img src="../image/fenleiBook/feilei_book01.jpg" />
+                <span class="fenleiLabel">小说</span>
+            </div>
+            <p class="fenleiLine"></p>
+        </li>
+    </ul>-->
+    <!--01 end--> 
+     <!--01 begin-->
+	<!--<div class="fenleiTit bgfff"><span class="fl">文学</span></div>    
+    <ul class="fenleiUL marAuto">
+    	<li class="loading">
+    	
+        	<div class="bookFenlei">
+            	<img src="../image/loading_more.gif"/>
+            </div>
+            <p class="fenleiLine"></p>    	
+    	
+    	</li>    	
+    	<li>    		
+        	<div class="bookFenlei" onclick="openCommonWin('小说','classBookList','frm_classBookList.html')">
+            	<img src="../image/fenleiBook/feilei_book01.jpg" />
+                <span class="fenleiLabel">小说</span>
+            </div>
+            <p class="fenleiLine"></p>
+        </li>
+    </ul>
+    <!--01 end-->    
+    
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/event.js"></script>		
+<script type="text/javascript"> 
+apiready = function() { 
+classList();
+
+}
+//获取一级分类 
+function classList() {
+	var actionUrl = ajaxAgent.serverAction;
+	actionUrl += '/jpjs/booktype/jpjs_bookTypeOne';
+	showProgress();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				page : 1,
+				pageNum : 0
+			}
+		}
+	}, function(ret, err) { 
+		api.hideProgress();
+		if (ret) { 
+			if (ret.result == 1) {
+				if (ret.list) { 
+					var html=''; 
+					for(var i=0;i<ret.list.length;i++){
+						var obj=ret.list[i];
+						html+='<div class="fenleiTit bgfff"><span class="fl">'+obj.className+'</span></div>    ';
+						html+='<ul class="fenleiUL marAuto" id="ul_'+obj.id+'">';
+						html+='	<li class="loading"> ';
+						html+='    	<div class="bookFenlei">';
+						html+='        	<img src="../image/loading_more.gif"/>';
+						html+='        </div>';
+						html+='        <p class="fenleiLine"></p>  ';
+						html+='	</li>';   
+						html+='</ul>'; 
+						getchilrenList(obj.id);	
+					} 
+					$api.html( $api.dom("body"),html ); 
+					 
+				} else {
+					$api.html( $api.dom("body"),""); 
+					toastNetErr("分类获取失败！");
+				}
+			} else {
+				$api.html( $api.dom("body"),"");
+				//toastNetErr(ret.msg);
+			}
+		} else {
+			if(err.statusCode==0){
+			    //发送网络监听
+			    sendNetError(api.pageParam.y,'auto');
+			    api.hideProgress();  
+			    toastNetErrBottom("网络异常,请稍后再试！");  
+			}else{
+			   toastNetErrBottom("服务器请求异常,请稍后再试！");  
+			}
+			 
+		}
+	 
+	});
+}
+ 
+//获取二级分类
+function getchilrenList(fatherId) {
+	var actionUrl = ajaxAgent.serverAction;
+	actionUrl += '/jpjs/booktype/jpjs_bookTypeTwo'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				page : 1,
+				pageNum : 0,
+				fatherId:fatherId
+			}
+		}
+	}, function(ret, err) {  
+		if (ret) { 
+			if (ret.result == 1) {
+				if (ret.list) { 
+				    //alert(JSON.stringify(ret.list));
+					var html=''; 
+					for(var i=0;i<ret.list.length;i++){
+						var obj=ret.list[i];
+						var imgPath=ajaxAgent.serverAction+obj.imgPath;
+						var onclickFun="getClassBookList("+obj.id+",'"+obj.className+"')";
+						html+='	<li>';
+						html+='    	<div class="bookFenlei" onclick="'+onclickFun+'">';
+						html+='        	<img src="'+imgPath+'" />';
+						html+='            <span class="fenleiLabel">'+obj.className+'</span>';
+						html+='        </div>';
+						html+='        <p class="fenleiLine"></p>';
+						html+=' </li>';
+					} 
+					$api.html( $api.byId("ul_"+fatherId),html ); 
+					 
+				} else {
+				    $api.html( $api.byId("ul_"+fatherId),"" ); 
+					toastNetErr("分类获取失败！");
+				}
+			} else {
+			    $api.html( $api.byId("ul_"+fatherId),"" ); 
+				//toastNetErr(ret.msg);
+			}
+		} else {
+			if(err.statusCode==0){
+			    //发送网络监听
+			    sendNetError(api.pageParam.y,'auto');
+			    api.hideProgress();  
+			    toastNetErrBottom("网络异常,请稍后再试！");  
+			}else{
+			   toastNetErrBottom("服务器请求异常,请稍后再试！");  
+			}
+		}
+	 
+	});
+}
+
+//打开分类下面的图书列表
+function getClassBookList(classId,chlassName){
+	var pageParam={
+		barTitle:chlassName,
+		frmName:'classBookList',
+		frmUrl:'frm_classBookList.html',
+		classId:classId
+	}
+	openCommonWinNew(pageParam);
+}
+</script>
+</html>

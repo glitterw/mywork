@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>童书榜</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/list.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bangdan.css"/>
+
+</head>
+<body>
+    <!--下拉菜单 begin-->
+    <div class="slideDownBox " id="childrenRank">
+        <div class="slideGroup hidden " id="groupBox1"  >
+        	<ul id="childrenList">
+            	<!--<li class="active" onclick="select(this,'虚拟类',1)"><p>虚拟类</p></li>
+            	<li onclick="select(this,'非虚拟类',2)"><p >非虚拟类</p></li>-->  
+            </ul>
+        </div>
+        <div class="slideGroup hidden " id="groupBox2"  >
+        	<ul id="yearList">
+            	<!--<li class="active" onclick="select(this,'2016年',2,2016)"><p>2016年</p></li>
+            	<li onclick="select(this,'2015年',2,2015)"><p>2015年</p></li> -->
+            </ul>
+        </div>
+    </div> 
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/rank.js"></script> 
+<script type="text/javascript">  
+	var thisChildrenId=0;//上次被选择的值
+	var thisChildrenName='';//上次被选择的二级榜单的名称
+	var thisYear='';//上次被选择的年份 
+	apiready = function() {
+	//alert('hehhh:'+JSON.stringify(api.pageParam)); 
+	   setThisValue();  
+ 	   var rankSelectType=getPrefs("rankSelectType");  
+ 	   if(rankSelectType==1){//选择二级榜单
+ 	      getChildren();
+ 	   }else {//选择年份 
+ 	      getRankYear(0); 
+ 	   } 
+	}  
+
+//获取上次被选择的值
+function setThisValue(){
+	  var rankInfo=getPrefs("rankInfo");
+	  var jsonRankInfo=$api.strToJson(rankInfo);  
+	  if(jsonRankInfo){ 
+		  	if(jsonRankInfo.rankId && jsonRankInfo.rankId>0){//被选择的二级榜单的ID
+		  	   thisChildrenId=jsonRankInfo.rankId;
+		  	   thisChildrenName=jsonRankInfo.rankName;
+		  	}else{
+		  	   thisChildrenId=0;
+		  	}
+		  	if(jsonRankInfo.year && jsonRankInfo.year!=''){//被选择二级榜单的年份 
+		  	   thisYear=jsonRankInfo.year;
+		  	}else{
+		  	   thisYear='';
+		  	}	       
+	  }  
+
+}
+//获取二级榜单的列表
+function getChildren() { 
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/playlist/jpjs_playlistTwo';
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				fatherId : api.pageParam.fatherId,
+				page : 1,
+				pageNum : 0
+			}
+		}
+	}, function(ret, err) {
+		if (ret) {
+			var html = '';
+			if (ret.result == 1) {
+				if (ret.list.length > 0) {  
+					  var id=0;
+					  var name="";
+					  
+					   if(thisChildrenId==0){ 
+							thisChildrenId=ret.list[0].id;
+							thisChildrenName=ret.list[0].name;
+					   }
+					   //修改选择列表
+					   updateChildrenHtml(ret.list,thisChildrenId); 
+				}else{
+					api.closeWin();//一级榜单下面没有二级榜单，则关闭窗口
+				}
+			}else{
+			   toastNetErr(ret.msg);
+			}
+		}else{
+		  toastNetErr("服务器请求错误！"); 
+		}
+	});
+}
+
+
+//获取二级榜单的年份isLoad=1需要刷新 isLoad=0：不需要刷新
+function getRankYear(isLoad) {  
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/playlist/jpjs_playlistYear';//'/jpjs/playlist/jpjs_playlistYear';	
+	//alertInfo(api.pageParam);
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				rankId :thisChildrenId,//api.pageParam.rankId,
+				name:thisChildrenName,
+				page : 1,
+				pageNum : 0
+			}
+		}
+	}, function(ret, err) {  
+		if (ret) {
+			var html = ''; 
+			if (ret.result == 1) {
+				if (ret.list.length > 0) { 
+				  if( isLoad==1){//重新选择二级菜单时，默认为第一个年份
+				    thisYear = ret.list[0].year;
+				   //把选择的属性传递给父窗口
+				   var func="updateRankYearNew("+thisChildrenId+",'"+thisChildrenName+"','"+thisYear+"' )";  
+					api.execScript({
+						name : 'rank_'+api.pageParam.fatherId, 
+						script : func
+					});
+					 				     
+				  }else{ 
+					if(thisYear==""){
+					 	thisYear = ret.list[0].year; 
+					 } 
+					 updateYearHtml(ret.list,thisYear);
+				  }  
+				} else {//没有获取年份的把年份选择项屏蔽
+					$api.html($api.byId("yearList"), ""); 
+				}
+			}else{//没有年份 
+			  $api.html($api.byId("yearList"), ""); 
+			}  
+		} 
+	});
+}
+
+/**生成页面显示列表，并保存
+ * thisChildrenId  :当前选中的二级榜单的Id
+ */
+function updateChildrenHtml(list, newChildrenId) {  
+//alert("newchildrenId:"+newChildrenId);
+	var html = '';
+	for (var i = 0; i < list.length; i++) {
+		var obj = list[i];
+		var func = "select(this,'" + obj.rankName + "'," + obj.id + ")"; 
+		if (newChildrenId == obj.id) {//选择当前榜单
+			html += '<li class="active"  onclick="' + func + '"><p>' + obj.rankName + '</p></li>';
+		} else {
+			html += '<li   onclick="' + func + '"><p>' + obj.rankName + '</p></li>';
+		}
+	} 
+	$api.html($api.byId("childrenList"), html); 
+	$api.addCls($api.byId("groupBox2"), "hidden");//隐藏选择年份
+	$api.removeCls($api.byId("groupBox1"), "hidden");//隐藏选择框
+}
+
+
+//选择年份选择卡，传递数据到父窗口 
+function selectYear(obj,newYear){
+   //获取被选择的选项
+   var activeObj=$api.dom($api.byId("yearList"), ".active");
+   $api.removeCls(activeObj,"active");
+   
+   thisYear=newYear; 
+   /*
+   if(thisYear==yearName){//没有变化 
+   	   //$api.addCls($api.byId("groupBox2"), "hidden");
+		api.setFrameGroupIndex({
+			name : 'rankGroup',
+			index : 0,
+			reload:false,  
+		}); 
+   	   return false;
+   }else{*/
+	   //设置当前选项选中
+	   $api.addCls(obj, "active"); 
+	   //把选择的属性传递给父窗口
+	   var func="updateRankYearNew("+thisChildrenId+",'"+thisChildrenName+"','"+thisYear+"')";  
+		api.execScript({
+			name : 'rank_'+api.pageParam.fatherId, 
+			script : func
+		}); 
+		 
+   //}
+}
+
+//选择选择卡，传递数据到父窗口 
+function select(obj,childrenName,childrenId){
+   //获取被选择的选项
+   var activeObj=$api.dom($api.byId("childrenList"), ".active");
+   $api.removeCls(activeObj,"active");
+   //设置当前选项选中
+   $api.addCls(obj, "active");
+   $api.addCls($api.byId("groupBox1"), "hidden");
+   if(childrenId!=thisChildrenId){//跟上次选择不一致，那么要获取当前二级榜单的年份  
+		thisChildrenId=childrenId;
+		thisChildrenName=childrenName;
+		getRankYear(1);   
+   }else{
+   //把选择的属性传递给父窗口
+   var func="updateRankValueNew("+childrenId+",'"+childrenName+"','"+api.pageParam.thisYear+"')";  
+	api.execScript({
+		name : 'rank_'+api.pageParam.fatherId, 
+		script : func
+	});	 
+  }
+	   
+}
+
+
+
+/**
+ * 生成年份显示列表,并保存
+ *
+ */
+function updateYearHtml(list, thisYear) {
+	var html = '';
+	for (var i = 0; i < list.length; i++) {
+		var obj = list[i];
+		var func = "selectYear(this,'" + obj.year + "')";
+		if (thisYear == obj.year) {
+			html += '<li  class="active"  onclick="' + func + '"><p>' + obj.year + '</p></li>';
+		} else {
+			html += '<li   onclick="' + func + '"><p>' + obj.year + '</p></li>';
+		}
+	}
+	 
+	$api.html($api.byId("yearList"), html); 
+	$api.addCls($api.byId("groupBox1"), "hidden");//隐藏二级榜单
+	$api.removeCls($api.byId("groupBox2"), "hidden");//显示选择框 
+}
+
+ 
+//清空年份选择项
+function cleanChildrenSelect(){ 
+	$api.html($api.byId("childrenList"), "");//清空下拉列表
+	$api.addCls($api.byId("groupBox1"), "hidden");//隐藏选择框
+}
+
+//清空年份选择项
+function cleanYearSelect(){ 
+	$api.html($api.byId("yearList"), "");//清空下拉列表
+	$api.addCls($api.byId("groupBox2"), "hidden");//隐藏选择框
+}
+</script>
+
+</html>

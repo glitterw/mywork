@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>用户登陆</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/user.css"/>
+	<style>
+    	#wrap{ display:table; width:100%; height:100%;}
+		.contentBox,.threeLogin{ display:table-row; width:100%;}
+		.contentBox{ height:75%;}
+    </style>
+
+	</head>
+	
+	<body>
+	<div id="wrap">
+		<div class="contentBox">		
+		<!--header bgin-->
+		<header class="headLine">
+			<div class="relative" >
+				<span class="back fl" onclick="goBack()"><img src="../image/back_green.png" /></span>
+				<h1>登录</h1>
+			</div>
+		</header>
+		<!--header end-->
+		<div class="marAuto">
+			<dl class="registerDL padTop24">
+				<dd>
+					<span class="userIcon iconPhone"></span>
+					<div class="inputBox">
+						<input name="telNo" id="telNo" type="text" placeholder="请输入手机号码" class="userInput">
+					</div>
+				</dd>
+				<dd>
+					<span class="userIcon iconPass"></span>
+					<div class="inputBox">
+						<input name="password" id="password" type="password" placeholder="密码" class="userInput">
+					</div>
+				</dd>
+				<dt>
+					<input type="button" class="userSubBtn" value="立即登录"   onclick="login()"/>
+				</dt>
+			</dl>
+			<div class="loginNote">
+				<span class="fl greenLink" onclick="openCommonWin('注册新用户','userRegister','frm_userRegister.html')">立即注册</span>
+				<span class="fr greenLink" onclick="openCommonWin('忘记密码','userRepasswd','frm_userRepasswd.html')">忘记密码？</span>
+			</div> 
+	 
+		</div>
+	</div>
+	
+    <div class="threeLogin">
+    	<div class="W100">
+            <div class="marAuto">
+                <div class="threeTit">
+                    <h1>第三方登录</h1>
+                    <p></p>
+                </div>
+                <ul>
+                    <li><img src="../image/weixin.png"  onclick="loginBySDK('wx')" /><p>微信</p></li>
+                    <li><img src="../image/qq.png"   onclick="loginBySDK('qq')"/><p>QQ</p></li>
+                </ul>
+            </div>
+        </div>
+    </div> 
+	 </div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/checkData.js"></script>
+	<script type="text/javascript" src="../script/sessions.js"></script>
+	<script type="text/javascript" src="../script/cacheData.js"></script>
+	<script type="text/javascript" src="../script/sdk.js"></script>
+	<script type="text/javascript">
+		var qq;
+		var wx;
+		var accessToken;//令牌
+		var openId;//第三方用户id
+		apiready = function() {
+			var header = $api.dom("header");
+			if (header) {
+				setStatusBar(header);
+			}
+			qq=api.require('qq');
+			wx=api.require('wx');
+		}
+		//登录
+		function login() {
+			var telNo = $api.val($api.byId("telNo"));
+			var password = $api.val($api.byId("password"));
+			if (isEmpty(telNo)) {
+				toastNetErr("请输入手机号码！");
+				return false;
+			}
+			if (isEmpty(password)) {
+				toastNetErr("请输入密码！");
+				return false;
+			}
+			var actionUrl = ajaxAgent.serverAction;
+			actionUrl += '/jpjs/userinfo/jpjs_login';
+			showProgress();
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : {
+						telNo : telNo,
+						passWord : password
+					}
+				}
+			}, function(ret, err) {
+				api.hideProgress();
+				if (ret) {
+					if (ret.result == 1) {
+						//头像缓存到本地
+						//var iconPath = ajaxAgent.serverAction + ret.user.iconPath;
+						//apiImageCache(iconPath);
+						var userEntity = {
+							userId : ret.user.id,
+							nickName : ret.user.nickName,
+							sex : ret.user.sex,
+							iconPath : ret.user.iconPath,
+							isVerify :1 ,//默认为合法用户
+						};
+						sessionAgent.setLoginInfo(userEntity);
+						//alert($api.jsonToStr(sessionAgent.getLoginInfo()));
+						api.execScript({
+							name : 'root',
+							frameName : 'userIndex',
+							script : 'updateUserInfo()'
+						});
+						api.closeWin();
+						//toastNetErr("成功登录！");
+					} else {
+						toastNetErr(ret.msg);
+						return false;
+					}
+				} else {
+					toastNetErr(err.statusCode);
+				}
+			});
+		}
+
+		//伪造登录
+		function loginFalse() {
+			var userEntity = {
+				userId : 1,
+				nickName : '蔡魔头',
+				sex : 1,
+				iconPath : '../image/myicon.png'
+			};
+			sessionAgent.setLoginInfo(userEntity);
+			api.execScript({
+				name : 'root',
+				frameName : 'userIndex',
+				script : 'updateUserInfo()',
+			});
+			api.closeWin();
+		}
+		
+	//第三方登录
+	function loginBySDK(sdkName){
+		if(sdkName=='qq'){//qq授权登录
+			isInstalledQQ(); 
+		}else if(sdkName=='wx'){ 
+			isInstalledWX();
+		}
+	
+	}
+
+
+		
+	</script>
+</html>

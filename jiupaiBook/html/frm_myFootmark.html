@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>我的足迹</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/my.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/list.css"/>
+	</head>
+	<body>
+		<!--header bgin-->
+		<!--<header class="headLine">
+		<span class="back fl"><img src="../image/back_green.png" /></span>
+		<h1>我的足迹</h1>
+		</header>-->
+		<!--header end-->
+		<!--列表 begin-->
+		<div class="bgfff">
+			<div class="marLeft">
+				<div class="bookListBox pad_t30">
+					<ul class="bookListBoxUL" id="list">
+						<!--<li> 
+							<div class="bookList_r"> 
+								<div class="bookList_r_info">
+									暂无数据！
+								</div>
+							</div>
+						</li>
+
+						<li>
+							<div class="bookList_pic"><img src="../image/other/book01.jpg" />
+							</div>
+							<div class="bookList_r">
+								<h1>鹿苑长春</h1>
+								<h2>[美] 玛•金•罗琳斯 </h2>
+								<div class="bookList_r_box">
+									<dl class="starDL">
+										<dd></dd>
+										<dd></dd>
+										<dd></dd>
+										<dd class="bStar"></dd>
+										<dd class="grayStar"></dd>
+										<dt>
+											9.0
+										</dt>
+									</dl>
+								</div>
+								<div class="bookList_r_info">
+									很少用"动人"来形容文学作品。
+								</div>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--列表 end-->
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/list.js"></script>
+	<script type="text/javascript" src="../script/sessions.js"></script>
+	<script type="text/javascript" src="../script/book.js"></script>
+	<script type="text/javascript">
+		var page = 1;
+		var pageNum = 10; 
+		var totalNum = 0;//总量
+		apiready = function() {
+			beginLoad();
+		}
+		//获取免费数据列表
+		function getList() {
+			 var userEntity=sessionAgent.getLoginInfo();
+			 var actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/myViewBookList';
+			 var values={
+			 page:page,
+			 pageNum:pageNum,
+			 userId:userEntity.userId
+			 }
+			 getListContent(actionUrl,values); 
+		}
+
+		//制作模板
+		function makelist(ret) {
+		  
+			var html='';
+			if(ret.totalNum) totalNum=ret.totalNum; 
+			if(page==1 && totalNum==0){//暂无数据
+				loadNothing(api.pageParam.y,'auto');
+				/*
+				html='<li> ';
+				html+='    <div class="bookList_r"> ';
+				html+='        <div class="bookList_r_info">暂无数据！</div>';
+				html+='    </div>';
+				html+='</li>'; 
+				*/
+			}else if(ret.list){
+				html=''; 
+				//alertInfo(ret.list);
+				for (var i = 0; i < ret.list.length; i++) {
+					var obj=ret.list[i]; 
+ 
+					html+='<li onclick="openBookDetail('+obj.id+')">';
+					html+='	<div class="bookList_pic"><img src="' + getBookImgPath(obj.imgPath) + '" />';
+					html+='	</div>';
+					html+='	<div class="bookList_r">';
+					html+='		<h1>' + obj.bookName + '</h1>';
+					html+='		<h2>' + obj.author + '  </h2>';
+					html+='		<div class="bookList_r_box">';
+					html+='			<dl class="starDL">';
+					html += getBookStars(obj.score);
+					html+='				<dt>' + obj.score + '</dt>';
+					html+='			</dl>';
+					html+='		</div>';
+					html+='		<div class="bookList_r_info">' + obj.bookInfo + '</div>';
+					html+='	</div>';
+					html+='</li>';
+
+				} 
+			} 
+			if (page == 1) {
+				$api.html($api.byId("list"), html);
+			} else {
+				$api.append($api.byId("list"), html);
+			} 
+			api.parseTapmode();
+		}
+	</script>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>四城展示P</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="main">
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="./script/tools.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        createFrameGroup();
+
+        api.addEventListener({
+            name:'swipeleft'
+        }, function(ret, err){
+           alert('向左轻扫');
+        });
+
+    };
+    //创建framegroup 四个城市的展示页
+    function createFrameGroup() {
+        api.openFrameGroup({
+            name: 'city-group',
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: 'auto'
+            },
+            frames: [
+                {
+                    name: 'changsha',
+                    url: 'frm-changsha.html',
+                    bgColor: '#fff'
+                }, {
+                    name: 'hefei',
+                    url: 'frm-hefei.html',
+                    bgColor: '#fff'
+                }, {
+                    name: 'nanchang',
+                    url: 'frm-nanchang.html',
+                    bgColor: '#fff'
+                }
+
+            ]
+        }, function(ret, err) {
+            var index = ret.index;
+            if (index == 2) { //最后一个城市跳转到首页
+                openMyIndex();
+            }
+        });
+    }
+
+    //打开首页
+    function openMyIndex() {
+
+      api.openWin({
+          name: 'myIndex',
+          url: 'win-index.html',
+
+      });
+
+    }
+</script>
+
+</html>

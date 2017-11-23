@@ -1,0 +1,252 @@
+body {
+
+}
+html,body{
+	-webkit-user-select: auto;
+	-moz-user-select: auto;
+	user-select: auto;
+	-webkit-touch-callout: default;
+	-moz-touch-callout: default;
+	font-size:14px; height:100%;
+}
+.hidden{display: none;}
+.hover{opacity: .8;}
+.flex-wrap{display: -webkit-box;display: -webkit-flex;display: flex;}
+.flex-con{-webkit-box-flex: 1; -webkit-flex: 1; flex: 1;}
+.flex-vertical{-webkit-box-orient: vertical;-webkit-flex-flow: column;flex-flow: column;}
+.border-t,
+.border-b{position:relative;}
+.border-t:before,
+.border-b:after{content: ''; position: absolute; left: 0; top:0; background: #dcdcdc; right:0; height: 1px; -webkit-transform: scaleY(0.5); transform: scaleY(0.5); -webkit-transform-origin: 0 0; transform-origin: 0 0;}
+.border-b:after{top:auto; bottom:0;}
+input{ outline:none;}
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+.fl{ float:left;}
+.fr{ float:right;}
+.marLeft{ margin-left:30px;}
+.padRight,.indexTit,.bookListBoxUL li{ padding-right:30px;}
+.marAuto{ margin-left:30px; margin-right:30px;}
+.greenBg{ background:#32b2a1;}
+.bgF4{ background-color:#f4f4f4;}
+.mar_tb30{ margin-bottom:30px; margin-top:30px;}
+.bgfff{ background:#fff;}
+.mar_t20{ margin-top:20px;}
+.pad_t30{ padding-top:30px;}
+.pad_b100{ padding-bottom:100px;}
+.linedc{ border-bottom:solid 1px #dcdcdc;}
+.linedcTB{ border-bottom:solid 1px #dcdcdc; border-top:solid 1px #dcdcdc;}
+.mar_r20{ margin-right:20px;}
+.mar_r30{ margin-right:40px;}
+.disLine{ display:inline-block;}	
+.W100{ width:100%;}
+.h100{ height:100%;}
+.mar_t30{ margin-top:30px;}
+.pad_tb20{ padding-bottom:20px; padding-top:20px;}
+.pad_t20{ padding-top:20px;}
+.relative{ position:relative;}
+.radius{ border-radius:8px;}
+.overflow{ overflow:hidden;}
+.shadow{ background:url(../image/bg50.png) repeat; width:100%; height:100%; position:fixed; top:0; left:0;}
+.disBox{display:box; display:-webkit-box; display:-moz-box;}
+.disBoxChild{ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;}
+.fontGreen{ color:#32b2a1}
+
+#wrap{ height: 100%; }
+/*公共样式*/
+header{ background-color: #fff; }
+header.headLine{ border-bottom:solid 1px #dcdcdc;}
+header{ height: 88px; line-height: 88px; text-align: center; color: #32b2a1; position: relative; }
+.menu{ position:absolute; left:0; top:0;}
+.menu,.back{ margin-left:30px; height:88px;}
+header h1{ padding:0 30px 0 30px; font-size: 36px; font-weight:normal; position:absolute; top:0; left:80px; right:80px; text-align:center;}
+header .search{right:0; height:88px; position:absolute} 
+header.greenBg{ color:#fff;}
+.headBtn{ color:#32b2a1; font-size:32px; margin-right:30px;}
+header ul,header ul li{ height:100%;}
+header ul li{ display:none;}
+header ul li.active{ display:block;}
+header ul li.greenBg h1{ color:#fff;}
+
+/*按钮与输入框样式*/
+.userSubBtn{ height:100px; line-height:100px; color:#fff; font-size:36px; background:#32b2a1;}
+.userSubBtn:hover{ background:#199a89;}
+.inputBox,.userIcon{-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;}
+.userInput{ height:98px; line-height:98px; padding:0 2.5%; width:95%;}
+.textAreaStyle{ height:98px; line-height:98px; padding:0 2.5%; width:95%; outline:none; resize: none;}
+.textGroup{ background:#fff; border: solid 1px #d1d1d1;}
+
+/*滑动线型二级导航*/
+.twoNavBox{ padding: 0 30px;  background:#fff; border-bottom:#e5e5e5 solid 1px; height:98px;}
+.twoNav{  height:98px;}
+.twoNav li{ height:95px; line-height:95px; padding:0 10px; color:#999; font-size:32px;position: relative; text-align:center;}
+.twoNav li.active{ border-bottom:solid 3px #32b2a1; color:#32b2a1;}
+.threeNav{display:box; display:-webkit-box; display:-moz-box;}
+.threeNav li{-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; }
+
+.fourNav{width: 750px; }
+.fourNav li{ float:left; margin-right:52px; display:inline; height:92px !important;position: relative;}
+.scrollMenu{position: relative;width:100%; height:97px;margin: 0 auto;z-index: 400;overflow-y: hidden;overflow-x: auto;background: #fff;border-bottom:solid 1px #e5e5e5;}
+.noBorB li,.noBorB li.active{ border-bottom:none !important;}
+.noBorB li.active span{border-bottom:solid 3px #32b2a1;}
+
+/*滑动菜单*/
+.ticketsFilterBox{position: relative;width:100%; height:95px;margin: 0 auto;z-index: 400;overflow-y: hidden;overflow-x: auto;background: #fff;border-bottom:solid 1px #e5e5e5;}
+.ticketsFilterBox ul{width:780px; height:95px;}
+.ticketsFilterBox li{ font-size:32px; height:92px; color:#666;display: inline-block;position: relative;margin-left:30px;float: left;z-index: 10; text-align:center;}
+.ticketsFilterBox li.active{border-bottom:solid 3px #32b2a1;}
+.ticketsFilterBox li span{line-height:92px;padding:0 20px; height:92px;}
+
+/*tab切换标题*/
+.tabTitBox ul{ border:solid 2px #32b2a1; border-radius:8px; display:box; display:-webkit-box; display:-moz-box;}
+.tabTitBox ul li{ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; border-left:solid 2px #32b2a1; height:75px; line-height:75px; color:#32b2a1; font-size:36px; text-align:center; display:block;}
+.tabTitBox ul li:first-child{ border-left:none;}
+.tabTitBox ul li.active,.tabTitBox ul li:hover{ background:#32b2a1; color:#fff;}
+
+/*喜欢*/
+.like,.reviews,.iconRcmd{box-flex:1; -webkit-box-flex:1; -moz-box-flex:1; text-align:right; height:30px; line-height:38px; color:#999; font-size:26px; background:url() no-repeat right center; padding-right:35px;}
+.like{background-image:url(../image/rcmdIcon.png); background-size:25px;  background-position:right 4px; }
+.like_active{background-image:url(../image/rcmdIcon_active.png);}
+.reviews{ background-image:url(../image/reviewIcon.png); background-size:25px; background-position:right 10px;}
+.reviews_active{ background-image:url(../image/reviewIcon_active.png);}
+
+/*头像*/
+.rcmdHead{display:box; display:-webkit-box; display:-moz-box;}
+.rcmdHead .rcmdHeadBox,.rcmdHead span{ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; line-height:50px;}
+.rcmdHead .rcmdHeadBox em,.rcmdHead .rcmdHeadBox em img{ width:50px; height:50px;}
+.rcmdHead .rcmdHeadBox em{background-size:50px;}
+.rcmdHead .rcmdHeadBox em,.rcmdHead .rcmdHeadBox p{ float:left;}
+.rcmdHead .rcmdHeadBox p{ color:#999; font-size:32px; margin-left:12px;}
+.rcmdHead span{ text-align:right; color:#d4d4d4; font-size:26px;}
+
+.headPic{background:#e5e5e5 url(../image/icon_default.png) no-repeat center center; background-size:100%;}
+.headPic,.headPic img{ border-radius:100%;}
+
+/*星星*/
+.starDL{box-flex:1; -webkit-box-flex:1; -moz-box-flex:1; height:24px; line-height:24px; padding-top:6px;}
+.starDL dd,.starDL dt{ float:left;}
+.starDL dd{ width:24px; height:24px; margin:0 2px; background:url() no-repeat; background-size:24px 24px;}
+.starDL dd{ background-image:url(../image/redStar.png);}
+.starDL dd.bStar{ background-image:url(../image/bStar.png);}
+.starDL dd.grayStar{ background-image:url(../image/grayStar.png);}
+
+/*图书*/
+.bookList_pic{ width:121px; height:180px; margin-right:30px;}
+
+/*展开 收起 按钮*/
+.downUpBtn{ width:28px; height:15px; background:url() no-repeat center center; background-size:28px; margin:0 auto; margin-top:15px;}
+.downBtn{ background-image:url(../image/iconDown.png);}
+.upBtn{ background-image:url(../image/iconDown.png);}
+
+/*更多*/
+.morePic,.morePic img{ width:15px; height:28px;}
+.morePic{ width:15px; margin-right:30px;}
+
+
+/*发现*/
+.findBg{ background:url(../image/findBg.jpg) left bottom no-repeat; text-align:center; background-size:100%}
+.findBox{ margin:70px 120px 0px; text-align:center;}
+.findBox img{ width:100%}
+.findBox img:nth-child(2){ margin-top:100px;}
+
+/*系统弹窗*/
+.mar_lr100{ margin:0 100px;}
+.tcBox{ background:#fff; border-radius:12px;}
+.tcCont{ font-size:36px; color:#000; padding:55px 30px; text-align:center; border-bottom:solid 1px #e5e5e5;}
+.tcBtnBox div{ height:114px; line-height:114px; text-align:center; font-size:32px; color:#666; outline:none; width:49%;}
+.tcBtnBox div:nth-child(1){ border-right:solid 1px #e5e5e5;}
+.tcBtnBox div.fontGreen{ color:#32b2a1}
+
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+	.mar_tb30{ margin-bottom:15px; margin-top:15px;}
+	.mar_t20{ margin-top:10px;}
+	.pad_t30{ padding-top:15px;}
+	.pad_b100{ padding-bottom:50px;}
+	.mar_r20{ margin-right:10px;}
+	.mar_r30{ margin-right:15px;}
+	.mar_t30{ margin-top:15px;}
+	.pad_tb20{ padding-bottom:10px; padding-top:10px;}
+	.pad_t20{ padding-top:10px;}
+	
+	.marLeft{ margin-left:15px;}
+	.padRight,.indexTit,.bookListBoxUL li{ padding-right:15px;}
+	.marAuto{ margin-left:15px; margin-right:15px;}
+	header { height: 44px; line-height: 44px;}
+	.menu,.back{ margin-left:15px; height:44px;}
+	.menu img,.back img,.search img{height:44px;}
+	header h1{ padding:0 0px 0 0px; font-size: 18px; left:80px; right:80px;}
+	.search{margin-right:15px; height:44px;}
+	.headBtn{ font-size:16px; margin-right:15px;}
+	.radius{ border-radius:4px;}
+
+	/*按钮与输入框样式*/
+	.userSubBtn{ height:50px; line-height:50px; font-size:18px;}
+	.userInput{ height:49px; line-height:49px; padding:0 2.5%; width:95%;}
+	.textAreaStyle{ height:49px; line-height:49px; padding:0 2.5%; width:95%;}
+	
+	/*滑动线型二级导航*/
+	.twoNavBox{ padding: 0 15px; height:49px;}
+	.twoNav{ height:49px;}
+	.twoNav li{ height:48px; line-height:48px; padding:0 5px; font-size:16px;}
+	.twoNav li.active{ border-bottom:solid 2px #32b2a1;}
+	
+	.fourNav{width:375px; }
+	.fourNav li{ float:left;  margin-right:16px; display:inline; height:46px !important;}
+
+	.noBorB li.active span{border-bottom:solid 2px #32b2a1;}
+
+	/*滑动菜单*/
+	.ticketsFilterBox{ height:47.5px;}
+	.ticketsFilterBox ul{ height:47.5px;}
+	.ticketsFilterBox li{ font-size:16px;margin-left:15px; height:44px;}
+	.ticketsFilterBox li.active{border-bottom:solid 3px #32b2a1;}
+	.ticketsFilterBox li span{line-height:44px;padding:0 20px; height:44px;}
+
+/*    .ticketsFilterBox{height:47.5px;}
+	.ticketsFilterBox ul{height:47.5px;}
+	.ticketsFilterBox li{ font-size:16px; color:#666;margin-left:15px;float: left;}
+	.ticketsFilterBox li span{line-height:46px; padding:0 10px;}
+*/
+	/*tab切换标题*/
+	.tabTitBox ul{ border-radius:4px; border:solid 1px #32b2a1;}
+	.tabTitBox ul li{ border-left:solid 1px #32b2a1; height:37px; line-height:37px; font-size:18px;}
+
+	/*喜欢*/
+	.like,.reviews,.iconRcmd{height:15px; line-height:19px; color:#999; font-size:13px; padding-right:17px;}
+	.like{ background-size:15px; background-position:right 0px; }
+	.reviews{ background-size:13px; background-position:right 4px;}
+
+	/*头像*/
+	.rcmdHead .rcmdHeadBox p{ font-size:16px; margin-left:6px;}
+	.rcmdHead span{ font-size:13px;}
+	.rcmdHead .rcmdHeadBox,.rcmdHead span{ line-height:25px;}
+	.rcmdHead .rcmdHeadBox em,.rcmdHead .rcmdHeadBox em img{ width:25px; height:25px;}
+	.rcmdHead .rcmdHeadBox em{background-size:25px;}
+
+	/*星星*/
+	.starDL{height:12px; line-height:12px; padding-top:3px;}
+	.starDL dd{ width:12px; height:12px; margin:0 1px; background-size:12px 12px;}
+	
+	/*图书*/
+	.bookList_pic{ width:60px; height:90px; margin-right:15px;}
+	.bookList_pic img{width:60px; height:90px; }
+
+	/*展开 收起 按钮*/
+	.downUpBtn{ width:14px; height:7px; background-size:14px; margin-top:7px;}
+
+	/*更多*/
+	.morePic,.morePic img{ width:7px; height:14px;}
+	.morePic{ width:7px; margin-right:15px;}
+
+	/*发现*/
+	.findBox{ margin:35px 60px 0px; text-align:center;}
+	.findBox img:nth-child(2){ margin-top:50px;}
+
+	/*系统弹窗*/
+	.mar_lr100{ margin:0 50px;}
+	.tcBox{ background:#fff; border-radius:6px;}
+	.tcCont{ font-size:18px; color:#000; padding:27.5px 15px;}
+	.tcBtnBox div{ height:57px; line-height:57px; font-size:16px;}
+
+ }

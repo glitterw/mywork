@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>搜索列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/search.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/list.css"/>
+
+</head>
+<body>
+	<!--header bgin-->
+   <!-- <header class="greenBg">
+		<div class="searchBox">
+        	<div class="searchBox02 fl">
+                <input type="text" class="searchInput fl" value="三国机密"/>
+            	<span class="delBtn"></span>
+            </div>
+            <span class="searchBtn fr">取消</span>
+        </div>
+    </header>-->
+	<!--header end-->
+    
+	<!--tab切换 begin-->
+    <div class="tabTitBox marAuto mar_tb30">
+    	<ul id="orderBy">
+        	<li class="active" id="score"  onclick="selectBar(this,'score')">评分<span class="seqArrowT" id="triangle_score"></span></li> <!--score/collect/addtime/hot-->
+            <li id="collect"  onclick="selectBar(this,'collect')">收藏<span class="seqArrowB hidden" id="triangle_collect"></span></li>
+            <li id="addtime"  onclick="selectBar(this,'addtime')">最新</li>
+            <li id="hot"  onclick="selectBar(this,'hot')">最热</li>
+        </ul>
+    </div>
+	<!--tab切换 end-->
+    
+    <!--列表 begin-->
+	<div class="marAuto">
+      <div class="bookListBox">
+        	<ul class="bookListBoxUL" id="list">
+            	<!--<li>
+                	<div class="bookList_pic"><img src="../image/other/book01.jpg" /></div>
+                    <div class="bookList_r">
+                    	<h1>鹿苑长春</h1>
+                        <h2>[美] 玛•金•罗琳斯 </h2>
+                        <div class="bookList_r_box">
+                        	<dl class="starDL">
+                            	<dd></dd>
+                            	<dd></dd>
+                            	<dd></dd>
+                            	<dd class="bStar"></dd>
+                            	<dd class="grayStar"></dd>
+                                <dt>9.0</dt>
+                            </dl>
+                        </div>
+                        <div class="bookList_r_info">很少用"动人"来形容文学作品。</div>
+                    </div>
+                </li>--> 
+            </ul>
+        </div>
+    </div>
+    <!--列表 end-->
+</body> 
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script> 
+<script type="text/javascript" src="../script/book.js"></script> 
+<script type="text/javascript">
+var page = 1;
+var pageNum = 10; 
+var totalNum = 0;//总量
+var orderBy="";//排序方式
+var orderByType="desc";
+apiready = function() {  
+    orderBy="score";
+	beginLoad();
+} 
+function getList() { 
+	 var actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/queryBookListByKeyWords';
+	 var values={
+		 page:page,
+		 pageNum:pageNum,
+		 keyWord:api.pageParam.keyWord,
+		 orderBy:orderBy,
+		 orderByType:orderByType
+	 } 
+	 //alert(JSON.stringify(values));
+	 //return ;
+	 getListContent(actionUrl,values);
+	 
+}
+
+//制作模板
+function makelist(ret) { 
+  
+	var html='';
+	if(ret.totalNum) totalNum=ret.totalNum; 
+	if(page==1 && totalNum==0){//暂无数据
+	   loadNothing(api.pageParam.frmY,'auto'); 
+		
+	}else if(ret.list){
+		if(ret.list.length>0){
+			html=''; 
+			for (var i = 0; i < ret.list.length; i++) {
+				var obj=ret.list[i]; 
+					html+='<li onclick="openBookDetail('+obj.id+')">';
+					html+='	<div class="bookList_pic"><img src="'+getBookImgPath(obj.imgPath)+'" /></div>';
+					html+='    <div class="bookList_r">';
+					html+='    	<h1>'+obj.bookName+'</h1>';
+					html+='        <h2>'+obj.author+'</h2>';
+					html+='        <div class="bookList_r_box">';
+					html+='        	<dl class="starDL">';
+					html += getBookStars(obj.score);
+					html += '                <dt>' + obj.score + '</dt>';
+					html+='            </dl>';
+					html+='        </div>';
+					html+='        <div class="bookList_r_info">'+obj.bookInfo+'</div>';
+					html+='    </div>';
+					html+='</li>'; 
+			}
+	  	 //保存搜索历史
+	  	 saveHistory();
+	  } 
+	} 
+	if (page == 1) {
+		$api.html($api.byId("list"), html);
+	} else {
+		$api.append($api.byId("list"), html);
+	} 
+}
+//选择改变样式
+function selectBar(obj,thisOrderBy){
+ 
+ var liObj=$api.domAll("#orderBy li");
+ for(var i=0;i<liObj.length;i++){
+	$api.removeCls(liObj[i], 'active'); 
+ }
+ $api.addCls($api.byId("triangle_collect"), 'hidden');
+ $api.addCls($api.byId("triangle_score"), 'hidden'); 
+ $api.addCls( obj, 'active'); 
+ if(thisOrderBy=="score"){//当前选中的是评分按钮，则显示三角箭头
+   $api.removeCls($api.byId("triangle_score"), 'hidden');
+ }else  if(thisOrderBy=="collect"){//当前选中的是评分按钮，则显示三角箭头
+   $api.removeCls($api.byId("triangle_collect"), 'hidden');
+ }
+ if(thisOrderBy=="score" || thisOrderBy=="collect"){  
+   changeTriangle(thisOrderBy);
+ } 
+ orderBy=thisOrderBy;
+ page=1;
+ getList(); 
+}
+
+//改变三角形
+function changeTriangle(thisOrderBy){ 
+ var obj=$api.byId("triangle_"+thisOrderBy); 
+ //获取箭头的class
+ var className=$api.attr(obj, "class");
+ if(className=="seqArrowT"){//之前是倒序   
+    $api.attr(obj, "class","seqArrowB"); 
+    orderByType="asc"; //
+ }else if(className=="seqArrowB"){//之前是正序 
+    $api.attr(obj, "class","seqArrowT");
+    orderByType="desc";
+ }
+ 
+}
+//保存搜索历史
+function saveHistory(){
+  
+  //当前关键词
+  var thisKeyword=api.pageParam.keyWord;
+  if(thisKeyword==''){//空的不保存记录
+     return false;
+  }
+  //取出历史
+  var historyStr=getPrefs("historyKeywords");//获取历史
+  //var historyStr='["呵呵","哈哈","好书","好看","好","童年","金奖","冬天","今天","春天","雨季"]';  
+  //判断历史中是否存在当前的搜索关键词，如果存在过滤掉之前的，把当前的关键词放在第一个
+  var keyList=[];//保存新的历史关键词数组
+  if(historyStr==""){ 
+  	keyList.push(api.pageParam.keyWord);
+  }else{
+     var historyJson=$api.strToJson(historyStr);//转化为json格式
+     keyList.push(api.pageParam.keyWord);//最近的放在第一个
+     var j=1; //历史关键词计数，最多保存10个
+     for(var i=0;i<historyJson.length && j<10;i++){
+     	if(thisKeyword!=historyJson[i]){
+     	   keyList.push(historyJson[i]);
+     	   j++;
+     	}
+     } 
+  } 
+  setPrefs("historyKeywords",$api.jsonToStr(keyList)); //设置历史偏好 
+} 
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>云API</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/list.css" />
+	</head>
+	<body>
+		<!--滚动图 begin-->
+		<div  class="swipe" id="swipe" ></div>
+		<!--滚动图 end-->
+		<div class="marLeft hidden" id='goodBook'>
+			<!--标题 begin-->
+			<div class="indexTit">
+				<h1><i class="greenLine"></i>好书推荐</h1>
+				<!--<span class="indexMore" onclick="openWin('win_recommend','win_recommend.html')">更多</span>-->
+			</div>
+			<!--标题 end-->
+			<!--列表 begin-->
+			<div class="bookListBox">
+				<ul class="bookListBoxUL" id="list">
+					<!--<li>
+					<div class="bookList_r">
+					<div class="bookList_r_info  ">暂无数据！</div>
+					</div>
+					</li>
+					<li>
+					<div class="bookList_pic"><img src="../image/other/book01.jpg" /></div>
+					<div class="bookList_r">
+					<h1>鹿苑长春</h1>
+					<h2>[美] 玛•金•罗琳斯 </h2>
+					<div class="bookList_r_box">
+					<dl class="starDL">
+					<dd></dd>
+					<dd></dd>
+					<dd></dd>
+					<dd class="bStar"></dd>
+					<dd class="grayStar"></dd>
+					<dt>9.0</dt>
+					</dl>
+					<div class="like like_active">10000</div>
+					</div>
+					<div class="bookList_r_info reviewIcon reviewIcon_active">很少用"动人"来形容文学作品。</div>
+					</div>
+					</li>-->
+				</ul>
+			</div>
+			<!--列表 end-->
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/slide.js"></script> 
+	<script type="text/javascript" src="../script/book.js"></script>
+	<script type="text/javascript" src="../script/rank.js"></script>
+	<script type="text/javascript" src="../script/list.js"></script>
+	<script type="text/javascript" src="../script/event.js"></script>
+	<script>
+		var page = 1;
+		var pageNum = 10;
+		var totalNum = 0;
+		//总量
+		apiready = function() {  
+			//加载banner图片 
+			var divH = $api.offset($api.byId("swipe")).h;  
+			getSlideImg(divH); 
+			setRefreshHeader();//设置刷新 
+			beginLoad();
+		};
+		
+		function getList() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_bookRecommend';
+			var values = {
+				page : page,
+				pageNum : pageNum
+			} 
+			getListContent(actionUrl,values);  
+		}
+
+		function getGoodBook(actionUrl,values,frmY,frmH) { 
+			 
+			showProgress();  
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : values
+				}
+			}, function(ret, err) {  
+				if (ret) {
+					if (ret.result == 1) { 
+					   makelist(ret);
+					   api.parseTapmode();
+					   api.hideProgress();  
+					   return true; 
+					} else {   
+		               toastNetErrBottom(ret.msg); 
+					}
+					
+				} else { 
+				    
+				   if(err.statusCode==0){ 
+				     sendIndexNetError(frmY,frmH);
+				     api.hideProgress();  
+					 toastNetErrBottom('网络异常,请稍后再试哦!'); 
+					}else{
+					  toastNetErrBottom('服务请求失败!');
+					
+					}
+					  
+				} 
+				
+				
+			});
+		
+		}
+
+		//制作模板
+		function makelist(ret) {  
+			var html = '';
+			if(ret){ 
+				if (ret.totalNum)
+					totalNum = ret.totalNum;
+				if (page == 1 && totalNum == 0) {//暂无数据
+					html += '<li> ';
+					html += '    <div class="bookList_r"> ';
+					html += '        <div class="bookList_r_info  ">暂无数据！</div>';
+					html += '    </div>';
+					html += '</li>';
+				} else if (ret.list) {
+				
+					html = ''; 
+					for (var i = 0; i < ret.list.length; i++) {
+						var obj = ret.list[i];  
+						var func="openBookDetail("+obj.bookId+")";
+						html += '<li onclick="'+func+'">';
+						html += '	<div class="bookList_pic"><img src="' + getBookImgPath(obj.imgPath) + '" /></div>';
+						html += '    <div class="bookList_r">';
+						html += '    	<h1>' + obj.bookName + '</h1>';
+						html += '        <h2>' + obj.author + ' </h2>';
+						html += '        <div class="bookList_r_box">';
+						html += '        	<dl class="starDL">';
+						html += getBookStars(obj.score);
+						html += '                <dt>' + obj.score + '</dt>';
+						html += '            </dl>'; 
+						html += '        </div>';
+						html += '        <div class="bookList_r_info reviewIcon reviewIcon_active">' + obj.info + '</div>';
+						html += '    </div>';
+						html += '</li>';
+					}
+				}
+				
+				if (page == 1) {
+					$api.html($api.byId("list"), html);
+				} else {
+					$api.append($api.byId("list"), html);
+				} 
+				api.parseTapmode();
+				$api.removeCls($api.byId("goodBook"), 'hidden'); 
+			}else{ 
+			   toastNetErr("网络连接错误！");
+			} 
+		}
+	</script>
+</html>

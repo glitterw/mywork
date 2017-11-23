@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>童书榜</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/list.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bangdan.css"/>
+	</head>
+	<body>
+		<!--header bgin-->
+		<header class="greenBg">
+			<div  class="relative">
+				<span class="back fl" onclick="goBack()"><img src="../image/back_white.png" /></span>
+				<h1>
+				<div class="headNameBox">
+					<div class="headName">
+						南方都市报年度好书
+					</div>
+					<span class="arrowB" onclick="openInfo()"></span>
+				</div></h1>
+			</div>
+		</header>
+		<!--header end-->
+		<div class="headInfoBox hidden" id="rankInfo">
+			<!--地方地方发快递的的发动机ID你发斯蒂芬反馈副书记浪费的石首的fdffndfaldkfd发牢骚打开老师的开发技术发蒂芬反馈副书记浪费的石首的-->
+		</div>
+		<!--下拉菜单 begin-->
+		<div class="slideDownBox " id="childrenRank">
+			<div class="slideTitBox">
+				<div class="slideTabTit" id="selectChildren" onclick="openframBox(1)">
+					<p id="childrenName" class="slideTapP"></p><span class="arrowB02" ></span>
+				</div>
+				<div class="slideLine"></div>
+				<div class="slideTabTit"  id="selectYear" onclick="openframBox(2)" >
+					<p id="year" class="slideTapP"></p><span class="arrowB02" ></span>
+				</div>
+			</div> 
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/rank.js"></script>
+	<script type="text/javascript" src="../script/event.js"></script>
+	<script type="text/javascript">
+		var y = 0;
+		var headerH = 0;
+		var rankInfoDivH = 0;
+		var childrenRankH = 0;
+		var rankType = 0;
+		apiready = function() { 
+			var header = $api.dom("header");
+			if (header) {
+				setStatusBar(header);
+				headerH = $api.offset(header).h;
+			}
+			var rankInfoDiv = $api.byId("rankInfo");
+			var childrenRank = $api.byId("childrenRank");
+			rankInfoDivH = $api.offset(rankInfoDiv).h;
+			childrenRankH = $api.offset(childrenRank).h;
+			y = headerH + rankInfoDivH + childrenRankH;
+			$api.text($api.dom(".headName"), api.pageParam.rankName);
+			//获取介绍
+			getRankInfo();
+			//获取二级榜单
+			getChildren(api.pageParam.childrenId,api.pageParam.childrenName); 
+		}
+ 
+		//打开选择下拉框
+		function openframBox(type) {
+		    var thisChildren=getThisChildren();
+		    var thisYear=getThisYear();  
+			var childrenId =thisChildren.id; 
+			api.openFrame({
+				name : 'selectBox',
+				url : 'frm_selectBox.html',
+				rect : {
+					x : 0,
+					y : y,
+					w : 'auto',
+					h : 'auto'
+				},
+				pageParam : {
+					rankId : api.pageParam.rankId,
+					type : type,
+					childrenId : childrenId,
+					yearName : thisYear
+				},
+				bounces : false,
+				bgColor : 'rgba(0,0,0,0)',
+				vScrollBarEnabled : true,
+				hScrollBarEnabled : true, 
+				reload:true,
+			});
+		}
+ 
+
+		//打开/关闭介绍
+		function openInfo() {
+			var infoDiv = $api.byId("rankInfo");
+			var className = $api.attr(infoDiv, "class");
+			if (className.indexOf("hidden") > 0) {//打开
+				$api.removeCls(infoDiv, "hidden");
+				rankInfoDivH = $api.offset($api.byId("rankInfo")).h;
+				y = headerH + rankInfoDivH + childrenRankH;
+			} else {
+				$api.addCls(infoDiv, "hidden");
+				y = headerH + childrenRankH;
+			}
+			//设置frm的高度
+			api.setFrameAttr({
+				name : 'frm_rankList',
+				rect : {
+					x : 0,
+					y : y,
+					w : 'auto',
+					h : 'auto'
+				},
+			});
+		}
+
+		//获取榜单的介绍
+		function getRankInfo() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/playlist/jpjs_queryPlaylist';
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : {
+						rankId : api.pageParam.rankId
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					//页面加载书的图片
+					if (ret.result == 1) {
+						$api.html($api.byId("rankInfo"), ret.info.remark);
+						rankType = ret.info.type;
+					} else {
+						$api.html($api.byId("rankInfo"), "");
+					}
+				}
+			});
+		}
+
+
+
+
+	</script>
+</html>

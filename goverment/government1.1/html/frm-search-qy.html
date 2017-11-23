@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>企业信息列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+
+    	}
+    </style>
+</head>
+<body>
+	<!--列表页 开始-->
+	<div class="list-box  " id="list">
+		<!--<div class="snothing-box ">-->
+			<!--<i></i>-->
+			<!--<p>结果为空</p>-->
+		<!--</div>-->
+	 <!--<div class="item border-bottom">-->
+	     <!--<div class="text-content">-->
+	         <!--<p class="serch-title" onclick="openQYDetail(0)">市局消保局受邀参加消费维权座谈会</p>-->
+	         <!--<p class="search-time">2016-12-22</p>-->
+	     <!--</div>-->
+	 <!--</div>-->
+	 <!--<div class="item border-bottom">-->
+	 	     <!--<div class="text-content">-->
+	 	         <!--<p class="serch-title">市局消保局受邀参加消费维权座谈会</p>-->
+	 	         <!--<p class="search-time">2016-12-22</p>-->
+	 	     <!--</div>-->
+	 <!--</div>-->
+
+	</div>
+	<!--列表页 结束-->
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+var page=1;
+var pageNum=10;
+var totalNum=0;
+apiready = function() {
+//
+  //alert('winName'+api.winName+' frm:'+api.frmName);
+	var isCancel=getPrefs("cancel");
+	var keyValue= getPrefs("keyValue");
+	    setPrefs("this_keyValue_0",keyValue);//记录当前搜索词
+			beginLoad();
+
+	// if(isCancel=="1"){ //取消操作，清空数据
+	// 	clearn();
+	// }else if(keyValue.length>1){
+	// 	 beginLoad();
+	// }
+}
+function  clearn(){
+    	$api.html($api.byId("list"), "");
+}
+
+function getList() {
+	  var keyValue= getPrefs("keyValue");
+		if(keyValue==""){ //无搜索词，不去请求数据
+			  return false;
+		}
+	 var actionUrl = ajaxAgent.serverAction + '/login/queryMessage';
+	 //console.log(actionUrl);
+	 var webName="searchqy";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 //webName:webName,//模块名称
+		 page:page,//页码
+		 pageNum:pageNum,//一页的数量
+		 key:keyValue,//城市类型
+		 type:1
+	 }
+	 //console.log(JSON.stringify(values));
+	 getListContent(actionUrl,values);
+}
+
+//制作模板
+function makelist(ret) {
+	var html='';
+	if(ret.total!=null){
+	 totalNum=ret.total;
+	if(page==1 && totalNum==0){//暂无数据
+		html='<div class="snothing-box ">';
+		html+='			<i></i>';
+		html+='			<p>结果为空</p>';
+		html+='		</div>';
+	}else if(ret.data){
+	// console.log(JSON.stringify(ret.data));
+		html='';
+		for (var i = 0; i < ret.data.length; i++) {
+			var obj=ret.data[i];
+			var func="openQYDetail('"+obj.messageId+"',1)";
+			html+=' <div class="item border-bottom">';
+			html+='	     <div class="text-content">';
+			html+='	         <p class="serch-title" onclick="'+func+'">'+obj.messageName+'</p>';
+      // //if(obj.dateTime=="null"){
+			// 	alert(obj.dateTime);
+			// //}
+
+			if(obj.dateTime!=null){
+				html+='	         <p class="search-time">'+obj.dateTime+'</p>';
+			}
+			html+='	     </div>';
+			html+='	 </div>';
+		}
+	}
+
+	if (page == 1) {
+		$api.html($api.byId("list"), html);
+		$api.removeCls($api.byId("list"), "hidden");
+	} else {
+		$api.append($api.byId("list"), html);
+	}
+	api.parseTapmode();
+ }else{
+     toastNetErrBottom('数据格式错误!');
+ }
+}
+
+
+</script>
+</html>

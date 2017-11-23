@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>提交成功</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+        body{
+
+        }
+    </style>
+</head>
+<body>
+<div id="wrap" style=" background-color: rgba(0, 0, 0, .1);">
+     <div class="message">
+       <div class="content">
+           <p class="title  border-bottom">提示</p>
+           <p class="info">您的投资意向已记录，稍后会有 工作人员与您联系</p>
+       </div>
+        <div class="action"> <span>返回</span></div>
+     </div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        showSelect();
+    };
+
+
+    function showSelect(){
+        //选择箭头绑定展开选择项
+        $api.addEvt($api.dom(".invest-item.down"), 'click', function() {
+            $api.addCls(this,'active');
+            $api.addCls($api.dom(".city-select"),'show');
+        });
+        //选择项绑定修改值
+        $api.addEvt($api.dom(".invest-item>li"), 'click', function() {
+             var value=$api.attr(this,"value")
+        });
+    }
+
+    //创建framegroup 3个类型的新闻列表页
+    function createFrameGroup(y,h){
+        api.openFrameGroup({
+            name: 'list-group',
+            rect: {
+                x: 0,
+                y: y,
+                w: 'auto',
+                h: h
+            },
+            preload:0,
+            frames: [{
+                name: 'notice',
+                url: 'frm-news-notice.html',
+                bgColor: '#fff'
+            }, {
+                name: 'zw',
+                url: 'frm-news-zw.html',
+                bgColor: '#fff'
+            }, {
+                name: 'yw',
+                url: 'frm-news-yw.html',
+                bgColor: '#fff'
+            }
+            ]
+        }, function(ret, err) {
+            var index = ret.index;
+
+            $api.removeCls($api.dom('.news-tab>.active'),'active');
+            $api.addCls($api.dom('.news-tab>span[index="'+index+'"]'),'active');
+
+//            if(index==3){//最后一个城市跳转到首页
+//                openMyIndex();
+//            }
+
+        });
+    }
+    //四个tab切换
+    function newsSwithch(){
+        var listDoms=$api.domAll('.news-tab>span');
+        for (var i = 0; i < listDoms.length; i++) {
+            $api.addEvt(listDoms[i], 'click', function() {
+                $api.removeCls($api.dom('.news-tab>.active'),'active');
+                $api.addCls(this,'active');
+                //切换frameGroup
+                var index=$api.attr(this, 'index');
+                api.setFrameGroupIndex({
+                    name : 'list-group',
+                    index : index,
+                    reload:false,
+                });
+            });
+        }
+    }
+    //图片轮播
+    function openSlide(paths,divH) {
+        var UIScrollPicture = api.require('UIScrollPicture');
+        UIScrollPicture.open({
+            rect: {
+                x: 0,
+                y: 0,
+                w: api.winWidth,
+                h: divH
+            },
+            data: {
+                paths: paths,
+                //captions : ['apicloud', 'apicloud', 'apicloud']
+            },
+            styles: {
+                caption: {
+                    height: 35,
+                    color: '#E0FFFF',
+                    size: 13,
+                    bgColor: '#696969',
+                    position: 'bottom'
+                },
+                indicator: {
+                    align: 'center',
+                    color: '#FFFFFF',
+                    activeColor: '#32b2a1'
+                }
+            },
+            //placeholderImg : 'widget://res/slide1.jpg',
+            contentMode: 'scaleToFill',
+            interval: 3,
+            fixedOn: api.frameName,
+            loop: true,
+            auto: true,
+            fixed: false,
+
+        }, function (ret, err) {
+            if (ret.eventType == 'click') {
+                openRankBySlide(ret.index);
+            }
+        });
+    }
+</script>
+</html>

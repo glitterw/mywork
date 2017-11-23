@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>资金流动</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+
+    	}
+    </style>
+</head>
+<body>
+<div id="wrap" class="market-index">
+     <div class="chart-item">
+        <h5 class="title">资金迁入</h5>
+         <p class="other"><span>2016年</span><span>单位:百万元</span></p>
+         <div class="item-tab flex-box">
+            <span class="in flex-item border active" index="in-bar-0" city-type="0" >武汉</span>
+            <span class="in flex-item border" index="in-bar-3" city-type="3">长沙</span>
+            <span class="in flex-item border" index="in-bar-2" city-type="2">南昌</span>
+            <span class="in flex-item border" index="in-bar-1" city-type="1">合肥</span>
+        </div>
+         <div class="chart-box bar " id="in-bar">
+        </div>
+       <!-- <div class="chart-box bar " id="in-bar-0">
+        </div>
+        <div class="chart-box bar " id="in-bar-1">
+        </div>
+        <div class="chart-box bar " id="in-bar-2">
+        </div>
+        <div class="chart-box bar " id="in-bar-3">
+        </div>  -->
+    </div>
+     <div class="chart-item">
+        <h5 class="title">资金迁出</h5>
+         <p class="other"><span>2016年</span><span>单位:百万元</span></p>
+         <div class="item-tab flex-box">
+            <span class="out flex-item border active" index="out-bar-0" city-type="0" >武汉</span>
+            <span class="out flex-item border" index="out-bar-3" city-type="3">长沙</span>
+            <span class="out flex-item border" index="out-bar-2" city-type="2">南昌</span>
+            <span class="out flex-item border" index="out-bar-1" city-type="1">合肥</span>
+        </div>
+        <div class="chart-box bar " id="out-bar">
+        </div>
+
+       <!-- <div class="chart-box bar " id="out-bar-0">
+        </div>
+        <div class="chart-box bar " id="out-bar-1">
+        </div>
+        <div class="chart-box bar " id="out-bar-2">
+        </div>
+        <div class="chart-box bar " id="out-bar-3">
+        </div>  -->
+    </div>
+
+ <div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/echarts.min.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+
+<script type="text/javascript">
+    var thisCityIn=0;//迁入的当前选择城市编号
+    var thisCityOut=0;//迁出的当前选择城市编号
+    var inData;//迁入数据
+    var outData;//迁出的数据
+	apiready = function(){
+ 		//请求服务器获取2016年迁入数据
+ 		getCityData(2016,1,0);
+ 		//请求服务器获取2016年迁出数据
+ 		getCityData(2016,2,0);
+	};
+
+//数据切换
+function inTabCity(){
+	var domall=$api.domAll(".item-tab>span.in");
+	for (var i = 0; i < domall.length; i++) {
+		$api.addEvt(domall[i], "click", function(){
+			if( $api.hasCls(this, 'active')){
+			    return true;//重复点击
+			}else{
+			   //删除之前选中的
+			   $api.removeCls($api.dom(".item-tab>span.in.active"), "active");
+			   $api.addCls(this, "active");
+			   var myChart=echarts.init(document.getElementById("in-bar"));
+			   myChart.showLoading();
+			   var cityType=$api.attr(this, 'city-type');
+			   var cityData=getData(cityType,inData);
+	        	if(cityData!=null){
+	        		creatBarCity(1,cityType,cityData,myChart);
+	        	}else{
+	        	   creatNothing("in-bar");
+	        	}
+
+
+			}
+		});
+
+	}
+
+}
+
+
+//数据切换
+function outTabCity(){
+	var domall=$api.domAll(".item-tab>span.out");
+	for (var i = 0; i < domall.length; i++) {
+		$api.addEvt(domall[i], "click", function(){
+			if( $api.hasCls(this, 'active')){
+			    return true;//重复点击
+			}else{
+			   //删除之前选中的
+			   $api.removeCls($api.dom(".item-tab>span.out.active"), "active");
+			   $api.addCls(this, "active");
+			   var myChart=echarts.init(document.getElementById("out-bar"));
+			   myChart.showLoading();
+			   var cityType=$api.attr(this, 'city-type');
+			   var cityData=getData(cityType,inData);
+	        	if(cityData!=null){
+	        		creatBarCity(1,cityType,cityData,myChart);
+	        	}else{
+	        	   creatNothing("out-bar");
+	        	}
+
+			}
+		});
+
+	}
+
+}
+
+
+//柱状图
+function getCityData(year,type){
+ 	 var actionUrl = ajaxAgent.serverAction + '/interworking/removalRankingPort';
+	 var webName="inbar";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 year:year,
+		 type:type,
+		 cityType:0
+	 };
+	console.log(JSON.stringify(values));
+	  var  myChart;
+	 if(type==1){
+	   myChart=echarts.init(document.getElementById("in-bar"));
+
+	 }else if(type==2){
+	   myChart=echarts.init(document.getElementById("out-bar"));
+	 }
+	 myChart.showLoading();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+	 //console.log(type+"数据："+JSON.stringify(ret));
+	 myChart.hideLoading();
+	    if(ret){
+		     if(ret.status=='success'){//成功返回数据
+		        if(type==1){
+		        	inData=ret.data;
+		        	//默认加载武汉数据
+		        	var wuhanData=getData(0,inData);
+		        	if(wuhanData!=null){
+		        		creatBarCity(1,0,wuhanData,myChart);
+		        	}else{
+		        	   creatNothing("in-bar");
+		        	}
+		        	//四城切换
+		        	inTabCity();
+		        }else if(type==2){
+		            outData=ret.data;
+		            //默认加载武汉数据
+		        	var wuhanData=getData(0,outData);
+		        	if(wuhanData!=null){
+		        		creatBarCity(2,0,wuhanData,myChart);
+		        	}else{
+		        	   creatNothing("out-bar");
+		        	}
+		        	//四城切换
+		        	outTabCity();
+		        }
+		     } else {
+               toastNetErrBottom(ret.message);
+
+			}
+	     }else {
+			 toastNetErrBottom('迁入迁出分析数据出错!');
+			 myChart.hideLoading();
+		 }
+
+	});
+
+
+}
+
+//获取某个城市的数据
+function getData(cityType,data){
+   for(var i=0;i<data.length;i++){
+     //console.log(i+" : "+JSON.stringify(data[i]));
+     if(data[i].cityType!=null && data[i].cityType==cityType){
+      	return  data[i].portCity;
+      }
+   }
+
+   return null;
+}
+function creatNothing(indexName){//<p class="nothing">暂无数据！</p>
+
+ $api.html($api.byId(indexName), '<p class="nothing">暂无数据！</p>');
+}
+
+//创建某个城市的柱状图
+function creatBarCity(type,cityType,data,myChart){
+	//提前xdata
+	var xdata=creatData(data,'areaName');
+	var sdata=creatData(data,'count');
+	if(type==1){
+		openBar(xdata,sdata,myChart,cityType,'资金迁入',1);
+	}else if(type==2){
+	   openBar(xdata,sdata,myChart,cityType,'资金迁出',2);
+	}
+}
+
+//分离出数据
+function creatData(data,keyName){
+	var keyData=new Array();
+	if(data){
+		for(var i=0;i<data.length;i++){
+	      keyData.push(data[i][keyName]);
+	    }
+    }
+   return keyData;
+}
+//根据数据构建图表
+function openBar(xdata,sdata,myChart,cityType,sname,type){
+	// 指定图表的配置项和数据
+	var option = {
+	    color:["#eb869a"],
+	    tooltip : {
+	        trigger: 'axis',
+	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+	        }
+	    },
+	     grid: {
+            width:'auto',
+            height:'auto',
+            top: 5,
+            left:0,
+            right:5,
+            bottom:20,
+	        containLabel: true
+	    },
+	    xAxis : [
+	        {
+	            type : 'category',
+	            data : xdata,
+	            boundaryGap: ['2%', '20%'],
+	            splitNumber:10,
+	            axisTick: {
+	                alignWithLabel: true,
+	                show:false
+	            },
+	            axisLine:{
+	                lineStyle:{
+	                    color:'#999',
+	                }
+	            },
+	            axisLabel:{
+	              rotate:0
+	            },
+	            splitLine:{
+	                show:true,
+	                lineStyle:{
+	                    color:'#e9e9e9',
+	                    type:'dashed'
+	                }
+	            }
+
+	        }
+	    ],
+	    yAxis : [
+	        {
+	            type : 'value',
+	            axisLine:{
+                lineStyle:{
+                    color:'#999',
+                },
+	            },
+	            axisTick:{
+	                show:false
+	            }
+	        }
+	    ],
+	    series : [
+	        {
+	            name:sname,
+	            type:'bar',
+	            barWidth: '60%',
+	            data:sdata
+	        }
+	    ]
+	};
+        myChart.setOption(option);
+        myChart.hideLoading();
+}
+
+
+</script>
+</html>

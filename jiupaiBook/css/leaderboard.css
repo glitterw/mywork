@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*排行榜*/
+.rankingUL li{ display:box; display:-webkit-box; display:-moz-box; border-bottom:solid 1px #e1e1e1; height:120px; line-height:120px; width:100%;}
+.rankingUL li em,.rankingUL li h1,.rankingUL li span{ box-flex:1; -webkit-box-flex:1; -moz-box-flex:1}
+.rankingUL li em,.rankingUL li em img{ width:80px; height:80px; border-radius:100%;}
+.rankingUL li em{ margin:20px 30px 0 0;}
+.rankingUL li h1{ color:#333; font-size:30px;}
+.rankingUL li span img{ margin-top:46px;}
+
+.fire{ margin-bottom:-5px; width:30px;}
+
+
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+/*排行榜*/
+.rankingUL li{ height:60px; line-height:60px;}
+.rankingUL li em,.rankingUL li em img{ width:40px; height:40px; }
+.rankingUL li em{ margin:10px 15px 0 0;}
+.rankingUL li h1{ font-size:15px;}
+.rankingUL li span img{ margin-top:23px;}
+.fire{ margin-bottom:-2.5px; width:15px; }
+
+}

@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>市场主体</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+
+    	}
+    </style>
+</head>
+<body>
+<div id="wrap" class="market-index">
+	<!-- 市场主体活跃度分析-->
+    <div class="chart-item">
+        <h5 class="title">市场主体活跃度分析</h5>
+        <p class="other"><span>2010-2016年</span></p>
+        <!-- 折线图 开始-->
+        <div class="chart-box line" id="line-box">
+
+        </div>
+        <!--折线图 结束-->
+    </div>
+    <div class="chart-item">
+        <h5 class="title">四地新增主体户数趋势分析</h5>
+        <p class="other"><span>2010-2018年</span><span>单位:百万元</span></p>
+        <!-- 折线面积图 开始-->
+        <div class="chart-box line-area" id="line-area-box">
+
+        </div>
+        <!--折线面积图 结束-->
+    </div>
+
+  <div class="chart-item">
+        <h5 class="title">企业年龄结构分析</h5>
+        <p class="other"><span>2016年</span><span>单位:户数</span></p>
+        <div class="item-tab flex-box">
+            <span class="city-type flex-item border active" index="wuhan">武汉</span>
+            <span class="city-type flex-item border" index="changsha">长沙</span>
+            <span class="city-type flex-item border" index="nanchang">南昌</span>
+            <span class="city-type flex-item border" index="hefei">合肥</span>
+        </div>
+        <!-- 武汉房子分布 开始-->
+        <div class="house-box" id="wuhan">
+            <!--<div class="cell flex-box">
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house red"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house red"></span>
+                <span class="house red"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house green"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house blue"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+                <span class="house purple"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+            </div>
+            <div class="cell flex-box">
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+                <span class="house yellow"></span>
+            </div>-->
+
+        </div>
+        <!--房子分布 结束-->
+        <!--长沙-->
+        <div class="house-box hidden" id="changsha"></div>
+        <!--南昌-->
+        <div class="house-box hidden" id="nanchang"></div>
+        <!--合肥-->
+        <div class="house-box hidden" id="hefei"></div>
+        <div class="legend">
+         <span><i class="line red"></i><i class="name">一年以内</i></span>
+         <span><i class="line green "></i><i class="name">1-2年</i></span>
+         <span><i class="line yellow"></i><i class="name">2-5年</i></span>
+         <span><i class="line blue"></i><i class="name">5-10年</i></span>
+         <span><i class="line purple"></i><i class="name">10年以上</i></span>
+        </div>
+    </div>
+
+     <div class="chart-item">
+        <h5 class="title">新增市场主题季度对比</h5>
+         <div class="item-tab flex-box">
+            <span class=" time border active" index="scatter-box-2015">2015</span>
+            <span class=" time border" index="scatter-box-2016">2016</span>
+        </div>
+        <!-- 散点图 开始-->
+        <div class="chart-box scatter " id="scatter-box-2015">
+        </div>
+        <!--散点图 结束-->
+        <!-- 散点图 开始-->
+        <div class="chart-box scatter " id="scatter-box-2016">
+        </div>
+        <!--散点图 结束-->
+
+    </div>
+     <div class="chart-item">
+        <h5 class="title">市场主体产业类型分析</h5>
+        <p class="other"><span>2010-2018年</span><span>单位:百万元</span></p>
+         <div class="item-tab flex-box">
+            <span class="trade-city flex-item border active" index="treemap-box-wuhan">武汉</span>
+            <span class="trade-city flex-item border" index="treemap-box-changsha">长沙</span>
+            <span class="trade-city flex-item border" index="treemap-box-nanchang">南昌</span>
+            <span class="trade-city flex-item border" index="treemap-box-hefei">合肥</span>
+        </div>
+        <!-- 树图 武汉开始-->
+        <div class="chart-box treemap" id="treemap-box-wuhan">
+           <p class="nothing">暂无数据！</p>
+        </div>
+        <!--树图 结束-->
+        <!-- 树图 开始-->
+        <div class="chart-box treemap hidden" id="treemap-box-changsha">
+        </div>
+        <!--散点图 结束-->
+        <!-- 散点图 开始-->
+        <div class="chart-box treemap hidden" id="treemap-box-nanchang">
+        </div>
+        <!--散点图 结束-->
+        <!-- 树图 开始-->
+        <div class="chart-box treemap hidden" id="treemap-box-hefei">
+        </div>
+        <!--树图 结束-->
+    </div>
+
+    <div class="chart-item">
+        <h5 class="title">资金迁入</h5>
+        <p class="other"><span>2016年</span><span>单位:百万元</span></p>
+        <div class="item-tab flex-box">
+            <span class="in flex-item border active" index="in-bar-0" city-type="0" >武汉</span>
+            <span class="in flex-item border" index="in-bar-3" city-type="3">长沙</span>
+            <span class="in flex-item border" index="in-bar-2" city-type="2">南昌</span>
+            <span class="in flex-item border" index="in-bar-1" city-type="1">合肥</span>
+        </div>
+        <div class="chart-box bar " id="in-bar">
+        </div>
+        <!-- <div class="chart-box bar " id="in-bar-0">
+         </div>
+         <div class="chart-box bar " id="in-bar-1">
+         </div>
+         <div class="chart-box bar " id="in-bar-2">
+         </div>
+         <div class="chart-box bar " id="in-bar-3">
+         </div>  -->
+    </div>
+    <div class="chart-item">
+        <h5 class="title">资金迁出</h5>
+        <p class="other"><span>2016年</span><span>单位:百万元</span></p>
+        <div class="item-tab flex-box">
+            <span class="out flex-item border active" index="out-bar-0" city-type="0" >武汉</span>
+            <span class="out flex-item border" index="out-bar-3" city-type="3">长沙</span>
+            <span class="out flex-item border" index="out-bar-2" city-type="2">南昌</span>
+            <span class="out flex-item border" index="out-bar-1" city-type="1">合肥</span>
+        </div>
+        <div class="chart-box bar " id="out-bar">
+        </div>
+
+        <!-- <div class="chart-box bar " id="out-bar-0">
+         </div>
+         <div class="chart-box bar " id="out-bar-1">
+         </div>
+         <div class="chart-box bar " id="out-bar-2">
+         </div>
+         <div class="chart-box bar " id="out-bar-3">
+         </div>  -->
+    </div>
+    <div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/echarts.min.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+
+<script type="text/javascript">
+    var myChart;
+    var thisCityIn=0;//迁入的当前选择城市编号
+    var thisCityOut=0;//迁出的当前选择城市编号
+    var inData;//迁入数据
+    var outData;//迁出的数据
+    apiready = function(){
+         creatLine();
+         creatLineArea();
+         //creatTreemap();
+         commpanyYears('2016-12-31');
+         creatScatter(2015,2016);
+         getCityTreeData(2010,2017); //行业树2010年-2017年的汇总
+        //请求服务器获取2016年迁入数据
+        getCityData(2016,1,0);
+        //请求服务器获取2016年迁出数据
+        getCityData(2016,2,0);
+    };
+    //数据切换
+    function inTabCity(){
+        var domall=$api.domAll(".item-tab>span.in");
+        for (var i = 0; i < domall.length; i++) {
+            $api.addEvt(domall[i], "click", function(){
+                if( $api.hasCls(this, 'active')){
+                    return true;//重复点击
+                }else{
+                    //删除之前选中的
+                    $api.removeCls($api.dom(".item-tab>span.in.active"), "active");
+                    $api.addCls(this, "active");
+                    var myChart=echarts.init(document.getElementById("in-bar"));
+                    myChart.showLoading();
+                    var cityType=$api.attr(this, 'city-type');
+                    var cityData=getData(cityType,inData);
+                    if(cityData!=null){
+                        creatBarCity(1,cityType,cityData,myChart);
+                    }else{
+                        creatNothing("in-bar");
+                    }
+
+
+                }
+            });
+
+        }
+
+    }
+
+
+    //数据切换
+    function outTabCity(){
+        var domall=$api.domAll(".item-tab>span.out");
+        for (var i = 0; i < domall.length; i++) {
+            $api.addEvt(domall[i], "click", function(){
+                if( $api.hasCls(this, 'active')){
+                    return true;//重复点击
+                }else{
+                    //删除之前选中的
+                    $api.removeCls($api.dom(".item-tab>span.out.active"), "active");
+                    $api.addCls(this, "active");
+                    var myChart=echarts.init(document.getElementById("out-bar"));
+                    myChart.showLoading();
+                    var cityType=$api.attr(this, 'city-type');
+                    var cityData=getData(cityType,inData);
+                    if(cityData!=null){
+                        creatBarCity(1,cityType,cityData,myChart);
+                    }else{
+                        creatNothing("out-bar");
+                    }
+
+                }
+            });
+
+        }
+
+    }
+
+
+    //柱状图
+    function getCityData(year,type){
+        var actionUrl = ajaxAgent.serverAction + '/interworking/removalRankingPort';
+        var webName="inbar";
+        var secretCode=creatSecretCode(webName);
+        var values={
+            secretCode:secretCode,//安全码
+            webName:webName,//模块名称
+            year:year,
+            type:type,
+            cityType:0
+        };
+	console.log('actionUrl:'+actionUrl+' values:'+JSON.stringify(values));
+        var  myChart;
+        if(type==1){
+            myChart=echarts.init(document.getElementById("in-bar"));
+
+        }else if(type==2){
+            myChart=echarts.init(document.getElementById("out-bar"));
+        }
+        myChart.showLoading();
+        api.ajax({
+            url : actionUrl,
+            method : 'post',
+            timeout : 50,
+            dataType : 'json',
+            returnAll : false,
+            data : {
+                values : values
+            }
+        }, function(ret, err) {
+            console.log(type+"数据："+JSON.stringify(ret));
+            myChart.hideLoading();
+            if(ret){
+                if(ret.status=='success'){//成功返回数据
+                    if(type==1){
+                        inData=ret.data;
+                        //默认加载武汉数据
+                        var wuhanData=getData(0,inData);
+                        if(wuhanData!=null){
+                            creatBarCity(1,0,wuhanData,myChart);
+                        }else{
+                            creatNothing("in-bar");
+                        }
+                        //四城切换
+                        inTabCity();
+                    }else if(type==2){
+                        outData=ret.data;
+                        //默认加载武汉数据
+                        var wuhanData=getData(0,outData);
+                        if(wuhanData!=null){
+                            creatBarCity(2,0,wuhanData,myChart);
+                        }else{
+                            creatNothing("out-bar");
+                        }
+                        //四城切换
+                        outTabCity();
+                    }
+                } else {
+                    toastNetErrBottom(ret.message);
+
+                }
+            }else {
+                toastNetErrBottom('迁入迁出分析数据出错!');
+                myChart.hideLoading();
+            }
+
+        });
+
+
+    }
+
+    //获取某个城市的数据
+    function getData(cityType,data){
+        for(var i=0;i<data.length;i++){
+            //console.log(i+" : "+JSON.stringify(data[i]));
+            if(data[i].cityType!=null && data[i].cityType==cityType){
+                return  data[i].portCity;
+            }
+        }
+
+        return null;
+    }
+    function creatNothing(indexName){//<p class="nothing">暂无数据！</p>
+
+        $api.html($api.byId(indexName), '<p class="nothing">暂无数据！</p>');
+    }
+
+    //创建某个城市的柱状图
+    function creatBarCity(type,cityType,data,myChart){
+        //提前xdata
+        var xdata=creatData(data,'areaName');
+        var sdata=creatData(data,'count');
+        if(type==1){
+            openBar(xdata,sdata,myChart,cityType,'资金迁入',1);
+        }else if(type==2){
+            openBar(xdata,sdata,myChart,cityType,'资金迁出',2);
+        }
+    }
+
+    //分离出数据
+    function creatData(data,keyName){
+        var keyData=new Array();
+        if(data){
+            for(var i=0;i<data.length;i++){
+                keyData.push(data[i][keyName]);
+            }
+        }
+        return keyData;
+    }
+    //根据数据构建图表
+    function openBar(xdata,sdata,myChart,cityType,sname,type){
+        // 指定图表的配置项和数据
+        var option = {
+            color:["#eb869a"],
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                width:'auto',
+                height:'auto',
+                top: 5,
+                left:0,
+                right:5,
+                bottom:20,
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : xdata,
+                    boundaryGap: ['2%', '20%'],
+                    splitNumber:10,
+                    axisTick: {
+                        alignWithLabel: true,
+                        show:false
+                    },
+                    axisLine:{
+                        lineStyle:{
+                            color:'#999',
+                        }
+                    },
+                    axisLabel:{
+                        rotate:0
+                    },
+                    splitLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#e9e9e9',
+                            type:'dashed'
+                        }
+                    }
+
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    axisLine:{
+                        lineStyle:{
+                            color:'#999',
+                        },
+                    },
+                    axisTick:{
+                        show:false
+                    }
+                }
+            ],
+            series : [
+                {
+                    name:sname,
+                    type:'bar',
+                    barWidth: '60%',
+                    data:sdata
+                }
+            ]
+        };
+        myChart.setOption(option);
+        myChart.hideLoading();
+    }
+
+
+    //企业年龄结构分析四个城市切换
+function changeCity(){
+	var domall=$api.domAll(".item-tab>span.city-type");
+	for (var i = 0; i < domall.length; i++) {
+		$api.addEvt(domall[i], "click", function(){
+			if( $api.hasCls(this, 'active')){
+			    return true;//重复点击
+			}else{
+			   var oldIndex=$api.attr($api.dom(".item-tab>span.city-type.active"), "index");
+			   //隐藏之前的
+			   $api.addCls($api.byId(oldIndex), "hidden");
+			   //删除之前选中的
+			   $api.removeCls($api.dom(".item-tab>span.city-type.active"), "active");
+			   //展开当前选中的
+			   $api.addCls(this, "active");
+			   $api.removeCls($api.byId($api.attr(this,"index")), "hidden");
+
+			}
+		});
+
+	}
+
+}
+
+//树图四个城市切换
+function changeCityByTree(){
+	var domall=$api.domAll(".item-tab>span.trade-city");
+	for (var i = 0; i < domall.length; i++) {
+		$api.addEvt(domall[i], "click", function(){
+			if( $api.hasCls(this, 'active')){
+			    return true;//重复点击
+			}else{
+			   var oldIndex=$api.attr($api.dom(".item-tab>span.trade-city.active"), "index");
+			   //隐藏之前的
+			   $api.addCls($api.byId(oldIndex), "hidden");
+			   //删除之前选中的
+			   $api.removeCls($api.dom(".item-tab>span.trade-city.active"), "active");
+			   //展开当前选中的
+			   $api.addCls(this, "active");
+			   $api.removeCls($api.byId($api.attr(this,"index")), "hidden");
+
+			}
+		});
+
+	}
+
+}
+
+//新增市场主体季度对比时间条件切换
+function changeTime(){
+	var domall=$api.domAll(".item-tab>span.time");
+	for(var i = 0; i < domall.length; i++) {
+		$api.addEvt(domall[i], "click", function(){
+			if( $api.hasCls(this, 'active')){
+			    return true;//重复点击
+			}else{
+			   //删除之前选中的
+			  var oldIndex=$api.attr($api.dom(".item-tab>span.time.active"), "index");
+			   //隐藏之前的
+			   $api.addCls($api.byId(oldIndex), "hidden");
+			   //删除之前选中的
+			   $api.removeCls($api.dom(".item-tab>span.time.active"), "active");
+			   //展开当前选中的
+			   $api.addCls(this, "active");
+			   $api.removeCls($api.byId($api.attr(this,"index")), "hidden");
+			}
+		});
+
+	}
+
+}
+
+//企业年龄对比图
+function  commpanyYears(enddate){
+ //请求服务器获取四个城市的数据
+ 	 var actionUrl = ajaxAgent.serverAction + '/ageStrcture/appAgeStrcture';
+	 var webName="commpanyYears";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 enddate:enddate
+	 }
+	 //console.log(JSON.stringify(values));
+	 //showProgress();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+	     api.hideProgress();
+	     //console.log(JSON.stringify(ret));
+	    if(ret){
+		     if(ret.status=='success'){//成功返回数据
+		        //武汉
+                var html=creatHtml(ret.data["武汉"]);
+                $api.html($api.byId("wuhan"), html);
+                //长沙
+                var html=creatHtml(ret.data["长沙"]);
+                $api.html($api.byId("changsha"), html);
+                //南昌
+                var html=creatHtml(ret.data["南昌"]);
+                $api.html($api.byId("nanchang"), html);
+                //合肥
+                var html=creatHtml(ret.data["合肥"]);
+                $api.html($api.byId("hefei"), html);
+                changeCity();
+
+		     } else {
+               toastNetErrBottom(ret.message);
+			}
+	     }else {
+			 toastNetErrBottom('企业年龄结构分析数据出错!');
+		 }
+
+	});
+
+
+}
+
+//根据数值生成html代码
+function creatHtml(wuhanData){
+var sum=0;
+var html='';
+  if(wuhanData.length>0){
+	var arrayKey=getKeyArray(wuhanData);
+	 var colorArray=['red','green','yellow','blue','purple'];
+	 for(var i=0;i<5;i++){
+	    for(var j=0;j<arrayKey[i];j++){
+	      sum++;//小房子的总数量
+	      if(sum>100){ //超出100个则退出
+	      	 break;
+	      }else{
+	        if(sum==1){
+	            html='<div class="cell flex-box"> ';
+	            html+='<span class="house '+colorArray[i]+'"></span>';
+	        }else if(sum%10==0){
+	            html+='<span class="house '+colorArray[i]+'"></span>';
+	            html+='</div>';
+	            if(sum<100)
+	            html+='<div class="cell flex-box">';
+	        }else{
+	            html+='<span class="house '+colorArray[i]+'"></span>';
+	        }
+
+	      }//else end
+	    }
+	    if(sum>100) break;
+	 }
+ }else{//没有数据，显示灰色小房子
+  for(sum=1;sum<=100;sum++){
+      if(sum==1){
+          html='<div class="cell flex-box"> ';
+          html+='<span class="house gray"></span>';
+      }else if(sum%10==0){
+          html+='<span class="house gray"></span>';
+          html+='</div>';
+          if(sum<100)
+              html+='<div class="cell flex-box">';
+      }else{
+          html+='<span class="house gray"></span>';
+      }
+  }
+ }
+ //console.log(html);
+ return html;
+}
+//获取对应城市的年龄值对
+function getKeyArray(cityData){
+    var  arrayKey=new Array();
+	 for(var i=0;i<cityData.length;i++){
+	      if(cityData[i]["AGE"]=='1年以内'){
+	       arrayKey[0]=cityData[i]["COUNT"]
+	      }else if(cityData[i]["AGE"]=='1-2年'){
+	       arrayKey[1]=cityData[i]["COUNT"]
+	      }else if(cityData[i]["AGE"]=='2-5年'){
+	       arrayKey[2]=cityData[i]["COUNT"]
+	      }else if(cityData[i]["AGE"]=='5-10年'){
+	       arrayKey[3]=cityData[i]["COUNT"]
+	      }else if(cityData[i]["AGE"]=='10年以上'){
+	       arrayKey[4]=cityData[i]["COUNT"]
+	      }
+	   }
+// for(var i=0;i<cityData.length;i++){
+//    if(cityData[i]["AGE"]=='1年以内'){
+//     arrayKey[0]=25
+//    }else if(cityData[i]["AGE"]=='1-2年'){
+//     arrayKey[1]=20
+//    }else if(cityData[i]["AGE"]=='2-5年'){
+//     arrayKey[2]=15
+//    }else if(cityData[i]["AGE"]=='5-10年'){
+//     arrayKey[3]=28
+//    }else if(cityData[i]["AGE"]=='10年以上'){
+//     arrayKey[4]=12
+//    }
+// }
+   //console.log(JSON.stringify(arrayKey));
+   return  arrayKey;
+}
+
+//市场活跃度图表，年份计算
+function creatYearArray(startYear,endYear){
+	var yearArray=new Array();
+	var j=0;
+	for(var i=startYear;i<=endYear;i++){
+	   yearArray[j]=i;
+	   j++;
+	}
+	return yearArray;
+
+}
+//折线图
+function creatLine(){
+	var myChart=echarts.init(document.getElementById('line-box'));
+	var startYear=2010;
+	var endYear=2016;
+	var yearData=creatYearArray(startYear,endYear);
+	myChart.showLoading();
+	//请求服务器数据
+ 	 var actionUrl = ajaxAgent.serverAction + '/marketActivity/appActivityIndex';
+	 var webName="marketEchart1";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 startTime:startYear,
+		 endTime:endYear
+	 };
+	 //console.log(JSON.stringify(values));
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+	     //console.log(JSON.stringify(ret));
+	    if(ret){
+		     if(ret.status=='success'){//成功返回数据
+		        openLine(myChart,ret.data);
+		     } else {
+               toastNetErrBottom(ret.message);
+               myChart.hideLoading();
+			}
+	     }else {
+			 toastNetErrBottom('企业年龄结构分析数据出错!');
+			 myChart.hideLoading();
+		 }
+
+	});
+
+
+}
+
+//根据数据构建图表
+function openLine(myChart,data){
+	// 指定图表的配置项和数据
+   var option = {
+        color:["#eb869a","#f5ba8d","#8be399","#87b7ef"],
+        tooltip : {
+             trigger: 'axis',
+             axisPointer: {
+                 type: 'cross',
+                 label: {
+                     backgroundColor: '#6a7985'
+                 }
+             }
+         },
+	    legend: {
+            itemWidth:18,
+            itemHeight:2,
+            itemGap:20,
+	        data:[
+                {
+                    name:'武汉',
+                    textStyle:{
+                        fontSize:10,
+                        color:'#919191'
+                    },
+                    icon:'rect'
+                },
+                {
+                    name:'长沙',
+                    textStyle:{
+                        fontSize:10,
+                        color:'#919191'
+                    },
+                    icon:'rect'
+                },
+                {
+                    name:'合肥',
+                    textStyle:{
+                        fontSize:10,
+                        color:'#919191'
+                    },
+                    icon:'rect'
+                },
+                {
+                    name:'南昌',
+                    textStyle:{
+                        fontSize:10,
+                        color:'#919191'
+                    },
+                    icon:'roundRect'
+                },
+//                {
+//                '武汉'
+//            },'合肥','长沙','南昌'
+
+            ],
+            x : 'center',
+            y : 'bottom',
+            orient:'horizontal'
+	    },
+	    grid: {
+            width:'auto',
+            height:'auto',
+            top: 5,
+            left:0,
+            right:0,
+            bottom:30,
+	        containLabel: true
+	    },
+	    xAxis: {
+            type: 'category',
+	        //boundaryGap: false,
+            boundaryGap: ['5%', '5%'],
+	        data: data.xAxis,//['2007','2008','2009','2010','2011','2012','2013','2014','2015','2016'],
+            splitNumber:20,
+            axisLine:{
+                lineStyle:{
+                    color:'#999',
+                },
+            },
+            axisTick:{
+                show:false
+            },
+            splitLine:{
+                show:true,
+                lineStyle:{
+                    color:'#e9e9e9',
+                    type:'dashed'
+                }
+            }
+	    },
+	    yAxis: {
+	        type: 'value',
+            axisLine:{
+                lineStyle:{
+                    color:'#999',
+                },
+            },
+            axisTick:{
+                show:false
+            }
+	    },
+	    series: [
+	        {
+	            name:'武汉',
+	            type:'line',
+                bottom: 60,
+	            stack: '总量',
+	            data:data.series["武汉"]
+	        },
+	        {
+	            name:'合肥',
+	            type:'line',
+	            stack: '总量',
+	            data:data.series["合肥"]
+	        },
+	        {
+	            name:'长沙',
+	            type:'line',
+	            stack: '总量',
+	            data:data.series["长沙"]
+	        },
+	        {
+	            name:'南昌',
+	            type:'line',
+	            stack: '总量',
+	            data:data.series["南昌"]
+	        }
+	    ]
+	};
+        myChart.setOption(option);
+        myChart.hideLoading();
+}
+
+//桑基图
+ function creatLineArea(){
+ 	var myChart=echarts.init(document.getElementById('line-area-box'));
+	var startDate='2016-01';
+	var endDate='2016-05';
+	myChart.showLoading();
+	//请求服务器数据
+ 	 var actionUrl = ajaxAgent.serverAction + '/appData/newMainIndustryTrends';
+	 var webName="marketEchart2";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 startDate:startDate,
+		 endDate:endDate
+	 };
+	 //console.log(JSON.stringify(values));
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+	     //console.log(JSON.stringify(ret));
+	    if(ret){
+		     if(ret.status=='success'){//成功返回数据
+		        openLineArea(myChart,ret.data);
+		     } else {
+               toastNetErrBottom(ret.message);
+			}
+	     }else {
+			 toastNetErrBottom('企业年龄结构分析数据出错!');
+		 }
+
+	});
+
+
+
+ }
+
+ //打开桑基图
+ function  openLineArea(myChart,data){
+     var option = {
+         color:["#eb869a","#f5ba8d","#8be399","#87b7ef"],
+         tooltip : {
+             trigger: 'axis',
+             axisPointer: {
+                 type: 'cross',
+                 label: {
+                     backgroundColor: '#6a7985'
+                 }
+             }
+         },
+         legend: {
+             itemWidth:18,
+             itemHeight:2,
+             itemGap:20,
+             data:[
+                 {
+                     name:'武汉',
+                     textStyle:{
+                         fontSize:10,
+                         color:'#919191'
+                     },
+                     icon:'rect'
+                 },
+                 {
+                     name:'长沙',
+                     textStyle:{
+                         fontSize:10,
+                         color:'#919191'
+                     },
+                     icon:'rect'
+                 },
+                 {
+                     name:'合肥',
+                     textStyle:{
+                         fontSize:10,
+                         color:'#919191'
+                     },
+                     icon:'rect'
+                 },
+                 {
+                     name:'南昌',
+                     textStyle:{
+                         fontSize:10,
+                         color:'#919191'
+                     },
+                     icon:'roundRect'
+                 }
+             ],
+             x : 'center',
+             y : 'bottom',
+             orient:'horizontal'
+         },
+//         toolbox: {
+//             feature: {
+//                 saveAsImage: {}
+//             }
+//         },
+         grid: {
+             width:'auto',
+             height:'auto',
+             top: 5,
+             left:0,
+             right:0,
+             bottom:30,
+             containLabel: true
+         },
+         xAxis : [
+             {
+                 type : 'category',
+                 boundaryGap: ['5%', '5%'],
+                 splitNumber:7,
+                 axisLine:{
+                     lineStyle:{
+                         color:'#999',
+                     },
+                 },
+                 axisTick:{
+                     show:false
+                 },
+                 splitLine:{
+                     show:true,
+                     lineStyle:{
+                         color:'#e9e9e9',
+                         type:'dashed'
+                     }
+                 },
+                 data : data.date
+             }
+         ],
+         yAxis : [
+             {
+                 type : 'value',
+                 axisLine:{
+                     lineStyle:{
+                         color:'#999',
+                     },
+                 },
+                 axisTick:{
+                     show:false
+                 }
+             }
+         ],
+         series : [
+             {
+                 name:'武汉',
+                 type:'line',
+                 stack: '总量',
+                 areaStyle: {normal: {}},
+                 data:data.wuhan
+             },
+             {
+                 name:'长沙',
+                 type:'line',
+                 stack: '总量',
+                 areaStyle: {normal: {}},
+                 data:data.changsha
+             },
+             {
+                 name:'合肥',
+                 type:'line',
+                 stack: '总量',
+                 areaStyle: {normal: {}},
+                 data:data.hefei
+             },
+             {
+                 name:'南昌',
+                 type:'line',
+                 stack: '总量',
+                 areaStyle: {normal: {}},
+                 data:data.nanchang
+             }
+         ]
+     };
+     myChart.setOption(option);
+     myChart.hideLoading();
+ }
+
+
+ //获取四个城市的树图
+ function  getCityTreeData(startDate,endDate){
+
+	//请求服务器数据
+ 	 var actionUrl = ajaxAgent.serverAction + '/appData/getMainIndustryTypeData';
+	 var webName="marketEchart5";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 startDate:startDate,
+		 endDate:endDate,
+		 year:2016
+	 };
+	//console.log(JSON.stringify(values));
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+	    //console.log(JSON.stringify(ret));
+	    if(ret){
+		     if(ret.status=='success'){//成功返回数据
+		        //画出4个城市的树图
+		        if(ret.data.wuhan.length>0){//武汉
+			        var myChart=echarts.init(document.getElementById('treemap-box-wuhan'));
+			        creatTreemap(myChart,ret.data.wuhan);
+		        }else{
+		           creatNothing($api.byId('treemap-box-wuhan'));
+		        }
+
+		        if(ret.data.changsha.length>0){//长沙
+			        var myChart=echarts.init(document.getElementById('treemap-box-changsha'));
+			        creatTreemap(myChart,ret.data.wuhan);
+		        }else{
+		           creatNothing($api.byId('treemap-box-changsha'));
+		        }
+		         if(ret.data.nanchang.length>0){//南昌
+			        var myChart=echarts.init(document.getElementById('treemap-box-nanchang'));
+			        creatTreemap(myChart,ret.data.wuhan);
+		        }else{
+		           creatNothing($api.byId('treemap-box-nanchang'));
+		        }
+		         if(ret.data.hefei.length>0){//合肥
+			        var myChart=echarts.init(document.getElementById('treemap-box-hefei'));
+			        creatTreemap(myChart,ret.data.hefei);
+		        }else{
+		           creatNothing($api.byId('treemap-box-hefei'));
+		        }
+
+		         changeCityByTree(); //绑定四城数据切换
+
+		     } else {
+               toastNetErrBottom(ret.message);
+			}
+	     }else {
+			 toastNetErrBottom('企业年龄结构分析数据出错!');
+		 }
+
+	});
+
+
+ }
+
+ //树图没有数据的情况
+ function creatNothing(el){
+ 	var html='<p class="nothing">暂无数据！</p>';
+    $api.html(el, html);
+ }
+
+
+
+ //矩形树图
+     function creatTreemap(myChart,data){
+        var data2 = [];
+        var option = {
+//          title : {
+//              text: 'A公司员工吃水果统计表',
+//              subtext: '多吃水果有益身体健康'
+//          },
+			//color:["#eb869a","#f5ba8d","#8be399","#87b7ef"],
+            tooltip : {
+                trigger: 'item',
+                confine:true,
+//              formatter: "{b}: {c}"
+                 formatter: function (b,c) {
+                   //alert(JSON.stringify(b.name+'-'+b.value));
+                   var html='<div>'+b.name+':</div><div>'+b.value+'</div>';
+                   return html;
+                }
+
+            },
+             grid: {
+             width:'auto',
+             height:'auto',
+             top: 0,
+             left:0,
+             right:0,
+             bottom:0,
+             containLabel: true
+            },
+//          toolbox: {
+//              show : true,
+//              feature : {
+//                  mark : {show: true},
+//                  dataView : {show: true, readOnly: false},
+//                  restore : {show: true},
+//                  saveAsImage : {show: true}
+//              }
+//          },
+            calculable : false,
+            series : [
+                {
+                    name:'产业图',
+                    type:'treemap',
+                    //roam:false,
+                    //nodeClick:false,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true,
+                                formatter: "{b}"
+                            },
+                            borderWidth: 1
+                        },
+//                      emphasis: {
+//                          label: {
+//                              show: true
+//                          }
+//                      }
+                    },
+                    data: data
+                }
+            ]
+        };
+        myChart.setOption(option);
+        myChart.hideLoading();
+    };
+
+//散点图marketActivity/appMarketQuarter?startTime=2015&endTime=2016
+ function creatScatter(startTime,endTime){
+  	//var myChart=echarts.init(document.getElementById('scatter-box'));
+	//var startTime='2015';
+	//var endTime='2016';
+	//myChart.showLoading();
+	//请求服务器数据
+ 	 var actionUrl = ajaxAgent.serverAction + '/marketActivity/appMarketQuarter';
+	 var webName="marketEchart3";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 startTime:startTime,
+		 endTime:endTime
+	 };
+	 //console.log(JSON.stringify(values));
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+	     //console.log(JSON.stringify(ret));
+	    if(ret){
+		     if(ret.status=='success'){//成功返回数据
+		      //画出2015年度的散点图
+		        if(ret.data['2015']){//2015
+			        var myChart=echarts.init(document.getElementById('scatter-box-2015'));
+			        openScatter(myChart,ret.data,2015);
+		        }else{
+		           creatNothing($api.byId('scatter-box-2015'));
+		        }
+
+		        //画出2016年度的散点图
+		        if(ret.data['2016']){//2016
+			        var myChart=echarts.init(document.getElementById('scatter-box-2016'));
+			        openScatter(myChart,ret.data,2016);
+			        $api.addCls($api.byId('scatter-box-2016'), 'hidden');
+		        }else{
+		           creatNothing($api.byId('scatter-box-2016'));
+		        }
+		        changeTime();
+		        //openScatter(myChart,ret.data,year);
+		        //openScatterOld(myChart);
+		        //creatScatterData(ret.data);
+		     } else {
+               toastNetErrBottom(ret.message);
+			}
+	     }else {
+			 toastNetErrBottom('企业年龄结构分析数据出错!');
+		 }
+
+	});
+
+
+   }
+
+    //数据转换
+    function creatScatterData(data,year){
+       var yAxis=data.yAxis;
+       var whData=data[year]['武汉'];
+       var zdata=new Array();
+       var j=0;
+       creatZdata(zdata,data[year]['武汉'],0,yAxis,j);
+       creatZdata(zdata,data[year]['长沙'],1,yAxis,j);
+       creatZdata(zdata,data[year]['南昌'],3,yAxis,j);
+       creatZdata(zdata,data[year]['合肥'],2,yAxis,j);
+       return zdata;
+    }
+
+    function creatZdata(zdata,cityData,x,yAxis,j){
+     for(var i=0;i<cityData.length;i++){
+       	   var y=getArrayIndex(cityData[i].QUARTER,yAxis);
+       	   var d=new Array();
+       	   d=[x,y,cityData[i]['COUNT']];
+       	   zdata[j]=d;
+       	   j++;
+       }
+    }
+    //返回数组的编号
+    function getArrayIndex(key,thisArray){
+      for(var i=0;i<thisArray.length;i++){
+      		if(key===thisArray[i]) return i;
+      }
+
+    }
+
+    //打开散点图
+    function openScatter(myChart,data,year){
+        var zdata=creatScatterData(data,year);
+        //console.log(zdata);
+        option = {
+//          title: {
+//              text: 'Punch Card of Github',
+//              link: 'https://github.com/pissang/echarts-next/graphs/punch-card'
+//          },
+//          legend: {
+//              data: ['Punch Card'],
+//              left: 'right'
+//          },
+            color:["#eb869a"],
+            tooltip: {
+                position: 'top',
+                formatter: function (params) {
+                    return params.value[2] + '- ' + data.yAxis[params.value[1]] + ' of ' + data.xAxis[params.value[0]];
+                }
+            },
+            grid: {
+                top:0,
+                left: 0,
+                bottom: 0,
+                right: 0,
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                data: data.xAxis,
+                boundaryGap: ['2%', '2%'],
+                splitNumber:20,
+//	            axisLine:{
+//	                lineStyle:{
+//	                    color:'#999',
+//	                },
+//	            },
+	            axisTick:{
+	                show:false
+	            },
+	            splitLine:{
+	                show:true,
+	                lineStyle:{
+	                    color:'#e9e9e9',
+	                    type:'dashed'
+	                }
+	            },
+//              splitLine: {
+//                  show: true,
+//                  lineStyle: {
+//                      color: '#999',
+//                      type: 'dashed'
+//                  }
+//              },
+                axisLine: {
+                    show: false
+                }
+            },
+            yAxis: {
+                type: 'category',
+                data: data.yAxis,
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#e9e9e9',
+                        type: 'dashed'
+                    }
+                },
+                 axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            },
+            series: [{
+                name: 'Punch Card',
+                type: 'scatter',
+                symbolSize: function (val) {
+                    return val[2] * 0.01;
+                },
+                data: zdata,
+                animationDelay: function (idx) {
+                    return idx * 5;
+                }
+            }]
+        };
+       myChart.setOption(option);
+       myChart.hideLoading();
+    }
+
+</script>
+</html>

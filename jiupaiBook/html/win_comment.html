@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>写评论</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+    <style>
+    	html,body{ background:#f4f4f4;}
+    </style>
+</head>
+<body>
+	<!--header bgin-->
+    <header class="headLine">
+	   <div  class="relative">     
+	    	<span class="back fl" onclick="goBack()"><img src="../image/back_green.png" /></span>
+				<h1>写评论</h1>
+	        <span class="fr headBtn" onclick="submitComment()">发送</span>
+        </div>   
+    </header>
+	<!--header end-->
+    
+	<!--星星打分 begin-->
+    <div class="scoreBox">
+    	<h1>打星评分</h1>
+        <dl class="starDL disLine">
+            <dd onclick="changeColor(this,1)" id="star1"></dd>
+            <dd onclick="changeColor(this,2)" id="star2"></dd>
+            <dd onclick="changeColor(this,3)" id="star3"></dd>
+            <dd onclick="changeColor(this,4)" id="star4"></dd>
+            <dd class="grayStar" onclick="changeColor(this,5)" id="star5"></dd>
+        </dl>
+    </div>
+	<!--星星打分 end-->
+    
+    <!--评论框 begin-->
+    <div class="marAuto">
+        <div class="commentBox">
+            <textarea   placeholder="请在此输入"  id="commentContent" oninput="getMaxSize(this,200,'评论内容请控制在200个字以内！');updateNum(this);" ></textarea>
+            <span class="statistics">0/200</span>
+        </div>
+    </div>
+    <!--评论框 end-->
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script>	
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript"> 
+var y=0;
+var userEntity;
+apiready = function() {
+	var header=$api.dom("header");
+	if(header){
+		setStatusBar(header);
+		y=$api.offset(header).h;
+	}
+	userEntity = sessionAgent.getLoginInfo();   
+} 
+
+//更改输入的字数
+function updateNum(obj){
+	if(obj ){
+	
+	 var num=obj.value.length;
+	 var html='';
+	 if(obj.value.length>200){
+	 	html='<font color=red>'+num+'/200</font>';
+	 }else{ 
+	    html='<font color="#32b2a1">'+num+'/200</font>';
+	 }
+	 $api.html($api.dom(".statistics"), html);
+	}
+
+}
+//星星变色
+function changeColor(obj,index){
+	var className=$api.attr(obj, 'class');
+	if(className==null || className==''){//取消
+	   for(var i=index;i<=5;i++){
+	    var starObj=$api.byId("star"+i);
+		  $api.addCls(starObj, 'grayStar'); 
+	   }
+	}else if(className=='grayStar'){//点亮
+	   for(var i=1;i<=index;i++){
+	    var starObj=$api.byId("star"+i);
+		  $api.removeCls(starObj, 'grayStar'); 
+	   } 
+	}
+	 
+}
+
+//获取被点亮的星星的数量
+function getStarNum(){
+	var starObjs=$api.domAll(".scoreBox dd.grayStar");
+	return (5-starObjs.length);
+}
+//提交保存评论
+function submitComment(){
+	var starNum=getStarNum();//星星的个数
+	var commentContent=$api.val($api.byId("commentContent"));
+	commentContent=$api.trim(commentContent);
+	if(commentContent.length>200){
+	  toastNetErr("评论内容请控制在200个字以内！");
+	  return false; 
+	}else if(commentContent.length==0){ 
+	  toastNetErr("请输入评论内容！");
+	  return false; 	
+	}else{//提交保存  
+	  var actionUrl=ajaxAgent.serverAction + '/jpjs/bookshort/saveMyComment';	  
+	  var values={
+	 	userId:userEntity.userId,
+	 	bookId:api.pageParam.bookId,
+	 	score:starNum,
+	 	content:commentContent 
+	  };
+	  //alertInfo(values);
+		api.ajax({
+			url : actionUrl,
+			method : 'post',
+			timeout : 50,
+			dataType : 'json',
+			returnAll : false,
+			data : {
+				values : values
+			}
+		}, function(ret, err) {  
+			if (ret) {
+				if (ret.result== 1) { //保存成功
+					toastNetErr("已发送！"); 
+					api.execScript({
+					    name:'common_commentList',
+					    frameName:"commentList",
+	                    script: "makeListOne('"+$api.jsonToStr(ret)+"');"
+                    });
+					 
+					api.closeWin();//关闭窗口 
+				 } else { 
+				   toastNetErr(ret.msg); 
+				   return false;
+				 }
+			}else{
+			   toastNetErr("服务器请求错误！"); 
+			   return false;			
+			}
+		}); 	  	  
+	
+	}
+	
+
+}
+
+
+
+	
+ 
+</script> 
+
+</html>

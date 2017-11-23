@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>评论列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+</head>
+<body>
+	<!--header bgin-->
+    <!--<header class="headLine">
+    	<span class="back fl"><img src="../image/back_green.png" /></span>
+		<h1>评论列表</h1>
+    </header>-->
+	<!--header end-->
+    
+    <!--评论回复列表 begin--> 
+    <div class="mar_tb30 bgfff pad_b100">
+    	<div class="marLeft">
+            <!--list begin-->
+            <ul class="replyBoxUL" id="list">
+            	<!--<li> 
+                    <div class="replyCont">暂无数据！</div>                  
+                </li> 
+
+            	<li>
+                    <div class="rcmdHead">
+                        <div class="rcmdHeadBox">
+                            <em class="headPic"></em>
+                            <div class="nameGroup">
+                            	<h1>轻舞飞扬</h1>
+                                <dl class="starDL">
+                                    <dd></dd>
+                                    <dd></dd>
+                                    <dd></dd>
+                                    <dd class="bStar"></dd>
+                                    <dd class="grayStar"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <span>2016-6-15</span>
+                    </div>
+                    <div class="replyCont">一本好书，值得认真去读。一本好书，值得认真去读。一本好书，值得认真去读。</div>
+                    <div class="W100 disLine"><div class="like like_active fr mar_r20"  >10000</div></div>
+                </li>-->
+            </ul>
+            <!--list end-->
+        </div>
+    </div>
+    <!--评论回复列表 end-->  
+	<!--写评论 begin-->
+	<div class="reviewBtn" onclick="toComment()">去评论</div>
+    <!--写评论 end-->
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script> 
+<script type="text/javascript">
+var page = 1;
+var pageNum = 10; 
+var totalNum = 0;//总量 
+var userEntity=""; 
+var userId;
+apiready = function() { 
+	userEntity=sessionAgent.getLoginInfo();
+	if(userEntity.userId && userEntity.userId>0){ 
+		userId=userEntity.userId;
+	}else {
+	   userId=0; 
+	}
+	beginLoad();
+} 
+function getList() {  
+	 var actionUrl = ajaxAgent.serverAction + '/jpjs/bookshort/commentsForBook';
+	 var values={
+		 page:page,
+		 pageNum:pageNum,
+		 bookId:api.pageParam.bookId,
+		 userId:userId,
+	 }
+
+	 getListContent(actionUrl,values); 
+}
+
+//制作模板
+function makelist(ret) { 
+   //alertInfo(ret);
+	var html=''; 
+	if(ret.totalNum){
+		 totalNum=ret.totalNum;  
+	 }
+	if(totalNum==0){//暂无数据
+		html='<li id="noData"> ';
+		html+='  <div class="replyCont">暂无数据！</div>';                  
+		html+='</li>'; 
+	}else if(ret.list){  
+		html=''; 
+		for(var i = 0; i < ret.list.length; i++){  
+			var obj=ret.list[i];
+			html+='<li>';
+			html+='    <div class="rcmdHead">';
+			html+='        <div class="rcmdHeadBox">';
+			if(obj.user.iconPath!=''){
+				var userIcon=ajaxAgent.serverAction+"/"+obj.user.iconPath; 
+				html+=' 	<em class="headPic"><img src="'+userIcon+'" /></em>';
+			}else{
+				html+='<em class="headPic"></em>';
+			}
+			html+='            <div class="nameGroup">';
+			html+='            	<h1>'+obj.user.nickName+'</h1>';
+			html+='                <dl class="starDL">';
+			for(var j=0;j<obj.score;j++){
+				html+='<dd></dd>';
+			}
+			for(var j=0;j<(5-obj.score);j++){
+				html+='<dd class="grayStar"></dd>';
+			}			
+			html+='                </dl>';
+			html+='            </div>';
+			html+='        </div>';
+			html+='        <span>'+obj.addtime+'</span>';
+			html+='    </div>';
+			html+='    <div class="replyCont">'+obj.content+'</div>';
+			html+='    <div class="W100 disLine">';
+			if(obj.isGood==1){
+			 	html+='<div class="like like_active  fr mar_r20"  onclick="good(this,'+obj.commentId+')" >'+obj.goodNum+'</div>';
+			 }else{ 
+			   html+='<div class="like  fr mar_r20"  onclick="good(this,'+obj.commentId+')" >'+obj.goodNum+'</div>';
+			 }
+			html+=' </div>';
+			html+='</li>'; 
+		} 
+	} 
+	if (page == 1) {
+		$api.html($api.byId("list"), html);
+	} else {
+		$api.append($api.byId("list"), html);
+	} 
+	api.parseTapmode();
+} 
+
+
+
+
+//去评论
+function toComment(){
+	if (sessionAgent.isLogin(userEntity)) { 
+		/*
+		if(userEntity.isVerify==0){
+			toastNetErrBottom("该账号已经被冻结，请联系管理员");
+			return false;
+	    }*/		
+		api.openWin({
+			name : "comment",
+			url : "win_comment.html",
+			bounces : false,
+			vScrollBarEnabled : false,
+			hScrollBarEnabled : false,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam : {
+				bookId:api.pageParam.bookId
+			}
+		}); 
+		return true; 
+	}else{ 
+		toastNetErr("请登录后评论!");
+		return false;
+	} 
+}
+
+//点赞，取消点赞
+function good(obj,commentId){ 
+	if (sessionAgent.isLogin(userEntity)) { 
+			/*
+			if(userEntity.isVerify==0){
+				toastNetErrBottom("该账号已经被冻结，请联系管理员");
+				return false;
+			} */
+			var className=$api.attr(obj, "class"); 
+			var actionUrl=ajaxAgent.serverAction+"/jpjs/userpraise/praiseMng"; 
+			var isGood=0;
+			if(className.indexOf("like_active")>0){//取消点赞
+			   isGood=0; 
+			}else{ //点赞
+			   isGood=1; 
+		   }
+		   //参数 
+		   var values={
+		   		userId:userEntity.userId,
+		   		commentId:commentId,
+		   		isGood:isGood
+		   }
+		      
+		   //保存 
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : values
+				}
+			}, function(ret, err) {  
+				if (ret) {
+					if (ret.result== 1) { 
+					 	makeCalss(obj,isGood); 
+					}else{
+						toastNetErr(ret.msg);
+					} 
+				}else{
+					toastNetErr("服务器请求错误!");
+				} 
+				
+			});		   
+		   
+			return true; 
+	}else{ 
+			toastNetErr("请登录后点赞!");
+			return false;
+	}  
+
+}
+
+//设置点赞、取消点赞的样式
+function makeCalss(obj,isGood){ 
+    var thisGoodNum=parseInt($api.text(obj)); 
+	if(isGood==0){//取消点赞
+		//颜色变成灰色，点赞数减1
+		$api.removeCls(obj, 'like_active');
+		$api.text(obj, thisGoodNum-1);
+	
+	}else{//点赞  颜色变成绿色，点赞数加1 
+		$api.addCls(obj, 'like_active');
+		$api.text(obj, thisGoodNum+1);	
+	} 
+}
+
+
+//生成一条评论列表页的评论 加载到评论列表最前面
+function makeListOne(objStr){
+	if($api.byId('noData')) {//提交并制作一条评论之前去掉"暂无数据"
+		$api.remove(noData);
+	}	
+  var obj=$api.strToJson(objStr);
+  if(obj.user){	
+	var html='';
+	html+='<li>';
+	html+='    <div class="rcmdHead">';
+	html+='        <div class="rcmdHeadBox">';
+	if(obj.user.iconPath!=''){
+		var userIcon=ajaxAgent.serverAction+"/"+obj.user.iconPath; 
+		html+=' 	<em class="headPic"><img src="'+userIcon+'" /></em>';
+	}else{
+		html+='<em class="headPic"></em>';
+	}
+	html+='            <div class="nameGroup">';
+	html+='            	<h1>'+obj.user.nickName+'</h1>';
+	html+='                <dl class="starDL">';
+	for(var j=0;j<obj.score;j++){
+		html+='<dd></dd>';
+	}
+	for(var j=0;j<(5-obj.score);j++){
+		html+='<dd class="grayStar"></dd>';
+	}			
+	html+='                </dl>';
+	html+='            </div>';
+	html+='        </div>';
+	html+='        <span>'+obj.addtime+'</span>';
+	html+='    </div>';
+	html+='    <div class="replyCont">'+obj.content+'</div>';
+	html+='    <div class="W100 disLine">';
+	if(obj.isGood==1){
+	 	html+='<div class="like like_active  fr mar_r20"  onclick="good(this,'+obj.commentId+')" >'+obj.goodNum+'</div>';
+	 }else{ 
+	   html+='<div class="like  fr mar_r20"  onclick="good(this,'+obj.commentId+')" >'+obj.goodNum+'</div>';
+	 }
+	html+=' </div>';
+	html+='</li>';  
+	$api.prepend($api.byId("list"), html);
+ }
+ 	//制作完一条评论，在frm_book及时更新comment
+ 	api.execScript({
+ 		 name: 'book'+ api.pageParam.bookId,
+ 		 frameName: 'book',
+	     script: 'getComment();'
+     });
+} 
+</script>
+</html>

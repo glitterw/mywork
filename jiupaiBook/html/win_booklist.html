@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>精选书单</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/user.css"/>
+	</head>
+	<body>
+		<!--header bgin-->
+		<header class="greenBg"> 
+		   <div class="relative">
+				<div class="back fl " onclick="goBack()" id="back"><img src="../image/back_white.png" /></div>
+				<h1 id="title" >精选书单</h1>
+		   </div> 
+		</header>
+		<!--header end-->
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/event.js"></script>
+	<script type="text/javascript"> 
+		var y=0;
+		apiready = function() {   
+			var header=$api.dom("header"); 
+			if(header){ 
+				setStatusBar(header);
+				y=$api.offset(header).h;
+			}
+		    //网络异常监听
+		    //listenNewError();
+            getBooklists();
+		}
+		//获取书单列表
+		function getBooklists(){ 
+		 	var  actionUrl=ajaxAgent.serverAction+'/booksheet/queryBookSheetList'; 
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : {
+						page:1,
+						pageNum:10,
+					}
+				}
+			}, function(ret, err) { 
+					if (ret.result == 1) { //正确结果返回
+		 				if(ret.list.length<1){//没有书单 
+		 					loadNothing(y,'auto');
+		 				}else{//有书单
+		 				  var frames = [];
+		 				  for(var i=0;i<ret.list.length;i++){  
+							frames.push({
+								name : 'frame'+i,
+								url : 'frm_booklist.html',
+								bgColor : '#f4f4f4',
+								bounces : false,
+								allowEdit:true,
+								pageParam:{
+								  frmY:y,
+								  frmH:'auto',
+								  no:i+1, //当前编号
+								  sum: ret.list.length,//总数量
+								  booklist:ret.list[i],
+								  pageType:'jx',
+								}
+								
+							}); 
+		 				  } // for end 
+		 				  //打开framgroup
+		 				  funIniGroup(frames);
+		 				}	
+					    return true; 
+					}else {//没有正确返回 
+				       toastNetErr('获取书单信息失败！');
+					}  
+			});   
+		}
+		
+
+	//初始化页面
+	function funIniGroup(frames) {  
+		api.openFrameGroup({
+			name : 'booklists',
+			scrollEnabled : true,
+			rect : {
+				x : 0,
+				y : y,
+				w : 'auto',
+				h : 'auto'
+			},
+			index : 0,
+			frames : frames
+		}, function(ret, err) {
+
+		});
+ }
+
+ 
+	</script>
+</html>

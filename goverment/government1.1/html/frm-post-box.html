@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="my-layui-html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我要投资</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+        body{
+
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"  >
+    <form id="form1">
+    <div class="invest-box">
+        <div class="invest-item">
+           <p class="name-item  border-bottom">
+               <span class="name">项目</span>
+               <input type="text" placeholder="请输入项目名称" class="input-item" id="project-name" value="">
+           </p>
+            <p class="info-item">
+                <span class="name">内容</span>
+                <textarea class="invest-info" placeholder="请描述您的投资意向" id="project-content"></textarea>
+            </p>
+        </div>
+
+        <div class="invest-item">
+            <p class="name-item ">
+                <span class="name">意愿投资地</span>
+                <span class="city">
+                    <i id="project-city">武汉</i>
+                </span>
+                <i class="down"></i>
+                <!-- 城市选择 开始-->
+                <ul class="city-select border">
+                    <li value="武汉">武汉</li>
+                    <li value="长沙">长沙</li>
+                    <li value="合肥">合肥</li>
+                    <li value="南昌">南昌</li>
+                </ul>
+                <!-- 城市选择 结束-->
+            </p>
+        </div>
+
+        <div class="invest-item">
+            <p class="name-item  border-bottom">
+                <span class="name" >姓名</span>
+                <input type="text"  class="input-item" id="project-user-name">
+            </p>
+            <p class="name-item  border-bottom">
+                <span class="name">手机号</span>
+                <input type="text"  class="input-item tel"  id="check-tel" onblur="checkInputTel()">
+                <input type="button" value="发送验证码" class="send"  id="sendButton" >
+            </p>
+            <p class="name-item">
+                <span class="name">验证码</span>
+                <input type="text" placeholder="请输入验证码" class="input-item" id="project-code">
+            </p>
+        </div>
+    </div>
+    </form>
+</div>
+<div class="dialog-box hidden" id="msg-dialog">
+    <div class="content">
+      <p class="title border-bottom" >提示</p>
+      <span class="msg">您的投资意向已记录，稍后会有工作人员与您联系</span>
+    </div>
+    <p class="action" onclick="closeThis()">返回</p>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+    apiready = function(){    
+  
+        showSelect();
+//      $api.addEvt($api.byId("check-tel"), "change", function(){ //手机号码输入检测
+//           alert("hhhhh");
+//           var val=$api.val(this);
+//           if(val.length>11){
+//              api.toast({
+//					msg : '手机号码已超出了11位！',
+//					duration : 2000,
+//					location : 'bottom'
+//				});
+//           }else if(val.length==11){
+//              if(!checkTel(val)){
+//           	   return false;
+//              }
+//           
+//           }
+//      });
+        clickSendCodeButton(); 
+        
+    };
+    
+    function checkInputTel(){
+    
+    	var val=$api.val($api.byId("check-tel")); 
+             if(val.length>11){
+                api.toast({
+					msg : '手机号码已超出了11位！',
+					duration : 2000,
+					location : 'bottom'
+				});
+             }else if(val.length==11){
+                if(!checkTel(val)){
+             	   return false;
+                }
+             
+             }
+    }
+    function showCityBox(){ 
+    	api.actionSheet({
+	    title: '选择意愿投资地',
+	    //cancelTitle: '取消',
+	    //destructiveTitle: '红色警告按钮',
+	    buttons: ['武汉', '长沙', '合肥','南昌']
+	}, function(ret, err) {
+	    var index = ret.buttonIndex; 
+	    var value='武汉';
+	    switch(ret.buttonIndex){ 
+	      case 1: value="武汉";break;
+	      case 2: value="长沙";break;
+	      case 3: value="合肥";break;
+	      case 4: value="南昌";break;
+	    
+	    }
+	    $api.removeCls($api.dom(".invest-item .down"), 'active');
+        $api.text($api.dom(".city>i"), value); 
+        
+	});
+    
+    }
+
+    //选择城市操作绑定事件
+    function showSelect(){
+        //选择箭头绑定展开选择项
+        $api.addEvt($api.dom(".invest-item .down"), 'click', function() {
+          	$api.addCls(this,'active'); 
+			showCityBox();
+        }); 
+        
+    }
+    
+    //点击发送验证码按钮  /login/sendCode
+    function clickSendCodeButton(){ //sendButton
+    	$api.addEvt($api.byId('sendButton'), 'click', function() {//点击发送验证码按钮
+             //获取手机号，手机号验证 
+             var tel=$api.val($api.byId("check-tel"));
+             tel=$api.trim(tel);
+             if(!checkTel(tel)){
+             	return false;
+             }else{
+	             $api.attr(this, "disabled", true);
+	             $api.val(this, '发送中......'); 
+	             //请求服务器发送验证码
+	             sendTelCode(tel);
+             }
+        });
+    }
+    //数据提交验证
+    function submitCheck(){ 
+        if(! checkEmpty($api.byId("project-name"),"请输入项目名称！")){
+            return false;
+        }
+        if(! checkEmpty($api.byId("project-content"),"请描述您的投资意向！")){
+            return false;
+        }
+        if(! checkEmpty($api.byId("project-user-name"),"请填写联系人姓名！")){
+            return false;
+        }
+        if(! checkEmpty($api.byId("project-code"),"请输入手机验证码！")){ 
+            return false;
+        }else{
+        
+          if($api.val($api.byId("project-code"))!=getPrefs("telCode")){
+		        api.toast({
+					msg : '验证码输入错误！',
+					duration : 4000,
+					location : 'middle'
+				});
+				return false;
+            }
+        }
+        saveInvest();
+       
+
+    }
+
+  function showResultBox(){
+  
+      //$api.addCls($api.byId("wrap"), "mengceng");
+      //$api.removeCls($api.byId("msg-dialog"), "hidden"); 
+    api.alert({
+    //title: '成功提交投资意向',
+    msg: '您的投资意向已记录，稍后会有工作人员与您联系！',
+    buttons: ['返回']
+	}, function(ret, err) {
+	    cleanInput();
+	});
+	
+//	api.toast({
+//			msg : '您的投资意向已记录，稍后会有工作人员与您联系！',
+//			duration : 3000,
+//			location : 'middle'
+//		});
+  
+  }
+  //关闭弹窗
+  function  closeThis(){
+      $api.addCls($api.byId("msg-dialog"), "hidden");
+      $api.removeCls($api.byId("wrap"), "mengceng");  
+      //清空当前表单
+      cleanInput(); 
+		
+  }
+  //清空表单
+  function  cleanInput(){
+	$api.val($api.byId("project-name"), "");
+	$api.val($api.byId("project-content"), "");
+	$api.val($api.byId("project-user-name"), "");
+	$api.val($api.byId("project-code"), "");
+	$api.val($api.byId("check-tel"),"");
+  }
+ 
+// function countTime(){
+// var c=60;
+// $api.attr(this, "disabled", true);
+// $api.val($api.byId('sendButton'), c+'s'); 
+// while(c){
+// alert(c);
+//	   window.setTimeout(function(){
+//	       c=c-1;
+//	       $api.val($api.byId('sendButton'), c+'s');  
+//	   },1000);
+// }
+// $api.removeAttr($api.byId('sendButton'), "disabled");
+// $api.val($api.byId('sendButton'), '重新发送'); 
+// 
+// }
+ //发送验证码 
+ function   sendTelCode(tel){
+     setPrefs("telCode",'');//清空之前的验证码
+	 var actionUrl = ajaxAgent.serverAction + '/login/sendCode';
+	 var webName="sendCode";
+	 var secretCode=creatSecretCode(webName); 
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称  
+		 userTel:tel 
+	 } 
+	 //console.log(JSON.stringify(values));  
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {  
+	     //console.log(JSON.stringify(ret));  
+		if (ret && ret.statusCode =="200") {
+			if (ret.status =="success") { 
+				$api.removeAttr($api.byId('sendButton'), "disabled");
+			    $api.val($api.byId('sendButton'), '重新发送'); 
+			    toastNetErrBottom('验证码已发送到您的手机！'); 
+			    setPrefs("telCode",ret.data);
+			    return true; 
+			} else  { 
+               toastNetErrBottom(ret.message); 
+			} 
+		} else {   
+			 toastNetErrBottom('网络异常,请稍后再试哦!');  
+		} 
+				
+	}); 	
+ 
+ }
+ 
+ //城市转换为int类型
+ function getCityType(cityName){//0：武汉1：合肥2：南昌3：长沙
+ 	if(cityName=='武汉'){
+ 	   return 0; 
+ 	}else if(cityName=='合肥'){
+ 	   return 1; 
+ 	}else if(cityName=='南昌'){
+ 	   return 2; 
+ 	}else if(cityName=='长沙'){
+ 	   return 3; 
+ 	}
+ 
+ }
+  //提交表单保存 
+ function saveInvest() { 
+	 var actionUrl = ajaxAgent.serverAction + '/login/saveInvest';
+	 var webName="saveInvest";
+	 var secretCode=creatSecretCode(webName); 
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称  
+		 projectName:$api.val($api.byId("project-name")),
+		 projectContent:$api.val($api.byId("project-content")), 
+		 investCity:getCityType($api.text($api.byId("project-city"))),
+		 userName:$api.val($api.byId("project-user-name")), 
+		 userTel:$api.val($api.byId("check-tel")), 
+		 deviceId:api.deviceId
+		 	 
+	 } 
+	 console.log(JSON.stringify(values)); 
+	 
+	 showProgress();  
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {  
+	     api.hideProgress(); 
+	     console.log(JSON.stringify(ret));  
+		if (ret && ret.statusCode =="200") {
+			if (ret.status =="success") { 
+				showResultBox();
+			    return true; 
+			} else  { 
+               toastNetErrBottom(ret.message); 
+			} 
+		} else {  
+		     //sendNetError(frmY,frmH);
+		     //api.hideProgress();  
+			 toastNetErrBottom('网络异常,请稍后再试哦!'); 
+			  
+		} 
+		
+		
+	});
+}   
+</script>
+</html>

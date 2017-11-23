@@ -1,0 +1,380 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>九派荐书</title>
+		<link rel="stylesheet" type="text/css" href="./css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/frameStyle.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/leaderboard.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/my.css"/> 
+	</head>
+	<body >
+		<div id="wrap" class="flex-wrap flex-vertical" style="overflow:hidden">  
+			<!--首页头部-->
+			<header id="header0">
+				<ul>
+					<li class="border-b active" >
+						<span class="menu fl" onclick="openClass()"><img src="image/menuIocn.png" /></span>
+						<h1>九派荐书</h1>
+						<span class="search fr" onclick="openSearch()"><img src="image/searchIcon.png" /></span>
+					</li>
+				</ul>
+			</header>
+			<!--首页头部 end-->
+			<!--排行榜header bgin-->
+			<header id="header1"> 
+					<div class="relative">
+						<h1>排行榜</h1>
+					</div> 
+			</header>
+			<!--<header class="greenBg hidden"  id="header1">				
+				<h1>排行榜</h1>
+			</header>-->
+			<!--排行榜header end-->
+			<!--排行榜导航 begin-->
+			<div class="twoNavBox" style="overflow:hidden">
+				<ul class="twoNav threeNav" id="twoNav">
+					<li class="active" onclick="openRank(this,1)" id="rankType1">
+						国内榜
+					</li>
+					<li onclick="openRank(this,2)" id="rankType2">
+						国外榜
+					</li>
+					<li onclick="openRank(this,3)" id="rankType3">
+						童书榜
+					</li>
+					<li onclick="openRank(this,4)" id="rankType4">
+						热书榜
+					</li>
+				</ul>
+			</div>
+			<!--排行榜导航end-->
+			<!--发现header bgin-->
+			<header class="greenBg hidden"  id="header2">
+					<div class="relative">
+						<h1>发现</h1>
+					</div> 
+			</header>
+			<!--发现header end-->
+
+		<!--我的header bgin-->
+		<header class="greenBg"  id="header3">
+			<div class="relative">
+				<h1>我的</h1>
+				<span class="mySet" onclick="openSystemSet('系统设置','systemSet','frm_systemSet.html')" ><img src="image/icon_mySet.png" /></span>			
+			</div>			
+		</header>
+		<!--我的header end-->
+
+			<div id="main" class="flex-con"></div>
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap" >
+					<li tapmode="hover" onClick="randomSwitchBtn( this,0 );" class="flex-con active" >
+						首页
+					</li>
+					<li tapmode="hover" onClick="randomSwitchBtn( this,1 );" class="flex-con" id="rankBar">
+						排行
+					</li>
+					<li tapmode="hover" onClick="randomSwitchBtn( this,2 );" class="flex-con" >
+						发现
+					</li>
+					<li tapmode="hover" onClick="randomSwitchBtn( this,3 );" class="flex-con" >
+						我的<i class="dotred hidden" id="dotred"></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript" src="script/tools.js"></script>
+<script type="text/javascript" src="script/iscroll.js"></script>
+<script type="text/javascript" src="script/classScroll.js"></script> 
+<script type="text/javascript" src="script/slide.js"></script>
+<script type="text/javascript" src="script/event.js"></script>
+<script type="text/javascript">
+	var headerH = 0;
+	//头部高度
+	var frmY = 0;
+	//fram加载的开始y值
+	var frmH = 0;
+	//fram的高度
+	var headerObj;
+	apiready = function() { 
+	    keyBack();
+	    setPrefs('rankType',1);
+		var header=$api.byId("header0");
+		setStatusBar(header);   
+		//打开fram组，初始化
+		funIniGroup(); 
+	    //网络异常监听
+	    listenIndexError();
+	    //断网监听
+	    indexOffline(frmY,frmH);   
+	}
+	
+	
+//有新消息时，在"我的"右上角显示红点
+function dotted() {
+	$api.removeCls($api.byId('dotred'), 'hidden');	
+}
+function killDot() {//无新消息，隐藏红点
+	$api.addCls($api.byId('dotred'), 'hidden');
+}
+
+
+
+function creatFrames(frmY,frmH){
+	var frames = [];
+	frames.push({
+		name : 'index',
+		url : 'html/frm_index.html',
+		bgColor : '#f4f4f4',
+		bounces : true,
+		pageParam:{
+		  frmY:frmY,
+		  frmH:frmH
+		}
+		
+	});
+	frames.push({
+		name : 'rank',
+		url : 'html/frm_rank.html',
+		bgColor : '#f4f4f4',
+		bounces : true, 
+		pageParam:{
+		  frmY:frmY,
+		  frmH:frmH
+		}
+
+	});
+	frames.push({
+		name : 'find',
+		url : 'html/frm_find.html',
+		bgColor : '#f4f4f4',
+		bounces : false,
+		pageParam:{
+		  frmY:frmY,
+		  frmH:frmH
+		}
+	});
+	frames.push({
+		name : 'userIndex',
+		url : 'html/frm_userIndex.html',
+		bgColor : '#f4f4f4',
+		bounces : false,
+		pageParam:{
+		  frmY:frmY,
+		  frmH:frmH
+		}
+	});
+	frames.push({
+		name : 'offline',
+		url : 'html/frm_offline.html',
+		bgColor : '#f4f4f4',
+		bounces : false,
+		pageParam:{
+		  frmY:frmY,
+		  frmH:frmH
+		}
+	});	
+	
+	return frames;
+}
+	//初始化页面
+	function funIniGroup() {
+		updateFrmH(0,1); 
+		var frames=creatFrames(frmY,frmH);
+		api.openFrameGroup({
+			name : 'group',
+			scrollEnabled : false,
+			rect : {
+				x : 0,
+				y : frmY,
+				w : api.winWidth,
+				h : frmH
+			},
+			index : 0,
+			frames : frames
+		}, function(ret, err) {
+
+		});
+ }
+
+//断网监听
+function indexOffline(frmY,frmH){ 
+	api.addEventListener({
+	    name:'offline'
+	}, function(ret, err){  
+		api.setFrameGroupAttr({
+		    name: 'group', 
+			rect : {
+				x : 0,
+				y : frmY,
+				w : 'auto',
+				h : frmH
+			}
+		});
+		api.setFrameGroupIndex({
+			name : 'group',
+			index : 4,
+			reload:true,  
+		});	    
+	    
+	}); 
+
+}
+
+ 
+	 
+ function updateFrmH(index,rankType) { 
+		var header=$api.byId("header"+index);
+		if(header){
+			setStatusBar(header);
+			frmY=$api.offset(header).h; 
+		}
+		/*
+		else{
+			frmY=0;//用户首页没有头部 
+			//frmH=518+44;
+		} */
+		if(index==1){//排行榜首页 
+		   setPrefs('rankType',rankType); 
+		   var divBar=$api.dom(".twoNavBox");
+		   frmY=frmY+$api.offset(divBar).h; 
+		} 
+		 
+		var footH= $api.offset($api.byId("footer")).h;
+		var wrapH= $api.offset($api.byId("wrap")).h; 
+		frmH=wrapH-frmY-footH; 
+		
+		setPrefs("indexFrmY",frmY) ;
+		setPrefs("indexFrmH",frmH) ;
+		 
+	}
+
+	//打开分类页面
+	function openClass(){
+		var pageParam={
+			barTitle:"分类",
+			frmName:"class",
+			frmUrl:"frm_class.html", 
+			className :"greenBg" 
+		}
+		api.openWin({
+			name : "common_class",
+			url : "html/win_common.html",
+			bounces : false,
+			vScrollBarEnabled : false,
+			hScrollBarEnabled : false,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam : pageParam
+		}); 
+	}
+
+
+	//打开一级榜单
+	function openRank(obj,rankType){
+		selectLi(obj);
+ 		//记录一级榜单
+ 		$api.setStorage("rankType",rankType);
+		api.setPrefs({key: 'rankType',value: rankType});
+		api.setFrameGroupIndex({
+			name : 'group',
+			index : 1,
+			reload:true,
+			scroll:true 
+		});
+	}
+
+	//打开搜索窗口
+	function openSearch(){ 
+		api.openWin({
+			name : "common_search",
+			url : "html/win_search.html",
+			bounces : false,
+			vScrollBarEnabled : false,
+			hScrollBarEnabled : false,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam:{
+				frmName:"frm_search",
+				frmUrl:"frm_search.html",
+			
+			}
+		});	
+	
+	}
+
+
+	// 随意切换按钮
+	function randomSwitchBtn(tag, index) {
+ 		var obj=$api.dom($api.byId("footer"), "li.active");
+		$api.removeCls(obj, 'active');
+		$api.addCls(tag, 'active');	
+		//修改头部
+		for(var i=0;i<4&&i!=index;i++){
+		   if($api.byId("header"+i)) $api.addCls($api.byId("header"+i), 'hidden');//隐藏其他 
+		}
+		$api.removeCls($api.byId("header"+index), 'hidden');//显示当前头部
+		if(index==1){
+			$api.removeCls($api.dom(".twoNavBox"), 'hidden');
+		}
+		else{
+			$api.addCls($api.dom(".twoNavBox"), 'hidden');
+		}  
+
+		updateFrmH(index,1);
+		
+		api.setFrameGroupAttr({
+		    name: 'group', 
+			rect : {
+				x : 0,
+				y : frmY,
+				w : 'auto',
+				h : frmH
+			}
+		});
+		api.setFrameGroupIndex({
+			name : 'group',
+			index : index,
+			reload:true,  
+		});
+      
+   
+
+	}
+	
+//打开设置页面
+function openSystemSet(title,frmName,frmUrl){
+	api.openWin({
+		name : "common_" + frmName,
+		url : "html/win_common.html",
+		bounces : false,
+		vScrollBarEnabled : false,
+		hScrollBarEnabled : false,
+		animation : {
+			type : "push", //动画类型（详见动画类型常量）
+			subType : "from_right", //动画子类型（详见动画子类型常量）
+			duration : 300 //动画过渡时间，默认300毫秒
+		},
+		pageParam : {
+			barTitle : title,
+			frmName : frmName,
+			frmUrl : frmUrl
+		}
+	});
+
+} 
+	
+	
+</script>

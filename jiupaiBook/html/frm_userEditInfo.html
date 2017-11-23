@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>个人资料</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/user.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/my.css"/>
+	</head>
+	<body>
+		<!--header bgin-->
+		<!--<header class="headLine">
+		<span class="back fl"><img src="../image/back_green.png" /></span>
+		<h1>个人资料</h1>
+		</header>-->
+		<!--header end-->
+		<div class="marAuto">
+			<!--上传头像 beign-->
+			<div class="myHead"  onclick="selectImg(200,200)"></div>
+			<input type="hidden" id="imgPath" value="" />
+			<!--上传头像 end-->
+			<!--男女-->
+			<div class="genderBox">
+				<div class="gender male" id="sex2" onclick="selectSex(2)">
+					男<img src="../image/iconMale.png" />
+				</div>
+				<div class="gender female" id="sex1" onclick="selectSex(1)">
+					女<img src="../image/iconFemale.png" />
+				</div>
+				<input type="hidden" id="sex" value="" />
+			</div>
+			<dl class="registerDL">
+				<!--昵称-->
+				<dd>
+					<div class="inputBox">
+						<input type="text" placeholder="昵称" class="userInput" id="nickName"/>
+					</div>
+				</dd>
+				<dt>
+					<input type="button" class="userSubBtn" value="完成"  onclick="editInfo()"/>
+				</dt>
+			</dl>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/sessions.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/user.js"></script>
+	<script type="text/javascript" src="../script/checkData.js"></script>
+	<script>
+		var userEntity
+		apiready = function() {
+			userEntity = sessionAgent.getLoginInfo();
+			addUserInfo(); 
+		};
+	 
+		//加载头像
+		function loadImg(sevicePath){ 
+		  var imgTag='<img src="'+ajaxAgent.serverAction+sevicePath+'">';
+		  $api.html($api.dom(".myHead"),imgTag);
+		  $api.val($api.byId("imgPath"), sevicePath); 
+		}
+
+		//修改用户信息
+		function addUserInfo() {
+			if (sessionAgent.isLogin(userEntity)) { 
+				//添加头像
+				if (userEntity.iconPath != "") {
+					$api.html($api.dom(".myHead"), '<img src="' +ajaxAgent.serverAction+ userEntity.iconPath + '" />');
+					$api.val($api.byId("imgPath"), userEntity.iconPath); 
+				}
+				if (userEntity.sex == 2) {
+					$api.addCls($api.byId("sex2"), 'active');
+					$api.val($api.byId("sex"),2);
+				} else if (userEntity.sex == 1) {
+					$api.addCls($api.byId("sex1"), 'active');
+					$api.val($api.byId("sex"),1);
+				}
+				if (userEntity.nickName != "") {
+					$api.val($api.byId("nickName"), userEntity.nickName);
+				}
+			} else {
+				openWinLogin();
+			}
+		}
+
+		//提交编辑资料
+		function editInfo() {
+			var iconPath=$api.val($api.byId("imgPath"));
+			var sex = $api.val($api.byId("sex"));
+			var nickName = $api.val($api.byId("nickName"));
+			if (isEmpty(nickName)) {
+				toastNetErr("请输入昵称！");
+				return false;
+			}else if(nickName.length>20){ 
+				toastNetErr("请输入小于20个字的昵称！");
+				return false;			
+			}
+			if (!isChangeIcon(iconPath) && !isChangeSex(sex) && !isChangeNickName(nickName)) {
+				toastNetErr("没有改变什么！");
+				return false;
+			} else {//修改资料
+				var actionUrl = ajaxAgent.serverAction;
+				actionUrl += '/jpjs/userinfo/jpjs_updateUser';
+				showProgress();
+				api.ajax({
+					url : actionUrl,
+					method : 'post',
+					timeout : 50,
+					dataType : 'json',
+					returnAll : false,
+					data : {
+						values : { 
+							sex : sex,
+							nickName : nickName,
+							userId : userEntity.userId,
+							imgPath:iconPath
+						}
+					}
+				}, function(ret, err) {
+					api.hideProgress();
+					if (ret) {
+						if (ret.result == 1) {
+							var userEntity = sessionAgent.getLoginInfo();
+								userEntity.nickName = nickName;
+								userEntity.sex = sex;
+								userEntity.iconPath=iconPath;
+								sessionAgent.setLoginInfo(userEntity); 
+							api.execScript({
+								name : 'root',
+								frameName : 'userIndex',
+								script : 'updateUserInfo()'
+							});								
+
+							toastNetErr("资料修改成功！");
+							api.closeWin();
+							return true;
+						} else {
+							toastNetErr(ret.msg);
+							return false;
+						}
+					} else {
+						toastNetErr("资料修改失败！");
+						return true;
+					}
+				});
+			}
+		}
+
+		//检查头像是否改变
+		function isChangeIcon(iconPath) {
+			if (iconPath != userEntity.iconPath) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		//检查性别是否改变
+		function isChangeSex(sex) {
+			if (sex != userEntity.sex) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		//检查昵称是否改变
+		function isChangeNickName(nickName) {
+			if (nickName != userEntity.nickName) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		//检查资料是否有改变
+		function changeInfo() {
+			var values = [];
+			var iconFile = $api.getStorage('iconFile');
+			var sex = $api.getStorage('sex');
+			var nickName = $api.val($api.byId("nickName"));
+			if (iconFile != '') {
+				return true;
+			}
+			if (sex != '' && sex != userEntity.sex) {//性别无改变
+				return true;
+			}
+			if (isEmpty(nickName) && nickName != userEntity.nickName) {
+				return true;
+			}
+			return false;
+		}
+
+		//清空之前的记录
+		function cleanStorage() {
+			$api.setStorage('iconFile', '');
+			$api.setStorage('sex', '');
+		}
+	</script>
+</html>

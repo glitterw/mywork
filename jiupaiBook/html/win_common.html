@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>用户公用头部</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/user.css"/>
+	</head>
+	<body>
+		<!--header bgin-->
+		<header class="headLine"> 
+		   <div class="relative">
+				<div class="back fl " onclick="goBack()" id="back"><img src="../image/back_green.png" /></div>
+				<h1 id="title" ></h1>
+		   </div> 
+		</header>
+		<!--header end-->
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/event.js"></script>
+	<script type="text/javascript"> 
+		apiready = function() {  
+			var header=$api.dom("header");
+			var y=0;
+			if(header){ 
+				setStatusBar(header);
+				y=$api.offset(header).h;
+			}
+			var titleDiv=$api.byId("title");
+			if(titleDiv){
+				$api.html(titleDiv,api.pageParam.barTitle);
+			}
+			else{
+				toastNetErr("出错了!");
+			}
+			changeColor(); 
+			openFram(y); 
+		    //网络异常监听
+		    listenNewError();
+
+		}
+		//更改头部的颜色
+		function changeColor(){
+			if(api.pageParam.className=="greenBg"){
+			  $api.attr($api.dom("header"), "class", "greenBg");
+			  $api.html($api.byId('back'),'<img src="../image/back_white.png" />'); 
+			}else{ 
+			 $api.attr($api.dom("header"), "class", "headLine");
+			 $api.html($api.byId('back'),'<img src="../image/back_green.png" />');  
+			}
+		
+		}
+		
+		//打开fram
+		function openFram(y) {
+			api.pageParam.y=y; 
+			api.openFrame({
+				name : api.pageParam.frmName,
+				url : api.pageParam.frmUrl,
+				rect : {
+					x : 0,
+					y : y,
+					w : 'auto',
+					h : 'auto'
+				},
+				pageParam : api.pageParam,
+				bounces : false,
+				delay : 100,
+				reload : true,
+				allowEdit:true,
+			});
+		} 
+	</script>
+</html>

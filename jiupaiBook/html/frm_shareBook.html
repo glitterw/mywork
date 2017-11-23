@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>图书详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bookInfo.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/list.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/leaderboard.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+	<style>
+    	html,body{ background:transparent;}
+    </style>
+</head>
+<body> 
+    <!--弹出分享  begin-->
+    <div class="shadow ">
+    	<div class="shareBox">
+            <div class="marAuto bgfff shareRadius">
+          <ul>
+               		<li onclick="shareBook(1)">
+                    	<img src="../image/share_QQ.png" />
+                        <p>分享给QQ好友</p>
+                    </li>
+               		<li  onclick="shareBook(2)">
+                      	<img src="../image/share_weixin.png" />
+                   		<p>分享给微信好友</p>
+                    </li>
+               		<li  onclick="shareBook(3)">
+                    	<img src="../image/share_pengyouquan.png" />
+                        <p>分享到朋友圈</p>
+                    </li>
+               </ul> 
+               
+               <div class="W100 shareBtn" onclick="cancelShare()">取消</div>
+            </div>        
+        </div>
+    </div>
+    <!--弹出分享  end-->
+    
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/sdk.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>	
+
+<!--<script type="text/javascript" src="../script/sessions.js"></script>-->	
+<script type="text/javascript">  
+var book;//分享的书的对象
+var qq,wx;
+apiready = function() {  
+ 
+  getBookShareInfo();
+  qq=api.require('qq');
+  wx=api.require('wx');
+}
+
+//获取图书的分享信息
+function getBookShareInfo(){
+ 	var  actionUrl=ajaxAgent.serverAction+'/jpjs/bookinfo/showBookDetailPage'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				bookId:api.pageParam.bookId
+			}
+		}
+	}, function(ret, err) {  
+		if(ret.result==1){ 
+			book=ret.shareBook; //保存图书信息
+			return true;
+		}else{//没有获取到图书的信息，不能分享，关闭此窗口  
+			toastNetErr("获取分享信息失败！");
+			//api.closeFrame();
+			return false;
+		}
+	});   	
+
+}
+
+//分享接口
+function shareBook(type){
+ 	var url=ajaxAgent.serverAction+book.url;
+ 	var imgUrl=ajaxAgent.serverAction+book.imgUrl;  
+	if(type==1){//qq好友分享  
+		shareQFriend(url,book.title,book.description,imgUrl);
+		return true;
+	}else if(type==2){
+		shareWebpageWX(book.title,book.description,imgUrl,url,'session');
+		return true;	 
+	}else if(type==3){
+		shareWebpageWX(book.title,book.description,imgUrl,url,'timeline');
+		return true;
+	}
+
+}
+
+//分享取消
+function cancelShare(){
+	api.closeFrame();
+}
+ 
+</script>
+</html>

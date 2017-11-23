@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>我的推荐-未通过</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+	</head>
+	<body>
+		<!--header bgin-->
+		<!--<header>
+		<span class="back fl"><img src="../image/back_green.png" /></span>
+		<h1>推荐详情</h1>
+		</header>-->
+		<!--header end-->
+		<!--推荐详情 begin-->
+		<div class="bgfff pad_b100 mar_t20 hidden" id="detail">
+			<div class="marLeft">
+				<!--标题 begin-->
+				<div class="rcmdDetails linedc">
+					<h1>推荐信息</h1>
+					<h2 id="addtime">2016-6-15</h2>
+				</div>
+				<!--标题 end-->
+				<div class="rcmdBookBox" id="bookDetail">
+					<div class="rcmdBook bookList_pic"><img src="../image/other/book03.jpg" /></div>
+					<h1>鹿苑长春</h1>
+					<h2>[美] 玛•金•罗琳斯 </h2>
+				</div>
+				<div class="rcmdCont linedc" id="content">
+					在做WEB设计的时候,会遇到很多列表文字需要添加,但是临时去找就很麻烦,现在简单了,把下面这个Photoshop填充假字的动作导入,然后只要选择是列表假字还是内容假字,临时去找就很麻烦,现在简单了,把下面这个Photoshop填充假字的动作导入行...
+				</div>
+				<div class="statusCont" id="statusInfo">
+					<div class="statusContTit">
+						<h1 class="fl">当前状态：</h1><span class="fl">审核未通过</span>
+					</div>
+					<div class="rcmdCont">
+						推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少推荐词写得太少
+					</div>
+				</div>
+				<!--当前审核状态 end-->
+			</div>
+		</div>
+		<!--推荐详情 end-->
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/sessions.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/user.js"></script>
+	<script type="text/javascript" src="../script/list.js"></script>
+	<script>
+		apiready = function() {
+			insertRecommendInfo()
+		};
+		//修改用户信息
+		function insertRecommendInfo() {
+			var userEntity = sessionAgent.getLoginInfo();
+			if (sessionAgent.isLogin(userEntity)) {
+				var actionUrl = ajaxAgent.serverAction;
+				actionUrl += '/jpjs/bookrecommend/jpjs_queryUserRec';
+				var values = {
+					userId : userEntity.userId,
+					recommendId : api.pageParam.recommendId
+				}
+				showProgress();
+				api.ajax({
+					url : actionUrl,
+					method : 'post',
+					timeout : 50,
+					dataType : 'json',
+					returnAll : false,
+					data : {
+						values : values
+					}
+				}, function(ret, err) {
+					api.hideProgress();  
+					if (ret) { 
+						if (ret.result == 1) {
+							var recommend = ret.recommend; 
+							var html = '';
+							var imgPath ='../image/book.png';
+							if(recommend.imgPath!=''){ 
+								//if(recommend.state==2) imgPath=recommend.imgPath;
+								//else {
+								 imgPath= ajaxAgent.serverAction + recommend.imgPath;
+								//}
+							}  
+						html+='			<div class="marLeft">';
+						html+='				<div class="rcmdDetails linedc">';
+						html+='					<h1>推荐信息</h1>';
+						html+='					<h2 id="addtime">'+recommend.addtime+'</h2>';
+						html+='				</div>';
+						if(recommend.state==2){
+							var func="openRecommendList("+recommend.bookId+",'"+recommend.bookName+"')";
+							html+='	<div class="rcmdBookBox" id="bookDetail"  onclick="'+func+'">';
+						}
+						html+='				<div class="rcmdBookBox" id="bookDetail" >';
+						if(imgPath!='') html+='					<div class="rcmdBook bookList_pic"><img src="'+imgPath+'" /></div>';
+						html+='					<h1>'+recommend.bookName+'</h1>';
+						html+='					<h2>'+recommend.author+' </h2>';
+						html+='				</div>';
+						html+='				<div class="rcmdCont linedc" id="content">'+recommend.reason+'</div>';
+						html+='				<div class="statusCont" id="statusInfo">';
+						html+='					<div class="statusContTit">';
+						html+='						<h1 class="fl">当前状态：</h1><span class="fl">'+recommend.stateName+'</span>';
+						html+='					</div>';
+						html+='					<div class="rcmdCont">'+recommend.noPassReason+'</div>';
+						html+='				</div>';
+						html+='			</div>';
+                            $api.html($api.byId("detail"),html);
+							$api.removeCls($api.byId("detail"), 'hidden');
+						} else {
+							toastNetErr(ret.msg);
+							return false;
+						}
+					} else {
+						toastNetErr("服务请求错误！");
+						return true;
+					}
+				});
+			} else {
+				openWinLogin();
+				return false;
+			}
+		}
+	</script>
+</html>

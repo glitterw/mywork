@@ -1,0 +1,141 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{ background:#f4f4f4;}
+/*我要荐书*/
+.uploadCover{ text-align:center; color:#c9c9c9; font-size:26px; padding-top:48px;}
+.coverBox,.coverBox input,.coverBox img{ width:116px; height:172px;}
+.coverBox{ border-radius:8px; border:dashed 3px #c9c9c9; margin:0 auto; background:url(../image/icon_jia.png) no-repeat center center; background-size:32px 32px;}
+.coverBox img{border-radius:8px;}
+.coverBox input{ opacity:0;}
+.uploadCover p{ line-height:60px;}
+
+/*填写荐书资料*/
+.wantRcmdDL{ padding-bottom:40px;}
+.wantRcmdDL dd{ margin-top:26px; margin-bottom:26px; color:#a6a6a6; font-size:32px;}
+.wantRcmdDL dd .groupDiv{ height:98px; border:solid 1px #d1d1d1; background:#fff; display: -moz-box; display: -webkit-box; display: box; border-radius:8px;}
+.wantEarea{ padding:2.5%; width:95%; border:solid 1px #d1d1d1; background:#fff; border-radius:8px; outline:none; height:300px; line-height:150%;}
+
+/*我的推荐*/
+.rcmdTit{ background:#fff; height:98px; border-bottom:solid 1px #d1d1d1; display:box; display:-webkit-box; display:-moz-box; padding:0 30px; line-height:98px; color:#666;}
+.rcmdTit h1{font-weight:normal; font-size:32px;}
+.rcmdTit h1:nth-child(1){ margin-left:60px; margin-right:30px; -moz-box-flex: 2; -webkit-box-flex: 2; box-flex: 2; }
+.rcmdTit h1:nth-child(2){ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; }
+.addRcmd{ width:47px; height:47px; border:solid 2px #32b2a1; border-radius:100%; color:#32b2a1; text-align:center; line-height:47px; font-size:56px;}
+
+/*推荐列表*/
+.myRcmdList li{ display:box; display:-webkit-box; display:-moz-box; padding:35px 0; border-bottom:solid 1px #d1d1d1;}
+.myRcmdList li h1{ padding-left:30px;padding-right:30px; -moz-box-flex: 2; -webkit-box-flex: 2; box-flex: 2; font-weight:normal; font-size:32px; color:#000; text-overflow: ellipsis; white-space: nowrap; width:0; height:42px; line-height:42px; overflow:hidden; }
+.statusBtnBox{ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;}
+.myRcmdList li .statusRcmd{ border-radius:8px; width:100px; text-align:center; height:42px; line-height:42px;  font-size:26px; color:#fff;}
+/*已审核*/
+.audited{ background:#94e37e;}
+/*待审核*/
+.pending{ background:#dadada;}
+/*未通过*/
+.notPass{ background:#e37e7e;}
+
+/*推荐详情*/
+.rcmdDetails{ display:box; display:-webkit-box; display:-moz-box; height:88px; line-height:88px;}
+.rcmdDetails h1,.rcmdDetails h2{-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;}
+.rcmdDetails h1{ font-size:30px; color:#666;}
+.rcmdDetails h2{ text-align:right; color:#d4d4d4; font-size:26px; margin-right:30px;}
+
+.rcmdBookBox{ padding:30px 0; text-align:center;word-break:break-all;　word-wrap:break-word;}
+.rcmdBook{ margin:0 auto;  margin-bottom:30px;}
+.rcmdBookBox h1{ color:#000; font-size:36px; font-weight:bold; margin-bottom:10px;}
+.rcmdBookBox h2{ font-size:24px; color:#999; margin-bottom:10px;}
+.rcmdCont{ font-size:28px; color:#666; line-height:135%; padding-bottom:80px; margin-right:30px;word-break:break-all;　word-wrap:break-word;}
+.statusContTit{ color:#666; font-size:32px; height:80px; line-height:80px;}
+.statusContTit h1{ font-weight:bold; font-size:32px; color:#666;}
+
+/*荐书详情 列表*/
+.rcmdGroup{ padding:24px 30px 15px 0; overflow:hidden; }
+.rcmdBubbleBox{ border-radius:8px; border:solid 1px #32b2a1; padding:15px 10px; font-size:26px; color:#666; line-height:110%; position:relative; margin-top:15px;word-break:break-all;　word-wrap:break-word;}
+.rcmdBubbleBox:before{ content: ' '; position: absolute; width: 0; height: 0;left: 25px;top: -20px; border-style:solid; border-width:10px 13px 10px 13px; border-color: transparent transparent #32b2a1 transparent;}
+.rcmdBubbleBox:after{ content: ' '; position: absolute; width: 0; height: 0; left: 26px; top:-17px; border-style:solid; border-width:9px 12px 9px 12px; border-color: transparent transparent #fff transparent; }
+
+.rcmdReview{ width:100%; display:inline-block; margin-top:15px;}
+.rcmdReview .reviews,.rcmdReview .like{ font-size:24px;}
+
+.headLike{ background-size:40px; width:40px; height:40px; margin-right:30px; margin-top:24px; background-position:0 0; padding:0;}
+
+.rcmdGroupTit{display:box; display:-webkit-box; display:-moz-box; padding:20px 0; margin-bottom:24px;}
+.rcmdGroupTit h1{ -moz-box-flex: 2; -webkit-box-flex: 2; box-flex: 2; font-size:32px; color:#000;}
+.rcmdGroupTit span{ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; margin-left:80px; margin-top:5px;}
+
+/*全民荐书列表*/
+.allRcmdBox{ padding-bottom:20px; padding-top:20px;}
+.HeadEdit,.HeadEdit img{ width:45px; height:48px;}
+.rcmdLRbox{ display:box; display:-webkit-box; display:-moz-box;}
+.rcmdRightBox{ -moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;}
+.allRcmdBox h1{ height:40px; line-height:40px; margin-bottom:15px; font-size:28px; color:#000; font-weight:bold;}
+.allRcmdBox .rcmdBubbleBox p{ height:84px; overflow: hidden;}
+.rcmdBookPic{ position:relative;}
+.iconjian{ width:0; height:0; border-top: 50px solid #e37e7e; border-right: 50px solid transparent; position:absolute; top:0 ; left:0;}
+.iconjian span{ position:absolute; z-index:2; top:-43px; left:5px; color:#fff; font-size:18px;}
+.iconRcmd{ background:url(../image/iconRcmd.png) no-repeat left 5px; background-size:30px; padding-left:30px;}
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+/*我要荐书*/
+.uploadCover{ font-size:13px; padding-top:24px;}
+.coverBox,.coverBox input,.coverBox img{ width:58px; height:86px;}
+.coverBox{ border-radius:4px; border:dashed 2px #c9c9c9; background-size:16px 16px;}
+.coverBox img{border-radius:4px;}
+.uploadCover p{ line-height:30px;}
+
+/*填写荐书资料*/
+.wantRcmdDL{ padding-bottom:20px;}
+.wantRcmdDL dd{ margin-top:13px; margin-bottom:13px; font-size:16px;}
+.wantRcmdDL dd .groupDiv{ height:49px; border-radius:4px;}
+.wantEarea{ padding:2.5%; width:95%; border-radius:4px; height:150px; line-height:150%;}
+
+/*我的推荐*/
+.rcmdTit{ height:49px; padding:0 15px; line-height:49px;}
+.rcmdTit h1{ font-size:16px;}
+.rcmdTit h1:nth-child(1){ margin-left:30px; margin-right:15px; }
+.addRcmd{ width:23px; height:23px; border:solid 1px #32b2a1; line-height:23px; font-size:28px;}
+
+/*推荐列表*/
+.myRcmdList li{ padding:17px 0;}
+.myRcmdList li h1{ padding-left:15px;padding-right:15px; font-size:16px; height:21px; line-height:21px; }
+.myRcmdList li .statusRcmd{ border-radius:4px; width:50px; height:21px; line-height:21px;  font-size:13px;}
+
+/*推荐详情*/
+.rcmdDetails{ height:44px; line-height:44px;}
+.rcmdDetails h1{ font-size:15px;}
+.rcmdDetails h2{ font-size:13px; margin-right:15px;}
+
+.rcmdBookBox{ padding:15px 0;}
+.rcmdBook{ margin-bottom:15px;}
+.rcmdBookBox h1{ font-size:18px; margin-bottom:5px;}
+.rcmdBookBox h2{ font-size:12px; margin-bottom:5px;}
+.rcmdCont{ font-size:14px; padding-bottom:40px; margin-right:15px;}
+.statusContTit{ font-size:16px; height:40px; line-height:40px;}
+.statusContTit h1{ font-size:16px;}
+
+/*荐书详情 列表*/
+.rcmdGroup{ padding:12px 15px 7px 0;}
+.rcmdBubbleBox{ border-radius:4px; padding:10px 5px; font-size:13px; margin-top:7px;}
+.rcmdBubbleBox:before{ left: 13px;top: -10px; border-width:5px 6px 5px 6px; border-style:solid;}
+.rcmdBubbleBox:after{ left: 13px; top:-7px; border-width:4px 6px 4px 6px; }
+
+.rcmdReview{ margin-top:7px;}
+.rcmdReview .reviews,.rcmdReview .like{ font-size:12px;}
+
+.headLike{ background-size:20px; width:20px; height:20px; margin-right:15px; margin-top:12px;}
+.rcmdGroupTit{padding:10px 0; margin-bottom:12px;}
+.rcmdGroupTit h1{ font-size:16px;}
+.rcmdGroupTit span{ margin-left:40px;}
+
+/*全民荐书列表*/
+.allRcmdBox{ padding-bottom:10px;}
+.HeadEdit,.HeadEdit img{ width:22px; height:24px;}
+.allRcmdBox h1{ height:20px; line-height:20px; font-size:14px; margin-bottom:8px;}
+.allRcmdBox .rcmdBubbleBox p{ height:37px; line-height:150%;}
+
+.iconjian{ width:0; height:0; border-top: 30px solid #e37e7e; border-right: 30px solid transparent; position:absolute; top:0 ; left:0;}
+.iconjian span{ position:absolute; z-index:2; top:-28px; left:3px; color:#fff; font-size:10px;}
+.iconRcmd{ background:url(../image/iconRcmd.png) no-repeat left 2px; background-size:15px; padding-left:15px;}
+
+}

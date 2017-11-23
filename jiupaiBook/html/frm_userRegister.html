@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>用户注册</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/user.css"/>
+
+</head>
+<body>
+ 
+    <div class="marAuto">
+    	<dl class="registerDL padTop24">
+        	<dd>
+            	<span class="userIcon iconPhone"></span>
+                <div class="inputBox"><input name="telNo"  id="telNo" type="text" placeholder="请输入您的手机号" class="userInput" value=""></div>
+            </dd>
+            <dt><input type="button" class="userSubBtn" value="下一步"  onclick="register2()"/></dt>
+        </dl>
+    </div>
+</body> 
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/checkData.js"></script>
+<script type="text/javascript" src="../script/user.js"></script>
+<script type="text/javascript"> 
+	apiready = function() {  
+	}
+	//注册第二步 验证手机是否可以注册,可以注册发送验证码,否则弹出错误
+	function register2(){
+		var telNoObj=$api.byId("telNo");
+		var telNo="";
+		if(telNoObj){
+			telNo=$api.val(telNoObj);
+			//验证数据
+			if(!isEmpty(telNo)){
+				if(isCellPhone(telNo)){
+				    //发送验证码到手机上
+					isRegCellPhone($api.trim(telNo));
+					return true;
+				}
+				else{
+					toastNetErr("请输入正确的手机号码!");
+					return false;
+				}
+			}
+			else{ 
+			  toastNetErr("请输入手机号码!");
+			  return false;
+			}
+		}
+		else{
+		 toastNetErr("error");
+		 return false;
+		}
+  }
+
+//验证用户手机号码是否可以注册
+function isRegCellPhone(telNo){ 
+	var actionUrl = ajaxAgent.serverAction;
+	actionUrl += '/jpjs/userinfo/jpjs_checkPhone'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				telNo : telNo 
+			}
+		}
+	}, function(ret, err) {  
+		if(ret){
+			if(ret.isRegister==1){ 
+				 sendCode(telNo);
+			}
+			else{
+			    toastNetErr("手机号已被注册！"); 
+				return false;
+			}
+		}
+		else{
+		   toastNetErr(err.statusCode);
+		   return false;
+		} 
+	});		
+}
+//发送验证码
+function sendCode(telNo){
+	var codeStr=rand6();
+	var actionUrl = ajaxAgent.serverAction;
+	actionUrl += '/jpjs/userinfo/sendSMSCode';
+	showProgress();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				telNo : telNo,
+				codeStr : codeStr
+			}
+		}
+	}, function(ret, err) {
+	    api.hideProgress();  
+		if(ret){
+			if(ret.result==1){ 
+				 nextRegister2(telNo,codeStr,api.pageParam.y);
+			}
+			else{
+			    sendError(telNo); 
+				return false;
+			}
+		}
+		else{
+		   toastNetErr(err.msg);
+		}
+		
+	});	
+
+}   
+//注册第二步
+function nextRegister2(telNo, codeStr,headerH) { 
+	var pageParam = { 
+		telNo : telNo,
+		seviceCode : codeStr,
+		headerH : headerH
+	}; 
+	var frmInfo ={
+	    name: 'userRegister2',
+	    url: 'frm_userRegister2.html', 
+	    pageParam :pageParam
+	} 
+	openFram(frmInfo);
+}
+
+
+
+</script>
+</html>

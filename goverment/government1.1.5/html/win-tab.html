@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>侧滑窗口</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 220) ? (document.documentElement.clientWidth / 2.20 + "px") : "100px";
+    </script>
+    <style>
+        body{
+
+        }
+    </style>
+</head>
+<body>
+<div  class="win-tab" >
+    <div id="header" class="tab-header">
+    <header><span class="logo"></span></header>
+    </div>
+    <div class="slid-pane" id="main">
+        <div class="tab-list">
+            <ul>
+               <!-- <li class="border-bottom border-left-green" value="全部">
+                    <p class="tab-title">全部</p>
+                    <p class="tab-py">AllCity</p>
+                </li> -->
+                <li class="border-bottom border-left-red" value="武汉">
+                    <p class="tab-title">武汉</p>
+                    <p class="tab-py">Wuhan</p>
+                </li>
+                <li class="border-bottom border-left-yellow" value="长沙">
+                    <p class="tab-title">长沙</p>
+                    <p class="tab-py">Changsha</p>
+                </li>
+                <li class="border-bottom border-left-bule" value="合肥">
+                    <p class="tab-title">合肥</p>
+                    <p class="tab-py">Hefei</p>
+                </li>
+                <li class="border-bottom border-left-green" value="南昌">
+                    <p class="tab-title">南昌</p>
+                    <p class="tab-py">Nanchang</p>
+                </li>
+            </ul>
+        </div>
+     </div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        var header =$api.byId('header');
+         updateHeaderHeight($api.byId('header'));
+
+         selectCity();
+
+    };
+
+    //选择城市操作
+    function selectCity(){
+      var listDoms=$api.domAll('.tab-list>ul>li');
+        for (var i = 0; i < listDoms.length; i++) {
+            $api.addEvt(listDoms[i], 'click', function() {
+	            var cityName=$api.attr(this,'value') ;
+	            setPrefs("cityName",cityName); //记录选择的城市
+
+	            var jsfun = "updateCity('"+cityName+"');";
+	              api.execScript({//刷新首页
+      				    name: 'myIndex',
+      				    script: jsfun
+      				});
+                api.sendEvent({
+                    name: 'showCity',
+                    extra: {
+                        cityshow:'on' ,
+                    }
+                  });
+      				api.closeDrawerPane({
+                  type: 'left'
+              });
+
+            });
+        }
+
+    }
+
+    //修改头部高度
+    function updateHeaderHeight(obj){
+
+      if(api.systemType=='ios'){//高度增加20px
+        var thisHeight=$api.offset(obj).h+20;
+       $api.css(obj,"height:"+thisHeight+"px;");
+      }else if(api.systemType=='android'){//高度增加25px
+        var thisHeight=$api.offset(obj).h+25;
+        $api.css(obj,"height:"+thisHeight+"px;");
+      }
+    }
+</script>
+</html>

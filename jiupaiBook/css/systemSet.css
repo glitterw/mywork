@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*系统设置*/
+.bg_fff{ background-color:#fff;}
+.main_bg{background-color: #f0f0f5;}
+.setUp{background-color: #fff;}
+.setHei{margin-left: 30px;padding-right: 20px; font-size:32px; color:#666;}
+.setBorder{height: 100px;line-height: 100px;border-bottom: 1px solid #ebebeb;}
+.fonts{padding-bottom: 20px;}
+.fonts p{padding: 10px 0 20px; font-size:32px; color:#666;}
+.fontsB{width: 100%;height: 76px;line-height: 76px;display: -webkit-box;box-sizing: border-box;border: 1px solid #32b2a1;border-radius: 8px;overflow: hidden; margin-bottom:80px;}
+.fontsB li{width: 100%;height: 76px;line-height: 76px;text-align: center;color: #32b2a1;-webkit-box-flex: 1;box-sizing: border-box;border-right: 1px solid #32b2a1; font-size:36px;}
+.fontsB li.nobor{border-right: 0;}
+.fontsB li.active{background-color: #32b2a1;color: #fff;}
+.caching{height: 100px;line-height: 100px;border-bottom: 1px solid #d1d1d1;border-top: 1px solid #d1d1d1;padding: 0 20px; margin:30px 0;}
+.caching i{width: 35px;height: 37px;display: inline-block;background: url(../image/trash.png) no-repeat;margin: 30px 25px 0 0;background-size: 35px 37px;}
+.caching span{ color:#666; font-size:32px;}
+.caching em{ font-size:26px;}
+.setUp .marT{margin-top: 17px}
+
+.aui-switch{width: 107px;height: 66px;border-radius: 50px;}
+
+.aui-switch:checked{ border-color: #32b2a1; box-shadow: #32b2a1 0 0 0 26px inset; background-color: #32b2a1; transition: border ease 0.2s, box-shadow ease 0.2s,background-color ease 0.6s;}
+
+.aui-switch:before{width: 60px;height: 60px;border-radius: 100%;}
+.aui-switch:checked:before{ left:46px;}
+.set_next img{ width:15px;}
+
+.bold{ font-weight: bold;}
+.setHei .on{color: #32b2a1;}
+
+/*关于九派*/
+.aboutPic{ width:100%; text-align:center;}
+.aboutPic img{ width:364px; height: 480px;}
+.copyrightBox{ width:100%; padding:0 90px; text-align:center; position:absolute; bottom:30px; left:0; }
+.copyrightBox h1{ font-size:36px; color:#000; margin-bottom:20px;}
+.copyrightBox p{ font-size:24px; color:#818182;}
+
+/*我的消息*/
+.yesIcon,.yesIcon img{ width:47px; height:47px;}
+.messageBox ul li{ width:100%; padding:20px 0 35px 0; border-bottom:solid 1px #e5e5e5;}
+.messageBox ul li.green{ background:#e0f4f1;}
+.nameTime{ display:table; width:100%;}
+.nameTime div{ display:table-cell; vertical-align: middle; height:100%;}
+.nameBox{ font-size:32px; color:#333; text-align:left; font-weight:bold;}
+.timeBox{ font-size:26px; color:#d4d4d4; text-align:right;}
+.messageCont{ font-size:26px; color:#666; margin-top:25px; height:30px; line-height:150%; display:inline-block;}
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+
+.setHei{margin-left: 15px;padding-right: 10px; font-size:16px;}
+.setBorder{height: 50px;line-height: 50px;}
+.fonts{padding-bottom: 10px;}
+.fonts p{padding: 5px 0 10px; font-size:16px;}
+.fontsB{height: 38px;line-height: 38px;border-radius: 4px; margin-bottom:40px;}
+.fontsB li{height: 38px;line-height: 38px; font-size:19px;}
+.caching{height: 50px;line-height: 50px;padding: 0 10px; margin:15px 0;}
+.caching i{width: 17px;height: 18px;margin: 15px 13px 0 0;background-size: 17px 18px;}
+.caching span{ font-size:16px;}
+.caching em{ font-size:13px;}
+.setUp .marT{margin-top: 8px}
+
+.aui-switch{width: 54px;height: 33px;border-radius: 25px;}
+
+.aui-switch:before{width: 30px;height: 30px;border-radius: 100%;}
+.aui-switch:checked:before{ left:23px;}
+.set_next img{ width:7px;}
+
+/*关于九派*/
+.aboutPic img{ width:182px; height:240px;}
+.copyrightBox{ padding:0 45px; bottom:15px; }
+.copyrightBox h1{ font-size:13px; margin-bottom:10px;}
+.copyrightBox p{ font-size:12px; }
+
+/*我的消息*/
+.yesIcon,.yesIcon img{ width:23.5px; height:23.5px;}
+.messageBox ul li{ padding:10px 0 17.5px 0;}
+.nameBox{ font-size:16px;}
+.timeBox{ font-size:13px;}
+.messageCont{ font-size:13px; margin-top:12.5px; height:15px;}
+
+}
+/*building*/
+.building{width:100%; text-align: center; padding-top:25%;}

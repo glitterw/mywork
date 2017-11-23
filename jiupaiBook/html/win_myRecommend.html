@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>我的推荐</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+
+</head>
+<body>
+	<!--header bgin-->
+    <header>
+    	<div  class="relative">  
+	    	<span class="back fl" onclick="goBack()"><img src="../image/back_green.png" /></span>
+	        <h1>我的推荐</h1>
+	        <span class="fr HeadEdit mar_r30 mar_t20"><img src="../image/rcmdIcon02.png" onclick="publishBook(1)"/></span>
+        </div>
+    </header>
+	<!--header end--> 
+    <!--标题 begin-->
+    <div class="rcmdTit">
+    	<h1>书名</h1>
+        <h1>推荐状态</h1>
+    </div>
+    <!--标题 end--> 
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/user.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script> 
+<script type="text/javascript"> 
+	apiready = function() {  
+		var header=$api.dom("header");
+		var y=0;
+		if(header){
+			setStatusBar(header);
+			y=$api.offset(header).h;
+		}
+		var bar=$api.dom(".rcmdTit");
+		if(bar){
+			y=y+$api.offset(bar).h;
+		}
+		openFram(y);
+		
+	}
+	function openFram(y) {
+		 
+		api.openFrame({
+			name : "myRecommend",
+			url : "frm_myRecommend.html",
+			rect : {
+				x : 0,
+				y : y,
+				w : 'auto',
+				h : 'auto'
+			}, 
+			bounces : false,
+			delay : 100,
+			reload : true,
+			allowEdit:true,
+			pageParam : { 
+				frmY:y
+			}
+		});
+	} 
+
+
+</script>
+</html>

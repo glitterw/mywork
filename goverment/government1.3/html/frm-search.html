@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>信息查询</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+
+    	}
+    </style>
+</head>
+<body>
+<!--搜索框 开始-->
+<div class="search-box " id="search">
+	<form action="javascript:search();">
+    <i class="search-icon" id="search-action"></i>
+    <input type="text" class="search-input" id="s-input"  placeholder="请输入您要查询的内容"  autofocus="autofocus" >
+    <span class="cancel" id="cancel-action">取消</span>
+	</from>
+</div>
+<!--搜索框 结束-->
+<!--新闻类型tab切换 开始-->
+   <nav class="news-tab flex-box border-bottom" id="type-tab">
+       <span class="flex-item active"  index='0'><i>企业信息</i></span>
+       <span class="flex-item" index='1'><i>名标名录</i></span>
+       <span class="flex-item" index='2'><i>名优企业</i></span>
+   </nav>
+<!--新闻类型tab切换 结束-->
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+  var frameGroupY;
+	var frameGroupH;
+
+	apiready = function(){
+
+				//搜索框的高度
+	    	var searchBoxH=$api.offset($api.byId('search')).h;
+        //tab切换
+        newsSwithch();
+        //类型tab的高度
+        var tabH=$api.offset($api.byId('type-tab')).h;
+         frameGroupY=api.pageParam.frmY+searchBoxH+tabH;//frame开始加载的位置
+         frameGroupH=api.frameHeight-(searchBoxH+tabH); //frame的高度
+ 				initPrefs();
+				cancel();//取消操作
+				createFrameGroup(frameGroupY,frameGroupH);
+        //输入关键词失焦事件
+				$api.addEvt($api.byId('s-input'), 'blur', function() {
+				  console.log("blurevt");
+					search();
+				});
+
+				 $api.addEvt($api.byId('search-action'), 'click', function() {
+					 search();
+				 });
+				// changedInputKey();
+
+	};
+
+ //绑定输入值空值时监听事件
+ function changedInputKey(){
+	  $api.addEvt($api.byId("s-input"), 'change', function(){
+			 if($api.val(this)==""){//搜索关键词改变为空值
+           searchResult("");
+			 }
+		});
+
+ }
+ //初始化偏好值
+ function initPrefs(){
+	 setPrefs("cancel","0");//初始化偏好值
+	 setPrefs("keyValue","");//初始化偏好值
+	 setPrefs("this_search_index",0);//默认第一个fram
+ }
+ //去搜索
+ function search(){
+				if(checkEmpty($api.byId('s-input'),'请输入您要查询的内容')){
+					 var keyValue=$api.trim($api.val($api.byId('s-input')));
+					 searchResult(keyValue);
+				}
+ }
+ //搜索结果页渲染
+ function searchResult(keyValue){
+	 setPrefs("cancel","0");
+	 setPrefs("keyValue",keyValue);
+	 var index=getPrefs("this_search_index");//获取当前的页面
+	 api.setFrameGroupIndex({
+				name : 'search-list-group',
+				index : index,
+				reload:true,
+		});
+ }
+ //取消绑定事件
+ function cancel(){
+	 $api.addEvt($api.byId('cancel-action'), 'click', function() {
+		 		 setPrefs("cancel","1");
+				 setPrefs("keyValue","");
+				 api.hideProgress();
+				 $api.val($api.byId('s-input'),"");
+				 var index=getPrefs("this_search_index");//获取当前的页面
+				 api.setFrameGroupIndex({
+						name : 'search-list-group',
+					  index : index,
+						reload:true
+				});
+
+		 });
+
+
+ }
+	//创建framegroup 3个类型的新闻列表页
+	function createFrameGroup(y,h){
+			api.openFrameGroup({
+					name: 'search-list-group',
+					rect: {
+							x: 0,
+							y: y,
+							w: 'auto',
+							h: h
+					},
+					preload:0,
+					frames: [{
+							name: 'search-qy',
+							url: 'frm-search-qy.html',
+							bgColor: '#fff',
+							allowEdit:true,
+							reload: true,
+					}, {
+							name: 'search-mbml',
+							url: 'frm-search-mbml.html',
+							allowEdit:true,
+							bgColor: '#fff'
+					}, {
+							name: 'search-myqy',
+							url: 'frm-search-myqy.html',
+							allowEdit:true,
+							bgColor: '#fff'
+					}
+					]
+			}, function(ret, err) {
+					var index = ret.index;
+					$api.removeCls($api.dom('.news-tab>.active'),'active');
+					$api.addCls($api.dom('.news-tab>span[index="'+index+'"]'),'active');
+					var searchKey=$api.val($api.byId('s-input')); //当前输入的关键词
+					var keyValue= getPrefs("this_keyValue_"+index);//当前页的搜索词
+					setPrefs("this_search_index",index);
+          if(searchKey!=keyValue){
+						api.setFrameGroupIndex({
+								name : 'search-list-group',
+								index : index,
+								reload:true,
+						});
+				}
+
+			});
+	}
+
+	//新闻类型tab切换
+	function newsSwithch(){
+			var listDoms=$api.domAll('.news-tab>span');
+			for (var i = 0; i < listDoms.length; i++) {
+					$api.addEvt(listDoms[i], 'click', function() {
+							$api.removeCls($api.dom('.news-tab>.active'),'active');
+							$api.addCls(this,'active');
+							  var thisIndex=getPrefs("this_search_index");
+								//切换frameGroup
+								var index=$api.attr(this, 'index');
+								if(thisIndex!==index){
+								setPrefs("this_search_index",index);
+								api.setFrameGroupIndex({
+										name : 'search-list-group',
+										index : index,
+										reload:true,
+								});
+							}
+					});
+			}
+	}
+</script>
+</html>

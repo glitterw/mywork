@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>我的消息-系统通知</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/systemSet.css"/>
+</head>
+<body>
+	<!--列表 begin-->
+    <div class="messageBox">
+		<ul id="msgBox">
+	<!--
+        	<li class="green" onclick="readMsg(this,messageId)">
+            	<div class="marAuto">
+                    <div class="nameTime">
+                        <div class="nameBox">糖糖</div>
+                        <div class="timeBox">2016-06-15</div>
+                    </div>
+                    <div class="messageCont overflow">评论了你对《明朝》的推荐，快去看看吧！</div>
+                </div>
+            </li>
+            <li>
+            	<div class="marAuto">
+                    <div class="nameTime">
+                        <div class="nameBox">系统通知</div>
+                        <div class="timeBox">2016-06-15</div>
+                    </div>
+                    <div class="messageCont overflow">亲爱的用户，你好！为了提供更好地服务，明日（7月26日）上午12:00-13:00 将进行系统维护，届时可能会出现无法登录的现象，敬请理解！</div>
+                </div>
+            </li>
+        	<li>
+            	<div class="marAuto">
+                    <div class="nameTime">
+                        <div class="nameBox">系统通知</div>
+                        <div class="timeBox">2016-06-15</div>
+                    </div>
+                    <div class="messageCont overflow">亲爱的用户，你好！为了提供更好地服务，明日（7月26...日）上午12:00-13:00 将进行系统维护，届时可能会出现无法登录的现象，敬请理解！</div>
+                </div>
+            </li>
+            
+    -->
+        </ul>
+    </div>
+    <!--列表 end-->	
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/list.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/book.js"></script>
+<script type="text/javascript">
+	var userId;
+	var userEntity;
+	var frmY;
+	var page = 1;
+	var pageNum = 10;
+	var totalNum = 0;
+	var newMessageNum = 0; //剩余新消息总量!
+	var newMsgNumComment = 0; //新"评论我的"消息 
+    var newMsgNumSystem = 0;  //新"系统通知"消息	
+//	var frmType = 2; //确定为 系统通知
+	apiready = function() {
+		beginLoad(); //先判断是否有数据 ,并且设置了下拉刷新(list.js)
+		
+	}
+	//请求"系统通知"消息
+	function getList() {
+		userEntity = sessionAgent.getLoginInfo();
+		userId = userEntity.userId;
+		frmY = api.pageParam.y;
+		actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/querySysMsg';
+		var values = {
+			userId: userId,
+			page: page,
+			pageNum: pageNum
+		}
+		getListContent(actionUrl,values,frmY,'auto');
+	}
+	//制作消息列表模版
+	function makelist(ret) {
+		var html = '';
+		if(ret.totalNum){ 
+			totalNum = ret.totalNum;
+		}  
+		if(page == 1 && totalNum == 0) { 
+			loadNothing(frmY,'auto');  //tools.js里
+		}else if(ret.list) {   
+			for(var i=0; i<ret.list.length; i++) {
+				var obj = ret.list[i]; 
+				if(obj.isRead == 0) {//构建出html,再判断未读消息 给它加亮选，改背景，修改新消息数 
+					newMessageNum++;  //加载list时  newMessageNum初始化成 系统通知数
+					html+='<li class="green" onclick="readMsg(this, ' + obj.id + ')" >';
+					html+='	<div class="marAuto">';
+					html+='        <div class="nameTime">';
+					html+='            <div class="nameBox">' + obj.author + '</div>';
+					html+='            <div class="timeBox">' + obj.publishTime + '</div>';
+					html+='        </div>';
+					html+='        <div id="content'+obj.id+'" class="messageCont overflow">' + obj.content + '</div>';
+					html+='    </div>';
+					html+='</li>';
+				} else { 
+					html+='<li onclick="readMsg(this, ' + obj.id + ')">';
+					html+='	<div class="marAuto">';
+					html+='        <div class="nameTime">';
+					html+='            <div class="nameBox">' + obj.author + '</div>';
+					html+='            <div class="timeBox">' + obj.publishTime + '</div>';
+					html+='        </div>';
+					html+='        <div id="content'+obj.id+'" class="messageCont overflow">' + obj.content + '</div>';
+					html+='    </div>';
+					html+='</li>';		 
+				}
+			}
+			if(page == 1) {
+				$api.html($api.byId('msgBox'), html);
+			} else {
+				$api.append($api.byId('msgBox'), html);
+			}
+			api.parseTapmode();
+		}
+	}
+	//消息全选,弹出对话框，背景变暗
+	function exec_selAll() {
+		if(newMessageNum > 0 ) {
+			api.confirm({
+				title: '提示',
+		    	msg: '新消息是否全标为已读?',
+		    	buttons: ['否', '是']
+		    },function(ret,err){
+		    	if(ret.buttonIndex == 1) {
+		    		return false
+		    	} else if(ret.buttonIndex == 2) {
+					var actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/changeMsgStatusAll';
+					var values = {
+						userId: userId,
+						messageType: 2
+					};
+					api.ajax({
+				        url: actionUrl,
+				        method: 'post',
+				        timeout: 50,
+				        dataType: 'json',
+				        returnAll: false,
+				        data: {values: values}	        
+			        },function(ret,err){
+			        	if(ret) { 
+			        		if(ret.result == 1) { 
+			        			var arr=$api.domAll($api.byId('msgBox'), 'li.green'); //正确处理后去掉绿色亮选			        			 
+			        			for(var i=0;i<arr.length;i++){
+			        				$api.removeCls(arr[i], 'green');
+			        			} 
+//			        			exec(ret.newMessageNum);
+			        			exec(ret.newMsgNum,ret.newMsgNumComment,ret.newMsgNumSystem);  //传递剩余新消息
+			        		}else {
+			        			toastNetErrBottom('服务器请求错误!');
+			        		}
+			        	} else {
+			        		toastNetErrBottom('网络异常，清稍后再试!');
+			        	}	
+			        });
+		    	}	
+		    });
+		} else {
+			toastNetErr('抱歉，你没有新消息');
+		}
+	}
+	
+	//读新消息， 触发userIndex  传递剩余新消息数
+	function exec(newMsgNum,newMsgNumC,newMsgNumS) {
+//	function exec(newMsgNum) {
+		api.execScript({
+			name: 'root',
+			frameName: 'userIndex',
+	        script: 'message(' + newMsgNum + ',' + newMsgNumC + ',' + newMsgNumS + '); ' 
+//	        script: 'message(' + newMsgNum + '); '  
+        }); 
+	}
+	
+	function readMsg(tag, messageId) {
+		var className=$api.attr(tag, "class");
+		$api.removeCls($api.byId('content'+messageId), 'overflow'); //不管是否已读都要求能展开
+		if(className=='green'){
+			$api.removeCls(tag, 'green');
+			chgMsgStatus(messageId);
+		} 			
+	}
+
+//	//将已读的移到列表最后
+//	function sort(tag) {
+//		var nowHtml = tag;
+//		$api.remove(tag);
+//		$api.append($api.byId('msgBox'), html);
+//	} 
+	
+	//更改某条消息的已读状态
+	function chgMsgStatus(messageId) {
+		actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/changeMsgStatus';
+		var values = {
+			userId: userId,
+			messageId: messageId
+		};
+		api.ajax({
+	        url: actionUrl,
+	        method: 'post',
+	        timeout: 50,
+	        dataType: 'json',
+	        returnAll: false,
+	        data: {
+	        	values: values
+	        }
+        },function(ret,err){
+        	api.hideProgress(); 
+        	if(ret) {
+        		if(ret.result == 1) {		
+        			exec(ret.newMsgNum,ret.newMsgNumComment,ret.newMsgNumSystem);
+//      			exec(ret.newMessageNum);
+        		} else {
+        			toastNetErrBottom('服务器请求错误!');
+        		}
+        	} else {
+        		toastNetErrBottom('网络异常，清稍后再试!');
+        	}
+        });
+	}
+</script>
+</html>

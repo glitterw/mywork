@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>企业详情页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+        body{
+
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="header" class="bg-red">
+        <header  class="back-header" id="goback"><span class="back"></span><p class="title" id="headerTitle">企业信息</p></header>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+    var frmName='frm-qy-detail';
+    apiready = function(){
+        var header =$api.byId("header") ;//$api.byId('header');
+        //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+        $api.fixStatusBar(header);
+        y=$api.offset(header).h;
+        setHeaderTitle();//根据不同的详情页修改对应的title
+        openFram(y);
+        $api.addEvt($api.byId("goback"), "click", function(){
+            goBack();
+        });
+    };
+
+    //获取详情页标题
+    function setHeaderTitle(){
+        var type=api.pageParam.qyType;
+        if(type==1){//企业信息详情页
+            $api.html($api.byId("headerTitle"), '企业信息');
+            frmName='frm-qy-detail';
+        }else if(type==2){//名标名录详情页
+            $api.html($api.byId("headerTitle"), '名标名录');
+            frmName='frm-mbml-detail';
+        }else if(type==3){//名优企业详情页
+            $api.html($api.byId("headerTitle"), '名优企业');
+            frmName='frm-myqy-detail';
+        }
+    }
+    //打开fram
+    function openFram(y) {
+        api.openFrame({
+            name : frmName,
+            url : frmName+'.html',
+            rect : {
+                x : 0,
+                y : y,
+                w : 'auto',
+                h : 'auto'
+            },
+            pageParam : {
+                qyID:api.pageParam.qyID,
+                //newsType:api.pageParam.newsType
+            },
+            bounces : false,
+            delay : 100,
+            reload : true,
+            allowEdit:true
+        });
+    }
+</script>
+</html>

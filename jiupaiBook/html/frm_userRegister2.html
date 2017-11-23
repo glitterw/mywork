@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>手机验证-验证成功</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/user.css"/>
+
+</head>
+<body>
+	<!--header bgin-->
+    <!--<header class="headLine">
+        <span class="back fl"><img src="../image/back_green.png" /></span>
+        <h1>注册新用户</h1>
+    </header>-->
+	<!--header end-->
+    
+    <div class="marAuto">
+    	<!--发送成功 begin-->
+        <div class="sendStatusBox">
+            <div class="sendIcon IconHook"></div>
+            <p id="secretTel"></p>
+        </div>
+        <!--发送成功 end-->
+
+    	<dl class="registerDL">
+       	  <dd>
+            <span class="userIcon iconPhone"></span>
+            <div class="inputBox"><input name="codeStr"  id="codeStr" type="text" placeholder="输入验证码" class="userInput"></div>
+          </dd>
+          <dd>
+            <span class="userIcon iconPass"></span>
+            <div class="inputBox"><input name="password"  id="password" type="password" placeholder="密码" class="userInput"></div>
+          </dd>
+          <dd>
+            <span class="userIcon iconPass"></span>
+            <div class="inputBox"><input name="repassword" id="repassword"  type="password" placeholder="再次输入密码" class="userInput"></div>
+          </dd>
+
+          <dt><input type="button" class="userSubBtn" value="下一步"   onclick="register3()" /></dt>
+        </dl>
+    </div>
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/checkData.js"></script>
+<script type="text/javascript">  
+
+apiready = function() {   
+	//更改手机号码 
+    var telNo=api.pageParam.telNo; 
+    var secretTel=getSecretTel(telNo);
+    $api.text($api.byId("secretTel"), "已发送验证码到"+secretTel); 
+    //$api.val($api.byId("codeStr"),api.pageParam.seviceCode);
+}
+
+var password=""; 
+//注册第三步 验证手机是否可以注册,可以注册发送验证码,否则弹出错误 
+function register3(){
+	if(validate()){
+		var pageParam={ 
+			telNo:api.pageParam.telNo,
+			password:password,
+			headerH:api.pageParam.headerH
+		}
+		var frmInfo ={
+		    name: 'userRegister3',
+		    url: 'frm_userRegister3.html', 
+		    pageParam :pageParam
+		} 
+		openFram(frmInfo);
+	}
+	 
+}
+
+//数据验证
+function validate(){
+	//验证验证码
+	var codeStr=$api.val($api.byId("codeStr"));
+	if(!isEmpty(codeStr)){
+		var seviceCode=api.pageParam.seviceCode;
+		if(codeStr!=seviceCode){
+			toastNetErr("验证码不正确！");
+			return false;
+		}
+	}
+	else{
+		toastNetErr("请输入验证码！");
+		return false;
+	}
+	//验证密码
+		password=$api.val($api.byId("password"));
+		password=$api.trim(password);
+	var repassword=$api.val($api.byId("repassword"));
+		repassword=$api.trim(repassword);
+	if(!goodPassword(password)){
+		toastNetErr("请输入6-18位数字和字母组合的密码！");
+		return false;
+	}else  if(password!=repassword){
+			toastNetErr("两次输入的密码不同！");
+			return false;
+    } 
+	return true;
+}
+</script>
+</html>

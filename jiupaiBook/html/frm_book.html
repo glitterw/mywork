@@ -1,0 +1,591 @@
+<!DOCTYPE html id="all">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>图书详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bookInfo.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/list.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/leaderboard.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+		<style> 
+			html, body{
+				background: #f4f4f4; 
+			} 
+			/* 单独给直达链接的箭头,使它在li里垂直居中*/
+			.throughUL li span{ padding-top: 15px}
+		</style>
+	</head>
+	<body class="hidden" >
+		<!--header bgin-->
+		<!-- <header class="greenBg">
+		<span class="back fl"><img src="../image/back_white.png" /></span>
+		<h1>图书详情</h1>
+		<span class="fr infoCollection mar_r30 mar_t20"><img src="../image/icon_info_collect.png" /></span>
+		</header>-->
+		<!--header end-->
+		<!--版块01 begin-->
+		<div class="bgfff linedc W100">
+			<div class="marLeft">
+				<!--图书简介 begin-->
+				<div class="disLine W100">
+					<div class="bookInfoTop mar_tb30">
+					<!--<div class="bookList_r" onclick="getThisHtml()"> 获取整个网页内容</div>-->
+						<div class="bookList_pic">
+							<!--<img src="../image/other/book03.jpg" />-->
+						</div>
+						<div class="bookList_r " id="baseInfo">
+							<!--<h1>鹿苑长春</h1>
+							<h2>[美] 玛•金•罗琳斯 </h2>
+							<div class="bookList_r_box mar_r30">
+							<dl class="starDL">
+							<dd></dd>
+							<dd></dd>
+							<dd></dd>
+							<dd class="bStar"></dd>
+							<dd class="grayStar"></dd>
+							<dt>9.0<div class="pingfen fr">(1587人评分)</div></dt>
+							</dl>
+							</div>
+							<div class="mar_t30 disLine W100">
+							<span class="fl sortLabel" onclick="switchPublishInfo()" >历史</span>
+							<span class="fr iconExtend mar_r30"  onclick="switchPublishInfo()">...</span>-->
+						</div>
+					</div>
+				</div>
+				<!--点击展开按钮-展开详情 begin-->
+				<div class="bookDetailInfo" style="display:none"  id="publishInfo">
+					<h1 class="bookInfoTit">图书信息</h1>
+					<p>
+						出版社: 云南人民出版社
+					</p>
+					<p>
+						出版年: 2016-6-1
+					</p>
+					<p>
+						页数: 432
+					</p>
+					<p>
+						ISBN: 9787222145580
+					</p>
+				</div>
+				<!--点击展开按钮-展开详情 end-->
+				<!--排行榜 begin-->
+				<ul class="rankingUL bookInfoRanking mar_t30 hidden" id="rankInfo">
+					<li>
+						<em><img src="../image/other/iconPaihang.png"/></em>
+						<h1>凤凰网好书榜</h1>
+						<span class="morePic"><img src="../image/moreIcon.png" /></span>
+					</li>
+					<li>
+						<em><img src="../image/other/iconPaihang.png"/></em>
+						<h1>深圳读书月组委会年度十大好书</h1>
+						<span class="morePic"><img src="../image/moreIcon.png" /></span>
+					</li>
+				</ul>
+				<!--排行榜 end-->
+			</div>
+			<!--图书简介 end-->
+		</div>
+		</div> <!--版块01 end-->
+		<!--版块02 begin-->
+		<div class="bgfff linedcTB mar_t20"  id="infoall">
+			<div class="marAuto pad_tb20">
+				<h1 class="bookInfoTit">图书简介</h1>
+				<div class="bookInfoBox" id="descInfo"></div>
+				<div class="downUpBtn downBtn" onclick="switchInfo()"></div>
+			</div>
+		</div>
+		<!--版块02 end-->
+		<!--目录 begin-->
+		<div class="bgfff linedcTB mar_t20">
+			<div class="marAuto pad_tb20">
+				<h1 class="bookInfoTit">目录</h1>
+				<div class="bookInfoBox">
+					<dl class="catalogDL" id="dirInfo">
+						<!--<dd>第一章 小水车</dd>
+						<dd>第二章 乔迪的家</dd>
+						<dd>第三章 飞来横祸</dd>
+						<dt>......</dt>-->
+					</dl>
+				</div>
+				<div class="downUpBtn downBtn" onclick="switchDir()"></div>
+			</div>
+		</div>
+		<!--目录 end-->
+		<!--评论 begin-->
+		<div class="bgfff linedcTB mar_t20">
+			<div class="marLeft pad_t20">
+				<h1 class="bookInfoTit">评论</h1>
+				<!--list begin-->
+				<ul class="replyBoxUL" id="commentList">
+					<!--<li>
+					<div class="rcmdHead">
+					<div class="rcmdHeadBox">
+					<em class="headPic"><img src="dddd" /></em>
+					<div class="nameGroup">
+					<h1>轻舞飞扬</h1>
+					<dl class="starDL">
+					<dd></dd>
+					<dd></dd>
+					<dd></dd>
+					<dd class="bStar"></dd>
+					<dd class="grayStar"></dd>
+					</dl>
+					</div>
+					</div>
+					<span>2016-6-15</span>
+					</div>
+					<div class="replyCont">一本好书，值得认真去读。一本好书，值得认真去读。一本好书，值得认真去读。</div>
+					</li>
+					<li>
+					<div class="rcmdHead">
+					<div class="rcmdHeadBox">
+					<em class="headPic"></em>
+					<div class="nameGroup">
+					<h1>轻舞飞扬</h1>
+					<dl class="starDL">
+					<dd></dd>
+					<dd></dd>
+					<dd></dd>
+					<dd class="bStar"></dd>
+					<dd class="grayStar"></dd>
+					</dl>
+					</div>
+					</div>
+					<span>2016-6-15</span>
+					</div>
+					<div class="replyCont">一本好书，值得认真去读。一本好书，值得认真去读。一本好书，值得认真去读。</div>
+					</li>-->
+				</ul>
+				<!--list end-->
+				<div class="lookAllBtn" id="commentNum" onclick="openCommentList()">
+					查看全部评论(0)
+				</div>
+			</div>
+		</div>
+		<!--评论 end-->
+		<!--直达链接 begin-->
+		<div class="bgfff linedcTB mar_t20">
+			<div class="marLeft pad_tb20">
+				<div class="bookInfoTitBox">
+					<h1 class="bookInfoTit">直达链接</h1>
+					<h2 class="bookInfoTit">价格（元）</h2>
+				</div>
+				<ul class="throughUL" id="buyLink"></ul>
+			</div>
+		</div>
+		<!--直达链接 end-->
+
+    <!--弹出分享  begin-->
+    <div class="shadow hidden" id="shareBox">
+    	<!--<div class="shareBox">
+            <div class="marAuto bgfff shareRadius">
+          		<ul>
+               		<li>
+                    	<img src="../image/share_QQ.png" />
+                        <p>分享给QQ好友</p>
+                    </li>
+               		<li>
+                      	<img src="../image/share_weixin.png" />
+                   		<p>分享给微信好友</p>
+                    </li>
+               		<li>
+                    	<img src="../image/share_pengyouquan.png" />
+                        <p>分享到朋友圈</p>
+                    </li>
+               </ul> 
+               
+               <div class="W100 shareBtn">取消</div>
+            </div>        
+        </div>-->
+    </div>
+    <!--弹出分享  end-->
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/book.js"></script>
+	<script type="text/javascript" src="../script/sessions.js"></script>
+	<script type="text/javascript" src="../script/list.js"></script>
+	<script type="text/javascript" src="../script/rank.js"></script>
+	<script type="text/javascript">
+		var bookId = 0;
+		var values = [];
+		var commentNum = 0;
+		var bookInfo = '';
+		//图书简介
+		var dirInfo = '';
+		//书评总量
+		apiready = function() { 
+			bookId = api.pageParam.bookId;
+			values = {
+				bookId : bookId
+			};
+			//switchPublishInfo();
+			showProgress();
+			getBookInfo();
+			getPublishInfo();
+			getRankInfo();
+			getDescInfo();
+			getDirInfo();
+			getBuyLink();
+			getComment();
+			saveMyFootmark();
+			api.hideProgress();
+			$api.removeCls($api.dom("body"), "hidden");
+		}
+
+
+
+		//隐藏或者展开 出版社信息
+		function switchPublishInfo() {//publishInfo
+			var obj = $api.byId("publishInfo");
+			var classBolck = $api.cssVal(obj, 'display');
+			if (classBolck == 'block') {
+				$api.css(obj, 'display:none');
+			} else {
+				$api.css(obj, 'display:block');
+			}
+		}
+
+		//图书简介
+		function switchInfo() {
+			var obj = $api.byId("descInfo");
+			var info = $api.text(obj);
+			if (info.length >86) {//合起
+				$api.text(obj, bookInfo.substring(0, 80) + '......');
+			} else {
+				$api.text(obj, bookInfo);
+			}
+		}
+
+		//目录
+		function switchDir() {
+			var obj = $api.byId("dirInfo");
+			var info = $api.text(obj);
+			if (info.length > 86) {//合起
+				$api.text(obj, dirInfo.substring(0, 80) + '......');
+			} else {
+				$api.text(obj, dirInfo);
+			}
+		}
+
+		//获取图书的基本信息
+		function getBookInfo() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/bookinfo/jpjs_queryBookInfo';
+			getContent(actionUrl, values, 1);
+		}
+
+		//获取图书信息
+		function getPublishInfo() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/bookinfo/jpjs_queryBookPublish';
+			getContent(actionUrl, values, 2);
+		}
+
+		//获取排行
+		function getRankInfo() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/bookinfo/jpjs_queryBookPlaylist';
+			getContent(actionUrl, values, 3);
+		}
+
+		//图书简介descInfo
+		function getDescInfo() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/bookinfo/jpjs_queryBookIntro';
+			getContent(actionUrl, values, 4);
+		}
+
+		//获取目录
+		function getDirInfo() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/booktype/jpsj_queryDir';
+			getContent(actionUrl, values, 5);
+		}
+
+		//获取购买链接
+		function getBuyLink() {
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/bookinfo/bookBuyLink';
+			getContent(actionUrl, values, 6);
+		}
+
+		//获取书评
+		function getComment() { 
+			var values2 = {
+				bookId : bookId,
+				page : 1,
+				pageNum : 2,
+				userId:0
+			} 
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/bookshort/commentsForBook';
+			getContent(actionUrl, values2, 7);
+		}
+
+		//基本信息
+		function makeInfo1(ret) {
+			//alert('基本信息:'+JSON.stringify(ret));
+			var html = ''
+			if (ret.info) {
+				var obj = ret.info;
+				var imgTag = '<img src="' + getBookImgPath(obj.imgPath) + '" >';
+				$api.html($api.dom(".bookList_pic"), imgTag);
+				var bookClassName = obj.className; 
+				var func = "openAuthorBookList('" + obj.author + "')";
+				html = '<h1>' + obj.bookName + '</h1>';
+				html += '<h2 onclick="' + func + '">' + obj.author + '</h2>';
+				html += '<div class="bookList_r_box mar_r30">';
+				html += '	<dl class="starDL">';
+				html += getBookStars(obj.score);
+				html += '        <dt>' + obj.score + '<div class="pingfen fr"><!--(1587人评分)--></div></dt>';
+				html += '    </dl> ';
+				html += '</div>';
+				html += '<div class="mar_t30 disLine W100">';
+				var classFunc="getClassBookList("+obj.classId+",'"+obj.className+"')";
+				if (bookClassName != '') html += '	<span class="fl sortLabel" onclick="'+classFunc+'">' + bookClassName + '</span>';
+				html += '    <span class="fr iconExtend mar_r30"  onclick="switchPublishInfo()">...</span>';
+				html += '</div>';
+				$api.html($api.byId("baseInfo"), html);
+				api.parseTapmode();
+				$api.removeCls($api.byId("baseInfo"), 'hidden');
+			}
+		}
+
+		//图书信息
+		function makeInfo2(ret) {
+			//alert('图书信息:'+JSON.stringify(ret));
+			var html = '';
+			if (ret.info) {
+				var obj = ret.info;
+				html += '<h1 class="bookInfoTit">图书信息</h1>';
+				html += '<p>出版社: ' + obj.publisher + '</p>';
+				html += '<p>出版年: ' + obj.publishTime + '</p>';
+				html += '<p>页数: ' + obj.pageCount + '</p>';
+				html += '<p>ISBN: ' + obj.ISBN + '</p>';
+			}
+			$api.html($api.byId("publishInfo"), html);
+			api.parseTapmode();
+		}
+
+		//排行榜
+		function makeInfo3(ret) {  
+			var html = '';
+			if (ret.list) {
+				for (var i = 0; i < ret.list.length; i++) { 
+					var obj = ret.list[i]; 
+				    var rankName=obj.rankYear+' '+obj.fatherName+' '+ obj.rankName;
+				    if(rankName.length>18) rankName=rankName.substring(0,18)+'...'; 
+					var imgPath = ajaxAgent.serverAction + obj.imgPath;
+					var func = "openRankList(" + obj.fatherId + ",'" + obj.fatherName + "'," + obj.rankid + ",'" + obj.rankName + "','" + obj.rankYear + "')";
+ 					html += '<li onClick="' + func + '"> ';
+					html += '	<em><img src="' + imgPath + '"/></em>';
+					html += '    <h1>' +rankName + '</h1>';
+					html += '    <span class="morePic"><img src="../image/moreIcon.png" /></span>';
+					html += '</li>';
+				}
+				$api.html($api.byId("rankInfo"), html);
+				$api.removeCls($api.byId("rankInfo"), 'hidden');
+				api.parseTapmode();
+			}
+		}
+
+		//获取简介
+		function makeInfo4(ret) {
+			//alert('获取简介:'+JSON.stringify(ret));
+			if (ret.bookInfo) {
+				bookInfo = ret.bookInfo.bookInfo;
+				if (bookInfo != '') {
+				    $api.html($api.byId("descInfo"), bookInfo);
+					switchInfo();
+				} else {
+					$api.html($api.byId("descInfo"), "");
+				}
+			} else {
+				$api.html($api.byId("descInfo"), "");
+			}
+		}
+
+		//获取目录
+		function makeInfo5(ret) {
+			if (ret.dirList.dirName) {
+				dirInfo = ret.dirList.dirName;
+				if (dirInfo != '') {
+					$api.html($api.byId("dirInfo"), dirInfo);
+					switchDir();
+				} else {
+					$api.html($api.byId("dirInfo"), "");
+				}
+			} else {
+				$api.html($api.byId("dirInfo"), "");
+			}
+		}
+
+		//直达链接
+		function makeInfo6(ret) {
+			var html = '';
+			//alert('直达连接:'+JSON.stringify(ret));
+			if (ret.list) {
+				for (var i = 0; i < ret.list.length; i++) {
+					var obj = ret.list[i];
+					var imgPath = obj.webIcon;
+					var func = "openHttpUrl('" + obj.webName + "','" + obj.webUrl + "')";
+					html += '<li onclick="' + func + '">';
+					html += '	<div class="throughBox01"><em><img src="' + imgPath + '" /></em></div>';
+					html += '    <div class="throughBox">';
+					html += '        <p>' + obj.price + '</p>';
+					html += '        <span class="morePic"><img src="../image/moreIcon.png" /></span>';
+					html += '    </div>';
+					html += '</li>';
+				}
+				$api.html($api.byId("buyLink"), html);
+			} else {
+				$api.html($api.byId("buyLink"), html);
+			}
+		}
+
+		//书评
+		function makeInfo7(ret) {
+			var html = '';
+			if (ret) {
+				if (ret.totalNum) {
+					commentNum = ret.totalNum;
+				} else {
+					commentNum = 0;
+				}
+				if (ret.list) {
+					for (var i = 0; i < ret.list.length; i++) {
+						var obj = ret.list[i];
+						var userIcon = ajaxAgent.serverAction + "/" + obj.user.iconPath;
+						html += '<li>';
+						html += '    <div class="rcmdHead">';
+						html += '        <div class="rcmdHeadBox">';
+						if (obj.user.iconPath != '') {
+							html += ' 	<em class="headPic"><img src="' + userIcon + '" /></em>';
+						} else {
+							html += '<em class="headPic"></em>';
+						}
+						html += '            <div class="nameGroup">';
+						html += '            	<h1>' + obj.user.nickName + '</h1>';
+						html += '                <dl class="starDL">';
+						for (var j = 0; j < obj.score; j++) {
+							html += '<dd></dd>';
+						}
+						for (var j = 0; j < (5 - obj.score); j++) {
+							html += '<dd class="grayStar"></dd>';
+						}
+						html += '                </dl>';
+						html += '            </div>';
+						html += '        </div>';
+						html += '        <span>' + obj.addtime + '</span>';
+						html += '    </div>';
+						html += '    <div class="replyCont">' + obj.content + '</div>';
+						html += '</li>';
+					}
+				}
+				$api.html($api.byId("commentList"), html);
+				$api.html($api.byId("commentNum"), "查看全部评论(" + commentNum + "条)");
+				api.parseTapmode();
+			}
+		}
+
+		//获取服务器内容
+		/**
+		 *
+		 * @param string actionUrl 请求的接口地址
+		 * @param {Object} values 传递的数据
+		 */
+		function getContent(actionUrl, values, index) {
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : values
+				}
+			}, function(ret, err) {
+				api.hideProgress();
+				//testInfo(ret,err);
+				if (ret) {
+					if (ret.result == 1) {
+						//"id":"","bookName":"","author":"","score":"","imgPath":"","classId":"","className":""
+						switch(index) {
+							case 1:
+								makeInfo1(ret);
+								break;
+							case 2:
+								makeInfo2(ret);
+								break;
+							case 3:
+								makeInfo3(ret);
+								break;
+							case 4:
+								makeInfo4(ret);
+								break;
+							case 5:
+								makeInfo5(ret);
+								break;
+							case 6:
+								makeInfo6(ret);
+								break;
+							case 7:
+								makeInfo7(ret);
+								break;
+						}
+						return true;
+					} 
+				} else {
+					toastNetErr('网络连接错误！');
+				}
+			});
+		}
+
+		//跳转到评论列表页面
+		function openCommentList() {
+			var pageParam = {
+				bookId : bookId,
+				frmName : "commentList",
+				frmUrl : "frm_commentlist.html",
+				barTitle : "评论列表"
+			}
+			openCommonWinNew(pageParam);
+		}
+
+		//保存足迹
+		function saveMyFootmark() {
+			var userEntity = sessionAgent.getLoginInfo();
+			if (!sessionAgent.isLogin(userEntity)) {
+				return false;
+			}
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/saveMyTrack';
+			var values = {
+				userId : userEntity.userId,
+				bookId : api.pageParam.bookId
+			}
+			showProgress();
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : values
+				}
+			}, function(ret, err) {
+				api.hideProgress();
+				if (ret) {
+					if (ret.result == 1) {
+						return true;
+					}
+				}
+			});
+		}
+
+//获取本页面html内容
+function getThisHtml(){
+ var allHtml='<!DOCTYPE html id="all"><html>'+$api.html($api.dom('html'))+'</html>';
+  alert(allHtml);
+}
+
+	</script>
+</html>

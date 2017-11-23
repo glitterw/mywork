@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>网络连接问题</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/list.css"/>
+</head>
+<body>
+
+    <!--导航 end-->
+    <!--<div style="height:20px;background-color:#f4f4f4 "></div>-->
+    <!--列表 begin-->
+    <div style="width:40%;margin-left:auto;margin-right:auto;padding-top:25%">
+        <img src="../image/net_wrong.png" width="100%" />
+    </div>
+        <div style="text-align: center;font-size:20px;margin-top:20px;color:#d3d3d3">网络好像有点问题...</div> 
+    <!--列表 end-->
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	 
+<script type="text/javascript" src="../script/list.js"></script>	
+<script> 
+
+	apiready = function() {  
+	  api.hideProgress();
+	};
+
+//打开断网页面
+function reloadFrm(){   
+  api.execScript({
+  	  name:'root',
+	  script: 'setRefreshHeader();'
+  });
+  
+}
+
+</script>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>荐书详情-回复-发送</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+</head>
+<body>
+	<!--header bgin-->
+    <header class="headLine">
+      <div class="relative">
+    	<span class="back fl" onclick="goBack()"><img src="../image/back_green.png" /></span>
+		<h1>荐书详情</h1>
+        <span class="headLike fr like " id="good" onclick="goodRecommend(this)"></span>
+ 	 </div>
+    </header>
+	<!--header end--> 
+	<!--写回复 begin-->
+  <!-- <div class="whriteReplyBox" id="footer">
+        <div class="whriteReplyBox02 fl">
+            <textarea placeholder="写回复" class="replyarea fl" id="txtBox" contenteditable="true"    ></textarea>
+        </div>
+        <div class="sendBtn fr" onclick="saveReply()">发送</div>
+   </div>-->
+
+    <!--写回复 end-->
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script> 
+<script type="text/javascript" src="../script/sessions.js"></script> 
+<script type="text/javascript"> 
+var y=0; 
+var footerH=0;
+var mainH=0;
+var h=0;
+var userEntity ;
+apiready = function() { 
+	userEntity = sessionAgent.getLoginInfo();
+	var header=$api.dom("header");
+	if(header){
+		setStatusBar(header);
+		y=$api.offset(header).h;
+	}
+	var footer=$api.byId("footer");
+	if(footer){
+		footerH=$api.offset(footer).h; 
+	}
+	var main=$api.byId("main");
+	if(main){
+		mainH=$api.offset(main).h;
+	}
+	 
+	h=api.winHeight-y-mainH-footerH-25; 
+	checkUserGood();
+	openFrmDetail(); 
+	
+} 
+
+
+//打开framgroup 
+
+
+//打开推荐详情
+function openFrmDetail(){  
+	api.openFrame({
+	    name: 'recommendDetail',
+	    url:  'frm_recommendDetail.html',
+	    rect: {
+		    x:0,
+		    y: y,
+		    w:'auto',
+		    h:'auto',
+		    
+	    },
+	    pageParam:{
+	    	bookId:api.pageParam.bookId,
+	    	recommendId:api.pageParam.recommendId 
+	    },
+	    allowEdit:true,
+	    
+    });
+
+}
+
+
+//打开回复窗口
+function openReplyBox(){  
+api.openFrame({
+    name: 'reply',
+    url: 'frm_reply.html',
+    rect: {
+        x: 0,
+        y: y+mainH,
+        w: 'auto',
+        h: 'auto'
+    },
+    reload:true,
+    bounces: false,
+    bgColor: 'rgba(0,0,0,0)',
+    vScrollBarEnabled: true,
+    hScrollBarEnabled: true,
+    animation:{
+	    type:"movein",                //动画类型（详见动画类型常量）
+	    subType:"ease_out",       //动画子类型（详见动画子类型常量）
+	    duration:300    
+    }
+}); 
+ 
+
+}
+//检查登录用户是否对此条点过赞
+function checkUserGood(){
+
+ if (sessionAgent.isLogin(userEntity)) {
+	/*
+	if(userEntity.isVerify==0){
+		toastNetErrBottom("该账号已经被冻结，请联系管理员");
+		return false;
+	}	*/
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_checkclick';
+	var values={
+		 userId:userEntity.userId,
+		 recommendId:api.pageParam.recommendId 
+	} 
+	showProgress(); 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+		api.hideProgress();  
+		if (ret) { 
+			if (ret.result == 1) {//操作成功，修改图标状态
+			   changeColor(ret.isGood);  
+			   return true; 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		} else { 
+ 			toastNetErr('网络连接错误！');
+		} 
+		
+	});
+ }else{//没有登录默认为灰色
+ 	changeColor(0); 
+ }		
+
+}
+//荐书点赞
+function goodRecommend(obj){
+  if (sessionAgent.isLogin(userEntity)) {//登录后点赞
+	var isGood=0;
+	//获取css
+	var className=$api.attr(obj, 'class');
+	if(className.indexOf('like_active')>0){//取消点赞 
+		isGood=0;
+	}else{//点赞 
+		isGood=1;
+	}
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_clickLike';
+	var values={
+		 userId:userEntity.userId,
+		 recommendId:api.pageParam.recommendId,
+		 isGood:isGood,
+	}
+	
+	showProgress(); 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+		api.hideProgress();  
+		if (ret) { 
+			if (ret.result == 1) {//操作成功，修改图标状态
+			   changeColor(isGood); 
+			   api.execScript({
+			   	   name:"recommendDetail",
+			   	   frameName:"recommendDetail",
+	               script: 'updateGoodNum('+isGood+');'
+               }); 
+			   return true; 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		} else { 
+ 			toastNetErr('网络连接错误！');
+		} 
+		
+	});	
+  }else{
+    toastNetErr('请登录后操作！');
+  } 	
+	
+}
+
+//修改点赞图标的状态
+function changeColor(isGood){
+	var obj=$api.byId("good");
+	if(isGood==1){//点赞变为绿色
+		$api.addCls(obj, "like_active"); 
+	}else if(isGood==0){
+	  $api.removeCls(obj, "like_active"); 
+	} 
+}
+
+//写回复时增加行高
+function addHeight(obj){  
+$api.css(obj,'height:80px;'); 
+
+openFrmDetail(h);
+}
+
+//发送后恢复行高
+function returnBackHeight(){ 
+var obj=$api.byId("txtBox");
+$api.css(obj,'height:40px;'); 
+h=h+40;
+openFrmDetail(h);
+}
+
+
+//保存回复
+function saveReply(){
+  if (sessionAgent.isLogin(userEntity)) {//登录后评论
+    var content=$api.val($api.byId("txtBox"));
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_recReply';
+	var values={
+		 userId:userEntity.userId,
+		 recommendId:api.pageParam.recommendId,
+		 content:content,
+	} 
+	showProgress(); 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+		api.hideProgress();  
+		if (ret) { 
+			if (ret.result == 1) {//操作成功，修改图标状态 
+			   toastNetErr('成功发送！'); 
+			   return true; 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		} else { 
+ 			toastNetErr('网络连接错误！');
+		} 
+		
+	});	
+  }else{
+    toastNetErr('请登录后操作！');
+  } 		
+
+}
+</script>
+
+</html>

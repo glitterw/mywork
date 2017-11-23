@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="main">
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="./script/tools.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        getCity();
+        initSystem();
+        createFrameGroup();
+        //打开三城市切换窗口
+        //openCityWin();
+
+    };
+    //
+    function openCityWin(){
+       api.openWin({
+           name: 'win-city',
+           url: 'html/win-city.html',
+       });
+    }
+
+    //获取用户所在的城市
+    function getCity(){
+       setPrefs("userCity",'{"cityName":"武汉","cityType":1}');
+      var bMap = api.require('bMap');
+      bMap.getLocation({
+          accuracy: '1000m',
+          autoStop: true,
+          filter: 1
+      }, function(ret, err) {
+          if (ret.status) {
+              //alert(JSON.stringify(ret));
+              bMap.getNameFromCoords({
+                  lon: ret.lon, //115.893528
+                  lat: ret.lat //28.689578
+              }, function(ret, err) {
+                  if (ret.status) {
+                      //alert(JSON.stringify(ret));
+                      //console.log(ret.city);
+                      setCityType(ret.city);
+                  }
+              });
+          } else {
+              console.log(err.code);
+          }
+      });
+    }
+    //根据定位到的城市记录城市类型
+    function  setCityType(cityName){
+      if (cityName == "武汉市") {
+          setPrefs("userCity",'{"cityName":"武汉","cityType":1}');
+      } else if (cityName == "长沙市") {
+          setPrefs("userCity",'{"cityName":"长沙","cityType":2}');
+      } else if (cityName == "合肥市") {
+          setPrefs("userCity",'{"cityName":"合肥","cityType":3}');
+      } else if (cityName == "南昌市") {
+          setPrefs("userCity",'{"cityName":"南昌","cityType":4}');
+      } else {
+          setPrefs("userCity",'{"cityName":"武汉","cityType":1}');
+      }
+
+    }
+
+    //初始化系统
+    function initSystem() {
+        api.clearCache(function() {
+            //清理偏好值
+            api.removePrefs({
+                key: 'cancel'
+            });
+            api.removePrefs({
+                key: 'keyValue'
+            });
+            api.removePrefs({
+                key: 'this_search_index'
+            });
+
+
+        });
+    }
+    //创建framegroup 四个城市的展示页
+    function createFrameGroup() {
+        api.openFrameGroup({
+            name: 'city-group',
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: 'auto'
+            },
+            frames: [
+                {
+                    name: 'changsha',
+                    url: 'html/frm-changsha.html',
+                    bgColor: '#fff'
+                }, {
+                    name: 'hefei',
+                    url: 'html/frm-hefei.html',
+                    bgColor: '#fff'
+                }, {
+                    name: 'nanchang',
+                    url: 'html/frm-nanchang.html',
+                    bgColor: '#fff'
+                }
+
+            ]
+        }, function(ret, err) {
+            var index = ret.index;
+            if (index == 2) { //最后一个城市跳转到首页
+                openMyIndex();
+            }
+        });
+    }
+
+    //打开首页
+    function openMyIndex() {
+      //  api.setFrameGroupAttr({
+      //      name: 'city-group',
+      //      hidden: true
+      //  });
+
+    //   api.closeFrameGroup({
+    //    name: 'city-group'
+    //  });
+    //  api.alert({
+    //      title: 'testtitle',
+    //      msg: 'here-index',
+    //  });
+
+      // api.openWin({
+      //     name: 'myIndex',
+      //     url: 'html/win-index.html',
+      //     // pageParam: {
+      //     //     name: 'test'
+      //     // }
+      // });
+
+        api.openDrawerLayout({
+            name: 'myIndex',
+            url: 'html/win-index.html',
+            leftPane: {
+                edge: (api.winWidth * 0.656),
+                name: 'winTab',
+                url: 'html/win-tab.html'
+            },
+            animation: {
+                type: 'push'
+            },
+            reload: true
+        }, function(ret, err) {
+            //console.log(ret);
+        });
+    }
+</script>
+
+</html>

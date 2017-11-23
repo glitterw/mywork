@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>荐书详情-写回复</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+</head>
+<body>
+ 
+	<!--写回复 begin-->
+  <div class="whriteReplyBox" id="footer">
+        <div class="whriteReplyBox02 fl">
+            <textarea placeholder="写回复"   oninput="updateHeight(this,200,'回复内容请控制在200个字已内!')"  class="replyarea fl"  id="txtBox" contenteditable="true"    ></textarea>
+        </div>
+        <div class="sendBtn fr" onclick="saveReply()">发送</div>
+   </div>
+
+    <!--写回复 end-->
+ 
+</body> 
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script> 
+<script type="text/javascript" src="../script/book.js"></script> 
+<script type="text/javascript" src="../script/sessions.js"></script> 
+<script type="text/javascript" src="../script/checkData.js"></script> 
+<script type="text/javascript"> 
+var userEntity ;
+apiready = function() {  
+	userEntity = sessionAgent.getLoginInfo();
+}
+ 
+
+//保存回复
+function saveReply(){
+  if (sessionAgent.isLogin(userEntity)) {//登录后评论
+    var content=$api.val($api.byId("txtBox"));
+    if(isEmpty(content)){
+    	toastNetErr("请输入回复内容！");
+    	return false;
+    }else {
+    	if(content.length>200){
+	     toastNetErr("回复内容请控制在200个字以内!"); 
+	  	 return false;  
+	  	}
+    
+    }
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/jpjs_recReply';
+	var values={
+		 userId:userEntity.userId,
+		 recommendId:api.pageParam.recommendId,
+		 content:content,
+	} 
+	showProgress(); 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+		api.hideProgress();  
+		if (ret) { 
+			if (ret.result == 1) {//操作成功，修改图标状态 
+			   $api.val($api.byId("txtBox"),"");
+			   updateCommentNum();//修改回复数
+			   toastNetErr('成功发送！'); 
+			   if(ret.user){ 
+					var user=ret.user;//推荐人对象
+					var reply=ret.reply;//荐书对象
+					var userImg='';
+					if(user.iconPath && user.iconPath!=''){
+						userImg='<img src="'+ajaxAgent.serverAction +user.iconPath+'" />'; 
+					} 
+					var html='';
+					html='<li>';
+					html+='    <div class="rcmdHead">';
+					html+='        <div class="rcmdHeadBox">';
+					html+='            <em class="headPic">'+userImg+'</em>';
+					html+='            <p>'+user.nickName+'</p>';
+					html+='        </div>';
+					html+='        <span>'+reply.addtime+'</span>';
+					html+='    </div>';
+					html+='    <div class="replyCont">'+reply.content+'</div>';
+					html+='</li> ';			   
+			   		
+			   		//
+			   		if($api.byId("nothing")){
+			   			$api.remove($api.byId("nothing"));
+			   		}
+			   		//添加到第一条
+			   		$api.prepend($api.byId("list"), html);
+			   		api.parseTapmode();
+			   } 
+			   return true; 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		} else { 
+ 			toastNetErr('网络连接错误！');
+		} 
+		
+	});	
+  }else{
+    toastNetErr('请登录后操作！');
+  } 		
+
+}
+
+</script>
+</html>

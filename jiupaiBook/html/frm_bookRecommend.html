@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>荐书详情列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+	<style>
+    	html,body{ background:#fff;}
+    </style>
+</head>
+<body>
+	<!--header bgin-->
+   <!-- <header class="headLine">
+    	<span class="back fl"><img src="../image/back_green.png" /></span>
+		<h1>三国机密之见龙卸甲</h1>
+    </header>-->
+	<!--header end-->
+    
+    <!--荐书详情列表 begin-->  
+    <div class="rcmdDetailsList marLeft" id="list">
+    	<!--01 begin-->
+    	<!--<div class="rcmdGroup linedc">
+        	<div class="rcmdHead">
+            	<div class="rcmdHeadBox">
+                    <em class="headPic"><img src="../image/headPic.png" /></em>
+                    <p>糖糖</p>
+                </div>
+                <span>2016-6-15</span>
+            </div>
+            <div class="rcmdBubbleBox">1587年的历史事件也是以后掀起波澜的机缘。换一个视角来解读历史1587年的历史事件也是以后掀起波澜的机缘。换一个视角史。</div>
+            <div class="rcmdReview">
+            	<div class="reviews reviews_active fr">99</div>
+            	<div class="like like_active fr mar_r20">10000</div>
+            </div>
+        </div>-->
+    	<!--01 end--> 
+    	<!--01 begin-->
+    	<!--<div class="rcmdGroup linedc">
+			<div class="rcmdHead">
+            	<div class="rcmdHeadBox"> 
+                    <p>暂无数据！</p>
+                </div> 
+            </div>
+        </div>-->
+    	<!--01 end--> 
+    </div>
+    <!--荐书详情列表 end-->   
+
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script> 
+<script type="text/javascript" src="../script/book.js"></script>  
+<script type="text/javascript"> 
+var page=1;
+var pageNum=10;
+var totalNum=0;
+apiready = function() { 
+//alertInfo(api.pageParam);
+	beginLoad();  
+}
+
+function getList() { 
+	 var actionUrl = ajaxAgent.serverAction + '/jpjs/bookinfo/bookRecHistory';
+	 var values={
+		 page:page,
+		 pageNum:pageNum,
+		 bookId:api.pageParam.bookId, 
+	 }
+	 //alertInfo(values); 
+	 getListContent(actionUrl,values); 
+}
+
+//制作模板
+function makelist(ret) {
+//alert(JSON.stringify(ret));
+	var html='';
+	if(ret.totalNum) totalNum=ret.totalNum; 
+	if(page==1 && totalNum==0){//暂无数据
+		html='<div class="rcmdGroup linedc">';
+		html+='	<div class="rcmdHead">';
+		html+='    	<div class="rcmdHeadBox"> ';
+		html+='            <p>暂无数据！</p>';
+		html+='        </div> ';
+		html+='    </div>';
+		html+='</div>';
+	}else if(ret.list){ 
+		html=''; 
+		for (var i = 0; i < ret.list.length; i++) { 
+			var user=ret.list[i].user;//推荐人对象
+			var recommend=ret.list[i].recommend;//荐书对象
+			var userImg='';
+			if(user.iconPath && user.iconPath!=''){
+				userImg='<img src="'+ajaxAgent.serverAction +user.iconPath+'" />'; 
+			} 
+			var func="openDetail("+recommend.id+")";
+			html+='<div class="rcmdGroup linedc" onclick="'+func+'">';
+			html+='	<div class="rcmdHead">';
+			html+='    	<div class="rcmdHeadBox">';
+			html+='            <em class="headPic">'+userImg+'</em>';
+			html+='            <p>'+user.nickName+'</p>';
+			html+='        </div>';
+			html+='        <span>'+recommend.addtime+'</span>';
+			html+='    </div>';
+			html+='    <div class="rcmdBubbleBox">'+recommend.content+'</div>';
+			html+='    <div class="rcmdReview">';
+			html+='    	<div class="reviews reviews_active fr">'+recommend.commentNum+'</div>';
+			html+='    	<div class="like like_active fr mar_r20">'+recommend.goodNum+'</div>';
+			html+='    </div>';
+			html+='</div>';
+		} 
+	} 
+	if (page == 1) {
+		$api.html($api.byId("list"), html);
+	} else {
+		$api.append($api.byId("list"), html);
+	} 
+}
+ 
+
+
+</script>
+</html>

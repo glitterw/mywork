@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>企业详情页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+
+    	}
+    </style>
+</head>
+<body>
+<div id="wrap"  class="hidden">
+		<div class="invest-box">
+			<div class="invest-item">
+				<p class="name-item  border-bottom">
+					<span class="name">企业名称</span>
+					<span class="info" id="entName">武汉市紫映汇金文化传播有限公司</span>
+				</p>
+				<p class="name-item  border-bottom">
+					<span class="name">注册号</span>
+					<span class="info" id="regno">420111000497555</span>
+				</p>
+				<p class="name-item  border-bottom">
+					<span class="name">类型</span>
+					<span class="info" id="entType_cn">有限责任公司(自然人投资或控股)</span>
+				</p>
+				<p class="name-item  border-bottom">
+					<span class="name">法人代表</span>
+					<span class="info" id="name">皇朝</span>
+				</p>
+				<p class="name-item  border-bottom">
+					<span class="name">成立日期</span>
+					<span class="info" id="estDate">2016-7-9</span>
+				</p>
+				<p class="name-item  border-bottom">
+					<span class="name">注册资本</span>
+					<span class="info" id="regcap">200万元</span>
+				</p>
+				<p class="name-item  border-bottom">
+					<span class="name">登记机关</span>
+					<span class="info" id="regorg_cn">武汉市洪山区工商行政管理和质量技 术监督局</span>
+				</p>
+				<p class="name-item  border-bottom">
+					<span class="name" >登记状态</span>
+					<span class="info" id="regstate_cn">存续（在营、开业、在册 )</span>
+				</p>
+			</div>
+		</div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		getQYInfo();
+	};
+
+//获取详情
+ function getQYInfo() {
+	 var actionUrl = ajaxAgent.serverAction + '/login/queryFirmDetail';
+	 var webName="QYInfo";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 messageId:api.pageParam.qyID
+		 //newsType:api.pageParam.qyID
+	 }
+	 console.log('actionUrl:'+JSON.stringify(actionUrl));
+	 console.log('detail:'+JSON.stringify(values));
+	 showProgress();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+	     console.log('detail_result:'+JSON.stringify(ret));
+		if (ret) {
+			if (ret.status == "success") {
+			    $api.html($api.byId("entName"), ret.data.entName);
+			    $api.html($api.byId("regno"), ret.data.regno);
+			    $api.html($api.byId("entType_cn"), ret.data.entType_cn);
+			    $api.html($api.byId("name"), ret.data.name);
+					$api.html($api.byId("estDate"), ret.data.name);
+					$api.html($api.byId("regcap"), ret.data.regcap);
+					$api.html($api.byId("regorg_cn"), ret.data.regorg_cn);
+					$api.html($api.byId("regstate_cn"), ret.data.regstate_cn);
+					api.hideProgress();
+					$api.removeCls($api.byId("wrap"),"hidden");
+			    return true;
+
+			} else {
+				    console.log("error:"+JSON.stringify(err));
+				api.hideProgress();
+               toastNetErrBottom("服务器请求错误！");
+			}
+
+		} else {
+		     //sendNetError(frmY,frmH);
+		     //api.hideProgress();
+			 toastNetErrBottom('网络异常,请稍后再试哦!');
+
+		}
+
+
+	});
+}
+
+
+</script>
+</html>

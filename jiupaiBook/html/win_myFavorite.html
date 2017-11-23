@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>我的收藏</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/list.css"/>
+		<style>
+			html, body {
+				background: #f4f4f4;
+			}
+		</style>
+	</head>
+	<body>
+		<!--header bgin-->
+		<header >
+			<div  class="relative">
+				<span class="back fl"  onclick="goBack()"><img src="../image/back_green.png" /></span>
+				<h1>我的收藏</h1>
+			</div>
+		</header>
+		<!--header end-->
+		<!--导航 begin-->
+		<div class="twoNavBox" id="twoNav">
+			<ul class="twoNav threeNav noBorB">
+				<li class="active" id="list0" onclick="selectTab(0)">
+					<span>收藏的图书</span>
+				</li>
+				<li id="list1" onclick="selectTab(1)">
+					<span>收藏的书单</span>
+				</li>
+			</ul>
+		</div>
+		<!--导航 end-->
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/tools.js"></script>
+	<script type="text/javascript" src="../script/classScroll.js"></script>
+	<script type="text/javascript" src="../script/sessions.js"></script>
+	<script type="text/javascript">
+		var y = 0;
+		var myScroll;
+		var frames = [];
+		apiready = function() {
+			//alertInfo(api.pageParam);
+			var header = $api.dom("header");
+			if (header) {
+				setStatusBar(header);
+				y = $api.offset(header).h;
+			}
+			var bar = $api.byId("twoNav");
+			if (bar) {
+				y = y + $api.offset(bar).h;
+			}
+//			openFram(0);//先加载默认我的收藏
+			selectTab(0);
+			openBooklistFramGroup();
+		}
+		//打开我收藏的书
+		function openFram() {
+			var frmName = "";
+			var frmUrl = "";
+			frmName = "myFavoriteBook";
+			frmUrl = "frm_myFavorite.html";
+			api.openFrame({
+				name : frmName,
+				url : frmUrl,
+				rect : {
+					x : 0,
+					y : y,
+					w : 'auto',
+					h : 'auto'
+				},
+				bounces : false,
+				delay : 100,
+				reload : true,
+				allowEdit : true,
+				pageParam : {
+					classId : 0,
+					frmY : y
+				}
+			});
+		}
+
+		//获取我收藏的书单
+		function openBooklistFramGroup() {
+			var userEntity = sessionAgent.getLoginInfo();
+			var actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/queryUserSheet';
+			api.ajax({
+				url : actionUrl,
+				method : 'post',
+				timeout : 50,
+				dataType : 'json',
+				returnAll : false,
+				data : {
+					values : {
+						page : 1,
+						pageNum : 10,
+						userId : userEntity.userId
+					}
+				}
+			}, function(ret, err) {
+				if (ret.result == 1) {//正确结果返回
+					if (ret.list) {
+						if (ret.list.length < 1) {//没有书单
+							loadNothing(y, 'auto');
+						} else {//有书单
+							for (var i = 0; i < ret.list.length; i++) {
+								frames.push({
+									name : 'frame' + i,
+									url : 'frm_myFavoriteBooklist.html',
+									bgColor : '#f4f4f4',
+									bounces : false,
+									allowEdit : true,
+									pageParam : {
+										frmY : y,
+										frmH : 'auto',
+										no : i + 1, //当前编号
+										sum : ret.list.length, //总数量
+										booklist : ret.list[i],
+										pageType:'sc',
+									}
+								});
+							}// for end
+							//alert("here2");
+							//打开framgroup
+							//funIniGroup(frames);
+						}
+					} else {
+						loadNothing(y, 'auto');
+						//toastNetErr('获取书单信息失败！');
+					}
+				} else {//没有正确返回
+					toastNetErr('获取书单信息失败！');
+				}
+			});
+		}
+
+		//初始化页面
+		function funIniGroup(frames) {
+		   if(frames.length<1){
+		      loadNothing(y, 'auto');
+		      return false;
+		   }
+			api.openFrameGroup({
+				name : 'booklists',
+				scrollEnabled : true,
+				rect : {
+					x : 0,
+					y : y,
+					w : 'auto',
+					h : 'auto'
+				},
+				index : 0,
+				frames : frames
+			}, function(ret, err) {
+			});
+		}
+
+		//切换 tab
+		function selectTab(frmType) {
+			var obj = $api.byId("list" + frmType);
+			if (obj) {
+				var className = $api.attr(obj, "class");
+				if (className == 'active') {//已经是选中状态   可能导致不加载默认页
+					openFram();
+					return false;
+				} else {
+					if (frmType == 0) {
+						$api.removeCls($api.byId("list1"), "active");
+						$api.addCls(obj, "active");
+						//关闭组
+						api.closeFrameGroup({
+							name : 'booklists'
+						});
+						api.closeFrame({//关掉nothing
+	                        name: 'nothing'
+                        });
+						openFram();
+					} else if (frmType == 1) {
+						$api.removeCls($api.byId("list0"), "active");
+						$api.addCls(obj, "active"); 
+						funIniGroup(frames);
+					}
+				}
+			}
+		}
+
+		//删除指定的fram,返回新的frame组
+		function deleteFrame(no) { 
+			var newFrames = [];
+			var j=0;
+			for (var i = 0; i < frames.length; i++) { 
+				if(frames[i].pageParam.no==no){ 
+					continue;
+				}else{ 
+					newFrames.push({
+						name : 'frame' + j,
+						url : frames[i].url,
+						bgColor : '#f4f4f4',
+						bounces : false,
+						allowEdit : true,
+						pageParam : {
+							frmY : y,
+							frmH : 'auto',
+							no : j + 1, //当前编号
+							sum : frames[i].pageParam.sum-1, //总数量
+							booklist : frames[i].pageParam.booklist,
+							pageType:'sc',
+						}
+					})
+					j++;
+				}
+			}
+			
+			funIniGroup(newFrames); 
+		}
+	</script>
+</html>

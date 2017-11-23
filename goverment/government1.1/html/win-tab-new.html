@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>提交成功</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 220) ? (document.documentElement.clientWidth / 2.20 + "px") : "100px";
+    </script>
+    <style>
+        body{
+
+        }
+    </style>
+</head>
+<body>
+<div id="wrap" style="background-color: rgba(0, 0, 0, .1);">
+    <div id="header" class="header-box index"  >
+        <!--红色头部 开始-->
+        <header class="index-header ">
+            <span class="change-city">城市</span>
+        </header>
+        <!--红色头部 结束-->
+        <!-- 我要投资头部  开始-->
+        <header class="invest-header border-bottom">
+            <span class="title">我要投资</span>
+            <span class="confirm">确定</span>
+        </header>
+        <!-- 我要投资头部  结束-->
+    </div>
+    <div id="main">
+
+    </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        var header =$api.dom("header") ;//$api.byId('header');
+        //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+        $api.fixStatusBar(header);
+    };
+</script>
+</html>

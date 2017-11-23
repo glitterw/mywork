@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>搜索页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/search.css"/>
+    <style>
+    	html,body{ background:#f4f4f4;}
+    </style>
+
+</head>
+<body>
+	<!--header bgin-->
+    <!--<header class="greenBg">
+		<div class="searchBox">
+        	<div class="searchBox02 fl">
+                <input type="text" placeholder="输入关键词" class="searchInput fl"/>
+            </div>
+            <span class="searchBtn fr">取消</span>
+        </div>
+    </header>-->
+	<!--header end-->
+    
+  
+    <div class="marAuto">
+      <!--搜索热词 begin-->  
+        <div class="hotWordBox mar_tb30 hidden" id="hotKeyWordDiv">
+            <h1 onclick="footerBox()">搜索热词</h1>
+            <div class="hotWordTabel">
+                <ul id="list">
+                  <!-- <li>
+                        <div  onclick="search('明季北略')">明季北略</div>
+                        <div>明季北略</div>
+                        <div>明季北略</div>
+                    </li>
+                    <li>
+                        <div>明季北略</div>
+                        <div>明季北略</div>
+                        <div>明季北略</div>
+                    </li>
+                    <li>
+                        <div>明季北略</div>
+                        <div>明季北略</div>
+                        <div>明季北略</div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <!--搜索热词 end-->  
+    <!--搜索历史 begin--> 
+	<div class="searchHistory hidden" id="history">
+        <div class="searchTit">
+            <h1>搜索历史</h1>
+        	<span class="delIcon" onclick="clearHistory()"></span>
+        </div>
+    	<!--01无历史-->
+        <div class="noHistory hidden"  id="nothing">
+        	<img src="../image/searchIcon03.png"  />
+            <p>没有搜索记录</p>
+        </div>
+        
+        <!--02有历史-->
+        <div class="historyGroup" id="historyDiv">
+        	<ul id="historyList">
+            	<!--<li>明季北略</li>
+                <li>明朝那些事儿</li>
+            	<li>明季北略</li>
+            	<li>明季北略</li>
+            	<li>明季北略</li>
+            	<li>明季北略</li>
+            	<li>明季北略</li>-->
+            </ul>
+        </div>
+    </div>
+    <!--搜索历史 end-->         
+        
+    </div> 
+    
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/event.js"></script>
+<script type="text/javascript"> 
+	apiready = function() { 
+	
+	 getKeyList();
+	 makeHistoryList();//输出历史记录	
+	} 
+
+
+
+/*
+api.actionSheet({
+    title: '底部弹出框测试',
+    cancelTitle: '这里是取消按钮',
+    destructiveTitle: '红色警告按钮',
+    buttons: ['1','2','3']
+}, function(ret, err){
+    var index = ret.buttonIndex;
+});
+
+
+}*/
+
+	//获取热词
+	function getKeyList(){
+		 var actionUrl = ajaxAgent.serverAction + '/jpjs/userinfo/queryHotKeys';
+		 var values={
+			 page:1,
+			 pageNum:30 
+		 }
+		showProgress();	
+		api.ajax({
+			url : actionUrl,
+			method : 'post',
+			timeout : 50,
+			dataType : 'json',
+			returnAll : false,
+			data : {
+				values : values
+			}
+		}, function(ret, err) {
+			api.hideProgress();  
+			if (ret) {
+				if (ret.result == 1) { 
+				   makelist(ret);
+				   api.parseTapmode();
+				   return true; 
+				} else { 
+				   toastNetErrBottom(ret.msg);  
+				}
+			} else {
+				if(err.statusCode==0){
+				    //发送网络监听
+				    sendNetError(api.pageParam.y,'auto');
+				    api.hideProgress();  
+				    toastNetErrBottom("网络异常,请稍后再试！");  
+				}else{
+				   toastNetErrBottom("服务器请求异常,请稍后再试！");  
+				}
+			} 
+			
+		});	
+	
+	}
+
+	//输出列表
+	function makelist(ret){
+		if(ret.list){
+			var html='';
+			for(var i=0;i<ret.list.length;i++){
+			  var obj=ret.list[i];
+	          if(i==0){
+	          	html='<li>';
+	          }else if(i%3==0){ 
+	          	html+='</li><li>';
+	          }
+	          var func="search('"+obj.keyWord+"')";
+	          html+='<div onclick="'+func+'">'+obj.keyWord+'</div>'; 
+			}
+			$api.html($api.byId("list"), html);
+			api.parseTapmode();		
+		}
+		$api.removeCls($api.byId("hotKeyWordDiv"), "hidden");
+	
+    }
+
+
+	//清空搜索历史
+	function clearHistory(){
+	var historyStr=getPrefs("historyKeywords");
+	if(historyStr!=""){
+		api.removePrefs({
+	        key:'historyKeywords'
+        }); 
+        toastNetErr("已清空历史！");
+        var html='<li><div>没有搜索历史</div></li>'; 
+        $api.html($api.byId("historyList"), html);
+        $api.addCls($api.byId("historyDiv"), "hidden");
+        $api.removeCls($api.byId("nothing"), "hidden");
+     } 
+	}
+	//输出历史列表
+	function makeHistoryList(){
+		var historyStr=getPrefs("historyKeywords"); 
+		
+		if(historyStr==""){//还没有搜索历史 
+			$api.addCls($api.byId("historyDiv"), "hidden"); 
+			$api.removeCls($api.byId("nothing"), "hidden");
+		}else{
+			var html='';
+			var historyJson=$api.strToJson(historyStr);
+			for(var i=0;i<historyJson.length;i++){
+			  var keyword=historyJson[i]; 
+	          var func="search('"+keyword+"')";
+	          html+=' <li onclick="'+func+'">'+keyword+'</li>'; 
+		    }			
+			$api.html($api.byId("historyList"), html);
+			$api.addCls($api.byId("nothing"), "hidden"); 
+			$api.removeCls($api.byId("historyDiv"), "hidden");
+			api.parseTapmode();
+		}
+
+		$api.removeCls($api.byId("history"), "hidden");
+	
+	
+    }
+
+	//搜索页
+	function search(keyWord){
+	
+	    api.execScript({
+	        name:'common_search',
+	        script: "$api.val($api.byId('keyWord'),'"+keyWord+"');search('"+keyWord+"');",
+        });
+        /*
+		api.openWin({
+			name : "common_searchList",
+			url : "win_search.html",
+			bounces : false,
+			vScrollBarEnabled : false,
+			hScrollBarEnabled : false,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam:{
+				frmName:"frm_searchList",
+				frmUrl:"frm_searchList.html",
+			    keyWord:keyWord
+			}
+		});	  
+	 */
+	}
+	
+	
+ 
+</script>
+</html>

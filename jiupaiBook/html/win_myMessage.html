@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>我的消息-评论我的</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/systemSet.css"/>
+    <style>
+    	.twoNavBox{ padding:0;}
+    </style>
+</head>
+<body>
+	<!--header bgin-->
+    <!--<header class="headLine"> -->
+    <header>
+    	<div class="relative">
+            <span class="back fl" onclick="goBack()"><img src="../image/back_green.png" /></span>
+            <h1>我的消息</h1>
+            <span class="yesIcon fr mar_r30 mar_t20" onclick="selectAll()"><img src="../image/yes.png" /></span>
+        </div>
+    </header>
+	<!--header end-->
+    
+    <!--导航 begin-->
+    <div class="twoNavBox">
+    	<ul class="twoNav threeNav" id="twoNav">
+            <li class="active" id="list0" onclick="selectTab(0)">评论我的</li>
+            <li id="list1" onclick="selectTab(1)">系统通知</li>
+        </ul>
+    </div>
+    <!--导航 end-->
+ 
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+	var y = 0;
+	var type = 0; //默认为0,传递frmType的值
+
+	apiready = function() {
+		var header = $api.dom("header");
+		if (header) {
+			setStatusBar(header);
+			y = $api.offset(header).h;
+		}
+		var bar = $api.byId("twoNav");
+		if (bar) {
+			y = y + $api.offset(bar).h;
+		}
+//		selectTab(type);
+	}
+	
+ 	//切换 Tab
+	function selectTab(frmType) { //切换一次将入参frmType值传给对象frmType
+//		api.alert({ msg: '执行11'});
+		type = frmType;
+ 		var obj = $api.byId("list" + frmType);
+		if(obj) {
+			var className = $api.attr(obj,"class"); //获取某个dom对象的某个属性
+			if(className == 'active') { //当前为选中状态
+				openFram(0); //打开默认frame0
+				return false; 
+			} else {
+				if(frmType == 0) {					
+					$api.removeCls($api.byId("list1"), "active");
+					$api.addCls(obj, "active");
+				}else if(frmType == 1) {
+					$api.removeCls($api.byId("list0"), "active");
+					$api.addCls(obj, "active"); 			
+		 		}
+//		 		api.alert({msg: '为什么初始化不加载'});
+		 		openFram(frmType); 
+		 	}
+	 	}
+	}
+		
+	//随Tab切换加载frame
+	function openFram(frmType) {
+	    var frmName = "";
+	    var frmUrl = "";
+		if(frmType == 0) {
+			frmName = "myMessage";
+			frmUrl = "frm_myMessage.html";
+			api.setFrameAttr({//打开这个，隐藏另外一个。
+	            name: 'myMessageSys',
+	            hidden: true
+            });
+            
+		}else if(frmType == 1) {
+			frmName = "myMessageSys";
+			frmUrl = "frm_myMessageSys.html";
+			api.setFrameAttr({
+	            name: 'myMessage',
+	            hidden: true
+            });			
+		}
+		api.openFrame({
+			name: frmName,
+			url: frmUrl,
+			rect: {
+				x: 0,
+				y: y,
+				w: 'auto',
+				h: 'auto'
+			},
+			bounces: false,
+			delay: 100,
+			reload: true,
+			pageParam: {
+				frmType: frmType, 
+				y: y
+			}
+		});
+	}
+	
+	//点击"√"随frmType在不同frame里执行execScript
+	function selectAll() {
+		if(type == 0) {			
+			api.execScript({
+		        name: 'myMessage',
+		        frameName: 'myMessage',
+		        script: 'exec_selAll();'
+	        });
+		}else if(type == 1) {
+			api.execScript({
+		        name: 'myMessage',
+		        frameName: 'myMessageSys',
+		        script: 'exec_selAll();'
+	        });
+		}
+	}
+	
+
+</script>
+</html>

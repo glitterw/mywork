@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>新闻详情页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+    		
+    	}
+    </style>
+</head>
+<body>
+<div id="wrap">
+<div id="header" class="bg-red"> 
+    <header  class="back-header" id="goback"><span class="back"></span></header>
+</div>  
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		var header =$api.byId("header") ;//$api.byId('header');
+        //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+        $api.fixStatusBar(header); 
+        y=$api.offset(header).h;  
+		openFram(y); 
+		$api.addEvt($api.byId("goback"), "click", function(){
+			goBack();
+		}); 
+	}; 
+	
+    //打开fram
+	function openFram(y) { 
+		api.openFrame({
+			name : 'newsDetail',
+			url : 'frm-news-detail.html',
+			rect : {
+				x : 0,
+				y : y,
+				w : 'auto',
+				h : 'auto'
+			},
+			pageParam : {
+				newsId:api.pageParam.newsId,
+				newsType:api.pageParam.newsType	 
+			},
+			bounces : false,
+			delay : 100,
+			reload : true,
+			allowEdit:true
+		});
+	} 
+</script>
+</html>

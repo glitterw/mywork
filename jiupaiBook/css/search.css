@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+.searchBox{ padding:11px 30px; height:66px; line-height:66px; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: center; -webkit-box-align: center; -webkit-align-items: center; -webkit-justify-content: center;}
+.searchBox .searchBox02,.searchBox .searchBtn{-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;}
+.searchBox .searchBox02{ position: relative; display: flex; -webkit-box-align: center; -webkit-align-items: center; flex: 1; height:66px;}
+.searchBox input{ border-radius:12px; font-size:28px; height:66px; color:#999; background:#fff url(../image/searchIcon02.png) no-repeat 12px center; background-size:33px; padding:0 60px 0 60px; display: block; width: 100%; line-height:66px;}
+.searchBox .searchBtn{ color:#fff; font-size:28px; margin-left:15px;}
+.delBtn{ width:28px; height:28px; background:url(../image/delBtn.png) no-repeat; background-size:28px; position:absolute; top:19px; right:10px;}
+
+.hotWordBox h1{ font-size:32px; color:#333;}
+.hotWordBox ul{ margin-top:20px; background:#fff; border-radius:4px;}
+.hotWordBox ul li{ width:100%; display:box; display:-webkit-box; display:-moz-box;}
+.hotWordBox ul li div{-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; text-align:center; font-size:28px; color:#666; height:70px; line-height:70px;}
+.hotWordBox ul li div:nth-child(2){ border-right:solid 1px #e3e3e3; border-left:solid 1px #e3e3e3;}
+.hotWordBox ul li:nth-child(even) { border-top:solid 1px #e3e3e3; border-bottom:solid 1px #e3e3e3;}
+
+.searchTit{ width:100%; display:inline-block;}
+.searchTit h1{font-size:32px; color:#333; float:left;}
+.searchTit .delIcon{ background:url(../image/delIcon.png) no-repeat; float:right; width:24px; height:24px;}
+.noHistory{ text-align:center; width:100%; margin-top:10%;}
+.noHistory img{ width:47px; height:47px;}
+.noHistory p{ color:#999; font-size:26px;}
+
+.historyGroup li{ width:100%; border-bottom:solid 1px #e3e3e3; height:69px; line-height:69px; color:#999; font-size:26px; background:url(../image/timeIcon.png) no-repeat left center; text-indent:2em; background-size:26px; overflow:hidden;}
+
+.relatedSearch li{ width:100%; background:url(../image/searchIcon04.png) no-repeat left 20px; background-size:24px; color:#999; font-size:26px; min-height:40px; padding:15px 0; line-height:35px; border-bottom:solid 1px #e3e3e3; text-indent:1em; overflow:hidden;}
+.relatedSearch li span{ color:#32b2a1;display: initial;}
+
+.seqArrowT{ width:0px; height:0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 12px solid #e5e5e5; margin-left:10px;}
+.seqArrowB{ width:0px; height:0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 12px solid #e5e5e5; margin-left:10px;}
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+
+.searchBox{ padding:6px 15px; height:33px; line-height:33px;}
+.searchBox .searchBox02{ height:33px;}
+.searchBox input{ border-radius:6px; font-size:14px; height:33px; background:#fff url(../image/searchIcon02.png) no-repeat 6px center; background-size:16px; padding:0 30px 0 30px;  line-height:33px;}
+.searchBox .searchBtn{ font-size:14px; margin-left:7px;}
+.delBtn{ width:14px; height:14px; background-size:14px; top:9px; right:5px;}
+
+.hotWordBox h1{ font-size:16px;}
+.hotWordBox ul{ margin-top:10px; border-radius:2px;}
+.hotWordBox ul li div{ font-size:14px; height:35px; line-height:35px;}
+
+.searchTit h1{font-size:16px;}
+.searchTit .delIcon{width:12px; height:12px; background-size:12px;}
+
+.noHistory img{ width:23.5px; height:23.5px;}
+.noHistory p{ font-size:13px;}
+
+.historyGroup li{ height:34.5px; line-height:34.5px; font-size:13px; text-indent:1.8em; background-size:13px;}
+.relatedSearch li{ background-size:12px; background-position:left 10px; font-size:13px; min-height:20px; padding:7.5px 0; line-height:17.5px; text-indent:1em; }
+
+.seqArrowT{border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 6px solid #e5e5e5; margin-left:5px;}
+.seqArrowB{border-left: 5px solid transparent;border-right: 5px solid transparent;border-bottom: 6px solid #e5e5e5; margin-left:5px;}
+.selectBox{background:#fff; position:absolute; z-index: 2; width:100%;}
+.selectFooterTM{background:#000; opacity: 0.3; position:fixed; top:0; left:0; width:100%; height:100%;}
+}

@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{ background:#F4F4F4;}
+/*发送状态*/
+.sendStatusBox{ padding:80px 0 60px 0;}
+.sendIcon{ width:172px; height:172px; background:#32b2a1 url() no-repeat; background-size:172px 172px; border-radius:100%; margin:0 auto;}
+.IconHook{ background-image:url(../image/hook.png);}
+.iconError{ background-image:url(../image/iconError.png);}
+.sendStatusBox p{ font-size:40px; color:#666; text-align:center; margin-top:50px; line-height:50px;}
+
+/*用户注册输入框等*/
+.padTop24{ padding-top:24px;}
+.registerDL dd,.userSubBtn{ width:100%; border-radius:8px; -webkit-appearance:none;}
+.registerDL dd{ height:98px; color:#a6a6a6; font-size:32px; border:solid 1px #d1d1d1; background:#fff; display: -moz-box; display: -webkit-box; display: box; margin-top:26px; margin-bottom:26px;}
+.registerDL dt{ margin-top:50px;}
+
+ 
+/*图标*/
+.userIcon{ width:30px; height:32px; background-size:30px 32px; background:no-repeat center center; padding:33px 30px; border-right: solid 1px #d1d1d1;}
+.iconPhone{ background-image:url(../image/icon_phone.png);}
+.iconPass{ background-image:url(../image/icon_password.png);}
+
+/*登陆样式*/
+.loginNote{ margin:30px 0;}
+.loginNote .greenLink{ color:#32b2a1; font-size:28px;}
+
+/*个人资料*/
+.headPic,.headPic img,.upLoad{ width:168px; height:168px;}
+.headPic{ background:#d9d8d8 url(../image/iconCamera.png) no-repeat; background-size:168px 168px; margin:70px auto; border-radius:100%;}
+.headPic img{border-radius:100%;}
+.upLoad{ opacity:0;}
+
+/*性别*/
+.genderBox{display: -moz-box; display: -webkit-box; display: box;}
+.genderBox .gender{-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; text-align:center; background:#fff; border:solid 1px #d1d1d1; color:#a6a6a6; font-size:32px; height:98px; line-height:98px; border-radius:8px;}
+.genderBox .gender img{ width:30px; height:30px;  margin-left:6px; margin-bottom:-4px;}
+.genderBox div.active,.genderBox .gender:hover{ border:solid 2px #32b2a1;}
+.genderBox .male{ margin-right:8px;}
+.genderBox .female{ margin-left:8px;}
+.nameBox{ background:#fff; border:solid 1px #d1d1d1; border-radius:8px; margin:38px 0; font-size: 32px; color:#a6a6a6;}
+
+/*第三方登录*/
+.threeLogin{ width:100%; margin-bottom:50px;}
+.threeLogin ul{display:box; display:-webkit-box; display:-moz-box; width:60%; margin:0 auto; padding-top:40px;}
+.threeLogin li{-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1; }
+.threeTit{ position:relative; text-align:center; height:40px; line-height:40px; width:100%;}
+.threeTit h1{ font-size:28px; color:#999; position:relative; z-index:2; background:#f4f4f4; width:30%; margin:0 auto;}
+.threeTit p{ height:1px; width:100%; background:#999; position:absolute; z-index:1; top:20px; left:0;}
+.threeLogin li{ text-align:center;}
+.threeLogin li img { width:93px; height:93px;}
+.threeLogin li p{ width:100%; color:#999; font-size:24px; margin-top:20px;}
+
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) { 
+/*发送状态*/
+.sendStatusBox{ padding:40px 0 30px 0;}
+.sendIcon{ width:86px; height:86px; background-size:86px 86px; border-radius:100%;}
+.sendStatusBox p{ font-size:20px; margin-top:25px; line-height:25px;}
+
+/*用户注册输入框等*/
+.padTop24{ padding-top:12px;}
+.registerDL dd,.userSubBtn{border-radius:4px;}
+.registerDL dd{ height:49px; font-size:16px;  margin-top:13px; margin-bottom:13px;}
+.registerDL dt{ margin-top:25px;}
+
+/*图标*/
+.userIcon{ width:15px; height:16px; background-size:15px 16px; padding:16px 15px;}
+
+/*登陆样式*/
+.loginNote{ margin:15px 0;}
+.loginNote .greenLink{ font-size:14px;}
+
+/*个人资料*/
+.headPic{ background-size:84px 84px; margin:35px auto;}
+.headPic,.headPic img,.upLoad{ width:84px; height:84px;}
+
+/*性别*/
+.genderBox .gender{ font-size:16px; height:50px; line-height:50px; border-radius:4px; vertical-align:middle;}
+.genderBox .gender img{ width:15px; height:15px; margin-left:3px; margin-bottom:-2px;}
+.genderBox .male{ margin-right:4px;}
+.genderBox .female{ margin-left:4px;}
+.nameBox{ border-radius:4px; margin:19px 0; font-size: 16px;}
+
+/*第三方登录*/
+.threeLogin{ bottom:25px; }
+.threeLogin ul{padding-top:20px;}
+.threeTit{ height:20px; line-height:20px;}
+.threeTit h1{ font-size:14px;}
+.threeTit p{ top:10px;}
+.threeLogin li img { width:46.5px; height:46.5px;}
+.threeLogin li p{ font-size:12px; margin-top:10px;}
+
+ }

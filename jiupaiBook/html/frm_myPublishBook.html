@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>我要荐书</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Iwant_rcmd.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+
+</head>
+<body>
+	<!--header bgin-->
+   <!-- <header class="headLine">
+        <span class="back fl"><img src="../image/back_green.png" /></span>
+        <h1>我要荐书</h1>
+    </header>-->
+	<!--header end-->
+    
+	<!--上传封面 begin-->
+    <!--<div class="uploadCover">
+    	<div class="coverBox" onclick="selectImg(134,200)"></div>
+    	<input type="hidden" id="imgPath" value="" />
+        <p>上传封面</p>
+    </div>-->    
+	<!--上传封面 end-->    
+    
+    <!--我要荐书 begin-->
+    <div class="marAuto">
+        <dl class="wantRcmdDL">
+            <dd>
+                <div class="textGroup radius overflow">
+                    <textarea placeholder="书名" class="textAreaStyle W100 fl"   oninput="changeInputHeight(this,30,'书名请控制在30个字以内！')"   name="bookName" id="bookName"></textarea>
+                    <!--<input name="bookName" id="bookName"  type="text" placeholder="书名" class="userInput"   value="">-->
+                </div>
+            </dd>
+            <dd>
+                <div class="groupDiv">
+                    <div class="W100"><input name="author" id="author" type="text" placeholder="作者" oninput="getInputSize(this,20,'作者名称请控制在20个字以内！')"  class="userInput"></div>
+                </div>
+            </dd>
+            <dd>
+                <div class="W100"><textarea class="wantEarea" id="reason"  placeholder="推荐理由"   oninput="getInputSize(this,200,'推荐理由请控制在200个字以内！')"  ></textarea></div>
+            </dd> 
+            <dt><input type="button" class="userSubBtn" value="立即发布"  onclick="saveData()"/></dt>
+        </dl>
+    </div>
+    <!--我要荐书 end-->
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>  
+<script type="text/javascript" src="../script/user.js"></script>
+<script type="text/javascript" src="../script/checkData.js"></script>    
+<script type="text/javascript" src="../script/sessions.js"></script> 
+<script type="text/javascript">
+var userEntity=""; 
+var lineSize=0;
+var flag=1;
+apiready = function() { 
+	userEntity=sessionAgent.getLoginInfo();  
+
+} 
+
+ 
+/*
+function updateHeight(thisObj){ 
+ thisObj.style.height=thisObj.scrollHeight + 'px'; 
+ if(thisObj.value.length>30){ 
+     toastNetErr("您输入的书名超过了30个字!"); 
+  	 return false;   	
+ }
+}*/
+//监听推荐理由输入字数
+function getInputSize(thisObj,maxSize,msg){
+   if(thisObj.value.length>maxSize){ 
+     toastNetErr(msg); 
+  	 return false;   	
+ } else {
+ 	return true;
+ }
+}
+//获取输入框的边界
+function getArea(thisObj){ 
+	 if(thisObj.selectionEnd==19){
+	 	alert(thisObj.selectionEnd );
+	 
+	 }
+	//alert(thisObj.selectionEnd );
+	 
+}
+//加载图片
+//function loadImg(sevicePath){  
+//var imgTag='<img src="'+ajaxAgent.serverAction+sevicePath+'">';
+//$api.html($api.dom(".coverBox"),imgTag);
+//$api.val($api.byId("imgPath"), sevicePath); 
+//}
+//保存推荐
+function saveData(){
+//var imgPath=$api.val($api.byId("imgPath"));
+  var bookName=$api.val($api.byId("bookName"));
+  if(isEmpty(bookName)){
+  	 toastNetErr("请填写书名!");
+  	 return false;
+  }else{
+    if(bookName.length>30){
+   	 toastNetErr("您输入的书名超过了30个字!");
+  	 return false;   	
+    }
+  
+  }
+  var author=$api.val($api.byId("author"));
+  if(isEmpty(author)){
+  	 toastNetErr("请填写作者!");
+  	 return false;
+  }else{
+  	if(author.length>20){
+  	 toastNetErr("输入的作者名称超过了20个字!");
+  	 return false;     	
+  	}
+  
+  }
+  
+  var reason=$api.val($api.byId("reason"));
+  if(isEmpty(reason)){
+  	 toastNetErr("请填写推荐理由!");
+  	 return false;
+  }else{
+    	if(reason.length>200){
+	     toastNetErr("推荐理由请控制在200个字已内!"); 
+	  	 return false;  
+	  	}  
+  
+  }
+  
+	var actionUrl = ajaxAgent.serverAction + '/jpjs/bookrecommend/saveMyRec';
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data: {
+			values : {
+				 userId:userEntity.userId,
+//				 imgPath:imgPath,
+				 bookName:bookName,
+				 author:author,
+				 reason:reason
+			}
+		}
+	}, function(ret, err) { 
+		if (ret) {   
+			if(ret.result==1){  
+				api.alert({msg:"成功提交，等待审核中..."
+                },function(ret1,err1){
+                	api.closeWin();
+                	if(api.pageParam.pageType==1){//从我的荐书点开，把新荐书理由加载到我的荐书列表页 
+                		if(ret.recommend){
+	                		var func='makeOne('+ret.recommend.id+',"'+ret.recommend.bookName+'",'+ret.recommend.state+',"'+ret.recommend.stateName+'")';
+	                		api.execScript({
+	                			name: 'myRecommend',
+	    						frameName: 'myRecommend',
+		                        script: func
+	                        });
+                        }
+                	}else if(api.pageParam.pageType==0){//从全民荐书进入
+                		openWin('myRecommend', 'win_myRecommend.html');
+                	}
+                });
+				 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		}else{
+				toastNetErr("网络错误！");
+		} 
+	});  
+  
+
+}
+
+function changeInputHeight(thisObj,maxSize,msg){   
+ var height=49; //一行的高度
+ var bytesNum=getStrBytesCount($api.val(thisObj)); 
+ var times=parseInt(bytesNum/38)+1; //一行显示36个字节，计算出行数
+ 
+ thisObj.style.height=(times*height)+'px';
+ //thisObj.style.height=thisObj.scrollHeight + 'px'; 
+ if(thisObj.value.length>maxSize){ 
+     toastNetErr(msg); 
+  	 return false;   	
+ } else {
+ 	return true;
+ }
+ 
+}
+ 
+</script>
+
+</html>

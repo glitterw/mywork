@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>发送验证失败</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/user.css"/>
+
+</head>
+<body>
+	<!--header bgin-->
+    <!--<header class="headLine">
+        <span class="back fl"><img src="../image/back_green.png" /></span>
+        <h1>注册新用户</h1>
+    </header>-->
+	<!--header end-->
+    
+    <div class="marAuto">
+    	<!--发送成功 begin-->
+        <div class="sendStatusBox">
+        	<div class="sendIcon iconError"></div>
+            <p>验证码发送失败！</p>
+        </div>
+    	<!--发送成功 end-->
+
+    	<dl class="registerDL">
+          <dt><input type="button" class="userSubBtn" value="再次发送" onclick="sendCode()" /></dt>
+        </dl>
+    </div>
+</body> 
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script> 
+<script type="text/javascript" src="../script/user.js"></script> 
+<script type="text/javascript"> 
+	apiready = function() {  
+		
+		 
+	}
+ 
+//发送验证码
+function sendCode(){
+	var telNo=api.pageParam.telNo;
+	var codeStr=rand6();
+	var actionUrl = ajaxAgent.serverAction;
+	actionUrl += '/jpjs/userinfo/sendSMSCode';
+	showProgress();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				telNo : telNo,
+				codeStr : codeStr
+			}
+		}
+	}, function(ret, err) {
+	    api.hideProgress(); 
+		if(ret){
+			if(ret.result==1){
+				 if(api.pageParam.opType==0){//注册操作
+				 	nextRegister2(telNo,codeStr); 
+				 	return true;
+				 }else if(api.pageParam.opType==1){//忘记密码操作
+				 	nextUserRepasswd2(telNo,codeStr);
+				 	return true;
+				 }
+				 else{
+				    toastNetErr(ret.msg); 
+					return false;				 
+				 }
+				 
+			}
+			else{
+			    toastNetErr(ret.msg); 
+				return false;
+			}
+		}
+		else{
+		   toastNetErr(err.statusCode);
+		}
+		
+	});	
+
+}  
+
+ 
+</script>
+</html>

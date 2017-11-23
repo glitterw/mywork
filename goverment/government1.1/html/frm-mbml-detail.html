@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>企业详情页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 640) ? (document.documentElement.clientWidth / 6.40 + "px") : "100px";
+    </script>
+    <style>
+    	body{
+
+    	}
+    </style>
+</head>
+<body>
+<div id="wrap"  class="">
+		<div class="invest-box">
+			<div class="invest-item">
+				<p class="name-item mbml border-bottom">
+					<span class="name">商标名称</span>
+					<span class="info" id="tm_name">武汉市紫映汇金文化传播有限公司</span>
+				</p>
+				<p class="name-item mbml border-bottom">
+					<span class="name ">注册号</span>
+					<span class="info" id="reg_num">420111000497555</span>
+				</p>
+				<p class="name-item mbml border-bottom">
+					<span class="name">初审公告时间</span>
+					<span class="info" id="first_annc_date">初审公告时间</span>
+				</p>
+				<p class="name-item mbml  border-bottom">
+					<span class="name">注册公告时间</span>
+					<span class="info" id="reg_annc_date">注册公告时间</span>
+				</p>
+				<p class="name-item mbml border-bottom">
+					<span class="name">专用期开始日期</span>
+					<span class="info" id="property_bgn_date">2016-7-9</span>
+				</p>
+				<p class="name-item mbml border-bottom">
+					<span class="name">专用期结束日期</span>
+					<span class="info" id="property_end_date">200万元</span>
+				</p>
+				<p class="name-item mbml border-bottom">
+					<span class="name">注册人姓名</span>
+					<span class="info" id="reg_cn_name">武汉市洪山区工商行政管理和质量技 术监督局</span>
+				</p>
+				<p class="name-item mbml  border-bottom">
+					<span class="name" >注册人地址</span>
+					<span class="info" id="reg_cn_address">存续（在营、开业、在册 )</span>
+				</p>
+			</div>
+		</div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		getQYInfo();
+	};
+
+//获取详情
+ function getQYInfo() {
+	 var actionUrl = ajaxAgent.serverAction + '/login/queryStandardDetail';
+	 var webName="QYInfo";
+	 var secretCode=creatSecretCode(webName);
+	 var values={
+		 secretCode:secretCode,//安全码
+		 webName:webName,//模块名称
+		 messageId:api.pageParam.qyID
+		 //newsType:api.pageParam.qyID
+	 }
+	 console.log('actionUrl:'+JSON.stringify(actionUrl));
+	 console.log('detail:'+JSON.stringify(values));
+	 showProgress();
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+	     console.log('detail_result:'+JSON.stringify(ret));
+		if (ret) {
+			if (ret.status == "success") {
+			    $api.html($api.byId("tm_name"), ret.data.tm_name);
+			    $api.html($api.byId("reg_num"), ret.data.reg_num);
+			    $api.html($api.byId("first_annc_date"), ret.data.first_annc_date);
+			    $api.html($api.byId("reg_annc_date"), ret.data.reg_annc_date);
+					$api.html($api.byId("property_bgn_date"), ret.data.property_bgn_date);
+					$api.html($api.byId("property_end_date"), ret.data.property_end_date);
+					$api.html($api.byId("reg_cn_name"), ret.data.reg_cn_name);
+					$api.html($api.byId("reg_cn_address"), ret.data.reg_cn_address);
+					api.hideProgress();
+					$api.removeCls($api.byId("wrap"),"hidden");
+			    return true;
+
+			} else {
+				    console.log("error:"+JSON.stringify(err));
+						api.hideProgress();
+               toastNetErrBottom("服务器请求错误！");
+			}
+
+		} else {
+		     //sendNetError(frmY,frmH);
+		     //api.hideProgress();
+			 toastNetErrBottom('网络异常,请稍后再试哦!');
+
+		}
+
+
+	});
+}
+
+
+</script>
+</html>

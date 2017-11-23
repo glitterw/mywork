@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>书单详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bookInfo.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/list.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/leaderboard.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reply.css"/>
+	<style>
+    	html,body{ background:#f4f4f4;}
+    	
+    </style>
+</head>
+<body>
+	<!--header bgin-->
+    <!--<header class="greenBg">
+    	<span class="back fl"><img src="../image/back_white.png" /></span>
+		<h1>书单详情</h1>
+    </header>-->
+	<!--header end--> 
+	<!--简介 begin-->
+    <div class="bookListInfo bgfff hidden" id="info">
+    	<div class="marAuto">
+            <div class="bookContTit">写给大人看的故事书</div>
+            <div class="bookListOther"><span class="mar_r20">荐书小编</span><span>2016-06-15</span></div>
+            <div class="bookListCont">
+                <p>我们不再是小孩，也许在成长的路上，还遇见了很多坎坷。但我们依旧拥有一颗努力向上的心。我们一路往前，变成最好的自己。</p>
+            <p>    推荐几本"适合大人读，也适合孩子读"看的书，一起感受童话的魅力吧~</p>
+            </div>
+        </div>
+    </div>
+	<!--简介 end-->
+    
+    <!--书单 begin-->
+    <div class="bookListBox02 hidden" id="booksDiv">
+    	<div class="marAuto "  >
+            <ul id="books" >
+                <li><div><img src="../image/other/book01.jpg" /></div></li>
+                <li><div><img src="../image/other/book01.jpg" /></div></li>
+                <li><div><img src="../image/other/book01.jpg" /></div></li>
+                <li><div><img src="../image/other/book01.jpg" /></div></li>
+                <li><div><img src="../image/other/book01.jpg" /></div></li>
+                <li><div><img src="../image/other/book01.jpg" /></div></li>
+                <li><div><img src="../image/other/book01.jpg" /></div></li>
+                <li><div><img src="../image/other/book01.jpg" /></div></li>
+            </ul>
+        </div>
+        <div class="likeCollectBox W100 bgfff" >
+        	<div class="cangSpan" id="favoritNum" onclick="favorite()"><span><img src="../image/icon_info_collect_green.png"  /></span>0人收藏</div>
+            <div class="zanSpan" id="goodNum" onclick="good()"><span><img src="../image/rcmdIcon_white.png"  /></span>0人点赞</div>
+        </div>
+    </div>
+    <!--书单 end-->
+
+    <!--评论回复列表 begin--> 
+    <div class="mar_tb30 bgfff replyBox hidden" id="replyList">
+    	<div class="marLeft">
+           <h1 class="reviwTit">评论</h1> 
+          <ul class="replyBoxUL" id="list">
+            <li>
+                    <div class="rcmdHead">
+                        <div class="rcmdHeadBox"> 
+                            <p>暂无评论！</p>
+                        </div> 
+                    </div>
+                </li> 
+            	<li>
+                    <div class="rcmdHead">
+                        <div class="rcmdHeadBox">
+                            <em class="headPic"></em>
+                            <p>糖糖</p>
+                        </div>
+                        <span>2016-6-15</span>
+                    </div>
+                    <div class="replyCont"></div>
+                </li> 
+            </ul>
+            <!--list end-->
+        </div>
+    </div>
+  
+    
+	<!--写回复 begin-->
+   <!-- <div class="whriteReplyBox">
+        <div class="whriteReplyBox02 fl">
+            <textarea placeholder="写回复" class="replyarea fl" contenteditable="true" ></textarea>
+        </div>
+    </div>-->
+
+ <div class="whriteReplyBox " id="footer">
+        <div class="whriteReplyBox02 fl">
+            <textarea placeholder="写评论"   oninput="updateHeight(this)"  class="replyarea fl"  id="txtBox" contenteditable="true"    ></textarea>
+        </div>
+        <div class="sendBtn fr" onclick="saveComment()">发送</div>
+ </div>
+ <!--写回复 end-->
+    
+</body>
+    
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/checkData.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script> 
+<script type="text/javascript" src="../script/book.js"></script> 
+<script type="text/javascript" src="../script/list.js"></script> 
+<script type="text/javascript"> 
+	 
+	var page=1;
+	var pageNum=10;
+	var totalNum=0;
+	var userEntity;
+	var favoriteNum=0;
+	var goodNum=0;
+	apiready = function() {  
+ 	  userEntity = sessionAgent.getLoginInfo(); 
+ 	  getBooklistInfo();//获取基本信息
+ 	  getBooks();//获取书单关联的图书
+ 	  beginLoad();//获取书单评论
+ 	 
+	} 
+ 
+//收藏或者取消收藏
+function favorite(){ 
+if (sessionAgent.isLogin(userEntity)) {//登录后收藏
+	var obj=$api.byId("favoritNum");
+	//获取当前的状态
+	var className=$api.attr(obj, "class"); 
+	if(className=="cangSpan"){//收藏
+	    saveFavorite(1);
+
+	}else 	if(className=="zanSpan"){//取消收藏
+	    saveFavorite(0); 
+	}
+ }else{
+   toastNetErr('请登录后操作！');
+   return false;
+ }
+}
+
+//更改收藏或者取消收藏按钮样式
+function changeCssFavarite(isFavorite){
+   var obj=$api.byId("favoritNum");
+	if(isFavorite==1){ 
+	    favoriteNum=favoriteNum+1; 
+		$api.html(obj, '<span><img src="../image/icon_info_collect.png" /></span>'+favoriteNum+'人收藏');
+		$api.attr(obj, "class","zanSpan"); 			    
+	}else{ 
+	    favoriteNum=favoriteNum-1; 
+		$api.html(obj, '<span><img src="../image/icon_info_collect_green.png" /></span>'+favoriteNum+'人收藏');		
+		$api.attr(obj, "class","cangSpan"); 			    
+	}   
+}
+
+//更改点赞或者取消点赞按钮样式
+function changeCssGood(isGood){
+    var obj=$api.byId("goodNum");
+	if(isGood==1){
+	    goodNum=goodNum+1; 
+		$api.html(obj, '<span><img src="../image/rcmdIcon_white.png" /></span>'+goodNum+'人点赞');
+		$api.attr(obj, "class","zanSpan"); 			    
+	}else{
+	    goodNum=goodNum-1; 
+		$api.html(obj, '<span><img src="../image/rcmdIcon_active.png" /></span>'+goodNum+'人点赞');	
+		$api.attr(obj, "class","cangSpan"); 			    			    
+	}
+}
+
+//点赞或者取消点赞
+function good(){
+ if (sessionAgent.isLogin(userEntity)) {//登录后评论
+	/*
+	if(userEntity.isVerify==0){
+		toastNetErrBottom("该账号已经被冻结，请联系管理员");
+		return false;
+    }*/	
+	var obj=$api.byId("goodNum");
+	//获取当前的状态
+	var className=$api.attr(obj, "class"); 
+	if(className=="cangSpan"){//点赞 
+		saveGood(1,obj);
+	}else 	if(className=="zanSpan"){ 
+		saveGood(0,obj);
+	}
+ }else{
+   toastNetErr('请登录后操作！');
+   return false;
+ }
+}
+
+//保存收藏或者取消收藏操作
+function saveFavorite(isFavorite,obj){
+ if (sessionAgent.isLogin(userEntity)) {//登录后评论
+	/*
+	if(userEntity.isVerify==0){
+		toastNetErrBottom("该账号已经被冻结，请联系管理员");
+		return false;
+    }*/	
+ 	var  actionUrl=ajaxAgent.serverAction+'/booksheet/changeBookSheetFavStatus'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				booklistId:api.pageParam.booklistId,
+				isFavorite:isFavorite,
+				userId:userEntity.userId
+			}
+		}
+	}, function(ret, err) { 
+			if (ret.result == 1) { //正确结果返回  
+				changeCssFavarite(isFavorite);
+			    return true; 
+			}else {//没有正确返回  
+		       toastNetErr(ret.msg);
+		       return false;
+			}  
+	});	  
+ }else{
+ 
+    toastNetErr('请登录后操作！');
+    return false;
+ }
+}
+
+//保存点赞或者点赞操作
+function saveGood(isGood,obj){
+ if (sessionAgent.isLogin(userEntity)) {//登录后评论
+	/*
+	if(userEntity.isVerify==0){
+		toastNetErrBottom("该账号已经被冻结，请联系管理员");
+		return false;
+    }*/   
+ 	var  actionUrl=ajaxAgent.serverAction+'/booksheet/changeBookSheetPraiseStatus'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				booklistId:api.pageParam.booklistId,
+				isGood:isGood,
+				userId:userEntity.userId
+			}
+		}
+	}, function(ret, err) { 
+			if (ret.result == 1) { //正确结果返回  
+				changeCssGood(isGood);
+			    return true; 
+			}else {//没有正确返回  
+		       toastNetErr(ret.msg);
+		       return false;
+			}  
+	});	  
+ }else{ 
+    toastNetErr('请登录后操作！');
+    return false;
+ }
+}
+
+ //获取书单基本信息
+ function getBooklistInfo(){ 
+    showProgress();
+ 	var  actionUrl=ajaxAgent.serverAction+'/booksheet/queryBookSheetDetail'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				booklistId:api.pageParam.booklistId,
+			}
+		}
+	}, function(ret, err) { 
+	 		api.hideProgress();  
+			if (ret.result == 1) { //正确结果返回
+				var booklist=ret.booklist;
+			    //更新基本资料
+				var html='';
+				html='<div class="marAuto">';
+				html+='    <div class="bookContTit">'+booklist.title+'</div>';
+				html+='    <div class="bookListOther"><span class="mar_r20">'+booklist.author+'</span><span>'+booklist.publishTime+'</span></div>';
+				html+='    <div class="bookListCont">';
+				html+='        <p>'+booklist.info+'</p>'; 
+				html+='    </div>';
+				html+='</div>';
+			    $api.html($api.byId("info"), html);
+			    $api.removeCls($api.byId("info"), "hidden");
+			    favoriteNum=booklist.favoriteNum;
+			    goodNum=booklist.goodNum; 
+			    //收藏数量，点赞数量
+
+			    if (sessionAgent.isLogin(userEntity)) {//登录用户去判断是否收藏，是否点赞
+				    isFavarite();//判断是否收藏
+				    isGood();
+			    }else{//未点赞和为收藏状态
+			        $api.attr($api.byId("favoritNum"), "class","cangSpan");
+			        $api.attr($api.byId("goodNum"), "class","cangSpan"); 
+				    $api.html($api.byId("favoritNum"), '<span><img src="../image/icon_info_collect_green.png" /></span>'+booklist.favoriteNum+'人收藏');
+				    $api.html($api.byId("goodNum"), '<span><img src="../image/rcmdIcon_active.png" /></span>'+booklist.goodNum+'人点赞');			    			    
+			    }
+			    return true; 
+			}else {//没有正确返回
+		      
+		       toastNetErr('获取书单信息失败！');
+			} 
+		
+		
+	});	 
+ 
+ }
+ 
+//获取用户是否收藏了本书单
+ function isFavarite(){  
+ 	var  actionUrl=ajaxAgent.serverAction+'/jpjs/userinfo/ifFavBookSheet'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				booklistId:api.pageParam.booklistId,
+				userId:userEntity.userId,
+			}
+		}
+	}, function(ret, err) { 
+			if (ret.result == 1) { //正确结果返回 
+			   var obj=$api.byId("favoritNum");
+				if(ret.isFavorite==1){  
+					$api.html(obj, '<span><img src="../image/icon_info_collect.png" /></span>'+favoriteNum+'人收藏');
+					$api.attr(obj, "class","zanSpan"); 			    
+				}else{  
+					$api.html(obj, '<span><img src="../image/icon_info_collect_green.png" /></span>'+favoriteNum+'人收藏');		
+					$api.attr(obj, "class","cangSpan"); 			    
+				}   
+			    return true; 
+			}else {//没有正确返回 
+		       toastNetErr('获取书单信息失败！');
+			}  
+	});  
+ 
+ }
+
+//获取用户是否收藏了本书单
+ function isGood(){  
+ 	var  actionUrl=ajaxAgent.serverAction+'/jpjs/userinfo/ifPraiseBookSheet'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				booklistId:api.pageParam.booklistId,
+				userId:userEntity.userId,
+			}
+		}
+	}, function(ret, err) { 
+			if (ret.result == 1) { //正确结果返回
+ 				var obj=$api.byId("goodNum");
+			 	if(ret.isGood==1){ 
+					$api.html(obj, '<span><img src="../image/rcmdIcon_white.png" /></span>'+goodNum+'人点赞');
+					$api.attr(obj, "class","zanSpan"); 			    
+				}else{ 
+					$api.html(obj, '<span><img src="../image/rcmdIcon_active.png" /></span>'+goodNum+'人点赞');	
+					$api.attr(obj, "class","cangSpan"); 			    			    
+				}				
+			    return true; 
+			}else {//没有正确返回 
+		       toastNetErr('获取书单信息失败！');
+			}  
+	});  
+ }
+
+
+//获取书单关联的图书 
+ function getBooks(){ 
+    showProgress();
+ 	var  actionUrl=ajaxAgent.serverAction+'/booksheet/queryBookListBySheetId'; 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : {
+				booklistId:api.pageParam.booklistId,
+			}
+		}
+	}, function(ret, err) { 
+	    api.hideProgress(); 
+			if (ret.result == 1) { //正确结果返回
+				var html='';
+				for(var i=0;i<ret.list.length;i++){
+					var book=ret.list[i]; 
+				    html+='<li><div><img src="'+getBookImgPath(book.imgPath)+'"  onclick="openBookDetail('+book.id+')"/></div></li>';
+				}
+				if(html!=''){//加载到页面上
+				  $api.html($api.byId("books"), html);
+				  $api.removeCls($api.byId("booksDiv"), "hidden");
+				}
+			    return true; 
+			}else {
+		      
+		       
+			} 
+		
+		
+	});	 
+ 
+ }  
+
+//获取评论
+function getList() { 
+    showProgress();
+	 var actionUrl = ajaxAgent.serverAction + '/booksheet/queryCommentListBySheetId';
+	 var values={
+		 page:page,
+		 pageNum:pageNum,
+		 booklistId:api.pageParam.booklistId, 
+	 }  
+	 getListContent(actionUrl,values); 
+	 api.hideProgress(); 
+}
+
+//制作模板
+function makelist(ret) {   
+	var html='';
+	if(ret.totalNum) totalNum=ret.totalNum;  
+	if(page==1 && totalNum==0){//暂无数据
+		html+='<li id="nothing">';
+		html+='    <div class="rcmdHead">';
+		html+='        <div class="rcmdHeadBox"> ';
+		html+='            <p>暂无评论！</p>';
+		html+='        </div> ';
+		html+='    </div>';
+		html+='</li>';
+		$api.html($api.byId("list"), html);
+		$api.removeCls($api.byId("replyList"), 'hidden'); 
+	}else if(ret.list){ 
+		html=''; 
+		for (var i = 0; i < ret.list.length; i++) { 
+			var user=ret.list[i].userMap;//推荐人对象
+			var comment=ret.list[i].commentMap;//荐书对象
+			var userImg='';
+			if(user.icon && user.icon!=''){
+				userImg='<img src="'+ajaxAgent.serverAction +user.icon+'" />'; 
+			} 
+			html+='<li>';
+			html+='    <div class="rcmdHead">';
+			html+='        <div class="rcmdHeadBox">';
+			html+='            <em class="headPic">'+userImg+'</em>';
+			html+='            <p>'+user.nickName+'</p>';
+			html+='        </div>';
+			html+='        <span>'+comment.publishTime+'</span>';
+			html+='    </div>';
+			html+='    <div class="replyCont">'+comment.content+'</div>';
+			html+='</li> ';
+		} 
+	} 
+	if (page == 1) {
+		$api.html($api.byId("list"), html);
+		$api.removeCls($api.byId("replyList"), 'hidden');
+	} else {
+		$api.append($api.byId("list"), html);
+	} 
+	api.parseTapmode();
+}
+
+
+//保存书单评论
+function saveComment(){
+  if (sessionAgent.isLogin(userEntity)) {//登录后评论
+    var content=$api.val($api.byId("txtBox"));
+    if(isEmpty(content)){
+    	toastNetErr("请输入评论内容！");
+    	return false;
+    }else {
+    	if(content.length>200){
+	     toastNetErr("评论内容请控制在200个字以内!"); 
+	  	 return false;  
+	  	}
+    
+    }
+	var actionUrl = ajaxAgent.serverAction + '/booksheet/saveBookSheetComment';
+	var values={
+		 userId:userEntity.userId,
+		 booklistId:api.pageParam.booklistId,
+		 content:content,
+	} 
+	showProgress(); 
+	api.ajax({
+		url : actionUrl,
+		method : 'post',
+		timeout : 50,
+		dataType : 'json',
+		returnAll : false,
+		data : {
+			values : values
+		}
+	}, function(ret, err) {
+		api.hideProgress();  
+		if (ret) { 
+			if (ret.result == 1) {//操作成功，修改图标状态 
+			   $api.val($api.byId("txtBox"),"");
+			   //updateCommentNum();//修改回复数
+			   toastNetErr('成功发送！'); 
+			   if(ret.user){ 
+					var user=ret.user;//推荐人对象
+					var comment=ret.comment;//荐书对象
+					var userImg='';
+					if(user.icon && user.icon!=''){
+						userImg='<img src="'+ajaxAgent.serverAction +user.icon+'" />'; 
+					}
+					var html='';
+					html='<li>';
+					html+='    <div class="rcmdHead">';
+					html+='        <div class="rcmdHeadBox">';
+					html+='            <em class="headPic">'+userImg+'</em>';
+					html+='            <p>'+user.nickName+'</p>';
+					html+='        </div>';
+					html+='        <span>'+comment.publishTime+'</span>';
+					html+='    </div>';
+					html+='    <div class="replyCont">'+content+'</div>';
+					html+='</li> ';			   
+			   		//添加到第一条
+			   		$api.prepend($api.byId("list"), html);
+			   		if($api.byId("nothing")){
+			   			$api.remove($api.byId("nothing"));
+			   		}
+			   		api.parseTapmode();
+			   } 
+			   return true; 
+			}else{
+				toastNetErr(ret.msg);
+			}  
+		} else { 
+ 			toastNetErr('网络连接错误！');
+		} 
+		
+	});	
+  }else{
+    toastNetErr('请登录后操作！');
+  } 		
+
+} 
+
+
+// 最小高度
+
+    var minRows = 5;
+    // 最大高度，超过则出现滚动条
+    var maxRows = 12;
+    function autoResize(t){
+        //var t = document.getElementById('txt');
+        if (t.scrollTop == 0) t.scrollTop=1;
+        while (t.scrollTop == 0){
+            if (t.rows > minRows)
+                t.rows--;
+            else
+                break;
+            t.scrollTop = 1;
+            if (t.rows < maxRows)
+                t.style.overflowY = "hidden";
+            if (t.scrollTop > 0){
+                t.rows++;
+                break;
+            }
+        }
+        while(t.scrollTop > 0){
+            if (t.rows < maxRows){
+                t.rows++;
+                if (t.scrollTop == 0) t.scrollTop=1;
+            }
+            else{
+                t.style.overflowY = "auto";
+                break;
+            }
+        }
+    }
+</script>
+</html>

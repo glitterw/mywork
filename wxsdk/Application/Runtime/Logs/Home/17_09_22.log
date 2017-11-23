@@ -1,0 +1,1021 @@
+[ 2017-09-22T09:22:47+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T09:23:31+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-22T09:25:28+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T09:29:22+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] unlink(./Application/Runtime/Temp/d86c828583c5c6160e8acfee88ba1590.php) [<a href='function.unlink'>function.unlink</a>]: No such file or directory D:\WWW\wxsdk\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T09:29:24+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] unlink(./Application/Runtime/Temp/d86c828583c5c6160e8acfee88ba1590.php) [<a href='function.unlink'>function.unlink</a>]: No such file or directory D:\WWW\wxsdk\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T09:29:25+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] unlink(./Application/Runtime/Temp/d86c828583c5c6160e8acfee88ba1590.php) [<a href='function.unlink'>function.unlink</a>]: No such file or directory D:\WWW\wxsdk\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T11:49:30+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T11:50:04+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 104 行.
+NOTIC: [8] Use of undefined constant access_token - assumed 'access_token' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 64 行.
+NOTIC: [8] Use of undefined constant type - assumed 'type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 65 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T11:50:28+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 104 行.
+NOTIC: [8] Use of undefined constant access_token - assumed 'access_token' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 64 行.
+NOTIC: [8] Use of undefined constant type - assumed 'type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 65 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T12:03:53+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 93 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 94 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 100 行.
+NOTIC: [8] Use of undefined constant access_token - assumed 'access_token' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 60 行.
+NOTIC: [8] Use of undefined constant type - assumed 'type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 61 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T14:45:31+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-09-22T14:48:27+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T14:49:23+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T14:49:27+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T14:51:46+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T14:54:45+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T14:56:57+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T14:56:59+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T15:03:19+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:04:54+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:11:40+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Object of class stdClass could not be converted to int D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 102 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:13:06+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T15:13:07+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:21:24+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T15:21:29+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:22:30+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:24:52+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 111 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:28:49+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 100 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 113 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:31:19+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+NOTIC: [8] Trying to get property of non-object D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 104 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 112 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:34:00+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Object of class stdClass could not be converted to int D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 104 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 110 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T15:34:18+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [4096] Object of class stdClass could not be converted to string D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 104 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 110 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:34:30+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [4096] Object of class stdClass could not be converted to string D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 104 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 110 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:35:33+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+NOTIC: [4096] Object of class stdClass could not be converted to string D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 106 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 112 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:35:35+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 99 行.
+NOTIC: [4096] Object of class stdClass could not be converted to string D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 106 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 112 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:36:16+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 110 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:40:06+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 110 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T15:41:57+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 110 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 111 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:42:46+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 110 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 111 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:43:18+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+
+[ 2017-09-22T15:46:20+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 112 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:46:36+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 112 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T15:47:23+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 112 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 114 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:47:32+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 112 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 114 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:48:31+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:51:09+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [2] Missing argument 1 for Home\Controller\SdkController::getErrorbyToken(), called in D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php on line 110 and defined D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 126 行.
+NOTIC: [2] Missing argument 2 for Home\Controller\SdkController::getErrorbyToken(), called in D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php on line 110 and defined D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 126 行.
+NOTIC: [8] Undefined variable: errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 128 行.
+NOTIC: [8] Undefined variable: msg D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 141 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:51:43+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [2] Missing argument 2 for Home\Controller\SdkController::getErrorbyToken(), called in D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php on line 110 and defined D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 126 行.
+NOTIC: [8] Undefined variable: msg D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 141 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:52:05+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:53:04+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:53:47+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-09-22T15:54:51+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 105 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:56:45+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 105 行.
+NOTIC: [8] Use of undefined constant access_token - assumed 'access_token' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 63 行.
+NOTIC: [8] Use of undefined constant type - assumed 'type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 64 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:58:04+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 102 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 103 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 105 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:58:34+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 102 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 103 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 105 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:59:22+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 102 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 103 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 105 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T15:59:38+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 102 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 103 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 105 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T16:01:01+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 103 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T16:01:43+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 107 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T16:02:15+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 107 行.
+NOTIC: [8] Undefined variable: error D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T16:17:54+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T16:17:57+08:00 ] ::1 /wxsdk/Home/Sdk/getToken
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T16:18:10+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 48 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T16:20:35+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 108 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 48 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-09-22T16:24:14+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 107 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 109 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 48 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T16:26:34+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 107 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 48 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T16:27:43+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant grant_type - assumed 'grant_type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant secret - assumed 'secret' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 97 行.
+NOTIC: [8] Undefined property: stdClass::$errcode D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 103 行.
+NOTIC: [8] Use of undefined constant access_token - assumed 'access_token' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 63 行.
+NOTIC: [8] Use of undefined constant type - assumed 'type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 64 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 48 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T16:28:33+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant access_token - assumed 'access_token' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 63 行.
+NOTIC: [8] Use of undefined constant type - assumed 'type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 64 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 48 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-22T16:30:00+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant access_token - assumed 'access_token' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 65 行.
+NOTIC: [8] Use of undefined constant type - assumed 'type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 66 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 50 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-22T16:31:32+08:00 ] ::1 /wxsdk/Home/Sdk/signature
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant access_token - assumed 'access_token' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 65 行.
+NOTIC: [8] Use of undefined constant type - assumed 'type' D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 66 行.
+NOTIC: [8] Undefined variable: httpData D:\WWW\wxsdk\Application\Home\Controller\SdkController.class.php 第 50 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+

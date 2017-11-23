@@ -1,0 +1,2412 @@
+[ 2016-03-29T17:35:31+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_library` WHERE `area_id` = 10 AND `library_type_id` = 5 AND `state` = 1  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:31+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `re_library` WHERE `area_id` = 10 AND `library_type_id` = 8 AND `state` = 1  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:32+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=reader
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0050s ]
+SQL: SELECT `id`,`name` FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-03-29T17:35:33+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 11  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:33+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '保障措施' GROUP BY level2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '人员保障'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '政策保障'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '经费保障'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:35:33+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '基础建设'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读绩效'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:35:33+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T17:35:45+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `re_library` WHERE `area_id` = 10 AND `library_type_id` = 5 AND `state` = 1  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T17:35:45+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `re_library` WHERE `area_id` = 10 AND `library_type_id` = 3 AND `state` = 1  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:46+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `re_library` WHERE `area_id` = 10 AND `library_type_id` = 1 AND `state` = 1  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:46+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `re_library` WHERE `area_id` = 1 AND `library_type_id` = 1 AND `state` = 1  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:47+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `re_library` WHERE `area_id` = 1 AND `library_type_id` = 3 AND `state` = 1  [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:48+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `re_library` WHERE `area_id` = 1 AND `library_type_id` = 1 AND `state` = 1  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-03-29T17:35:49+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `re_library` WHERE `library_type_id` = 1 AND `state` = 1  [ RunTime:0.0050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-03-29T17:35:49+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `re_library` WHERE `library_type_id` = 3 AND `state` = 1  [ RunTime:0.0060s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:54+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `re_library` WHERE `library_type_id` = 1 AND `state` = 1  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:35:54+08:00 ] 192.168.11.95 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `re_library` WHERE `library_type_id` = 1 AND `state` = 1  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:36:10+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=reader
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`name` FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:36:10+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 4  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 7  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 10  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 13  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:36:10+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '基础建设'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读绩效'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:36:10+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T17:36:10+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '保障措施' GROUP BY level2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '人员保障'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '政策保障'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '经费保障'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:42:23+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=reader
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`name` FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:42:23+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:42:23+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '基础建设'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读绩效'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:42:23+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:42:23+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '保障措施' GROUP BY level2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '人员保障'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '政策保障'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '经费保障'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:42:39+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=reader
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0040s ]
+SQL: SELECT `id`,`name` FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T17:42:39+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 4  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 7  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 9  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 13  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T17:42:39+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '基础建设'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读绩效'  [ RunTime:0.0010s ]
+
+[ 2016-03-29T17:42:39+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:42:39+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '保障措施' GROUP BY level2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '人员保障'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '政策保障'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '经费保障'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:54:15+08:00 ] 192.168.11.128 /reader/index.php?m=Home&c=Index&a=getLibrary
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_library` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `re_library` WHERE `state` = 1  [ RunTime:0.0120s ]
+
+[ 2016-03-29T17:59:01+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=reader
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0050s ]
+SQL: SELECT `id`,`name` FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0050s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-03-29T17:59:01+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '基础建设'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读绩效'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:59:01+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 4  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 7  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 10  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 13  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-03-29T17:59:01+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '保障措施' GROUP BY level2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '人员保障'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '政策保障'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '经费保障'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T17:59:01+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:59:04+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '基础建设' GROUP BY level2  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:59:04+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 4  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 9  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 11  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 13  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:59:06+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0050s ]
+SQL: SELECT `level3` FROM `re_score` WHERE `level2` = '设施设置率' GROUP BY level3  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T17:59:06+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 10  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 12  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:59:09+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 10  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 12  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:59:12+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '服务系统' GROUP BY level2  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:59:12+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 9  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T17:59:17+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0050s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '服务系统' GROUP BY level2  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T17:59:17+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 13  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '公共图书馆' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:01:48+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=reader
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`name` FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:01:49+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 5  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 10  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:01:49+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '基础建设'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读绩效'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:01:49+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:01:49+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '保障措施' GROUP BY level2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '人员保障'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '政策保障'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '经费保障'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:01:53+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '基础建设' GROUP BY level2  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:01:53+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 7  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 9  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T18:01:56+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level3` FROM `re_score` WHERE `level2` = '文献资源' GROUP BY level3  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:01:56+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 11  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:01:59+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 4  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 10  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 12  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 14  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:03+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '服务系统' GROUP BY level2  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:03+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 9  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '文献资源' AND `level3` = '人均藏书量' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T18:02:18+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=reader
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0040s ]
+SQL: SELECT `id`,`name` FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:18+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 5  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 13  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T18:02:18+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '基础建设'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读绩效'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:02:18+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT `level1` FROM `re_score` GROUP BY level1  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:18+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '保障措施' GROUP BY level2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '人员保障'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '政策保障'  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '保障措施' AND `level2` = '经费保障'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:02:21+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '基础建设' GROUP BY level2  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:21+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 5  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 7  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 9  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:22+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT `level3` FROM `re_score` WHERE `level2` = '设施设置率' GROUP BY level3  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:22+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 1  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 13  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `area_id` = 15  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T18:02:23+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 11  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 13  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '基础建设' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:25+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0050s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '服务系统' GROUP BY level2  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T18:02:25+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 10  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '设施设置率' AND `level3` = '企业图书馆' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:28+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0040s ]
+SQL: SELECT `level3` FROM `re_score` WHERE `level2` = '服务方式' GROUP BY level3  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:28+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0050s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 6  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 11  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '企业图书馆' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:30+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0020s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 3  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 9  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 11  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 14  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:35+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getLevelChilren
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT `level3` FROM `re_score` WHERE `level2` = '服务方式' GROUP BY level3  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:02:35+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 7  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 9  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 11  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 12  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '图书漂流点' AND `area_id` = 15  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T18:02:38+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getAreaData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0030s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 3  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 4  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 5  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 6  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 7  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 9  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 10  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 11  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 12  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 13  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 14  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),0) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式' AND `level3` = '自助图书馆' AND `area_id` = 15  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:03:10+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0050s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '服务系统' GROUP BY level2  [ RunTime:0.0010s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务宣传'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '服务系统' AND `level2` = '服务方式'  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:03:13+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=getNormData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_score` [ RunTime:0.0060s ]
+SQL: SELECT `level2` FROM `re_score` WHERE `level1` = '阅读活动' GROUP BY level2  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动' AND `level2` = '参与人次'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动' AND `level2` = '品牌活动'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动' AND `level2` = '活动层面'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动' AND `level2` = '活动数量'  [ RunTime:0.0000s ]
+SQL: SELECT ifnull(sum(score),1) as score FROM `re_score` WHERE `level1` = '阅读活动' AND `level2` = '资料台帐'  [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:03:16+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=book
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0050s ]
+NOTIC: [8] Use of undefined constant area_id - assumed 'area_id' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 202 行.
+SQL: SELECT `area_id`,`area` FROM `re_question` GROUP BY area_id  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SELECT `education`,`education_type`,`education_name` FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 207 行.
+SQL: SELECT `occupation`,`occupation_type`,`occupation_name` FROM `re_question` GROUP BY occupation  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:03:16+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0020s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` GROUP BY sex_name  [ RunTime:0.0120s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` GROUP BY occupation LIMIT 0,6   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:03:16+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` GROUP BY buy_num  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` GROUP BY opinion  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `condition` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:03:23+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=book
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0040s ]
+NOTIC: [8] Use of undefined constant area_id - assumed 'area_id' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 202 行.
+SQL: SELECT `area_id`,`area` FROM `re_question` GROUP BY area_id  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SELECT `education`,`education_type`,`education_name` FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 207 行.
+SQL: SELECT `occupation`,`occupation_type`,`occupation_name` FROM `re_question` GROUP BY occupation  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T18:03:23+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` GROUP BY sex_name  [ RunTime:0.0120s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` GROUP BY occupation LIMIT 0,6   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` GROUP BY education  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:03:23+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` GROUP BY isknow  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` GROUP BY opinion  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `condition` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `service` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:04:28+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=book
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Use of undefined constant area_id - assumed 'area_id' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 202 行.
+SQL: SELECT `area_id`,`area` FROM `re_question` GROUP BY area_id  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SELECT `education`,`education_type`,`education_name` FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 207 行.
+SQL: SELECT `occupation`,`occupation_type`,`occupation_name` FROM `re_question` GROUP BY occupation  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-03-29T18:04:28+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` GROUP BY sex_name  [ RunTime:0.0120s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` GROUP BY occupation LIMIT 0,6   [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:04:28+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` GROUP BY buy_num  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` GROUP BY opinion  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:04:31+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0050s ]
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` WHERE `area_id` = 5 GROUP BY sex_name  [ RunTime:0.0060s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` WHERE `area_id` = 5 GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` WHERE `area_id` = 5 GROUP BY occupation LIMIT 0,6   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` WHERE `area_id` = 5 GROUP BY education  [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:04:41+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=book
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Use of undefined constant area_id - assumed 'area_id' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 202 行.
+SQL: SELECT `area_id`,`area` FROM `re_question` GROUP BY area_id  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SELECT `education`,`education_type`,`education_name` FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 207 行.
+SQL: SELECT `occupation`,`occupation_type`,`occupation_name` FROM `re_question` GROUP BY occupation  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:04:41+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` GROUP BY sex_name  [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` GROUP BY occupation LIMIT 0,6   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:04:41+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` GROUP BY isknow  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` GROUP BY opinion  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `condition` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:04:47+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0060s ]
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` WHERE `area_id` = 5 GROUP BY sex_name  [ RunTime:0.0060s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` WHERE `area_id` = 5 GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` WHERE `area_id` = 5 GROUP BY occupation LIMIT 0,6   [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` WHERE `area_id` = 5 GROUP BY education  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:04:54+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `re_area` WHERE ( state=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `re_library_type` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `re_library_type` WHERE ( state=1 )  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:05:13+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=book
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Use of undefined constant area_id - assumed 'area_id' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 202 行.
+SQL: SELECT `area_id`,`area` FROM `re_question` GROUP BY area_id  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SELECT `education`,`education_type`,`education_name` FROM `re_question` GROUP BY education  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 207 行.
+SQL: SELECT `occupation`,`occupation_type`,`occupation_name` FROM `re_question` GROUP BY occupation  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:05:13+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` GROUP BY sex_name  [ RunTime:0.0120s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` GROUP BY occupation LIMIT 0,6   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:05:13+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` GROUP BY cost  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` GROUP BY isknow  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` GROUP BY opinion  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `condition` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `service` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:05:19+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=book
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Use of undefined constant area_id - assumed 'area_id' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 202 行.
+SQL: SELECT `area_id`,`area` FROM `re_question` GROUP BY area_id  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SELECT `education`,`education_type`,`education_name` FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 207 行.
+SQL: SELECT `occupation`,`occupation_type`,`occupation_name` FROM `re_question` GROUP BY occupation  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:05:19+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` GROUP BY sex_name  [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` GROUP BY occupation LIMIT 0,6   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:05:19+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` GROUP BY buy_num  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` GROUP BY cost  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` GROUP BY opinion  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `environment` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:05:47+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0070s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 5 GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 5 GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 5 GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 5 GROUP BY opinion  [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:05:51+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 7 GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 7 GROUP BY cost  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 7 GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 7 GROUP BY opinion  [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:05:55+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0040s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 GROUP BY buy_num  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 GROUP BY cost  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 GROUP BY opinion  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 2 AND `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:06:00+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0050s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 GROUP BY opinion  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:06:03+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0080s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: buyName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 141 行.
+NOTIC: [8] Undefined variable: buyNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 142 行.
+NOTIC: [8] Undefined variable: payName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: payNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 144 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 GROUP BY opinion  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `service` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 171 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 172 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 173 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 174 行.
+
+[ 2016-03-29T18:06:06+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0050s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: buyName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 141 行.
+NOTIC: [8] Undefined variable: buyNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 142 行.
+NOTIC: [8] Undefined variable: payName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: payNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 144 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 GROUP BY opinion  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 3 AND `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 171 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 172 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 173 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 174 行.
+
+[ 2016-03-29T18:06:10+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0060s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: buyName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 141 行.
+NOTIC: [8] Undefined variable: buyNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 142 行.
+NOTIC: [8] Undefined variable: payName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: payNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 144 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY isknow  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY opinion  [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 7 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `service` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 171 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 172 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 173 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 174 行.
+
+[ 2016-03-29T18:06:30+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY buy_num  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY cost  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: buyName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 141 行.
+NOTIC: [8] Undefined variable: buyNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 142 行.
+NOTIC: [8] Undefined variable: payName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: payNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 144 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY opinion  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `service` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 171 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 172 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 173 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 174 行.
+
+[ 2016-03-29T18:06:36+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0070s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY buy_num  [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY cost  [ RunTime:0.0020s ]
+NOTIC: [8] Undefined variable: buyName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 141 行.
+NOTIC: [8] Undefined variable: buyNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 142 行.
+NOTIC: [8] Undefined variable: payName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: payNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 144 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY isknow  [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 GROUP BY opinion  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 6 AND `service` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 171 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 172 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 173 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 174 行.
+
+[ 2016-03-29T18:06:38+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 GROUP BY cost  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: buyName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 141 行.
+NOTIC: [8] Undefined variable: buyNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 142 行.
+NOTIC: [8] Undefined variable: payName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: payNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 144 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 GROUP BY isknow  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 GROUP BY opinion  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 AND `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 171 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 172 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 173 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 174 行.
+
+[ 2016-03-29T18:06:41+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0050s ]
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 GROUP BY buy_num  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: buyName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 141 行.
+NOTIC: [8] Undefined variable: buyNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 142 行.
+NOTIC: [8] Undefined variable: payName E:\work\Reader\Application\Home\Controller\BookController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: payNum E:\work\Reader\Application\Home\Controller\BookController.class.php 第 144 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 GROUP BY isknow  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 GROUP BY opinion  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 AND `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 AND `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 AND `environment` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `area_id` = 5 AND `sex_type` = 1 AND `education_type` = 1 AND `occupation_type` = 2 AND `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 171 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 172 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 173 行.
+NOTIC: [2] Division by zero E:\work\Reader\Application\Home\Controller\BookController.class.php 第 174 行.
+
+[ 2016-03-29T18:08:19+08:00 ] ::1 /reader/index.php?m=Home&c=Index&a=book
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_area` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Use of undefined constant area_id - assumed 'area_id' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 202 行.
+SQL: SELECT `area_id`,`area` FROM `re_question` GROUP BY area_id  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SELECT `education`,`education_type`,`education_name` FROM `re_question` GROUP BY education  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\IndexController.class.php 第 207 行.
+SQL: SELECT `occupation`,`occupation_type`,`occupation_name` FROM `re_question` GROUP BY occupation  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-03-29T18:08:19+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` GROUP BY sex_name  [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 193 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` GROUP BY occupation LIMIT 0,6   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` GROUP BY education  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:08:19+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingBottom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant buy_num - assumed 'buy_num' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 130 行.
+SQL: SELECT `buy_num`,count(buy_num) as buyNum FROM `re_question` GROUP BY buy_num  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant cost - assumed 'cost' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 131 行.
+SQL: SELECT `cost`,count(cost) as payNum FROM `re_question` GROUP BY cost  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+NOTIC: [8] Use of undefined constant isknow - assumed 'isknow' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 101 行.
+SQL: SELECT `isknow`,count(isknow) as knowNum FROM `re_question` GROUP BY isknow  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant opinion - assumed 'opinion' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 103 行.
+SQL: SELECT `opinion`,count(opinion) as opNum FROM `re_question` GROUP BY opinion  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where E:\work\Reader\Application\Home\Controller\BookController.class.php 第 208 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `condition` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `resource` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `environment` >= 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `re_question` WHERE `service` >= 3 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:08:24+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0040s ]
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` WHERE `area_id` = 5 GROUP BY sex_name  [ RunTime:0.0050s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` WHERE `area_id` = 5 GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` WHERE `area_id` = 5 GROUP BY occupation LIMIT 0,6   [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` WHERE `area_id` = 5 GROUP BY education  [ RunTime:0.0010s ]
+
+[ 2016-03-29T18:08:26+08:00 ] ::1 /reader/index.php?m=Home&c=Book&a=getReadingCity
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `re_question` [ RunTime:0.0040s ]
+NOTIC: [8] Use of undefined constant sex_name - assumed 'sex_name' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 36 行.
+SQL: SELECT `sex_type`,`sex_name`,count(sex_type) as sexNum FROM `re_question` WHERE `area_id` = 10 GROUP BY sex_name  [ RunTime:0.0050s ]
+NOTIC: [8] Undefined variable: num E:\work\Reader\Application\Home\Controller\BookController.class.php 第 41 行.
+NOTIC: [8] Use of undefined constant age_scope - assumed 'age_scope' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 65 行.
+SQL: SELECT `age_scope`,count(age_scope) as ageNum FROM `re_question` WHERE `area_id` = 10 GROUP BY age_scope LIMIT 0,5   [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant occupation - assumed 'occupation' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 67 行.
+SQL: SELECT `occupation`,count(occupation) as normNum FROM `re_question` WHERE `area_id` = 10 GROUP BY occupation LIMIT 0,6   [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant education - assumed 'education' E:\work\Reader\Application\Home\Controller\BookController.class.php 第 69 行.
+SQL: SELECT `education`,`education_name`,count(education) as cationNum FROM `re_question` WHERE `area_id` = 10 GROUP BY education  [ RunTime:0.0000s ]
+

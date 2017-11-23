@@ -1,0 +1,252 @@
+<include file="Public:header" />   
+    <div id="container" class="width1100 marginAuto">
+    	<!--区域指数分析-->
+    	<div class=" Regional overflow width100">
+        	<!--标题-->
+        	<div class="title mar_b20">
+            	<h2 class="fl fontSize20px"><span></span>区域指数分析</h2>
+                <div class="selectBox width165 fr">
+                	<div class="selectList" id="selectList03">
+                        <span id="norm03" class="fontSize14px fontColor666">选择三级指标</span>
+						<i class="arrow arrowL"></i>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="selectBox width165 fr">
+                	<div class="selectList" id="selectList02">
+                        <span id="norm02" class="fontSize14px fontColor666">选择二级指标</span>
+						<i class="arrow arrowL"></i>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="selectBox width165 fr">
+                	<div class="selectList" id="selectList01">
+                        <span id="norm01" class="fontSize14px fontColor666">选择一级指标</span>
+						<i class="arrow arrowL"></i>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>	
+            <div class="score fontSize16px fontColor666 mar_b20">武汉市全面阅读综合评估得分：<i>96</i>分</div>
+            <!--标题结束-->
+            <div class=" Regional_con backgorundColor">
+				<!--
+				<h3 class="fontSize16px fontColor666">武汉各城区全民阅读建设评估得分</h3>
+				<img src="{PUBLIC_IMAG}/updata/Regional_pic.png" width="1060" height="350" />
+				-->
+				
+				<div class="topBar" style="width:1060px;height:350px;border:5px solid red;"></div>
+				
+				
+				
+				
+           </div>
+        </div>
+        <!--区域指数分析结束-->
+        
+        <!--指数构成分析-->
+       	<div class="composition width100">
+        	<!--标题-->
+        	<div class="title mar_b20">
+            	<h2 class="fl fontSize20px"><span></span>指数构成分析</h2>
+                <div class="selectBox width215 fr">
+                	<div class="selectList" id="selectList04">
+                        <span id="norm04" class="fontSize14px fontColor666">选择区域</span><i class="arrow arrowL"></i>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="score fontSize16px fontColor666 mar_b20">2015年全面阅读建设综合评估得分为：<i>80</i>分</div>
+            <!--标题结束-->
+            <div class="composition_con overflow mar_b10">
+            	<div class="composition_left backgorundColor fl leftPin" style="width:525px;height:345px;border:1px solid red;">
+					<!--
+					<img src="{PUBLIC_IMAG}/updata/composition_left.png" width="525" height="345" />
+					-->
+				</div>
+                <div class="composition_right backgorundColor fr">
+                	<ol id="Tab01">
+                    	<li class="active" onclick="setRightBarChart()">基础建设</li>
+                        <li onclick="setRightBarChart()">服务系统</li>
+                        <li onclick="setRightBarChart()">阅读活动</li>
+                        <li onclick="setRightBarChart()">阅读绩效</li>
+                        <li onclick="setRightBarChart()">保障措施</li>
+                    </ol>
+                    <ul>
+					<li style="display:block;margin-top:50px;">
+						<div class="rightBar" style="width:385px;height:280px;border:1px solid red;"></div>
+					</li>
+					<!--
+					<li style="display:block;"><img src="{PUBLIC_IMAG}/updata/composition_right.png" width="385" height="305" /></li>
+                        <li><img src="{PUBLIC_IMAG}/updata/composition_right.png" width="385" height="305" /></li>
+                        <li><img src="{PUBLIC_IMAG}/updata/composition_right.png" width="385" height="305" /></li>
+                        <li><img src="{PUBLIC_IMAG}/updata/composition_right.png" width="385" height="305" /></li>
+                        <li><img src="{PUBLIC_IMAG}/updata/composition_right.png" width="385" height="305" /></li>
+					-->
+                    </ul>
+               	 </div>
+           </div>
+          <div class="explanation fontSize14px fontColor999 mar_b50">
+          	<p>说明：本评估系统的指标制定及评分标准严格按照《武汉市全民阅读综合评估指标体系》执行，分为基础建设、服务系统、阅读活动、阅读绩效及保障措施5个大模块，即5个一级指标。下设二级指标18个，三级指标73个。本系统依据各区文化系统搜集信息、网上问卷收集信息及线下调查问卷信息综合得出评估结果。</p>
+          </div>
+        </div>
+        <!--指数构成分析结束-->
+    </div>
+<include file="Public:footer" />
+<script type="text/javascript">
+	$(function(){
+		setTopBarChart();
+		setLeftPinChart();
+		setRightBarChart();
+	});
+	//武汉市全民阅读综合评估得分柱状图
+	function setTopBarChart(){
+		var myChart = echarts.init($(".topBar")[0]);
+		var option = {
+			 title : {
+				text : '全民阅读建设综合评估得分构成分析',
+				 x : 'center'
+			},
+			 xAxis : [
+				{
+					type : 'category',
+					show: false,
+					data : ['汉阳','洪山','江夏','汉南','武昌','硚口','江汉','江岸','青山','新洲','黄波']
+				}
+			],	
+			yAxis : [
+				{
+					type : 'value',
+					show: false
+				}
+			],
+			series : [
+				{
+					name:'直接访问',
+					type:'bar',
+					//barWidth : 100,
+
+					itemStyle:{
+						normal: {
+							color: function(params) {
+								var colorList = ['#C1232B','#B5C334','#FCCE10','#E87C25','#27727B','#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD','#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0' ];
+								 return colorList[params.dataIndex]
+							},
+							barBorderRadius: 15,
+							label: {
+								show: true,
+								position: 'top',
+								formatter: '{b}\n{c}'
+							}
+						} 
+					},
+					data:[80, 70, 90, 87, 92, 85, 86, 75, 65, 93,97]
+				}
+			]
+		};
+		myChart.setOption(option);
+	}
+	//2015年全民阅读建设综合评估得分饼图
+	function setLeftPinChart(){
+		var myChart = echarts.init($(".leftPin")[0]);
+		var option = {
+			title : {
+				text : '全民阅读建设综合评估得分构成分析',
+				 x : 'center'
+			},
+			series : [
+				{
+					name: '得分构成分析',
+					type: 'pie',
+					radius : '55%',
+					center: ['50%', '60%'],
+					data:[
+						{value:20, name:'保障措施'},
+						{value:15, name:'阅读绩效'},
+						{value:15, name:'阅读活动'},
+						{value:20, name:'基础建设'},
+						{value:30, name:'服务系统'}
+					],
+					label: {
+						normal: {
+							show : true,
+							formatter: '{b}{d}%'
+						}
+					},
+					itemStyle: {
+						emphasis: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}
+			],
+			color : ['#dc69aa','#96706d', '#97b553', '#8d99b3', '#e5ce0c','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+		};
+		myChart.setOption(option);
+	}
+	//二级指标明细柱状图
+	function setRightBarChart(){
+		var myChart = echarts.init($(".rightBar")[0]);
+		var option = {
+			title : {
+				text : '二级指标得分明细',
+				 x : 'center'
+			},
+			xAxis : [
+				{
+					type : 'category',
+					data : ['设施设置率','文献资源率','阅读组织率']
+				}
+			],	
+			yAxis : [
+				{
+					type : 'value'
+					//show: false
+				}
+			],
+			series : [
+				{
+					name:'直接访问',
+					type:'bar',
+					barWidth : 50,
+					itemStyle:{
+						normal: {
+							barBorderRadius: 5
+						} 
+					},
+					data:[20, 15, 17]
+				}
+			],
+			color : ['#4f81bc','#96706d', '#97b553', '#8d99b3', '#e5ce0c','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+			//backgroundColor : '#e7e7e7'
+		};
+		myChart.setOption(option);
+	}
+</script>
+ 

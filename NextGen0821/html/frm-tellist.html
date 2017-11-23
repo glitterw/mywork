@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>呼叫清单</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body>
+    <div class="nothing-box hidden">
+        <div class="nothing">
+            <p>暂无数据
+                <p>
+        </div>
+    </div>
+    <div class="table-box ">
+        <p class="total-num hidden"><span>数据总计：<i id="totalNum">0</i>条</span></p>
+        <!-- 数据列表 开始 -->
+        <div class="list " id="list-box">
+            <div class="tr title flex-box">
+                <span class="flex-item td telno">号码</span>
+                <span class="flex-item td time">最近呼叫时间</span>
+                <span class="flex-item td data-name">数据包名称</span>
+                <span class="flex-item td user">状态</span>
+            </div>
+
+            <!-- <div class="tr item flex-box ">
+                <span class="flex-item td telno">138****9803</span>
+                <span class="flex-item td time">2017.7.24 13:25</span>
+                <span class="flex-item td data-name"><i>房产模型1房产模型1</i></span>
+                <span class="flex-item td user">待拨打</span>
+            </div> -->
+        </div>
+        <!-- 数据列表 结束 -->
+    </div>
+    </div>
+    <div class="load-process">
+        <!-- 页面滑到底部 开始 -->
+        <div class="on-bottom hidden">
+            <p class="icon-shan_la">
+                <span>
+            <i>上滑下载更多数据</i>
+            <i id="showNum">已加载 20/50</i>
+          </span>
+            </p>
+        </div>
+        <!-- 页面滑到底部 结束 -->
+        <!-- 数据加载中 开始 -->
+        <div class="loading hidden">
+            <p>
+              <span class="icon-loading spin">
+                    <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span>
+                    </span>
+              <span>数据载入中...</span></p>
+        </div>
+        <!-- 数据加载中 结束 -->
+        <!-- 数据加载完 开始 -->
+        <div class="the-end  hidden">
+            <p class="icon-stop_la">
+                <span>
+                <i id="showTotalNum">已加载全部50条数据</i>
+                <i class="go-begin">返回顶部</i>
+              </span>
+            </p>
+        </div>
+        <!-- 数据加载完 结束 -->
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript">
+    var page = 1;
+    var pageNum = 10;
+    var totalNum = 0;
+    var sumNum = 0; //目前加载的总条目
+    var userType = 0; //用户意向值 （0：全部 1：未接通，2：待填写 3：有意向，4：无意向，5：约见面）
+    var timeType=0;  //0:不限时间 1：近1周 2：近1月 3：近3月
+    var timeOrder = 1; //时间排序方式（0：正序，1：倒序）
+    var timeObj = { //时间条件
+        "startTime": "",
+        "endTime": ""
+    }
+    apiready = function() {
+        //筛选条件赋值
+        userType=api.pageParam.userType;
+        timeType=api.pageParam.timeType;
+        getTimeByType(timeType);
+        timeOrder=api.pageParam.timeOrder;
+        getList();
+        listenToBottom();
+    };
+
+
+    //根据时间筛选类型，转义为时间戳
+    function getTimeByType(type) {
+
+        switch (type) {
+            case 0: //不限制时间（全部）
+                break;
+            case 1: //近1周
+                var nowTime = new Date();
+                timeObj.startTime = nowTime.getTime();
+                nowTime.setDate(nowTime.getDate() + 7);
+                timeObj.endTime = nowTime.getTime();
+                break;
+            case 2: //近1月
+                var nowTime = new Date();
+                timeObj.startTime = nowTime.getTime();
+                nowTime.setMonth(nowTime.getMonth() + 1);
+                timeObj.endTime = nowTime.getTime();
+                break;
+            case 3: //近3月
+                var nowTime = new Date();
+                timeObj.startTime = nowTime.getTime();
+                nowTime.setMonth(nowTime.getMonth() + 3);
+                timeObj.endTime = nowTime.getTime();
+                break;
+            default:
+
+        }
+    }
+
+    function getList() {
+        var actionUrl = ajaxAgent.serverAction + '/user/getCallList';
+        var userEntity = sessionAgent.getLoginInfo();
+        var values = {
+                "id": userEntity.id,
+                "token": userEntity.token,
+                "version": ajaxAgent.version,
+                "pageSize": pageNum,
+                "pageNum": page,
+                "data": {
+                    "sortTime": timeOrder,
+                    "userPurpose": userType,
+                    "startTime": timeObj.startTime,
+                    "endTime": timeObj.endTime
+                }
+            }
+             console.log('timeOrder:'+timeOrder);
+            // console.log('userType:'+userType);
+           console.log('values:'+JSON.stringify(values));
+        getListContent(actionUrl, values);
+    }
+
+    //数据路由制作
+    function makelist(ret) {
+      hideLoading();
+        if (ret.status == 0) { //返回正确结果
+            if (ret.data) {
+                var data = ret.data;
+                if (data.count>=0) {
+                    totalNum = data.count;
+                    if (totalNum == 0) { //没有数据
+                        $api.removeCls($api.dom(".nothing-box"), 'hidden');
+                        $api.addCls($api.dom('.table-box'), 'hidden');
+                        $api.addCls($api.dom('.load-process'), 'hidden');
+                        return false;
+                    } else {
+                        //更新总量数据
+                        updateTotalNum(totalNum);
+                        if (data.callList) {
+                            var list = data.callList;
+                            sumNum += list.length;
+                            //生成html并加载到页面上
+                            var html = creatHtml(list);
+                            if (page == 1) {
+                                $api.append($api.byId("list-box"), html);
+                                api.parseTapmode();
+                                //$api.removeCls($api.byId("list-box"), "hidden");
+                            } else {
+                                $api.append($api.byId("list-box"), html);
+                                api.parseTapmode();
+                            }
+
+                            if(sumNum>=totalNum){
+                               //showTheEndTab(sumNum,totalNum);
+                            }else{
+                              //showBottomTab(sumNum, totalNum);
+                              //listenToBottom();
+                            }
+                            api.parseTapmode();
+
+                        }
+                    }
+
+                } else { //出错了，没有返回总量
+                    toastNetErrBottom("数据返回错误！");
+                }
+            }else{
+              toastNetErrBottom("data is null!");
+            }
+        }else{
+           toastNetErrBottom(ret.msg);
+        }
+
+    }
+
+    //修改页面上的总量
+    function updateTotalNum(totalNum) {
+        $api.text($api.byId("totalNum"), totalNum);
+        $api.removeCls($api.dom(".total-num"), 'hidden');
+
+
+    }
+    //生成每次加载的页面内容
+    function creatHtml(listArray) {
+        var html = "";
+        for (var i = 0; i < listArray.length; i++) {
+            var obj = listArray[i];
+            html += '<div class="tr item flex-box">';
+            html += '    <span class="flex-item td telno">'+getSecretTel(obj.phone)+'</span>';
+            html += '    <span class="flex-item td time">'+obj.time+'</span>';
+            html += '    <span class="flex-item td data-name"><i>'+obj.name+'</i></span>';
+            html += '    <span class="flex-item td user">'+obj.callStateString+'</span>';
+            html += '</div>';
+        }
+        return html;
+    }
+</script>
+
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>呼叫清单</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body>
+    <div id="wrap" class="">
+        <div class="header-box">
+            <div class="common-header icon-go"><span>呼叫清单</span></div>
+        </div>
+        <!--  筛选条件 开始-->
+        <div class="tellist-box">
+            <div class="select-box flex-box">
+                <span class="flex-item  select-name " id="userSelect" value="0" show="0" type="userSelect"><i class="icon-like"></i><i class="name">用户意向</i><i class="icon-triangle"></i></span>
+                <span class="flex-item  select-name " id="timeSelect"  value="0" show="0"  type="timeSelect"><i class="icon-selecte"></i> <i class="name">筛选</i><i class="icon-triangle"></i></span>
+                <span class="flex-item  select-item active"  type="timeOrder" id="timeOrderBox" value="1"><i class="icon-order"></i><i>时间排序</i><i class="order-triangle"></i></span>
+            </div>
+
+        </div>
+    </div>
+    <!--  筛选条件 结束-->
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/route.js"></script>
+<script type="text/javascript">
+    var frmY=0;
+    apiready = function() {
+        //状态栏字体为白色，适用于深色背景
+        var header = $api.dom(".header-box"); //$api.byId('header');
+        //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+        $api.fixStatusBar(header);
+        api.setStatusBarStyle({
+            style: 'light'
+        });
+        //计算frm的开始高度
+        frmY = $api.offset(header).h+ $api.offset($api.dom(".tellist-box")).h;
+        var pageParam=getSelectParam();
+        //加载列表
+        openList(frmY,pageParam);
+        //点击返回按钮
+        $api.addEvt($api.dom(".icon-go"), 'click', function() {
+            api.closeWin();
+        });
+        //用户筛选操作
+        userSelect(frmY);
+        //用户时间排序
+        timeOrder();
+    };
+
+    //时间排序
+    function timeOrder(){
+      $api.addEvt($api.byId("timeOrderBox"), 'click', function() {
+           var className=$api.attr(this,'class');
+           //console.log($api.attr(this,'class'));
+           if(className.indexOf("active2")>0){//由正排变化为倒排
+             $api.removeCls(this, 'active2');
+             $api.addCls(this, 'active');
+             $api.attr(this,'value',1);
+           }else if(className.indexOf("active")>0){ //由倒排变化为正排
+              $api.removeCls(this, 'active');
+              $api.addCls(this, 'active2');
+              $api.attr(this,'value',0);
+           }
+           var pageParam=getSelectParam();
+           openList(frmY,pageParam);
+
+      });
+
+    }
+    //打开列表
+    function openList(frmY,pageParam) {
+        api.openFrame({
+            name: 'frm-tellist',
+            url: 'frm-tellist.html',
+            rect: {
+                x: 0,
+                y: frmY,
+                w: 'auto',
+                h: 'auto'
+            },
+            pageParam:pageParam,
+            bounces: true,
+            bgColor: 'rgba(0,0,0,0)',
+            vScrollBarEnabled: true,
+            hScrollBarEnabled: true,
+            reload:true
+        });
+
+    }
+  //用户筛选操作
+    function userSelect(frmY){
+      //关闭之前的选项
+      // api.closeFrame({
+      //     name: 'frmSelect'
+      // });
+
+      var Doms=$api.domAll('.select-box>.select-name');
+            for (var i = 0; i < Doms.length; i++) {
+              //取出当前的
+              $api.addEvt(Doms[i], 'click', function() {
+                  if($api.dom(".select-box>.select-name.active")){
+                    $api.removeCls($api.dom(".select-box>.select-name.active"), 'active');
+                  }
+                  $api.addCls(this, 'active');
+                  var type=$api.attr(this,"type");
+                  var show=$api.attr(this,"show");
+                  var value=$api.attr(this,"value");
+                    if(show==0){//展开
+                      $api.attr(this,"show",1);
+                      api.openFrame({
+                          name: 'frmSelect',
+                          url: 'frm-select.html',
+                          rect: {
+                              x: 0,
+                              y: frmY,
+                              w: 'auto',
+                              h: 'auto'
+                          },
+                          pageParam: {
+                              type: type,
+                              value:value
+                          },
+                          bounces: false,
+                          bgColor: 'rgba(0, 0, 0, 0.5)',
+                          vScrollBarEnabled: true,
+                          hScrollBarEnabled: true,
+                          reload:true
+                      });
+                    }else {//收起
+                      $api.attr(this,"show",0);
+                      $api.removeCls(this, 'active');
+                      api.closeFrame({
+                          name: 'frmSelect'
+                      });
+                    }
+
+
+              });
+          }
+    }
+
+ //选择条件后的执行函数
+ function  selectCallBack(type,value,name){
+    $api.text($api.dom($api.byId(type),".name"), name);
+    $api.attr($api.byId(type),"value",value);
+    //按钮变为灰色
+    $api.removeCls($api.byId(type), 'active');
+
+    var pageParam=getSelectParam();
+    //console.log('pageParam:'+JSON.stringify(pageParam));
+    openList(frmY,pageParam);
+ }
+//获取当前的筛选条件
+function getSelectParam(){
+  //获取当前的条件值
+  var userType=$api.attr($api.byId("userSelect"),"value");
+  var timeType=$api.attr($api.byId("timeSelect"),"value");
+  var timeOrder=$api.attr($api.byId("timeOrderBox"),"value");
+  var pageParam={
+    userType:userType,
+    timeType:timeType,
+    timeOrder:timeOrder
+  };
+  return pageParam;
+}
+
+</script>
+
+</html>

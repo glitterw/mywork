@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>公共头部</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth /7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body >
+  <div id="wrap" class="">
+   <div class="header-box">
+     <div class="common-header icon-go"><span id="titleName">公共头部</span></div>
+   </div>
+   <!--  筛选条件 开始-->
+ </div>
+   <div class="option-box flex-box hidden ">
+       <ul class="flex-item option-name">
+         <li class="active">用户意向</li>
+         <li >时间</li>
+         <li></li>
+       </ul>
+       <ul  class="flex-item value">
+         <li  class="no-border" ><span>无意向</span></li>
+         <li class="active"><span>有意向</span></li>
+         <li><span>观察</span></li>
+       </ul>
+   </div>
+ </div>
+  <!--  筛选条件 结束-->
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/route.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+      //状态栏字体为白色，适用于深色背景
+      var header = $api.dom(".header-box"); //$api.byId('header');
+      //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+      $api.fixStatusBar(header);
+      api.setStatusBarStyle({
+          style: 'light'
+      });
+      $api.html($api.byId("titleName"), api.pageParam.winTitle);
+       //计算frm的开始高度
+      var frmY=$api.offset(header).h;
+       //加载列表
+       openFrm(frmY);
+//点击返回按钮
+       $api.addEvt($api.dom(".icon-go"), 'click',function(){
+          api.closeWin();
+       });
+    };
+
+function openFrm(frmY){
+   api.openFrame({
+       name: api.pageParam.frmName,
+       url: api.pageParam.frmHtml,
+       rect: {
+           x: 0,
+           y:frmY,
+           w: 'auto',
+           h: 'auto'
+       },
+       pageParam: {
+           name: 'test'
+       },
+       bounces: api.pageParam.bounces,
+       bgColor: '#f6f6f6',
+       vScrollBarEnabled: true,
+       hScrollBarEnabled: true,
+       reload:true
+   });
+
+}
+
+</script>
+
+</html>

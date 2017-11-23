@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/popUp.css" />
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
+    <title>Title</title>
+    <style>
+
+        #popUp_select{
+
+            height:4.5rem;
+            /*overflow: auto;*/
+        }
+        .swiper-slide{
+            height:auto !important;
+            /*padding-bottom:1.8rem;*/
+        }
+        .swiper-wrapper{
+            height:auto !important;
+        }
+
+    </style>
+</head>
+<body>
+<div id="popUp_select" class="swiper-container">
+    <div class="warp swiper-wrapper">
+    <ul id="modeBox" class="swiper-slide">
+        <!--<li><span style="color:#1177ee">全部</span><span class="selectOk"></span></li>-->
+        <!--<li><span>房产模型1</span><span></span></li>-->
+        <!--<li><span>房产模型2</span><span></span></li>-->
+        <!--<li><span>房产模型3</span><span></span></li>-->
+        <!--<li><span>房产模型4</span><span></span></li>-->
+        <!--<li><span>房产模型1</span><span></span></li>-->
+        <!--<li><span>房产模型2</span><span></span></li>-->
+        <!--<li><span>房产模型3</span><span></span></li>-->
+        <!--<li><span>房产模型4</span><span></span></li>-->
+        <!--<li><span>房产模型1</span><span></span></li>-->
+        <!--<li><span>房产模型2</span><span></span></li>-->
+        <!--<li><span>房产模型3</span><span></span></li>-->
+        <!--<li><span>房产模型4</span><span></span></li>-->
+        <!--<li><span>房产模型1</span><span></span></li>-->
+        <!--<li><span>房产模型2</span><span></span></li>-->
+        <!--<li><span>房产模型3</span><span></span></li>-->
+        <!--<li><span>房产模型4</span><span></span></li>-->
+
+    </ul>
+    </div>
+    <div class="swiper-scrollbar"></div>
+</div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/yll.util.js"></script>
+<script teype="text/javascript" src="../script/swiper.min.js"></script>
+<script type="text/html" id="modeListTemplate">
+    <li tid="ListData"><span tid="titles" >房产模型1</span><span tid="slects"></span></li>
+</script>
+
+<script>
+    var Modeurl = getAPI('call/getOutCallList');
+    var modeParams ={};
+    modeParams.pageSize = 4;
+    modeParams.pageNum = 1
+    modeParams.data = {keyword: ''}
+    var scrollbox = document.getElementById('popUp_select')
+    var contatiner = document.getElementById('modeBox')
+    var templateList = document.getElementById('modeListTemplate').innerHTML
+    var containerScroll = document.getElementById('popUp_select')
+    var ListLi = document.getElementsByTagName('ul')[0].getElementsByTagName('li')
+
+    apiready = function() {
+        var baseParam = sessionAgent.getLoginInfo();
+           modeParams.id = baseParam.id;
+           modeParams.token = baseParam.token
+          apiAjax(Modeurl, modeParams, function (ret) {
+            if (ret.status == 0) {
+
+                var ListData = ret.data.outCallList
+                if(ListData.length> 0){
+                    var firstLi = {name: '全部', outCallId: '', num: 1}
+                    createList(firstLi).appendTo(contatiner);
+                    for (var i = 0; i < ListData.length; i++) {
+                        createList(ListData[i]).appendTo(contatiner);
+                    }
+                }
+            }else{
+                $toast(ret.msg)
+            }
+        })
+
+
+
+
+
+        function selectList() {
+            for (var i = 0; i < ListLi.length; i++) {
+                (function (i) {
+                    ListLi[i].addEventListener('click', function () {
+                        var allChildelems = this.parentNode.children;
+                        var spanlebel = this.getElementsByTagName('span');
+                        spanlebel[1].className = 'selectOk'
+                        spanlebel[0].style.color = "#1177ee";
+                        //statusType(i)
+                        for (var a = 0; a < allChildelems.length; a++) {
+                            if (allChildelems[a] !== this) {
+                                var spanAll = allChildelems[a].getElementsByTagName('span')
+                                spanAll[0].style.color = "#333"
+                                spanAll[1].className = '';
+                            }
+                        }
+
+                    }, false)
+                })(i)
+            }
+        }
+
+    }
+
+    function createList(info) {
+        var templateLI = new yll.util.HtmlTemplate(templateList)
+//         alert(templateLI.getElementByTid('titles').innerHTML)
+        if (info.num == 1) {
+            templateLI.getElementByTid('ListData').getElementsByTagName('span')[1].className = 'selectOk'
+            templateLI.getElementByTid('ListData').getElementsByTagName('span')[0].style.color = '#1177ee'
+        }
+        templateLI.getElementByTid('titles').innerHTML = info.name
+        templateLI.getElementByTid('ListData').addEventListener('click', function () {
+            var allChildelems = this.parentNode.children;
+            this.getElementsByTagName('span')[1].className = 'selectOk'
+            this.getElementsByTagName('span')[0].style.color = '#1177ee'
+            api.sendEvent({
+                name: 'outCallId',
+                extra: {outCallId: info.outCallId}
+            });
+            for (var t = 0; t < allChildelems.length; t++) {
+                if (this !== allChildelems[t]) {
+                    allChildelems[t].getElementsByTagName('span')[1].className = '';
+                    allChildelems[t].getElementsByTagName('span')[0].style.color = '#333'
+                }
+            }
+
+            setTimeout(function () {
+                api.setFrameAttr({
+                    name: 'analysispopUp',
+                    hidden: true,
+                });
+
+            }, 300)
+        }, false)
+        return templateLI
+    }
+    //swiper实现上拉加载；
+    var locked = false;
+    var swiper = new Swiper('.swiper-container', {
+        scrollbar: '.swiper-scrollbar',
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        mousewheelControl: true,
+        freeMode: true,
+        onTouchEnd: function (swiper) {
+            if (swiper.isEnd) {
+                if (!locked) {
+                    locked = true;
+                } else {
+                    return
+                }
+
+                modeParams.pageNum++
+                setTimeout(function(){
+                    api.ajax({
+                        url: Modeurl,
+                        headers: {
+                            "Authorization": "Bearer [accessToken]",
+                            "content-Type": "application/json"
+                        },
+                        method: 'post',
+                        timeout: 30,
+                        dataType: 'json',
+                        returnAll: false,
+                        data: {
+                            body: modeParams,
+                        }
+                    }, function (ret, err) {
+                        //alert(JSON.stringify(ret))
+                        if (ret) {
+                            if (ret.status == 0) {
+                                var ListData = ret.data.outCallList
+                                for (var i = 0; i < ListData.length; i++) {
+                                    createList(ListData[i]).appendTo(contatiner);
+                                }
+                            } else {
+                                $toast(ret.msg)
+                            }
+                        } else {
+                            //$toast(ret.msg)
+
+                        }
+                        locked = false;
+                        swiper.update()
+                        swiper.params.onlyExternal = false;
+                    });
+                },500)
+
+            }
+
+        }
+    });
+
+
+</script>
+</html>

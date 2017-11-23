@@ -1,0 +1,415 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+	<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+	<title>home</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/callOut.css" />
+	<style>
+	 html{
+	 	background-color: #f6f6f6;
+	 }
+		.analysis_title {}
+
+		.waper_s {
+			height: 0.6rem;
+			padding: 0.14rem 0.3rem;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.36rem;
+			color: #fff;
+		}
+
+		.waper_s span.back {
+			width: 0.22rem;
+			height: 0.22rem;
+			/*border-right:2px solid #fff;*/
+			/*border-bottom:2px solid #fff;*/
+			/*transform: rotate(135deg);*/
+		}
+
+		.waper_s span.button {
+			width: 0.38rem;
+			height: 0.42rem;
+			background: url('../image/icon_select.svg')no-repeat center;
+			background-size: cover;
+		}
+
+		.mine_title {
+			height: 3.4rem;
+		}
+
+		.mine_title p {
+			color: #fff;
+			text-align: center;
+		}
+
+		.mine_title p:first-child {
+			font-size: 0.36rem;
+			padding: 0.4rem 0 0.9rem 0;
+		}
+
+		.mine_title p:last-child {
+			font-size: 0.48rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="call_out">
+		<header>
+			<div class="head_title head_item activeHeader">
+				<div class="waper_m">
+					<p>外呼</p>
+					<div class="search">
+						<input type="text" readonly="readonly" />
+						<span class="shoso"></span>
+					</div>
+				</div>
+
+			</div>
+			<div class="analysis_title head_item" >
+				<div class="waper_s">
+					<span class="back"></span>
+					<p>数据分析</p>
+					<span tapmode class="button" id="analysisBnt">
+
+               </span>
+				</div>
+			</div>
+			<div class="mine_title head_item" >
+				<p>我的</p>
+				<p id="myPhone" class="hidden"></p>
+			</div>
+		</header>
+		<div class="main"></div>
+		<footer>
+			<ul class="footer_list">
+				<li tapmode active="true">
+					<span></span>
+					<span>外呼</span>
+				</li>
+				<li tapmode>
+					<span></span>
+					<span>数据分析</span>
+				</li>
+				<li tapmode >
+					<span></span>
+					<span>我的</span>
+				</li>
+			</ul>
+		</footer>
+	</div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+	apiready = function() {
+		//修改我的手机号码
+		var userEntity = sessionAgent.getLoginInfo();
+		updateUserPhone(userEntity.phone);
+		var eles = document.getElementsByClassName('footer_list')[0].getElementsByTagName('li');
+		var header = document.getElementsByTagName('header')[0];
+		var footer = document.getElementsByTagName('footer')[0];
+		var search = document.getElementsByClassName('search')[0]
+		var headers = header.getElementsByClassName('head_item')
+		var analysisbnt = document.getElementById("analysisBnt");
+		var showFrame = false;
+		var arrFrames = (function () {
+			var arr_f = [];
+			for (var i = 0; i < eles.length; i++) {
+				var frameparams = {};
+				switch (i) {
+					case 0:
+						frameparams.name = "breathe";
+						frameparams.url = "./breathe_frame.html";
+						//frameparams.name = "frmIndex";
+						//frameparams.url = "./frm-index.html";
+						break;
+					case 1:
+						frameparams.name = "analysis";
+						frameparams.url = "./analysis_frame.html";
+						break;
+					case 2:
+						frameparams.name = "mine";
+						frameparams.url = "./mine_frame.html";
+						break;
+
+						defualt:
+								break;
+				}
+				arr_f.push(frameparams)
+			}
+			return arr_f;
+		})()
+		fix_android_ios('white')
+		//checkLogin();
+		//向右轻扫退出系统
+		api.addEventListener({
+			name: 'swiperight'
+		}, function (ret, err) {
+			//alert('向右轻扫');
+			api.closeWidget();
+
+		});
+
+
+		openFrames(arrFrames[0], {});
+		switchFrame();
+		search.addEventListener('click', function () {
+			open_w('searchWin', './search_win.html', {})
+			api.sendEvent({
+				name: 'refshParam',
+				extra: {
+					initData: 'empty'
+				}
+			});
+
+		}, false);
+		analysisbnt.addEventListener("click", function () {
+			//var tebleshow = !showFrame
+			var header = document.getElementsByTagName('header')[0];
+			var headheight = $api.offset(header).h
+
+			if (!showFrame) {
+				showFrame = true;
+				popUpList(headheight, {})
+			} else {
+				showFrame = false;
+				api.setFrameAttr({
+					name: 'analysispopUp',
+					hidden:true
+				});
+			}
+
+		}, false) ;
+
+		exitApp(api.appId)
+
+		function switchFrame() {
+			var indexPage = 0;
+			var headers = header.getElementsByClassName('head_item')
+			for (var i = 0; i < eles.length; i++) {
+				(function (i) {
+
+					eles[i].addEventListener('click', function () {
+						//headers[i].style.display = "block"
+						$api.addCls(headers[i], 'activeHeader');
+						for (var h = 0; h < headers.length; h++) {
+							if (i !== h) {
+								$api.removeCls(headers[h], 'activeHeader');
+							}
+						}
+
+						if (i == 0) {
+							header.style.backgroundImage = "url(../image/heaer_bg.png)"
+							header.style.backgroundSize = "cover"
+						} else if (i == 1) {
+							header.style.background = "#1177ee";
+						} else if (i == 2) {
+							header.style.backgroundImage = "url(../image/mine_bg.svg)"
+							header.style.backgroundSize = "cover"
+						}
+						var allChildelems = this.parentNode.children;
+						$api.attr(this, 'active', 'true');
+
+						for (var a = 0; a < allChildelems.length; a++) {
+							if (allChildelems[a] !== this) {
+								$api.removeAttr(allChildelems[a], 'active');
+							}
+						}
+						for (var k = 0; k < arrFrames.length; k++) {
+							if (arrFrames[i] !== arrFrames[k]) {
+
+								hiddenFrame(arrFrames[k])
+							}
+						}
+//						for (var t = 0; t < headers.length; t++) {
+//							if (headers[i] !== headers[t]) {
+//								headers[t].style.display = "none"
+//							}
+//						}
+						//console.log(indexPage)
+						var heightFrame = styleValue(header).height+styleValue(headers[i]).height
+						if (indexPage == i) {
+							return
+						}else {
+							openFrames(arrFrames[i], {}, i)
+							indexPage = i
+						}
+						//alert($api.offset(header).h)
+					}, false)
+				})(i)
+			}
+		}
+
+
+		function openFrames(path, params, index) {
+      console.log("path:"+JSON.stringify(path));
+			console.log("index:"+index);
+			var header = document.getElementsByTagName('header')[0];
+			if (is_define(pageParam)) {
+				var pageParam = params;
+			} else {
+				var pageParam = new Object();
+			}
+			//alert(JSON.stringify($api.offset(header).h))
+
+			api.openFrame({
+				name: path.name,
+				url: path.url,
+				rect: {
+					x: 0,
+					y: $api.offset(header).h,
+					w: api.winWidth,
+					h: api.winHeight - ($api.offset(header).h + $api.offset(footer).h)
+				},
+				pageParam: pageParam,
+				bounces: index == 2 ? false : true,
+				//allowEdit : true,
+				bgColor: 'rgba(246,246,246,1)', //'rgba(ee,ee,ee,1)
+				vScrollBarEnabled: true,
+				//hScrollBarEnabled : true,
+				reload: true
+			});
+
+		}
+		function styleValue(element) {
+			//element = $(element);
+			var display = element.style.display;
+			if (display != 'none' && display != null) // Safari bug
+				return {width: element.offsetWidth, height: element.offsetHeight};
+
+			// All *Width and *Height properties give 0 on elements with display none,
+			// so enable the element temporarily
+			var els = element.style;
+			var originalVisibility = els.visibility;
+			var originalPosition = els.position;
+			var originalDisplay = els.display;
+			els.visibility = 'hidden';
+			els.position = 'absolute';
+			els.display = 'block';
+			var originalWidth = element.clientWidth;
+			var originalHeight = element.clientHeight;
+			els.display = originalDisplay;
+			els.position = originalPosition;
+			els.visibility = originalVisibility;
+			return {width: originalWidth, height: originalHeight};
+		}
+
+
+
+		//数据分析顶部弹窗
+		function popUpList(headerHeight, pageParam) {
+			if (is_define(pageParam)) {
+				var pageParam = pageParam;
+			} else {
+				var pageParam = new Object();
+			}
+			api.openFrame({
+				name: 'analysispopUp',
+				url: './analysisPopUp_frame.html',
+				rect: {
+					x: 0,
+					y: headerHeight,
+					w: api.winWidth,
+					h: api.winHeight - headerHeight
+				},
+				bgColor: 'rgba(0,0,0,0.5)',
+				pageParam: pageParam,
+				bounces: false,
+			});
+		}
+
+		//隐藏frame
+		function hiddenFrame(frameArr) {
+			api.setFrameAttr({
+				name: frameArr.name,
+				//bounces: true,
+				hidden: true,
+				//		vScrollBarEnabled: true,
+				//			hScrollBarEnabled: true
+			});
+		}
+
+		//用户登录页面
+		function openLogin() {
+			api.openWin({
+				name: 'login',
+				url: 'win-login.html',
+				pageParam: {}
+			});
+
+		}
+
+		//退出app封装；
+		function exitApp(appid) {
+
+			api.addEventListener({
+
+				name: 'keyback'
+
+			}, function (ret, err) {
+
+				api.toast({
+
+					msg: '再按一次返回键退出' + api.appName,
+
+					duration: 2000,
+
+					location: 'bottom'
+
+				});
+
+
+				api.addEventListener({
+
+					name: 'keyback'
+
+				}, function (ret, err) {
+
+					api.closeWidget({
+
+						id: appid, //这里改成自己的应用ID
+
+						retData: {
+							name: 'closeWidget'
+						},
+
+						silent: true
+
+					});
+
+				});
+
+				setTimeout(function () {
+
+					exitApp();
+
+				}, 3000)
+
+			});
+
+		}
+} //apiready end
+	//修改用户的手机号码
+		function updateUserPhone(myPhone) {
+			if ($api.byId("myPhone")) {
+				$api.text($api.byId("myPhone"), myPhone);
+				$api.removeCls($api.byId("myPhone"), 'hidden');
+			}
+
+		}
+
+</script>
+
+</html>

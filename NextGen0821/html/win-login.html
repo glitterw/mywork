@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body>
+    <div id="wrap" class="">
+        <div class="header-box"></div>
+        <div class="user-login">
+            <div class="logo"></div>
+            <div class="login-button icon-tel-icon"><input type="text" placeholder="请输入手机号" id="tel"></div>
+            <div class="login-button icon-pwd"><input type="password" placeholder="请输入密码" id="passwd"></div>
+            <div class="submit"><input type="button" value="安全登录" class="submit-login" id="login"> </div>
+            <p class="site-name">版权所有 © 北京中润普达信息技术有限公司</p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/route.js"></script>
+<script type="text/javascript" src="../script/md5.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        //状态栏字体为白色，适用于深色背景
+        var header = $api.dom(".header-box"); //$api.byId('header');
+        //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+        $api.fixStatusBar(header);
+        api.setStatusBarStyle({
+            style: 'light'
+        });
+        userAction();
+        login();
+
+        //监听 点击返回退出系统
+        api.addEventListener({
+            name: 'keyback'
+        }, function(ret, err) {
+            api.closeWidget({
+                id: api.appId,
+            });
+        });
+
+        //向右轻扫退出系统
+        api.addEventListener({
+            name: 'swiperight'
+        }, function(ret, err) {
+            //alert('向右轻扫');
+            api.closeWidget();
+
+        });
+    }
+
+
+    function login() {
+        //登录操作
+        $api.addEvt($api.byId("login"), 'click', function() {
+            if (checkUserTel()) { //手机号码验证成功，去验证密码
+                if (checkUserPassword()) { //密码验证通过，请求服务器登录系统
+                    userLoginBySev();
+                    //
+                    //saveUserInfo();
+                }
+
+            } else { //手机号码验证失败
+                return false;
+            }
+        });
+
+    }
+
+    //请求服务器登录
+    function userLoginBySev() {
+        var phone = $api.val($api.byId("tel"));
+        var password = $api.val($api.byId("passwd"));
+        //console.log(phone + '=>' + password);
+        var md5Password = md5.hex(password);
+        //console.log( 'md5Password=>' + md5Password);
+        var actionUrl = ajaxAgent.serverAction + '/user/login';
+        console.log(actionUrl);
+       var device="4";
+       if(api.systemType=="android"){
+         device="2";
+       }else if(api.systemType=="ios"){
+          device="3";
+       }else{
+         device="4";
+       }
+        var values= {
+            type: 0,
+            phone: phone, //'122',
+            password: md5Password, //'334'
+            deviceNumber:api.deviceId,
+            device:device
+        };
+        var body= {
+            version: ajaxAgent.version,
+            data: values
+        }
+        console.log(JSON.stringify(body));
+        api.ajax({
+            async: false,
+            url: actionUrl,
+            method: 'post',
+            timeout: 30,
+            dataType: 'json',
+            returnAll: false,
+            headers: {
+                "Authorization": "Bearer [accessToken]",
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            data: {
+                body: {
+                    version: ajaxAgent.version,
+                    data: values
+                }
+            }
+        }, function(ret, err) {
+console.log(JSON.stringify(ret));
+            if (ret) {
+                if (ret.status == 0) {
+                    //console.log(JSON.stringify(ret.data));
+                    saveUserInfo(ret.data);
+                } else {
+                    toastNetErr(ret.msg);
+                }
+            } else {
+                toastNetErr(err.msg);
+            }
+        });
+
+    }
+
+    function userAction() {
+        $api.addEvt($api.byId("tel"), 'blur', function() {
+            checkUserTel();
+        });
+        $api.addEvt($api.byId("passwd"), 'blur', function() {
+            checkUserPassword();
+        });
+
+    }
+    //验证电话号码
+    function checkUserTel() {
+        if (checkEmpty($api.byId("tel"), "请输入手机号码")) {
+            return checkTel($api.val($api.byId("tel")));
+        } else {
+            return false; //验证失败
+        }
+    }
+
+    //验证密码是否为空
+    function checkUserPassword() {
+        return checkEmpty($api.byId("passwd"), "请输入密码")
+    }
+    //登录成功记录用户信息
+    function saveUserInfo(userEntity) {
+        sessionAgent.setLoginInfo(userEntity);
+        // var pageParam = {
+        //     userPhone: userEntity.phone
+        // };
+        //api.closeWin(); //关闭当前窗口
+        openMain('main_win.html', {});
+        // api.execScript({
+        //     name: 'root',
+        //     script: 'updateUserPhone("'+userEntity.phone+'");'
+        // });
+
+
+    }
+</script>
+
+</html>

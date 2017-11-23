@@ -1,0 +1,20 @@
+@charset "UTF-8";
+html,body{
+    background:rgba(0,0,0,0)
+}
+#pop_bottom_list{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#fff;
+}
+#pop_bottom_list ul li {
+    heihgt:0.9rem;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-size:0.28rem;
+    line-height: 0.9rem;
+    box-sizing: border-box;
+    color:#333;
+}

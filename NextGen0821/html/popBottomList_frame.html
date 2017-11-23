@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>popBottonList</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/popBottom.css" />
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="pop_bottom_list">
+        <ul class="pop_list">
+            <li id="hj">呼叫</li>
+            <!-- <li>发短信</li> -->
+            <li>查看/更新基本资料</li>
+            <li>取消</li>
+        </ul>
+    </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script>
+    apiready = function() {
+        var selecBnt = document.getElementsByClassName('pop_list')[0].getElementsByTagName('li')
+        var pageParams = get_par()
+        var onCall = false
+        selecBnt[0].addEventListener('click', function () {
+            //alert(JSON.stringify(pageParams))
+
+               callPhone(pageParams)
+
+        }, false)
+        selecBnt[1].addEventListener('click', function () {
+            openSendSmsWin(pageParams)
+            api.closeFrame({
+                name: 'popBottom'
+            });
+        });
+
+        selecBnt[2].addEventListener('click', function () {
+
+            pageParams.loadType == 0 ? openusredetails(pageParams) : openfillInwin(pageParams)
+            api.closeFrame({
+                name: 'popBottom'
+            });
+        }, false)
+
+        selecBnt[3].addEventListener('click', function () {
+            api.closeFrame({
+                name: 'popBottom'
+            });
+        }, false)
+
+
+        function selectBnt(params) {
+            for (var i = 0; i < selecBnt.length; i++) {
+                (function (i) {
+                    selecBnt[i].addEventListener('click', function () {
+                        switch (i) {
+                            case 0:
+                                callPhone()
+
+                                break;
+                            case 1:
+                                // send_sms(params.tel,'测试短信',function(){alert('成功后回调')})
+                                openSendSmsWin(params)
+                                break;
+                            case 2:
+                                    if(params.loadType == 0){
+                                        openusredetails(params)
+                                    }else{
+
+                                        openfillInwin(params)
+                                    }
+
+                                break;
+                            case 3:
+                                api.closeFrame({
+                                    name: 'popBottom'
+                                });
+                                break;
+                        }
+                        api.closeFrame({
+                            name: 'popBottom'
+                        });
+                    }, false)
+                })(i)
+            }
+        }
+
+
+        function openfillInwin(params) {
+            //alert('进入填写资料页面')
+            if (is_define(params)) {
+                var pageParam = params;
+            } else {
+                var pageParam = new Object();
+            }
+            api.openWin({
+                name: 'fillIn',
+                url: './fillIn_win.html',
+                pageParam: pageParam
+            });
+        }
+
+        function openusredetails(params) {
+            if (is_define(params)) {
+                var pageParam = params;
+            } else {
+                var pageParam = new Object();
+            }
+            api.openWin({
+                name: 'userDetails',
+                url: './userDetails_win.html',
+                pageParam: pageParam
+            });
+        }
+
+
+        function openSendSmsWin(params) {
+            if (is_define(params)) {
+                var pageParam = params;
+            } else {
+                var pageParam = new Object();
+            }
+            api.openWin({
+                name: 'sendSMS',
+                url: './sendSms_win.html',
+                pageParam: pageParam
+            });
+        }
+
+        function callPhone(data) {
+            var callSeverUrl = getAPI('call/startCall')
+            var callbaseParams = sessionAgent.getLoginInfo()
+                callbaseParams.data = {calledOutCallPhoneId: data['callstates']}
+            //alert(JSON.stringify(callbaseParams))
+            if(!onCall) {
+                onCall = true;
+                console.log(onCall)
+                apiAjax(callSeverUrl, callbaseParams, function (ret) {
+                    if (ret.status == 0) {
+
+                        api.toast({
+                            msg: '请在' + ret.data.validTime + '分钟内拨打',
+                            duration: 2000,
+                            location: 'middle'
+                        });
+                        api.sendEvent({
+                            name: 'ListenerPhone',
+                            extra: {yesCall: 'ok', bindId: ret.data.bindId, calloutcallId: data.callstates}
+                        });
+                        setTimeout(function () {
+                            if ($api.trim(ret.data.dstVirtualNum) !== '') {
+                                call_tel(ret.data.dstVirtualNum)
+                            } else {
+                                $toast('号码为空')
+                            }
+
+                        }, 2000)
+                        api.setFrameAttr({
+                            name: 'popBottom',
+                            hidden:true
+                        });
+
+                    } else {
+                        $toast(ret.msg)
+                        setTimeout(function () {
+                            api.setFrameAttr({
+                                name: 'popBottom',
+                                hidden:true
+                            });
+                        }, 2000)
+                    }
+                    onCall = true
+                })
+            }
+        }
+    }
+</script>
+
+</html>

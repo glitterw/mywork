@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>电话列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/callList.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body>
+    <div class="nothing-box hidden">
+        <div class="nothing">
+            <p>暂无数据
+                <p>
+        </div>
+    </div>
+    <div class="call_list_box ">
+        <ul class="content_list " id="list">
+            <!-- <li tid="Listcall" >
+                <div tid="callstate" class="call-bnt dialed">未接通</div>
+                <div class="call_details">
+                    <p tid="callCode">18368571381</p>
+                    <span class="user-opinion type1"><i>有意向</i></span>
+                    <p tid="stateShow"></p>
+                </div>
+                <div class="call_enter" tid="label"></div>
+            </li> -->
+            <!-- <li tid="Listcall">
+                <div tid="callstate" class="call-bnt dialed">未接通</div>
+                <div class="call_details">
+                    <p tid="callCode">18368571381</p>
+                    <span class="user-opinion type1"><i>有意向</i></span>
+                    <p tid="stateShow"></p>
+                </div>
+                <div class="call_enter" tid="label"></div>
+            </li>
+            <li tid="Listcall">
+                <div tid="callstate" class="call-bnt be_dialed">待拨</div>
+                <div class="call_details">
+                    <p tid="callCode">18368571381</p>
+                    <span class="user-opinion type2"><i>无意向</i></span>
+                    <p tid="stateShow"></p>
+                </div>
+                <div class="call_enter" tid="label"></div>
+            </li>
+            <li tid="Listcall">
+                <div tid="callstate" class="call-bnt not_dialed">已拨</div>
+                <div class="call_details">
+                    <p tid="callCode">18368571381</p>
+                    <span class="user-opinion type3"><i>约见面</i></span>
+                    <p tid="stateShow"></p>
+                </div>
+                <div class="edit"></div>
+                <div class="call_enter" tid="label"></div>
+            </li> -->
+        </ul>
+    </div>
+    <div class="load-process">
+            <!-- 页面滑到底部 开始 -->
+            <div class="on-bottom hidden">
+                <p class="icon-shan_la">
+                    <span>
+                <i>上滑下载更多数据</i>
+                <i id="showNum">已加载 20/50</i>
+              </span>
+                </p>
+            </div>
+            <!-- 页面滑到底部 结束 -->
+            <!-- 数据加载中 开始 -->
+            <div class="loading hidden">
+                <p>
+                  <span class="icon-loading spin">
+                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span>
+                        </span>
+                  <span>数据载入中...</span></p>
+            </div>
+            <!-- 数据加载中 结束 -->
+            <!-- 数据加载完 开始 -->
+            <div class="the-end  hidden">
+                <p class="icon-stop_la">
+                    <span>
+                <i id="showTotalNum">已加载全部50条数据</i>
+                <i class="go-begin">返回顶部</i>
+              </span>
+                </p>
+            </div>
+            <!-- 数据加载完 结束 -->
+        </div>
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/yll.util.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script>
+    var page = 1;
+    var pageNum = 10;
+    var totalNum = 0;
+    var sumNum = 0; //目前加载的总条目
+    //var userType = 0; //用户意向（0：全部，1：待拨，2：未接通，3：有意向，4：无意向，5：约见面，6：待填写）
+    apiready = function() {
+        page=1;
+        getList();
+        listenToBottom();
+    };
+
+    function getList() {
+        var actionUrl = ajaxAgent.serverAction + '/call/getOutCallPhoneList';
+        var userEntity = sessionAgent.getLoginInfo();
+        var values = {
+            "id": userEntity.id,
+            "token": userEntity.token,
+            "version": ajaxAgent.version,
+            "pageSize": pageNum,
+            "pageNum": page,
+            "data": {
+                "outCallId": api.pageParam.outCallId,
+                "userPurpose": api.pageParam.userPurpose
+            }
+        };
+        console.log(actionUrl);
+        console.log('ddddd:'+JSON.stringify(values));
+
+        getListContent(actionUrl, values);
+    }
+
+
+    //数据路由制作
+    function makelist(ret) {
+        console.log(JSON.stringify(ret));
+        hideLoading();
+        if (ret.status == 0) { //返回正确结果
+            if (ret.data) {
+                var data = ret.data;
+                if (data.count >= 0) {
+                    totalNum = data.count;
+                    //  totalNum=0;
+                    if (totalNum == 0) { //没有数据
+                        $api.removeCls($api.dom(".nothing-box"), 'hidden');
+                        return false;
+                    } else {
+                        if (data.outCallPhoneList) {
+                            var list = data.outCallPhoneList;
+                            sumNum += list.length;
+                            //生成html并加载到页面上
+                            var html = creatHtml(list);
+                            if (page == 1) {
+                                $api.html($api.byId("list"), html);
+                                //$api.removeCls($api.byId("list"), "hidden");
+                                api.parseTapmode();
+                            } else {
+                                $api.append($api.byId("list"), html);
+                                api.parseTapmode();
+                            }
+                            api.parseTapmode();
+                        } else {
+                            toastNetErrBottom("没有返回数据！");
+                        }
+                    }
+
+                } else { //出错了，没有返回总量
+                    toastNetErrBottom("数据返回错误！");
+                }
+            } else {
+                toastNetErrBottom("data is null!");
+            }
+        } else {
+            console.log(ret.msg);
+            toastNetErrBottom(ret.msg);
+        }
+
+    }
+
+    //生成每次加载的页面内容
+    function creatHtml(listArray) {
+        var html = "";
+        for (var i = 0; i < listArray.length; i++) {
+            var obj = listArray[i];
+            var className = "dialed";
+            var stataName = "";
+            if (obj.callState == 0) {
+                className = "be_dialed";
+                stataName = "待拨";
+            } else if (obj.callState == 1) {
+                className = "not_dialed";
+                stataName = "已拨打";
+            } else if (obj.callState == 2) {
+                className = "dialed";
+                stataName = "未接通";
+            }
+            var onclickFn = "showActionBox('" + obj.outCallPhoneId + "','" + obj.phone + "','" + obj.callState + "')";
+            //var onclickFn="showActionBox('"+JSON.stringify(obj)+"')";
+            html += '<li tid="Listcall"  id="' + obj.outCallPhoneId + '"  >';
+            html += '                <div tid="callstate" class="call-bnt ' + className + '">' + stataName + '</div>';
+            html += '                <div class="call_details"  onclick=" ' + onclickFn + '">';
+            html += '                    <p tid="callCode"  >' + obj.phone + '</p>';
+            if (obj.userIntention >= 0 && obj.userIntention < 3) {
+                html += getDomByType(obj.userIntention);
+            }
+            html += '                    <p tid="stateShow"></p>';
+            html += '                </div>';
+            if (obj.callState == 1) { //编辑按钮
+                var fnEdit = "openfillInwin('" + obj.outCallPhoneId + "')";
+                //console.log(fnEdit);
+                html += '<div class="edit"  onclick=" ' + fnEdit + '"></div>';
+            }
+            if (obj.callState == 1) { //跳转到详情页
+                var fnEnter = "openfillInwin('" + obj.outCallPhoneId + "')"; //用户填写页面
+            } else {
+                var fnEnter = "openusredetails('" + obj.outCallPhoneId + "'," + obj.callState + ")"; //用户填写页面
+            }
+            html += '                <div class="call_enter" tid="label" onclick="' + fnEnter + '"></div>';
+            html += '            </li>';
+        }
+        //console.log(html);
+        return html;
+    }
+
+    //返回用户意向对应的class名称
+    function getDomByType(type) {
+        var html = "";
+        switch (type) {
+            case 0:
+                html = '<span class="user-opinion type2"><i>无意向</i></span>';
+                break; //无意向
+            case 1:
+                html = '<span class="user-opinion type1"><i>有意向</i></span>';
+                break; //有意向
+            case 2:
+                html = '<span class="user-opinion type3"><i>约见面</i></span>';
+                break; //约见面
+            default:
+
+        }
+        return html;
+    }
+    //弹出操作按钮
+    function showActionBox(callId, phone, callState) {
+        //console.log(callId);
+        api.actionSheet({
+            title: '',
+            cancelTitle: '',
+            //destructiveTitle: '红色警告按钮',
+            // buttons: ['呼叫', '发短信', '查看/更新基本资料'],
+            buttons: ['呼叫', '查看/更新基本资料'],
+            style: {
+                fontNormalColor: '#333'
+            }
+        }, function(ret, err) {
+            var index = ret.buttonIndex;
+            if (index == 1) { //
+                callPhone(callId, callState);
+            }
+            // else if (index == 2) {//发短信
+            //
+            //
+            //     //openSendSmsWin();
+            // }
+            else if (index == 2) { //点击查看/更新基本资料
+                if (callState == 1) { //已拨打，去用户反馈
+                    openfillInwin(callId);
+                } else { //去用户资料页面
+                    openusredetails(callId, callState);
+                }
+            }
+        });
+
+    }
+
+
+    //用户反馈
+    function openfillInwin(callId) {
+        api.openWin({
+            name: 'fillIn',
+            url: './fillIn_win.html',
+            pageParam: {
+                callstates: callId,
+                fillType: 0
+            }
+        });
+    }
+
+    //用户详情页面
+    function openusredetails(callId, callState) {
+        api.openWin({
+            name: 'userDetails',
+            url: './userDetails_win.html',
+            pageParam: {
+                callstates: callId,
+                telState: callState,
+                fillType: 1
+            }
+        });
+    }
+
+
+
+    //发短信
+    function openSendSmsWin(params) {
+        if (is_define(params)) {
+            var pageParam = params;
+        } else {
+            var pageParam = new Object();
+        }
+        api.openWin({
+            name: 'sendSMS',
+            url: './sendSms_win.html',
+            pageParam: pageParam
+        });
+    }
+
+    //打电话
+    function callPhone(callId, callState) {
+        //请求服务器
+        var actionUrl = ajaxAgent.serverAction + '/call/startCall';
+        var userEntity = sessionAgent.getLoginInfo();
+        var values = { //请求参数
+            "id": userEntity.id,
+            "token": userEntity.token,
+            "version": ajaxAgent.version,
+            "data": {
+                "calledOutCallPhoneId": callId
+            }
+        };
+        //console.log(JSON.stringify(values));
+        //请求服务器获取电话相关信息
+        api.ajax({
+            async: false,
+            url: actionUrl,
+            method: 'post',
+            timeout: 30,
+            dataType: 'json',
+            returnAll: false,
+            headers: {
+                "Authorization": "Bearer [accessToken]",
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            data: {
+                body: values
+            }
+        }, function(ret, err) {
+            //console.log(JSON.stringify(ret));
+            if (ret) { //请求成功
+                if (ret.status == 0) { // 有正确结果返回，获取虚拟号码
+                    if (ret.data) {
+                        if (ret.data.dstVirtualNum != "" && ret.data.bindId != "") { //去拨打电话
+                            //有效时间提醒
+                            if (ret.data.validTime != "") {
+                                //toastNetErrBottom("请在" + ret.data.validTime + "内拨打！");
+                                var errMsg="请在" + ret.data.validTime + "内拨打！";
+                                api.toast({
+                                    msg: errMsg,
+                                    duration: 5000,
+                                    location: 'bottom'
+                                });
+                            } else {
+                                toastNetErrBottom("未接受到有效时长！");
+                            }
+
+                            //去拨打电话
+                            setTimeout(function() {
+                              //console.log("0000000000000");
+                               //挂断监听
+                               phoneListenerAction(ret.data.dstVirtualNum, ret.data.bindId, callId, callState);
+                                api.call({
+                                    type: 'tel_prompt',
+                                    number: ret.data.dstVirtualNum
+                                });
+
+                            }, 2000);
+
+                        } else {
+                            toastNetErrBottom("未获取电话！");
+                        }
+                    } else {
+                        toastNetErrBottom("未获取服务器端数据！");
+                    }
+                } else {
+                    toastNetErrBottom(ret.msg);
+                }
+
+            } else { //请求失败
+                toastNetErrBottom("请求服务器失败！");
+            }
+
+        });
+    }
+
+
+    //监听拨打电话
+    function phoneListenerAction(telNumber, bindId, callId, callState) {
+        var phoneListener = api.require('phoneListener');
+        phoneListener.callStateListener({ //启动电话监听
+                enable: true
+            },
+            function(ret) {
+                //alert(JSON.stringify(ret));
+                //  api.alert({
+                //      title: 'testtitle',
+                //      msg: JSON.stringify(ret),
+                //  }, function(ret1, err1){
+                //
+                //  });
+//console.log("22222222222222");
+                console.log(JSON.stringify(ret));
+                checkSystemCallBackState(ret, telNumber, bindId, callId, callState);
+
+            });
+
+    }
+
+    //根据机型监听结果
+    function checkSystemCallBackState(ret, telNumber, bindId, callId, callState) {
+        var systemType = api.systemType;
+        if (systemType == 'android') { //安卓系统
+            var callPhoneNumber = ret.phoneNumber;
+            callPhoneNumber = $api.trimAll(callPhoneNumber);
+            if (ret.state == "OFFHOOK" && callPhoneNumber == telNumber) { //挂断电话
+              //if (ret.state == "IDLE"){
+                //updateDomState(callId,0,1);
+                //等待2秒
+                setTimeout(function() {
+                    updateState(bindId, callId, callState);
+                }, 2000);
+
+            }
+            // else{
+            //   console.log("error");
+            // }
+        } else if (systemType == 'ios') { //ios 返回  {"state":"IDLE"} 或者  手机接通：{"state":"OFFHOOK"}
+            if (ret.state == "IDLE" ) { //挂断
+                setTimeout(function() {
+                    updateState(bindId, callId, callState);
+                }, 2000);
+            }
+        }
+    }
+
+    //修改用户意向样式
+    /*@param  callId  电话列表id
+     *@opinionType 当前新的意向
+     *@opinionTypeOld 原来的意向
+     */
+    function updateUserOpinion(callId, opinionType, opinionTypeOld) {
+        if (opinionType != opinionTypeOld) {
+            //获取被修改的dom元素
+            var domObj = $api.byId(callId);
+            var domState = $api.dom(domObj, '.user-opinion');
+            if (domState) { //之前存在状态节点
+                //console.log(domState);
+                //删除之前的状态
+                var oldOpinion = getClassNameByOpinionType(opinionTypeOld);
+                if (oldOpinion.className != "") {
+                    $api.removeCls(domState, oldOpinion.className);
+                }
+                //添加当前的状态
+                var newOpinion = getClassNameByOpinionType(opinionType);
+                if (newOpinion.className != "") {
+                    $api.addCls(domState, newOpinion.className);
+                    $api.html(domState, '<i>' + newOpinion.textName + '</i>');
+                }
+            } else { //生成新的节点
+                var domPhone = $api.dom(domObj, '.call_details');
+                //添加当前的状态
+                var newOpinion = getClassNameByOpinionType(opinionType);
+                var newOpinionHtml = '<span class="user-opinion ' + newOpinion.className + '"><i>' + newOpinion.textName + '</i></span>';
+                //在手机号码的后面节点添加用户意向节点
+                $api.append(domPhone, newOpinionHtml);
+
+            }
+        }
+
+    }
+
+    //根据用户意向值获取class名称
+    function getClassNameByOpinionType(opinionType) {
+        var opinion = {
+            className: '',
+            textName: ''
+        }
+        if (opinionType == 0) {
+            opinion.className = 'type2';
+            opinion.textName = '无意向';
+        } else if (opinionType == 1) {
+            opinion.className = 'type1';
+            opinion.textName = '有意向';
+        } else if (opinionType == 2) {
+            opinion.className = 'type3';
+            opinion.textName = '约见面';
+        }
+        return opinion;
+
+    }
+
+    //挂断电话回调
+    function updateState(bindId, callId, callState) {
+        //请求服务器
+        var actionUrl = ajaxAgent.serverAction + '/call/endCall';
+        //console.log("updateState:"+actionUrl);
+        var userEntity = sessionAgent.getLoginInfo();
+        var values = {
+            "id": userEntity.id,
+            "token": userEntity.token,
+            "version": ajaxAgent.version,
+            "device":getDevice(),
+            "data": {
+                "bindId": bindId,
+                "calledOutCallPhoneId": callId
+            }
+        };
+        //console.log(JSON.stringify(values));
+        //请求服务器获取电话相关信息
+        api.ajax({
+            async: false,
+            url: actionUrl,
+            method: 'post',
+            timeout: 30,
+            dataType: 'json',
+            returnAll: false,
+            headers: {
+                "Authorization": "Bearer [accessToken]",
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            data: {
+                body: values
+            }
+        }, function(ret, err) {
+            //console.log(JSON.stringify(ret));
+            if (ret) { //请求成功
+                if (ret.status == 0) { // 有正确结果返回，获取虚拟号码
+                    if (ret.data) {
+                        if (ret.data.callState != "") {
+
+                            if (ret.data.callState != callState) { //回调的状态与当前状态不同,更新页面对应的状态
+                                updateDomState(callId, ret.data.callState, callState);
+                            } else { //状态相同
+
+                            }
+                        } else { //未获取到状态
+
+                        }
+                    } else { // 未返回数据
+                    }
+                } else { //未得到正确数据
+                }
+
+            } else { //请求失败
+            }
+
+        });
+    }
+
+
+
+    // html += '<li tid="Listcall"  id="' + obj.outCallPhoneId + '"  onclick=" ' + onclickFn + '">';
+    // html += '                <div tid="callstate" class="call-bnt ' + className + '">' + stataName + '</div>';
+    // html += '                <div class="call_details">';
+    // html += '                    <p tid="callCode">' + obj.phone + '</p>';
+    // html += '                    <p tid="stateShow"></p>';
+    // html += '                </div>';
+    // if (obj.callState == 1) { //编辑按钮
+    //     html += '<div class="edit"></div>';
+    // }
+    // html += '                <div class="call_enter" tid="label"></div>';
+    // html += '            </li>';
+
+    //修改元素的状态
+    function updateDomState(callId, state, oldState) {
+        //console.log('updatestate:'+callId);
+        var domObj = $api.byId(callId);
+        //console.log(domObj);
+        //修改绑定事件
+        var domPhone = $api.dom(domObj, '.call_details');
+        //console.log(domPhone);
+        $api.addEvt(domPhone, 'click', function() {
+            showActionBox(callId, '', state);
+        });
+
+        var className = "dialed";
+        var stataName = "";
+        if (state == 0) {
+            className = "be_dialed";
+            stataName = "待拨";
+        } else if (state == 1) {
+            className = "not_dialed";
+            stataName = "已拨打";
+            //编辑按钮添加,获取编辑按钮之前的节点
+            var preDomEdit = $api.dom(domObj, '.call_details');
+            var fnEdit = "openfillInwin('" + callId + "')";
+            $api.after(preDomEdit, '<div class="edit" onclick="' + fnEdit + '"></div>');
+        } else if (state == 2) {
+            className = "dialed";
+            stataName = "未接通";
+        }
+        if (oldState == 1) { //之前是已拨打状态，去掉编辑按钮
+            $api.remove($api.dom(domObj, '.edit'));
+        }
+
+
+        //箭头跳转事件修改
+        var domEnter = $api.dom(domObj, '.call_enter');
+        if (state == 1) { //跳转到详情页
+            var fnEdit = "openfillInwin('" + callId + "')";
+            $api.attr(domEnter, 'onclick', fnEdit);
+        } else if (oldState == 1) {
+            var fnEdit = "openusredetails('" + callId + "'," + state + ")";
+            $api.attr(domEnter, 'onclick', fnEdit);
+        }
+
+        //获取状态按钮
+        var domState = $api.dom(domObj, '.call-bnt');
+        //console.log(domState);
+        //删除之前的状态
+        if (oldState == 0) {
+            $api.removeCls(domState, 'be_dialed');
+        } else if (oldState == 1) {
+            $api.removeCls(domState, 'not_dialed');
+        } else if (oldState == 2) {
+            $api.removeCls(domState, 'dialed');
+        }
+        //添加新的状态
+        $api.addCls(domState, className);
+        $api.text(domState, stataName);
+
+    }
+
+    //返回设备类型号
+    function getDevice(){
+      var systemType = api.systemType;
+      if(systemType=="android"){
+          return 2;
+      }else if(systemType=="ios"){
+          return 3;
+      }else{
+        return 1;
+      }
+
+    }
+</script>
+
+</html>

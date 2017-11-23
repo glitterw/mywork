@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>模板选择</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth /7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body  class="body-bg-1 module-set">
+   <div class="header-box">
+      <div class="set-header icon-go"><span class="title">选择模块</span><span class="save">保存</span></div>
+   </div>
+
+     <ul class="set-option">
+       <li>请选择</li>
+       <li class="option-value active"  index=0><span>外呼</span></li>
+       <li class="option-value " index=1><span>数据分析</span></li>
+       <li class="option-value " index=2><span>我的</span></li>
+       <li class="option-value " index=3><span>其他</span></li>
+     </ul>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/route.js"></script>
+<script type="text/javascript">
+   var index=0;
+    apiready = function() {
+      //状态栏字体为白色，适用于深色背景
+      var header = $api.dom(".header-box"); //$api.byId('header');
+      //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+      $api.fixStatusBar(header);
+      api.setStatusBarStyle({
+          style: 'light'
+      });
+      $api.html($api.byId("titleName"), api.pageParam.winTitle);
+       //计算frm的开始高度
+      var frmY=$api.offset(header).h;
+      $api.addEvt($api.dom(".set-header"), 'click',function(){
+           api.closeWin();
+
+      });
+      //选中
+      selectValue();
+      //保存
+      $api.addEvt($api.dom(".save"), 'click',function(){
+           save();
+           //关闭当前窗口
+           api.closeWin();
+
+      });
+
+    };
+
+    //保存提交
+    function save(){
+      var fn="setMoulde("+index+");";
+      api.execScript({
+          name: 'winMade',
+          frameName: 'frmMade',
+          script: fn
+      });
+
+    }
+
+
+    // 随意切换按钮
+      function selectValue() {
+          var listDoms = $api.domAll('.set-option>.option-value');
+          for (var i = 0; i < listDoms.length; i++) {
+              $api.addEvt(listDoms[i], 'click', function() {
+                  index = $api.attr(this, 'index');
+                  //获取当前选中的元素
+                  var activeDom=$api.dom(".set-option>.option-value.active");
+                  $api.removeCls(activeDom, 'active');
+                  $api.addCls(this, 'active');
+              });
+          }
+
+      }
+
+
+</script>
+
+</html>

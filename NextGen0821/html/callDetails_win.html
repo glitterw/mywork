@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>模板选择</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth /7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body  class="body-bg-1 module-set">
+   <div class="header-box">
+      <div class="title-box">
+      <div class="set-header icon-go"><span class="title text-ellipsis" id="titleName" >测试标题标题标题标题标题标题123456789</span></div>
+      <span class="select-Opinon"></span>
+    </div>
+   </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/route.js"></script>
+<script type="text/javascript">
+   var index=0;
+   var frmY=0;
+   var userPurpose=0; //用户意向（0：全部，1：待拨，2：未接通，3：有意向，4：无意向，5：约见面，6：待填写）
+    apiready = function() {
+
+      //状态栏字体为白色，适用于深色背景
+      var header = $api.dom(".header-box"); //$api.byId('header');
+      //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+      $api.fixStatusBar(header);
+      api.setStatusBarStyle({
+          style: 'light'
+      });
+      $api.html($api.byId("titleName"), api.pageParam.title);
+       //计算frm的开始高度
+      frmY=$api.offset(header).h;
+      $api.addEvt($api.dom(".set-header"), 'click',function(){
+           api.closeWin();
+      });
+
+      //筛选用户意向
+      $api.addEvt($api.dom(".select-Opinon"), 'click',function(){
+          var className=$api.attr(this,"class");
+          console.log($api.attr(this,'class'));
+          if(className.indexOf("active")>0){
+            $api.removeCls(this, 'active');
+             api.closeFrame({
+                 name: 'popUp'
+             });
+
+          }else{
+            $api.addCls(this, 'active');
+            openSelectOpinion(frmY);
+          }
+      });
+      openCallList();
+    };
+    //打开筛选项
+    function openSelectOpinion(y){
+      api.openFrame({
+          name: 'popUp',
+          url: './popUpList_frame.html',
+          rect: {
+              x: 0,
+              y: y,
+              w: 'auto',
+              h: 'auto'
+          },
+          bgColor:'rgba(0,0,0,0.1)',
+          pageParam:{
+              userPurpose:userPurpose
+          },
+          bounces: false
+      });
+    }
+    //输出电话列表
+   function openCallList(){
+     api.openFrame({
+         name: 'callList',
+         url: './frm-calllist.html',
+         rect: {
+             x: 0,
+             y: frmY,
+             w: 'auto',
+             h: 'auto'
+         },
+         bgColor:'rgba(246,246,246,1)',
+         pageParam:{
+            outCallId:api.pageParam.outCallId,
+            userPurpose:userPurpose
+         },
+         bounces: true,
+         reload:true
+     });
+
+   }
+
+   //选择条件后的执行函数 thisUserPurpose 当前选择的类型
+   function  selectCallBack(thisUserPurpose){
+      userPurpose=thisUserPurpose;
+      openCallList();
+   }
+</script>
+
+</html>

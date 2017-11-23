@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>呼叫清单筛选</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body class="frm-select">
+    <!--  筛选条件 开始-->
+    <div class="tellist-box">
+        <div class="option-box flex-box " id="userSelect">
+            <ul class="flex-item value ">
+                <li value="0" class="active"><span>全部</span></li>
+                <li value="1"><span>未接通</span></li>
+                <li value="2"><span>待填写</span></li>
+                <li value="3"><span>有意向</span></li>
+                <li value="4"><span>无意向</span></li>
+                <li value="5"><span>约见面</span></li>
+            </ul>
+        </div>
+        <div class="option-box flex-box hidden" id="timeSelect">
+            <ul class="flex-item value">
+                <li value="0"><span>不限</span></li>
+                <li value="1"><span>近一周</span></li>
+                <li value="2"><span>近一月</span></li>
+                <li value="3"><span>近三月</span></li>
+            </ul>
+        </div>
+    </div>
+    <!--  筛选条件 结束-->
+    <div class="mengceng">
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/route.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var type = api.pageParam.type;
+        setActive(type);
+        optionSelect(type);
+        hideActive();
+    };
+
+    //选中
+    function setActive(type) {
+        //展开被选区域
+        $api.removeCls($api.byId(type), 'hidden');
+        //获取被选中的元素
+        var selectedDom = $api.dom($api.byId(type), 'ul>li[value="' + api.pageParam.value + '"]');
+        $api.addCls(selectedDom, 'active');
+
+    }
+    //收起
+    function hideActive() {
+        $api.addEvt($api.dom('.mengceng'), 'click', function() {
+            api.closeFrame();
+
+        });
+    }
+
+    //用户意向选择操作
+    function optionSelect(domId) {
+        //取得选择项
+        var valueDoms = $api.domAll($api.byId(domId), 'ul>li');
+        for (var i = 0; i < valueDoms.length; i++) {
+            $api.addEvt(valueDoms[i], 'click', function() {
+                //获取当前的值
+                var value = $api.attr(this, 'value');
+                //获取当前的选项名称
+                var name = $api.text($api.first(this, 'span'));
+                //传递给父窗口
+                var fn = "selectCallBack('" + domId + "'," + value + ", '" + name + "' )";
+                api.execScript({
+                    name: 'win-tellist',
+                    script: fn
+                });
+                api.closeFrame();
+
+
+            });
+        }
+
+
+
+    }
+</script>
+
+</html>

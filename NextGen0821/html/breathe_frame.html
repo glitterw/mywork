@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/breathe.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <title>外呼</title>
+    <style>
+     /*.lodings{*/
+         /*padding:0.3rem 0;*/
+         /*display:flex;*/
+         /*flex-direction: row;*/
+         /*justify-content: center;*/
+         /*align-items: center;*/
+        /*font-size:0.18rem;*/
+
+     /*}*/
+     /*.lodings .text_content{*/
+         /*color:#666;*/
+     /*}*/
+     /*.lodings img{*/
+         /*width:0.28rem;*/
+         /*height:0.4rem;*/
+         /*margin-right:0.1rem;*/
+     /*}*/
+     /*#loadingState{*/
+         /*!*background:#fff;*!*/
+         /*display:none*/
+     /*}*/
+
+     .notdata{
+         position:absolute;
+         left:0;
+         top:30%;
+         width:100%;
+         display:none;
+     }
+     .not_bg{
+         width:3.6rem;
+         height:1.86rem;
+         background:url(../image/not_data_bg.svg)no-repeat center;
+         background-size: cover;
+         margin: 0 auto;
+     }
+     .content{
+         margin:0 auto;
+     }
+     .content p{
+         font-size:0.36rem;
+         text-align: center;
+         color:#333;
+         padding:0.45rem;
+     }
+
+     .load-process .icon-shan_la>span{
+         width: 8.5em;
+     }
+        #nont_find{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+  <div id="breathe">
+      <ul id="template_list" class="content_box">
+          <!--<li>-->
+              <!--<div class="chart">-->
+                  <!--<div class="containersvg">-->
+                      <!--<svg id="_" data-name="%" xmlns="http://www.w3.org/2000/svg" style="width:0.97rem; height:1.27rem" viewBox="0 0 95 127">-->
+                          <!--<metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>-->
+                              <!--<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01">-->
+                                  <!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">-->
+                                      <!--<rdf:Description rdf:about=""/>-->
+                                  <!--</rdf:RDF>-->
+                              <!--</x:xmpmeta>-->
+                              <!--<?xpacket end="w"?></metadata>-->
+                          <!--<defs>-->
+
+                          <!--</defs>-->
+                          <!--<circle id="椭圆_1" data-name="椭圆 1" class="cls-1" cx="47" cy="48" r="45"/>-->
+                          <!--&lt;!&ndash;<path id="椭圆_1-2" data-name="椭圆 1"  d="M47,3A45.006,45.006,0,0,1,69.123,87.2"/>&ndash;&gt;-->
+                          <!--<circle id="progress" class="cls-2" cx="47" cy="48" r="45" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="0" />-->
+                          <!--<text id="_20_50" data-name="20/50" class="cls-3" x="47.136" y="123.902">20/50</text>-->
+                          <!--<text id="_40_" data-name="40%" class="cls-4" x="48.136" y="56.902">40<tspan class="cls-5" dy="-7.2">%</tspan></text>-->
+                      <!--</svg>-->
+
+                  <!--</div>-->
+              <!--</div>-->
+              <!--<div class="content_text">-->
+                  <!--<p>房地产测试数据3房产测试数据3房产测试-->
+                      <!--房地产测试数据3房产测试数据3房产测试-->
+                  <!--</p>-->
+                  <!--<p>更新时间：2017.7.29 <span>9:18</span></p>-->
+              <!--</div>-->
+              <!--<div class="label">-->
+                  <!--<span class="label_text test">测试</span>-->
+              <!--</div>-->
+          <!--</li>-->
+
+      </ul>
+
+  </div>
+  <!--loading引入开始-->
+  <div class="load-process">
+      <!-- 页面滑到底部 开始 -->
+      <div class="on-bottom hidden">
+          <p class="icon-shan_la">
+                <span>
+            <i>上滑下载更多数据</i>
+            <i id="showNum">已加载 20/50</i>
+          </span>
+          </p>
+      </div>
+      <!-- 页面滑到底部 结束 -->
+      <!-- 数据加载中 开始 -->
+      <div class="loading hidden">
+          <p>
+              <span class="icon-loading spin">
+                    <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span>
+                    </span>
+              <span>数据载入中...</span></p>
+      </div>
+      <!-- 数据加载中 结束 -->
+      <!-- 数据加载完 开始 -->
+      <div class="the-end  hidden">
+          <p class="icon-stop_la">
+                <span>
+            <i id="showTotalNum">已加载全部50条数据</i>
+
+          </span>
+          </p>
+      </div>
+      <!-- 数据加载完 结束 -->
+  </div>
+  <!--引入结束-->
+
+
+
+  <div class="notdata" id="not_bg" >
+      <div class="content">
+          <div class="not_bg"></div>
+          <p>暂无数据</p>
+      </div>
+  </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/yll.util.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/html" id="dataListTemplate">
+    <li tid="Listitem">
+        <div class="chart">
+            <div class="containersvg">
+                <svg id="_" data-name="%" xmlns="http://www.w3.org/2000/svg" style="width:0.97rem; height:1.27rem" viewBox="0 0 95 127">
+                    <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+                        <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01">
+                            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                                <rdf:Description rdf:about=""/>
+                            </rdf:RDF>
+                        </x:xmpmeta>
+                        <?xpacket end="w"?></metadata>
+                    <defs>
+
+                    </defs>
+                    <circle id="椭圆_1"   data-name="椭圆 1" class="cls-1" cx="47" cy="48" r="45"/>
+                    <!--<path id="椭圆_1-2" data-name="椭圆 1"  d="M47,3A45.006,45.006,0,0,1,69.123,87.2"/>-->
+                    <circle id="progress" tid="circle" class="cls-2" cx="47" cy="48" r="45" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="0" />
+                    <text id="_20_50" data-name="20/50" class="cls-3" x="47.136" y="123.902" tid="textBli">20/50</text>
+                    <text  tid="textclr" id="_40_" data-name="40%" class="cls-4" x="48.136" y="56.902">40<tspan class="cls-5" dy="-7.2">%</tspan></text>
+                </svg>
+
+            </div>
+        </div>
+        <div class="content_text">
+            <p tid="titles">
+            </p>
+            <p tid="times">更新时间：2017.7.29 <span>9:18</span></p>
+        </div>
+        <div class="label">
+            <span class="label_text test" tid="labels">测试</span>
+        </div>
+    </li>
+</script>
+<script>
+    apiready = function() { 
+        var notDatIMg = document.getElementById('not_bg');
+        var tablebuttom = document.getElementsByClassName('hidden');
+        var liList = document.getElementsByClassName('content_box')[0].getElementsByTagName('li');
+        var testbox = $api.byId('breathe');
+        var userbase =  sessionAgent.getLoginInfo();
+        var showloading = document.getElementById('loadingState');
+        var urls = ajaxAgent.serverAction+'/call/getOutCallList'; //getAPI('call/getOutCallList');
+            userbase.pageSize = 10;
+            userbase.pageNum = 1;
+            userbase.data = {};
+        var sumNum = 0;
+        var requestPage = false;
+        var container = document.getElementById('template_list');
+        var tempList = document.getElementById('dataListTemplate').innerHTML;
+        var notData = document.getElementById('nont_find');
+
+        //打开新窗口时刷新参数监听
+
+        api.addEventListener({
+            name: 'refshParam'
+        }, function (ret, err) {
+
+            if (ret.value.initData == 'empty') {
+                refesParam()
+            }
+        });
+
+
+
+        //搜索监听对象
+        api.addEventListener({
+            name: 'search'
+        }, function (ret, err) {
+            //模糊搜索请求
+            if (ret) {
+                if (userbase.data.keyword == ret.value.search) { //如果关键字搜与上一次的值相等就不再执行ajax请求，避免平凡发起请求
+                    return
+                } else {
+                    userbase.data.keyword = ret.value.search;
+                    hiddenAllButon()
+                }
+                if (api.winName !== 'searchWin') { //当窗口是搜索窗时才会执行监听对象的请求结果；
+                    return
+                } else {
+                    userbase.pageSize = 10;  //每次关健字模糊搜索都初始化分页的参数值；
+                    userbase.pageNum = 1;
+                    sumNum = 0
+                }
+
+                r_ajax(urls, userbase, function (ret) {
+                    if (ret.status == 0) {
+                        container.innerHTML = '' //清空上一次历史记录；
+                        var modeList = ret.data.outCallList
+                        var count = ret.data.count;
+                            sumNum += modeList.length
+
+                        if (modeList.length >= userbase.pageSize && userbase.pageNum == 1 && (modeList.length < count && count > 0)) { //判断第一页返回是否有数据；
+                            notDatIMg.style.display = "none" //有数据则隐藏暂无数据图标；
+
+                        } else if (userbase.pageNum == 1 && count == 0) {//判断如果没有数据并且是第一页：则显示暂无数据图标；
+                            notDatIMg.style.display = "block"
+                            return
+                        } else if (userbase.pageNum == 1 && count == sumNum && count>0 ) { //判断如果是第一页并且满足count总数大于0，并且 加载条数与 总数相等 则隐藏暂无数据；
+                            notDatIMg.style.display = "none"
+                        }
+
+                        for (var i = 0; i < ret.data.outCallList.length; i++) {
+                            var item = ret.data.outCallList[i];
+                            createTemplate(item).appendTo(container) //在循环中渲染模板数据；
+                        }
+
+                    } else {
+                        toastNetErrBottom(ret.msg) //如果查询失败显示失败信息；
+                    }
+                }) //这里请求接口进行搜索；
+
+            }
+        });
+
+
+        pullresh()
+        function pullresh() { //上拉加载模型列表；
+            var locked = false; //锁定迸发，避免重复多次发起请求
+            api.addEventListener({
+                name: 'scrolltobottom',
+                extra: {
+                    threshold: 20 //设置距离底部多少距离时触发，默认值为0，数字类型
+                }
+            }, function (ret, err) {
+                switchButtonShow(1) //显示加载loading
+                if (!locked) {
+                    locked = true;        //发起请求立即锁定，防止上一次结果还未返回再次发起请求；
+                    setTimeout(function () { //延迟加载
+                     if(requestPage){
+                         userbase.pageNum = 1
+                     }else{
+                         userbase.pageNum++;
+                     }
+
+                    apiAjax(urls, userbase, function (ret) {
+                        if (ret.status == 0) {
+                            hiddenAllButtons()  //数据返回成功后除消loading显示；
+                            var modeList = ret.data.outCallList
+                            var count = ret.data.count;
+                            sumNum += modeList.length
+                            if (userbase.pageNum > 1 && sumNum < count) {  //如果总数大于累加的数目则有数据，还可以加载；
+                                requestPage = false;
+                            } else {
+                                  console.log('a')
+                                toastNetErrBottom('加载完了！共'+count+'条'); //否则没有数据了，显示已载了多少条；
+                            }
+                            if(count == 0){
+                                hiddenAllButtons()
+                            }
+                            for (var i = 0; i < modeList.length; i++) {
+                                var item = modeList[i];
+                                createTemplate(item).appendTo(container)
+                            }
+
+                        } else {
+                            hiddenAllButtons() //出错时隐藏loading加载；
+                            toastNetErrBottom(ret.msg)
+                        }
+                        locked = false; //解除锁定；
+                    },function(err){
+                        locked = false;  //请求失败时解除锁定；
+                    })
+                }, 2000)
+                }
+            })
+        }
+
+        // 首页与搜索页请求第一页数据；
+       if(api.winName !== 'searchWin'){ //判断当前是哪个窗口就加载哪个数据；
+           //请求第一页的数据；
+           r_ajax(urls, userbase, function (ret) {
+
+               if (ret.status == 0) {
+                   var modeList = ret.data.outCallList? ret.data.outCallList:[]
+                   sumNum += modeList.length
+                   var count = ret.data.count;
+                   if (userbase.pageNum == 1 && count==0 && modeList.length == 0) { //判断如果加载第一页时没有数据就显示暂无数据；
+
+                       notDatIMg.style.display = "block"
+                   }
+
+                   for (var i = 0; i < modeList.length; i++) {
+                       var item = modeList[i];
+                       createTemplate(item).appendTo(container)  //循环中渲染模板；
+                   }
+
+               } else {
+                   toastNetErrBottom(ret.msg)
+                   //notDatIMg.style.display = "block"
+               }
+           })
+       }else{
+           //请求第一页的数据；
+           r_ajax(urls, userbase, function (ret) {
+               console.log(urls);
+               if (ret.status == 0) {
+                   var modeList = ret.data.outCallList? ret.data.outCallList:[]
+
+                   sumNum += modeList.length
+                   var count = ret.data.count;
+
+                   if (userbase.pageNum == 1 && count==0 && modeList.length == 0) {
+                       requestPage = true
+                       notDatIMg.style.display = "block"
+                   }
+
+                   for (var i = 0; i < modeList.length; i++) {
+                       var item = modeList[i];
+                       createTemplate(item).appendTo(container)
+                   }
+
+               } else {
+                   toastNetErrBottom(ret.msg)
+                   //notDatIMg.style.display = "block"
+               }
+           })
+       }
+
+
+        function refesParam() { //初始化分页加载数据；
+            userbase.pageNum = 1;
+            userbase.pageSize = 10;
+            userbase.data.keyword = '';
+        }
+
+        function fomatFloat(src, pos) {
+            return Math.round(src * Math.pow(10, pos)) / Math.pow(10, pos);
+        }
+           function belinum(copies,totalNum){
+                     //alert(copies)
+                  var progressValue = 300
+                  var calledCopies =  (copies == '' || copies == null || isNaN(copies)) ? 0 : copies;
+                  var totalCopies =   (totalNum == '' || totalNum == null || isNaN(totalNum)) ? 0 : totalNum;
+                  if(calledCopies == 0 || totalCopies == 0){
+                      progressValue = 300;
+                  }else{
+                      var belis = fomatFloat(calledCopies/totalCopies,2)
+                          progressValue  = 300*(1-belis)
+                  }
+
+              return  progressValue
+           } //进度显示方法处理；
+        function createTemplate(data) {
+
+            var templateList = new yll.util.HtmlTemplate(tempList); //获取模板字符串中的所有节点；
+            var called = data.calledNum, toatalNum = (data.num == '' || data.num == null || isNaN(data.num)) ? 0 : data.num // 修正数源的不正确性
+            var beli = (data.calledNum / ((data.num == null || data.num == '') ? 0 : data.num) == 'Infinity') ? "0" : "" + (isNaN(data.calledNum / data.num) ? 0 : fomatFloat(data.calledNum / data.num, 2)) //求得当前进度比例；
+            var initcose = belinum(data.calledNum,data.num)  //300*(1-beli)  //求比例所占的度长
+            var clrc = templateList.getElementByTid('circle');
+            //console.log("initcose:"+initcose);
+            clrc.style.strokeDashoffset = initcose;
+            templateList.getElementByTid('titles').textContent = data.name;  //模型名称；
+            templateList.getElementByTid('times').textContent = "更新时间:" + data.updateTime + "" //更新时间；
+            templateList.getElementByTid('labels').textContent = (data.dataType == 0 || data.dataType == '' || data.dataType == null || isNaN(data.dataType)) ? '测试' : '正式'; //判断是测试还是正测；
+            templateList.getElementByTid('textBli').textContent = "" + data.calledNum + "/" + ((data.num == null || data.num == '') ? 0 : data.num) + "" //显示进度数字；
+            templateList.getElementByTid('textclr').textContent = (data.calledNum / ((data.num == null || data.num == '') ? 0 : data.num) == 'Infinity') ? "0%" : "" + (isNaN(data.calledNum / data.num) ? 0 :  Math.floor(fomatFloat(data.calledNum / data.num, 2) * 100))+ "%" //显示当前进度的百分比；
+
+            if (data.dataType == 0 || data.dataType == '' || data.dataType == null) {
+                $api.addCls(templateList.getElementByTid('labels'), 'test');
+            } else {
+                $api.addCls(templateList.getElementByTid('labels'), 'formal');
+            }
+            templateList.getElementByTid('Listitem').addEventListener('click', function () {
+                openCalldetails({outCallId: data.outCallId,title:data.name}) //打开外呼详情列表
+            }, false)
+            return templateList //返回字符患模板；
+        }
+
+        function openCalldetails(pageParam) {
+
+            if (is_define(pageParam)) {
+                var pageParam = pageParam;
+            }
+            else {
+                var pageParam = new Object();
+            }
+            api.openWin({
+                name: 'calldetails',
+                url: './callDetails_win.html',
+                reload:true,
+                pageParam: pageParam
+            });
+        }
+
+        function switchButtonShow(index) {
+            for (var i = 0; i < tablebuttom.length; i++) {
+                if (index == i) {
+                    tablebuttom[i].style.display = "block";
+                } else {
+                    tablebuttom[i].style.display = "none";
+                }
+            }
+
+        }
+
+        function hiddenAllButtons() {
+            for (var i = 0; i < tablebuttom.length; i++) {
+                tablebuttom[i].style.display = "none";
+            }
+        }
+
+        function hiddenAllButon() {
+            for (var i = 0; i < tablebuttom.length; i++) {
+                tablebuttom[i].style.display = "none";
+
+            }
+        }
+
+        /*******************************公用方法的引用***********************************************
+         /**
+         *列表页面公用方法
+         */
+
+        //返回顶部
+        function goTop() {
+            $api.addEvt($api.dom(".the-end"), 'click', function () {
+                //var top=document.body.scrollTop;
+                //console.log("top:"+top);
+                document.body.scrollTop = 0;
+            });
+        }
+
+        /*底部tab处理
+     *@thisNum 已加载的数量
+     *@totalNum 总共的数量
+     */
+        function showBottomTab(thisNum,totalNum){
+            var showNum="已加载 "+ thisNum+"/"+ totalNum;
+            $api.text($api.byId("showNum"),
+                    showNum);
+            //$api.removeCls($api.dom(".on-bottom"), 'hidden');
+    }
+
+        /*加载完成显示总量
+     *@totalNum 总共的数量
+     */
+        function showTheEndTab(totalNum){
+        var showTotalNum= "已加载全部"+
+                totalNum+ "条数据";
+        $api.text($api.byId("showTotalNum"), showTotalNum);
+            //$api.removeCls($api.dom(".the-end"), 'hidden');
+    }
+}
+
+</script
+>
+</html>

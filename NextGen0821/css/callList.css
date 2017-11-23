@@ -1,0 +1,133 @@
+@charset "UTF-8";
+html,body{
+    font-size:0.2rem;
+    background:#f6f6f6;
+}
+ul.content_list li{
+    background:#fff;
+    margin-bottom:0.1rem;
+    padding:0rem 0.3rem;
+    display:flex;
+    flex-direction: row;
+    /*justify-content: space-between;*/
+    align-items: center;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    position: relative;
+
+}
+ .call-bnt{
+    height:0.48rem;
+    width:1rem;
+    border-radius: 0.05rem;
+    text-align: center;
+    line-height: 0.48rem;
+    font-size:0.24rem;
+    color:#fff;
+}
+.call_enter{
+    width:.5rem;
+    height:100%;
+    background:url('../image/icon_enter.svg')no-repeat center;
+    background-size:0.28rem 0.46rem;
+    position: absolute;
+    right: .2rem
+}
+.dialed{
+    background:rgb(141, 152, 167);
+    color:#fff;
+}
+.be_dialed{
+    /*background:#1177ee;*/
+    background-color: rgb(85, 153, 255);
+
+}
+.not_dialed{
+    background:rgb(127, 217, 60);
+    color:#fff;
+}
+.call_details{
+    width:5rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.call_details p:first-child{
+    margin:0 0.3rem;
+    font-size:0.36rem;
+}
+.call_details p:last-child{
+   display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Interestingly:before{
+  content:"";
+  display:inline-block;
+  width:0.48rem;
+  height:0.48rem;
+  background:url('../image/icon_face.svg')no-repeat center;
+  background-size:cover;
+    margin-right:0.1rem;
+}
+.Nointention:before{
+    content:"";
+    display:inline-block;
+    width:0.48rem;
+    height:0.48rem;
+    background:url('../image/icon_face_02.svg')no-repeat center;
+    background-size:cover;
+    margin-right:0.1rem;
+}
+.aboutside:before{
+    content:"";
+    display:inline-block;
+    width:0.48rem;
+    height:0.48rem;
+    background:url('../image/icon_face_01.svg')no-repeat center;
+    background-size:cover;
+    margin-right:0.1rem;
+}
+.edit{
+    width:1rem;
+    height:100%;
+    background:url('../image/icon_edies.svg')no-repeat center;
+    background-size:0.48rem 0.48rem;
+    position: absolute;
+    top:0;
+    right: 0.6rem;
+    cursor: pointer;
+
+
+}
+.user-opinion{
+  font-size: .24rem;
+  color: #999;
+}
+.user-opinion.type1:before{
+   content: '';
+   width: .48rem;
+   height: .48rem;
+   display: inline-block;
+   background: url(../image/icon_face.svg) no-repeat center;
+   vertical-align: middle;
+}
+.user-opinion.type2:before{
+   content: '';
+   width: .48rem;
+   height: .48rem;
+   display: inline-block;
+   background: url(../image/icon_face_02.svg) no-repeat center;
+   vertical-align: middle;
+}
+.user-opinion.type3:before{
+   content: '';
+   width: .48rem;
+   height: .48rem;
+   display: inline-block;
+   background: url(../image/icon_face_01.svg) no-repeat center;
+   vertical-align: middle;
+}
+
+/**暂无数据样式****/

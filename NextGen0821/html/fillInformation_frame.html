@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/information.css" />
+    <title>fillInformation</title>
+</head>
+
+<body>
+    <div id="information">
+        <!---------------------列表提交返馈栏开始------------------------>
+        <ul class="user Column">
+            <li>用户信息管理</li>
+            <li>
+                <div class="item_box">
+                    <p>姓名</p>
+                    <p></p>
+                </div>
+            </li>
+            <li>
+                <div class="item_box">
+                    <p>性别</p>
+                    <p></p>
+                </div>
+            </li>
+            <li>
+                <div class="item_box">
+                    <p>年龄</p>
+                    <p></p>
+                </div>
+            </li>
+            <li>
+                <div class="item_box">
+                    <p>有无子女</p>
+                    <p></p>
+                </div>
+            </li>
+            <li>
+                <div class="item_box">
+                    <p>子女年龄</p>
+                    <p></p>
+                </div>
+            </li>
+            <li>
+                <div class="item_box">
+                    <p>用户意向 <span class="required">（必填）</span></p>
+                    <p></p>
+                </div>
+            </li>
+            <li>
+                <div class="item_box">
+                    <p>备注</p>
+                    <p></p>
+                </div>
+            </li>
+
+        </ul>
+        <!--------------------列表提交返馈栏结束---------------------------------------->
+        <!---------------------------客户信息栏开始--------------------------------------------->
+        <ul class="call Column">
+            <li>通话信息</li>
+            <li class="item_box">
+                <span>客户信息:</span>
+                <span>17023232323</span>
+                <li class="item_box">
+                    <span>通话时间:</span>
+                    <span> </span>
+                </li>
+        </ul>
+        <!-------------------------------客户信息栏结束------------------------------------------------------->
+        <!--------------------基本信息栏开始------------------------------------->
+        <ul class="basic Column">
+            <li>
+                基本信息
+            </li>
+            <li class="base_item">
+                <span>客户信息:</span>
+                <span></span>
+            </li>
+            <li class="base_item">
+                <span>动作:</span>
+                <span>
+            </span>
+            </li>
+            <li class="base_item">
+                <span>PV:</span>
+                <span>17</span>
+            </li>
+            <li class="base_item">
+                <span id="msg">访问时间:</span>
+                <span></span>
+            </li>
+        </ul>
+        <!-------------------------基本信息栏结束-------------------------------------------->
+        <!-------------------------------呼叫开始-------------------------------------------------->
+        <div class="callbnt">
+            <p>呼叫</p>
+        </div>
+        <!-------------------------------呼叫结束-------------------------------------------------->
+    </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/yll.util.js"></script>
+<script type="text/html" id="informatios_template">
+    <li>
+        <div class="item_box">
+            <p tid="title">姓名</p>
+            <p tid="vals"></p>
+        </div>
+    </li>
+</script>
+<script type="text/html" id="called_template">
+    <li>
+        <span>客户信息:</span>
+        <span></span>
+    </li>
+</script>
+<script type="text/html" id="baseInformation_template">
+    <span>客户信息:</span>
+    <span></span>
+</script>
+<script>
+    var optionList = document.getElementsByClassName('user')[0].getElementsByTagName('li');
+    apiready = function() {
+        var Remarks = '';
+        var column = document.getElementsByClassName('Column')  //获取所有栏目
+        var boxCallbnt = document.getElementsByClassName('callbnt')[0] //获取拨打电话按钮；
+        var callBnt = document.getElementsByClassName('callbnt')[0].getElementsByTagName('p')[0]  //获取拨打电话按钮；
+        var optionsItems = document.getElementsByClassName('item_box') //获返馋馈栏所有列表项；
+        var baseOption = document.getElementsByClassName('base_item') //获取基本信息栏列表项；
+        var basestore = sessionAgent.getLoginInfo();
+        var urseAllurls = getAPI('call/getOutCallPhoneAllInfo') // 列表信息接口
+        var baseUrls = getAPI('call/getOutCallPhoneInfo')  // 基本详情信息接口；
+        var oldState = ''
+
+        var pageParams = get_par() //获取页面传参；
+            //alert(JSON.stringify(pageParams))
+        //获取用户信息基础参数；
+        basestore.data = {
+            outCallPhoneId: pageParams.callstates    //电话主键ID号
+        }
+
+        //如是用户返馈窗口执隐藏呼叫按钮，否则展示呼叫按钮；
+        if (api.winName == 'userDetails') {  //判断当前活动窗口按须显示不同列表栏；
+            boxCallbnt.style.display = "block"
+            column[0].style.display = "none"
+            column[1].style.display = "none"
+        } else {
+            boxCallbnt.style.display = "none"
+            column[0].style.display = "block"
+            column[1].style.display = "block"
+        }
+
+        //修改用户息入口封装
+        selectOption();
+
+        if (api.winName == 'fillIn') { //在已拨打电话中填写资料执行ajax调用接口
+
+            apiAjax(urseAllurls, basestore, function(ret) {
+                    if (ret) {
+                        if (ret.status == 0) {
+                            if (ret.data) {
+                                oldState = ret.data.userIntention
+                                subInforTemplate(ret.data, optionsItems); //信息列表栏与客户息栏模板；
+                                baseInforTemplate(ret.data, baseOption); //基本信息模板；
+                            }
+
+                        } else {
+                            toastNetErrBottom(ret.msg)  // 查询失败时，抛了错识误提示窗
+                        }
+                    }
+
+
+                })
+
+
+        } else { //用户详情中执行ajax请求
+            apiAjax(baseUrls, basestore, function(ret) {
+
+                if (ret) {
+                    if (ret.status == 0) {
+                        if (ret.data) {
+                            baseInforTemplate(ret.data, baseOption)
+                        } else { //无数据
+                            toastNetErrBottom("未返回data！");
+                        }
+
+                    } else {
+                        toastNetErrBottom(ret.msg);
+                    }
+                } else {
+                    toastNetErrBottom("请求服务器失败!");
+                }
+
+
+            })
+
+        }
+
+        //提交用户返馈信息
+        api.addEventListener({
+            name: 'submit'
+        }, function(ret, err) {
+            var substore = sessionAgent.getLoginInfo();
+            var subUrls = getAPI('call/desiredSubmit')  //返馈信息提交接口
+
+            if (!submitInformation(pageParams.callstates)) { //判断用户意向值是否为空
+                $toast('操作失败 用户意向为必填值')
+                return
+            }
+            substore.data = submitInformation(pageParams.callstates) //要传的入的JSON对象；
+            var refshe = substore.data
+            apiAjax(subUrls, substore, function(ret) {
+                if (ret.status == 0) {
+                    $toast('操作成功')
+                     var reshe = 'updateUserOpinion("'+refshe.outCallPhoneId+'","'+refshe.userIntention+'","'+oldState+'");';
+                    //提交成功后执行指定窗口页面中状态更新操作；
+                    api.execScript({
+                        name: 'calldetails',
+                        frameName: 'callList',
+                        script: reshe
+                    });
+                    //延迟1秒中关闭当前窗口；
+                    setTimeout(function(){
+                        api.closeWin();
+                    },1000)
+
+                } else {
+                    $toast(ret.msg) //如果失败抛出错误提示；
+                }
+
+            })
+
+        });
+        callBnt.addEventListener('click', function() {
+            //console.log(JSON.stringify(pageParams));
+            callPhone(pageParams) //点呼叫按钮进行呼叫
+        }, false)
+
+
+
+        //信息返馈列表修改事件封装；
+        function selectOption() {
+            for (var i = 0; i < optionList.length; i++) {
+                (function(i) {
+                    optionList[i].addEventListener('click', function() {
+                        if (i == 0) {
+                            return false
+                        };
+                        var eles = this.getElementsByClassName('item_box')[0].getElementsByTagName('p')[0]
+                        var elesvalue = this.getElementsByClassName('item_box')[0].getElementsByTagName('p')[1]
+                        var _params = {};//携带对象参娄到保存窗口；
+
+                        _params.title = eles.textContent; //文本字符串
+                        _params.index = i;  //点击的序列号索引
+                        if (i == 7) { //如果索引值是7 作特特殊处理；
+                            _params.value = get_local('Remarks') //本地locstorege存储字符串
+                        } else {
+                            _params.value = elesvalue.textContent
+                        }
+                        openOptionWin(_params) //打开保存窗口并传参；
+
+                    }, false)
+                })(i)
+            }
+        }
+
+        //打开修改详情窗口；
+        function openOptionWin(params) { //打开保存窗口；
+            if (is_define(params)) {
+                var pageParams = params
+            } else {
+                var pageParams = new Object();
+            }
+
+            api.openWin({
+                name: 'saveOption',
+                url: './saveOption_win.html',
+                pageParam: pageParams
+            });
+        }
+
+
+
+
+
+        //引用筛选类型
+        function saiSuan(int) {
+            var value = '18岁以下'
+            switch (int) {
+                case 0:
+                    value = '18岁以下'
+                    break;
+                case 1:
+                    value = '18-30岁'
+                    break;
+                case 2:
+                    value = '31—50岁'
+                    break;
+                case 3:
+                    value = '51岁以上'
+                    break;
+                default:
+                    value = ''
+            }
+            return value
+        }
+
+
+        function userIntention(intention) {
+            var value = ''
+            switch (intention) {
+                case 0:
+                    value = '无意向'
+                    break;
+                case 1:
+                    value = '有意向'
+                    break;
+                case 2:
+                    value = '约见面'
+                    break;
+                default:
+                    value = ''
+                    break;
+            }
+            return value
+
+        }
+        //提交信息模板
+        function subInforTemplate(info, eles) {
+            var sex = info.sex == 2 ? -1 : info.sex
+            var item = $api.domAll(eles[0], 'p')[1]
+            item.textContent = info.customerName ? info.customerName : ''; //姓名；
+            item.setAttribute('valuenum', 0)//设置属性值
+
+            $api.domAll(eles[1], 'p')[1].textContent = info.sex == -1 ? '' : (info.sex == 0 ? '女' : (info.sex == 2 ? '未知' : '男')) //姓别；
+            $api.domAll(eles[1], 'p')[1].setAttribute('valuenum', sex)
+            $api.domAll(eles[2], 'p')[1].textContent = saiSuan(info.ageGroup) //成人年龄
+            $api.domAll(eles[2], 'p')[1].setAttribute('valuenum', info.ageGroup)
+            $api.domAll(eles[3], 'p')[1].textContent = info.offSpring == -1 ? '' : (info.offSpring == 0 ? '无' : '有') //有无后代；
+            $api.domAll(eles[3], 'p')[1].setAttribute('valuenum', info.offSpring)
+            $api.domAll(eles[4], 'p')[1].textContent = saiSuan(info.childAge) //子女年龄
+            $api.domAll(eles[4], 'p')[1].setAttribute('valuenum', info.offSpring)
+
+            $api.domAll(eles[5], 'p')[1].textContent = userIntention(info.userIntention); //用户意向；
+
+            $api.domAll(eles[5], 'p')[1].setAttribute('valuenum', info.userIntention) //设置用户意向属性；
+            $api.domAll(eles[6], 'p')[1].textContent = cutstr(info.remark,20) //备注，截取20个字符患
+            set_local('Remarks',info.remark)
+            //Remarks = info.remark
+            $api.domAll(eles[6], 'p')[1].setAttribute('valuenum', 6)
+            $api.domAll(eles[7], 'span')[1].textContent = info.phone //客户信息；
+            $api.domAll(eles[8], 'span')[1].textContent = '' + info.startCallTime + ' 至 ' + info.endCallTime + '' //通话时间；
+
+        }
+
+        //基础信息模板
+        function baseInforTemplate(info, eles) {
+            $api.domAll(eles[0], 'span')[1].textContent = info.phone
+            $api.domAll(eles[1], 'span')[1].textContent = info.behavior
+            $api.domAll(eles[2], 'span')[1].textContent = info.pageView
+            $api.domAll(eles[3], 'span')[1].textContent = info.createTime
+        }
+
+        //提交反馈信息列表参数封装；
+        function submitInformation(callstates) {
+            var data = {
+                outCallPhoneId: callstates
+            };
+            //循环获取dom节点属性值；
+            for (var i = 0; i < optionsItems.length; i++) {
+                if (i < 7) {
+                    var itemValue = $api.domAll(optionsItems[i], 'p')[1] //获取dom节点
+                    var paramsvalue = $api.attr(itemValue, 'valuenum') //获取属性值；
+                    switch (i) {
+                        case 0:
+                            data.customerName = itemValue.textContent; //姓名；
+
+                            break;
+                        case 1:
+                            data.sex = paramsvalue; //性别
+                            break;
+                        case 2:
+                            data.ageGroup = paramsvalue; //年龄；
+
+                            break;
+                        case 3:
+                            data.offSpring = paramsvalue; // 有无子女
+                            break;
+                        case 4:
+                            data.childAge = paramsvalue; //子女年龄；
+                            break;
+                        case 5:
+                            data.userIntention = paramsvalue; //用户意向
+
+                            break;
+                        case 6:
+                            data.remark = get_local('Remarks'); //备注；
+                            break;
+                    }
+                }
+
+            }
+              //alert(JSON.stringify(data))
+            //判断用户意向是否满中以下条件
+            if (data.userIntention == 0 || data.userIntention == 1 || data.userIntention == 2) {
+                return data;
+            } else {
+                return false
+            }
+        }
+
+        //拨打电话与监听
+        function callPhone(data) {
+
+           // console.log(JSON.stringify(data));
+            var fn = "callPhone('" + data.callstates + "'," + data.telState + ");"
+            api.execScript({
+                name: 'calldetails',
+                frameName: 'callList',
+                script: fn
+            });
+
+            var callSeverUrl = getAPI('call/startCall')  // 拨打电话接口；
+            var callbaseParams = sessionAgent.getLoginInfo();
+            callbaseParams.data = {
+                calledOutCallPhoneId: data['callstates']
+            }
+            apiAjax(callSeverUrl, callbaseParams, function(datas) {
+                if (datas.status == 0) {
+                    api.toast({
+                        msg: '请在' + datas.data.validTime + '分钟内拨打',
+                        duration: 2000,
+                        location: 'middle'
+                    });
+                    setTimeout(function() {
+                        call_tel(datas.data.dstVirtualNum)
+                        phoneListener(function(ret) {
+
+                            if (ret.state == 'OFFHOOK') {
+                                var callendSeverUrl = getAPI('call/endCall')
+                                var callendbaseParams = sessionAgent.getLoginInfo();
+                                callendbaseParams.data = {
+                                    bindId: datas.bindId,
+                                    calledOutCallPhoneId: data['callstates']
+                                }
+                                apiAjax(callendSeverUrl, callendbaseParams, function(datastate) {
+                                    if (datastate.status == 0) {
+                                        if (datastate.data.callState == 1) {
+
+                                            api.closeWin();
+                                        }
+                                    } else {
+
+                                    }
+                                    api.closeWin();
+
+                                })
+                            }
+                        })
+
+                    }, 2000)
+
+
+                } else {
+                    $toast(datas.msg)
+                }
+            })
+        }
+
+        function openfillInWin(params) {
+            if (is_define(params)) {
+                var pageParam = params;
+            } else {
+                var pageParam = new Object();
+            }
+            api.openWin({
+                name: 'fillIn',
+                url: './fillIn_win.html',
+                pageParam: pageParam
+            });
+        }
+    }
+
+    //执行保存的信息；
+    function getMsg(params, index, valuenum) {
+
+        if(params !== 'undefined' && index !== 'undefined' && valuenum !== 'undefined') {
+            var boxDiv = optionList[index].getElementsByClassName('item_box')[0];
+            var valuBox = boxDiv.getElementsByTagName('p')[1]
+
+            if (index == 7) {
+                set_local('Remarks', params)
+
+                valuBox.textContent = cutstr(params, 20)
+                valuBox.setAttribute('valuenum', valuenum)
+            } else {
+                valuBox.textContent = params;
+                valuBox.setAttribute('valuenum', valuenum)
+            }
+        }
+    }
+
+    //截取字符串；
+    function cutstr(str,len)
+    {
+        var str_length = 0;
+        var str_len = 0;
+        str_cut = new String();
+        str_len = str.length;
+        for(var i = 0;i<str_len;i++)
+        {
+            a = str.charAt(i);
+            str_length++;
+            if(escape(a).length > 4)
+            {
+                //中文字符的长度经编码之后大于4
+                str_length++;
+            }
+            str_cut = str_cut.concat(a);
+            if(str_length>=len)
+            {
+                str_cut = str_cut.concat("...");
+                return str_cut;
+            }
+        }
+        //如果给定字符串小于指定长度，则返回源字符串；
+        if(str_length<len){
+            return  str;
+        }
+    }
+</script>
+
+</html>

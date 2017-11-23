@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/fillIn.css" />
+    <title>user center</title>
+</head>
+<body>
+<div id="fillIn">
+    <header>
+        <div class="fill_box">
+            <span class="back"></span>
+            <p>用户反馈</p>
+            <span class="submit">提交</span>
+        </div>
+        <div class="main">
+
+        </div>
+    </header>
+</div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script>
+    var header = document.getElementsByTagName('header')[0];
+    var backhistory = document.getElementsByClassName('back')[0];
+    var submitbutton = document.getElementsByClassName('submit')[0]
+    apiready = function(){
+        var pageParams = get_par()
+        fix_android_ios('white')
+        var headerHeight = $api.offset(header).h;
+
+        if(pageParams.fillType==1){
+
+            openfillInFrame(headerHeight,pageParams)
+        }else{
+            openfillInFrame(headerHeight,pageParams)
+        }
+
+        backhistory.addEventListener('click',function(){
+//            api.openWin({
+//                name: 'calldetails',
+//                url: './callDetails_win.html',
+//                reload:true
+//                //pageParam: {name: 'pageparamname'}
+//            });
+            api.closeWin();
+        },false)
+
+        submitbutton.addEventListener('click',function(){
+            api.sendEvent({
+                name: 'submit',
+                extra: {sub: 'ok'}
+            });
+        })
+    }
+    function openfillInFrame(headerHeight,params){
+        if(is_define(params))
+        {
+            var pageParam=params;
+        }
+        else
+        {
+            var pageParam=new Object();
+        }
+        api.openFrame({
+            name: 'fillDetails',
+            url: './fillInformation_frame.html',
+            rect: {
+                x: 0,
+                y: headerHeight,
+                w: api.winWidth,
+                h: api.winHeight-headerHeight
+            },
+            bgColor:'rgba(246,246,246,1)',
+            pageParam:pageParam,
+            bounces: true,
+            reload:true
+
+        });
+
+    }
+</script>
+</html>

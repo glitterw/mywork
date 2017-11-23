@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+    <title>我的</title>
+</head>
+
+<body class="user-index">
+    <div class="user-item">
+        <div class="item icon-list"><span class="defaultFont">呼叫清单</span></div>
+        <div class="item icon-made"><span class="defaultFont">需求定制</span></div>
+        <div class="item icon-notice"><span class="defaultFont">通知中心</span><i class="notice-num defaultFont hidden">0</i></div>
+    </div>
+    <div class="user-quit"> <input type="button" value="退 出 登 录" class="quit"></div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/route.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        //获取用户消息数量
+        var userEntity = sessionAgent.getLoginInfo();
+        //修改头部我的电话号码
+        api.execScript({
+            name: 'main',
+            script: 'updateUserPhone("'+userEntity.phone+'");'
+        });
+
+        //修改消息的数量
+        $api.text($api.dom('.notice-num'), userEntity.num);
+        //更新消息数量
+        getNoticeNum(userEntity);
+        //点击退出
+        $api.addEvt($api.dom(".quit"), 'click', function() {
+            loginOut();
+        });
+        //点击呼叫清单
+        $api.addEvt($api.dom(".icon-list"), 'click', function() {
+            openWinTelList();
+        });
+        //需求定制
+        $api.addEvt($api.dom(".icon-made"), 'click', function() {
+            openWin('需求定制', 'winMade', 'frmMade', 'frm-made.html', false);
+        });
+        //通知中心
+        $api.addEvt($api.dom(".icon-notice"), 'click', function() {
+            openWin('通知中心', 'winNotice', 'frmNotice', 'frm-notice.html', true);
+        });
+        //console.log('winName:'+api.winName+' frmname:'+api.frameName);
+    };
+    //用户的消息数量
+    function getNoticeNum(userEntity) {
+        var actionUrl = ajaxAgent.serverAction + '/user/getMyInfo';
+        api.ajax({
+            async: false,
+            url: actionUrl,
+            method: 'post',
+            timeout: 30,
+            dataType: 'json',
+            returnAll: false,
+            headers: {
+                "Authorization": "Bearer [accessToken]",
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            data: {
+                body: {
+                    version: ajaxAgent.version,
+                    id: userEntity.id,
+                    token: userEntity.token,
+                }
+            }
+        }, function(ret, err) {
+            if (ret) {
+                console.log(JSON.stringify(ret));
+                if (ret.status == 0) {
+                    //更新用户的环境变量
+                    userEntity.num = ret.data.num;
+                    //保存session
+                    sessionAgent.setLoginInfo(userEntity);
+                    updateNoticeNum(ret.data.num);
+                } else {
+                    //toastNetErr(ret.msg);
+                }
+            } else {
+                //openLogin('html/win-login.html');
+            }
+        });
+
+    }
+
+    //修改用户的消息数量
+    function updateNoticeNum(num){
+      $api.text($api.dom('.notice-num'), num);
+      if(num>0){
+          $api.removeCls($api.dom('.notice-num'), 'hidden');
+      }else{
+         $api.addCls($api.dom('.notice-num'), 'hidden');
+      }
+    }
+
+    //退出系统
+    function loginOut() {
+      var actionUrl = ajaxAgent.serverAction + '/user/logout';
+      var userEntity = sessionAgent.getLoginInfo();
+      var values= {
+        "id": userEntity.id,
+        "token": userEntity.token,
+        "version": ajaxAgent.version
+      };
+
+      console.log(JSON.stringify(values));
+      api.ajax({
+          async: false,
+          url: actionUrl,
+          method: 'post',
+          timeout: 30,
+          dataType: 'json',
+          returnAll: false,
+          headers: {
+              "Authorization": "Bearer [accessToken]",
+              "Content-Type": "application/json; charset=utf-8"
+          },
+          data: {
+              body:values
+          }
+      }, function(ret, err) {
+        //console.log(JSON.stringify(ret));
+          if (ret) {
+              if (ret.status == 0) {
+                    sessionAgent.clearLoginInfo();
+                    openLogin('win-login.html');
+              } else {
+                  toastNetErr(ret.msg);
+                  sessionAgent.clearLoginInfo();
+                  openLogin('win-login.html');
+              }
+          } else {
+              sessionAgent.clearLoginInfo();
+              openLogin('win-login.html');
+          }
+      });
+
+    }
+    //打开呼叫清单
+    function openWinTelList() {
+        api.openWin({
+            name: 'win-tellist',
+            url: 'win-tellist.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    }
+
+    function openWin(title, winName, frmName, frmhtml, isBounces) {
+        api.openWin({
+            name: winName,
+            url: 'win-common.html',
+            pageParam: {
+                winTitle: title,
+                frmName: frmName,
+                frmHtml: frmhtml,
+                bounces: isBounces
+            }
+        });
+    }
+</script>
+
+</html>

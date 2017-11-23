@@ -1,0 +1,40 @@
+@charset "UTF-8";
+html,body{
+    font-size:0.24rem;
+}
+.call_title{
+    height:0.6rem;
+    padding:0.14rem 0.3rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size:0.36rem;
+    color:#fff;
+}
+.call_title span.back{
+    width:0.22rem;
+    height:0.22rem;
+    border-right:2px solid #fff;
+    border-bottom:2px solid #fff;
+    transform: rotate(135deg);
+}
+.call_title span.button {
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url('../image/icon_select.svg')no-repeat center;
+    background-size: cover;
+}
+header{
+    background:#1177ee;
+}
+.call_title p {
+    width: 80%;
+    word-break: break-all;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: center;
+}

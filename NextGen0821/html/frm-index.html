@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/breathe.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <title>外呼</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="nothing-box hidden">
+        <div class="nothing">
+            <p>暂无数据
+                <p>
+        </div>
+    </div>
+    <div id="breathe">
+        <ul id="list" class="content_box">
+          <li tid="Listitem">
+  <div class="chart">
+      <div class="containersvg">
+          <svg id="_" data-name="%" xmlns="http://www.w3.org/2000/svg" style="width:0.97rem; height:1.27rem" viewBox="0 0 95 127">
+              <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+                  <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01">
+                      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                          <rdf:Description rdf:about=""/>
+                      </rdf:RDF>
+                  </x:xmpmeta>
+                  <?xpacket end="w"?></metadata>
+              <defs>
+
+              </defs>
+              <circle id="椭圆_1"   data-name="椭圆 1" class="cls-1" cx="47" cy="48" r="45"/>
+              <!--<path id="椭圆_1-2" data-name="椭圆 1"  d="M47,3A45.006,45.006,0,0,1,69.123,87.2"/>-->
+              <circle id="progress" tid="circle" class="cls-2" cx="47" cy="48" r="45" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="0" />
+              <text id="_20_50" data-name="20/50" class="cls-3" x="47.136" y="123.902" tid="textBli">20/50</text>
+              <text  tid="textclr" id="_40_" data-name="40%" class="cls-4" x="48.136" y="56.902">40<tspan class="cls-5" dy="-7.2">%</tspan></text>
+          </svg>
+
+      </div>
+  </div>
+  <div class="content_text">
+      <p tid="titles">
+      </p>
+      <p tid="times">更新时间：2017.7.29 <span>9:18</span></p>
+  </div>
+  <div class="label">
+      <span class="label_text test" tid="labels">测试</span>
+  </div>
+</li>
+            <!-- <li tid="Listitem">
+                <div class="chart">
+                    <div class="containersvg">
+                        <svg data-name="%" class="pecent" viewBox="0 0 95 127">
+        <circle   data-name="椭圆 1" class="cls-1" cx="47" cy="48" r="45"/>
+        <path id="椭圆_1-2" data-name="椭圆 1"  d="M47,3A45.006,45.006,0,0,1,69.123,87.2"/>
+        <circle tid="circle" class="cls-2" cx="47" cy="48" r="45" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="0" />
+        <text  data-name="20/50" class="cls-3" x="47.136" y="123.902" tid="textBli">20/50</text>
+        <text  tid="textclr" id="_40_" data-name="40%" class="cls-4" x="48.136" y="56.902">40<tspan class="cls-5" dy="-7.2">%</tspan></text>
+    </svg>
+                    </div>
+                </div>
+                <div class="content_text">
+                    <p tid="titles">房地产测试数据3房产测试数据3房产测试 房地产测试数据3房产测试数据3房产测试
+                    </p>
+                    <p tid="times">更新时间：2017.7.29 <span>9:18</span></p>
+                </div>
+                <div class="label">
+                    <span class="label_text formal" tid="labels"><i>正式</i></span>
+                </div>
+            </li> -->
+
+
+        </ul>
+
+    </div>
+    <div class="load-process">
+            <!-- 页面滑到底部 开始 -->
+            <div class="on-bottom hidden">
+                <p class="icon-shan_la">
+                    <span>
+                <i>上滑下载更多数据</i>
+                <i id="showNum">已加载 20/50</i>
+              </span>
+                </p>
+            </div>
+            <!-- 页面滑到底部 结束 -->
+            <!-- 数据加载中 开始 -->
+            <div class="loading hidden">
+                <p>
+                  <span class="icon-loading spin">
+                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span>
+                        </span>
+                  <span>数据载入中...</span></p>
+            </div>
+            <!-- 数据加载中 结束 -->
+            <!-- 数据加载完 开始 -->
+            <div class="the-end  hidden">
+                <p class="icon-stop_la">
+                    <span>
+                <i id="showTotalNum">已加载全部50条数据</i>
+                <i class="go-begin">返回顶部</i>
+              </span>
+                </p>
+            </div>
+            <!-- 数据加载完 结束 -->
+        </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/yll.util.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script>
+    var page = 1;
+    var pageNum = 10;
+    var totalNum = 0;
+    var sumNum = 0; //目前加载的总条目
+    apiready = function() {
+      console.log(JSON.stringify(api.pageParam));
+
+        getList();
+        listenToBottom();
+    };
+
+    function getList() {
+        var actionUrl = ajaxAgent.serverAction + '/call/getOutCallList';
+        var userEntity = sessionAgent.getLoginInfo();
+        var values = {
+            "id": userEntity.id,
+            "token": userEntity.token,
+            "version": ajaxAgent.version,
+            "pageSize": pageNum,
+            "pageNum": page
+        }
+        //console.log(JSON.stringify(actionUrl));
+        //console.log(JSON.stringify(values));
+        getListContent(actionUrl, values);
+    }
+
+    //数据路由制作
+    function makelist(ret) {
+        //console.log(JSON.stringify(ret));
+        //return ;
+        hideLoading();
+        if (ret.status == 0) { //返回正确结果
+            if (ret.data) {
+                var data = ret.data;
+                if (data.count >= 0) {
+                    totalNum = data.count;
+                    //  totalNum=0;
+                    if (totalNum == 0) { //没有数据
+                        $api.removeCls($api.dom(".nothing-box"), 'hidden');
+                        return false;
+                    } else {
+                        if (data.outCallList) {
+                            var list = data.outCallList;
+                            sumNum += list.length;
+                            //生成html并加载到页面上
+                            var html = creatHtml(list);
+                            if (page == 1) {
+                                $api.html($api.byId("list"), html);
+                                $api.removeCls($api.byId("list"), "hidden");
+                            } else {
+                                $api.append($api.byId("list"), html);
+                            }
+                            api.parseTapmode();
+                        }
+                    }
+
+                } else { //出错了，没有返回总量
+                    toastNetErrBottom("数据返回错误！");
+                }
+            } else {
+                toastNetErrBottom("data is null!");
+            }
+        } else {
+            toastNetErrBottom(ret.msg);
+        }
+
+
+    }
+
+    //生成每次加载的页面内容
+    function creatHtml(listArray) {
+        var html = "";
+        for (var i = 0; i < listArray.length; i++) {
+            var obj = listArray[i];
+            var percent=0; //打电话的赞比
+            if(obj.num>0){//计算占比
+              percent=parseInt(obj.calledNum)/parseInt(obj.num);
+              percent=percent.toFixed(2);
+            }
+            var strokeDashoffset=300-parseInt(300*percent);
+            console.log(percent);
+            console.log(strokeDashoffset);
+            var dataTypeClassName={
+              className:'test',
+              name:'测试'
+            };
+            if(obj.dataType==1){
+              dataTypeClassName.className="formal";
+              dataTypeClassName.name="正式";
+            }
+            var onclickFn="openCalldetails('"+obj.outCallId+"','"+obj.name+"')";
+            html += '<li tid="Listitem" onclick="'+onclickFn+'">';
+            html += '<div class="chart">';
+            html += '<div class="containersvg">';
+            html += '    <svg  data-name="%"  class="pecent" viewBox="0 0 95 127">';
+            html += '        <circle   data-name="椭圆 1" class="cls-1" cx="47" cy="48" r="45"/>';
+            html += '        <!--<path   data-name="椭圆 1"  d="M47,3A45.006,45.006,0,0,1,69.123,87.2"/>-->';
+            html += '        <circle tid="circle" class="cls-2" cx="47" cy="48" r="45" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="'+strokeDashoffset+'" />';
+            html += '        <text  data-name="20/50" class="cls-3" x="47.136" y="123.902" tid="textBli">'+obj.calledNum+'/'+obj.num+'</text>';
+            html += '        <text  tid="textclr"   data-name="40%" class="cls-4" x="48.136" y="56.902">'+(percent*100)+'<tspan class="cls-5" dy="-7.2">%</tspan></text>';
+            html += '    </svg>';
+            html += '</div>';
+            html += '</div>';
+            html += '<div class="content_text">';
+            html += '<p tid="titles">'+obj.name+'</p>';
+            html += '<p tid="times">更新时间：'+obj.updateTime+'</p>';
+            html += '</div>';
+            html += '<div class="label">';
+            html += '<span class="label_text '+dataTypeClassName.className+'" tid="labels"><i>'+dataTypeClassName.name+'</i></span>';
+            html += '</div>';
+            html += '</li>';
+        }
+        return html;
+    }
+
+    //打开电话列表
+    function openCalldetails(outCallId,name) {
+        api.openWin({
+            name: 'calldetails',
+            url: './callDetails_win.html',
+            reload:true,
+            pageParam: {
+              'outCallId':outCallId,
+              'title':name
+            }
+        });
+    }
+
+
+</script>
+
+</html>

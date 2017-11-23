@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>用户详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        html,body{
+            font-size:0.4rem;
+        }
+        span.back{
+            width:0.22rem;
+            height:0.22rem;
+            border-right:2px solid #000;
+            border-bottom:2px solid #000;
+            transform: rotate(135deg);
+        }
+        header{
+            background:#fff;
+
+            border-bottom:1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .user_title{
+            height:0.6rem;
+            padding:0.14rem 0.3rem;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-size:0.36rem;
+
+
+        }
+        span.empty{
+             width:0.3rem;
+             height:0.3rem;
+        }
+    </style>
+</head>
+<body>
+  <div id="user_details">
+      <header>
+          <div class="user_title">
+              <span class="back"></span>
+              <p>用户详情</p>
+              <span class="empty"></span>
+          </div>
+          <div class="main">
+
+          </div>
+      </header>
+
+  </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script>
+    var header = document.getElementsByTagName('header')[0];
+    var backhistory = document.getElementsByClassName('back')[0];
+    apiready = function(){
+        var paramPage = get_par()
+        fix_android_ios('white')
+        var headerHeight = $api.offset(header).h;
+        openUserDetailsFrame(headerHeight,paramPage)
+        backhistory.addEventListener('click',function(){
+            api.closeWin();
+        },false)
+    }
+    function openUserDetailsFrame(headerHeight,params){
+        if(is_define(params))
+        {
+            var pageParam=params;
+        }
+        else
+        {
+            var pageParam=new Object();
+        }
+        api.openFrame({
+            name: 'userDetails',
+            url: './fillInformation_frame.html',
+            rect: {
+                x: 0,
+                y: headerHeight,
+                w: api.winWidth,
+                h: api.winHeight-headerHeight
+            },
+            bgColor:'rgba(246,246,246,1)',
+            pageParam: pageParam,
+            bounces: true,
+            reload:true
+        });
+    }
+</script>
+</html>

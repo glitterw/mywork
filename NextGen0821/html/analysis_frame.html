@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <script src="../script/initsize.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+
+    <title>数据分析</title>
+    <style>
+        html,body{
+            background:rgba(0,0,0,0)
+        }
+       .main ul{
+           width:100%;
+       }
+        li.echatitle{
+            padding:0 0.3rem;
+            font-size:0.32rem;
+            color:#1177ee;
+            height:0.8rem;
+            line-height: 0.8rem;
+            border-top:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+            box-sizing: border-box;
+        }
+        li.chart_box{
+            padding:0.65rem 0.5rem;
+            background:#fff;
+            position:relative;
+        }
+        .intention,.call_echart{
+           height:7.2rem;
+        }
+
+        .notdata{
+            position:absolute;
+            left:0;
+            top:50%;
+            width:100%;
+            display:none;
+            transform: translateY(-50%);
+        }
+        .not_bg{
+            width:3.6rem;
+            height:1.86rem;
+            background:url(../image/not_data_bg.svg)no-repeat center;
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .content{
+            margin:0 auto;
+        }
+        .content p{
+            font-size:0.36rem;
+            text-align: center;
+            color:#333;
+            padding:0.45rem;
+        }
+    </style>
+</head>
+<body>
+  <div id="analysis">
+      <div class="main">
+          <ul>
+              <li class="echatitle">通话统计分析</li>
+              <li class="chart_box">
+                  <div class="content">
+                      <div class="call_echart" id="callbox">
+
+                      </div>
+                  </div>
+                  <div class="notdata">
+                      <div class="content">
+                          <div class="not_bg"></div>
+                          <p>暂无数据</p>
+                      </div>
+                  </div>
+              </li>
+              <li class="echatitle">客户意向统计分析</li>
+              <li  class="chart_box">
+                  <div  class="content">
+                       <div class="intention" id="intenbox">
+
+                       </div>
+                  </div>
+                  <div class="notdata">
+                      <div class="content">
+                          <div class="not_bg"></div>
+                          <p>暂无数据</p>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/echarts.min.js"></script>
+
+<script>
+
+    apiready = function() {
+        // console.log(JSON.stringify(sessionAgent.getLoginInfo()))
+        var noteDBox = document.getElementsByClassName('notdata')
+        var defaultFontSize = 12,
+                defaultTextColor = '#fff',
+                callColor = ['#3e6ccc', '#50b4f1', '#f88d48',],
+                intentionColor = ['#3e6ccc', '#50b4f1', '#f88d48', '#f35352']
+        defaultFontFamily = 'microsoft yahei',
+                defaultBackgroundColor = '#fff',
+                defaultShadowColor = 'rgba(204, 214, 235, 0.247059)';
+
+        var optionCall = {
+            title: {
+                //text: '访问来源',
+                top: 0,
+                left: 'center',
+                textStyle: {
+                    fontSize: 10,
+                    fontWeight: 400
+                }
+            },
+            backgroundColor: defaultBackgroundColor, // 背景色，默认无背景。
+            color: callColor,// 调色盘颜色列表。
+            textStyle: {// 全局字体样式
+                //color: defaultTextColor,
+                fontSize: defaultFontSize
+            },
+            legend: {
+                bottom: 0,
+                left: 'center',
+                width: '100%',
+                itemWidth: 10,
+                itemHeight: 10,
+                itemBorderRadius: 4,
+                textStyle: {
+                    //color: "#d7d7d7"
+                },
+                data: ['已拨通', '未拨通', '待拨打']
+            },
+
+            tooltip: {
+                trigger: 'item',
+            },
+            series: [
+                {
+                    name: '通话统计分析',
+                    type: 'pie',
+                    radius: ['25%', '65%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            formatter: function (param) {
+                                //return param.name + ':\n' + Math.round(param.percent) + '%';
+                                return Math.round(param.percent) + '%';
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            length: 8,
+                            length2: 15,
+                        },
+                    },
+                    data: [
+                        {value: 0, name: '已拨通'},
+                        {value: 0, name: '未拨通'},
+                        {value: 0, name: '待拨打'},
+
+                    ]
+                }
+            ]
+        };
+        var optionIntention = {
+            title: {
+                //text: '访问来源',
+                top: 0,
+                left: 'center',
+                textStyle: {
+                    fontSize: 18,
+                    fontWeight: 400
+                }
+            },
+            backgroundColor: defaultBackgroundColor, // 背景色，默认无背景。
+            color: intentionColor,// 调色盘颜色列表。
+            textStyle: {// 全局字体样式
+                //color: defaultTextColor,
+                fontSize: defaultFontSize
+            },
+
+            legend: {
+                bottom: 0,
+                left: 'center',
+                width: '100%',
+                itemWidth: 10,
+                itemHeight: 10,
+                itemBorderRadius: 4,
+                textStyle: {
+                    // color: "#d7d7d7"
+                },
+                data: ['有意向', '无意向', '约见面']
+            },
+
+            tooltip: {
+                trigger: 'item',
+            },
+            series: [
+                {
+                    name: '客户意向统计分析',
+                    type: 'pie',
+                    radius: ['25%', '65%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            formatter: function (param) {
+                                //return param.name + ':\n' + Math.round(param.percent) + '%';
+                                return Math.round(param.percent) + '%';
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            length: 8,
+                            length2: 15,
+                        },
+                    },
+
+                    data: [
+                        {value: 0, name: '有意向'},
+                        {value: 0, name: '无意向'},
+                        {value: 0, name: '约见面'},
+                    ]
+                }
+            ]
+        };
+        var callchart = document.getElementById('callbox')
+        var intentionchart = document.getElementById('intenbox')
+        var callSeverUrl = getAPI('data/getOutCallAnalyze')
+        var callbaseParams = sessionAgent.getLoginInfo()
+        callbaseParams.data = {outCallId: ''}
+        ananlysisAjax(optionCall, optionIntention, callSeverUrl, callbaseParams)
+
+        api.addEventListener({
+            name: 'outCallId'
+        }, function (ret, err) {
+            callbaseParams.data = {outCallId: ret.value.outCallId}
+            ananlysisAjax(optionCall, optionIntention, callSeverUrl, callbaseParams)
+        });
+
+
+        function ananlysisAjax(callOPtion, intentionOption, callSeverUrl, callbaseParams) {
+            apiAjax(callSeverUrl, callbaseParams, function (ret) {
+                console.log(JSON.stringify(ret))
+                if (ret.status == 0) {
+                    console.log(JSON.stringify(ret))
+                    var callData = (ret.data['callAnalyze'] !== undefined) ? callAnaly(ret.data.callAnalyze) : false;
+                    var intentionData = (ret.data['intentionAnalyze']) !== undefined ? intentionAnaly(ret.data.intentionAnalyze) : false;
+                    if (!callData || !callData) {
+                        hiddenAllnotData(true)
+                        return
+                    }
+                    console.log(JSON.stringify(callData))
+                    hiddenAllnotData(false)
+                   // console.log(JSON.stringify(callOPtion.series[0].data))
+                    callOPtion.series[0].data = callData.data;
+                    callOPtion.legend.data = callData.legenData
+                    intentionOption.series[0].data = intentionData.data;
+                    intentionOption.legend.data = intentionData.legenData
+                    //console.log(JSON.stringify(optionCall))
+                    initEcharts(callchart, callOPtion)
+                    initEcharts(intentionchart, intentionOption)
+                } else {
+                    hiddenAllnotData(true)
+                }
+            })
+        }
+
+        function hiddenAllnotData(show) {
+            for (var i = 0; i < noteDBox.length; i++) {
+                if (show) {
+                    noteDBox[i].style.display = "block"
+                } else {
+                    noteDBox[i].style.display = "none"
+                }
+
+            }
+        }
+
+        function initEcharts(elem, options) {
+            var Charts = echarts.init(elem)
+            Charts.setOption(options, true);
+            Charts.resize();
+        };
+
+        function callAnaly(data) {
+            var callDataObj = {data: [], legenData: []};
+            for (var key in data) {
+                var name = '', value = ''
+                switch (key) {
+                    case 'yetCall':
+                        name = '已拨通';
+                        value = data[key]
+                        break;
+                    case 'noneCall':
+                        name = '未拨通';
+                        value = data[key]
+                        break;
+                    case 'awaitCall':
+                        name = '待拨打';
+                        value = data[key]
+                        break;
+                }
+                callDataObj.data.push({value: value, name: name})
+                callDataObj.legenData.push(name)
+            }
+            return callDataObj;
+        }
+
+        function intentionAnaly(data) {
+            var intentionDataObj = {data: [], legenData: []}
+            for (var key in data) {
+                var name = '', value = ''
+                switch (key) {
+                    case 'yetIntention':
+                        name = '有意向';
+                        value = data[key]
+                        break;
+                    case 'noneIntention':
+                        name = '无意向';
+                        value = data[key]
+                        break;
+                    case 'awaitIntention':
+                        name = '约见面';
+                        value = data[key]
+                        break;
+                }
+                intentionDataObj.data.push({value: value, name: name})
+                intentionDataObj.legenData.push(name)
+            }
+            return intentionDataObj
+        }
+    }
+</script>
+</html>

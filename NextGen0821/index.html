@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <script type="text/javascript" src="script/sessions.js"></script>
+    <style type="text/css">
+    html,body{
+        height: 100%;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+    }
+    #header{
+        text-align: center;
+		background-color: #81a9c3;
+		color: #fff;
+        width: 100%;
+    }
+    #header h1{
+        font-size: 20px;
+		height: 44px;
+		line-height: 44px;
+		margin: 0em;
+		color: #fff;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+    }
+    #footer{
+        height: 30px;
+		line-height: 30px;
+        background-color: #81a9c3;
+        width: 100%;
+        text-align: center;
+    }
+    #footer h5{
+        color: white;
+    }
+    .con{
+		font-size: 28px;
+		text-align: center;
+	}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+    </div>
+</body>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript" src="script/tools.js"></script>
+<script type="text/javascript" src="script/route.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      var userEntity = sessionAgent.getLoginInfo();
+ 			if (!sessionAgent.isLogin(userEntity)){//没有登录
+           openLogin('html/win-login.html');
+           return ;
+      }else{//是登录状态，去验证token是否过期
+        checkToken(userEntity);
+        return ;
+      }
+}
+
+//验证token是否过期 增加移动设备类型和移动设备号的验证
+		function checkToken(userEntity) {
+			var actionUrl = ajaxAgent.serverAction + '/user/login';
+			var device = "4";
+			if (api.systemType == "android") {
+				device = "2";
+			} else if (api.systemType == "ios") {
+				device = "3";
+			} else {
+				device = "4";
+			}
+			var values = {
+				type: 1,
+				phone: userEntity.id, //'122',
+				password: userEntity.token, //'334'
+				deviceNumber: api.deviceId,
+				device: device
+			};
+			var body = {
+				version: ajaxAgent.version,
+				data: values
+			}
+			//console.log(JSON.stringify(body));
+			api.ajax({
+				async: false,
+				url: actionUrl,
+				method: 'post',
+				timeout: 30,
+				dataType: 'json',
+				returnAll: false,
+				headers: {
+					"Authorization": "Bearer [accessToken]",
+					"Content-Type": "application/json; charset=utf-8"
+				},
+				data: {
+					body: body
+				}
+			}, function (ret, err) {
+				console.log(JSON.stringify(ret));
+				if (ret) {
+					//console.log(JSON.stringify(ret));
+					if (ret.status == 0) {
+						//用户token未过期直接跳过登录到首页
+						openMain('html/main_win.html');
+						return true;
+					} else {
+						toastNetErr(ret.msg);
+						//token过期情况
+						sessionAgent.clearLoginInfo();
+						setTimeout(function () {
+							openLogin('html/win-login.html');
+						}, 200);
+						return false;
+					}
+				} else {
+					openLogin('html/win-login.html');
+					return false;
+				}
+			});
+		}
+
+//验证token是否过期
+function checkTokenOld(userEntity){
+var actionUrl = ajaxAgent.serverAction + '/user/login';
+api.ajax({
+    async: false,
+    url: actionUrl,
+    method: 'post',
+    timeout: 30,
+    dataType: 'json',
+    returnAll: false,
+    headers: {
+        "Authorization": "Bearer [accessToken]",
+        "Content-Type": "application/json; charset=utf-8"
+    },
+    data: {
+        body: {
+            data: {
+                version: ajaxAgent.version,
+                type: 1,//自动
+                phone: userEntity.id,
+                password: userEntity.token,
+            }
+        }
+    }
+}, function(ret, err) {
+    if (ret) {
+        //console.log(JSON.stringify(ret));
+        if (ret.status == 0) {
+            //用户token未过期直接跳过登录到首页
+            var pageParam={
+              userPhone:userEntity.phone
+            };
+            openMain('html/main_win.html',pageParam);
+        } else {
+            toastNetErr(ret.msg);
+            //token过期情况
+            sessionAgent.clearLoginInfo();
+            openLogin('html/win-login.html');
+        }
+    } else {
+        openLogin('html/win-login.html');
+    }
+});
+}
+ </script>
+</html>

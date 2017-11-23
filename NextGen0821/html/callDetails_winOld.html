@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>callDetails</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/callDetails.css" />
+</head>
+<body>
+<div id="call_details">
+    <header>
+        <div class="call_title">
+            <span class="back"></span>
+            <p>房产测试数据2</p>
+            <span class="button">
+
+            </span>
+        </div>
+    </header>
+    <div class="call_list">
+
+    </div>
+</div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script>
+var header = document.getElementsByTagName('header')[0];
+var backhistory = document.getElementsByClassName('call_title')[0].getElementsByClassName('back')[0];
+var selectBnt = document.getElementsByClassName('call_title')[0].getElementsByClassName('button')[0];
+var title = document.getElementsByClassName('call_title')[0].getElementsByTagName('p')[0]
+apiready = function(){
+    fix_android_ios('white')
+    var headerHeight = $api.offset(header).h;
+    var pageParam = get_par();
+    title.textContent = pageParam.title;
+    opencallDetailsList(headerHeight,{headerH:headerHeight,pageParams:pageParam})
+    backhistory.addEventListener('click',function(){
+        api.openWin({
+            name: 'mainWin',
+            url: './main_win.html',
+            reload:true
+            //pageParam: {name: 'pageparamname'}
+        });
+        //api.closeWin();
+    },false)
+
+    selectBnt.addEventListener('click',function(){
+        popUpList(headerHeight,{xHeight:headerHeight})
+    },false)
+
+}
+
+
+    function opencallDetailsList(headerHeight,pageParam){
+        if(is_define(pageParam))
+        {
+            var pageParam=pageParam;
+        }
+        else
+        {
+            var pageParam=new Object();
+        }
+        api.openFrame({
+            name: 'callList',
+            url: './frm-calllist.html',
+            rect: {
+                x: 0,
+                y: headerHeight,
+                w: api.winWidth,
+                h: api.winHeight-headerHeight
+            },
+            bgColor:'rgba(246,246,246,1)',
+            pageParam:pageParam,
+            bounces: true
+        });
+    }
+
+    function popUpList(headerHeight,pageParam){
+        if(is_define(pageParam))
+        {
+            var pageParam=pageParam;
+        }
+        else
+        {
+            var pageParam=new Object();
+        }
+        api.openFrame({
+            name: 'popUp',
+            url: './popUpList_frame.html',
+            rect: {
+                x: 0,
+                y: headerHeight,
+                w: api.winWidth,
+                h: api.winHeight-headerHeight
+            },
+            bgColor:'rgba(0,0,0,0.5)',
+            pageParam:pageParam,
+            bounces: false
+        });
+    }
+</script>
+</html>

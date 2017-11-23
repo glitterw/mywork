@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>search</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/searchWin.css" />
+</head>
+<body>
+   <div id="search_win">
+       <header>
+           <div class="search_box">
+               <div class="inpt">
+                   <input type="text"  id="inputText" name="searchValue"/>
+                   <span class="labels"></span>
+               </div>
+               <button id="back">
+                   取消
+               </button>
+           </div>
+       </header>
+       <div class="search_content">
+
+       </div>
+
+   </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+ <script>
+     var header = document.getElementsByTagName('header')[0];
+     var backBnt = document.getElementById('back')
+     var searchInput = document.getElementById('inputText');
+
+     //alert(headerHeight)
+     apiready=function(){
+         fix_android_ios('white')
+         var headerHeight = $api.offset(header).h;
+         searchFrame(headerHeight,{});
+         backBnt.addEventListener('click',function(){
+             api.openWin({//打开主页窗口
+                 name: 'mainWin',
+                 url: './main_win.html',
+                 pageParam: {name: 'pageparamname'}
+             });
+
+
+             api.sendEvent({//初始化监听事件传播
+                 name: 'refshParam',
+                 extra: {initData:'empty'}
+             });
+
+
+             //api.closeWin();
+         },false)
+
+         //糊糊搜索功能传值
+         searchInput.addEventListener("keyup",function(event){
+             var inputValue = event.target.value
+                     api.sendEvent({
+                         name: 'search',
+                         extra: {search:$api.trimAll(inputValue)}
+                     });
+
+         },false)
+
+     }
+
+     function searchFrame(headerHeight,params){
+         if(is_define(pageParam))
+         {
+             var pageParam=params;
+         }
+         else
+         {
+             var pageParam=new Object();
+         }
+         api.openFrame({
+             name: 'search',
+             url: './breathe_frame.html', // './frm_search.html',
+             rect: {
+                 x: 0,
+                 y: headerHeight,
+                 w: api.winWidth,
+                 h: api.winHeight-headerHeight
+             },
+             bgColor:'rgba(246,246,246,1)',
+             pageParam:pageParam,
+             bounces: true,
+             reload:true
+         });
+     }
+ </script>
+</html>

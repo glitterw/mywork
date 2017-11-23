@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>电话监听</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/monitorin.css" />
+
+</head>
+<body>
+ <div id="monitorin">
+     <div class="min_box">
+         <div class="title">客户信息管理</div>
+         <div class="content">
+             <p>
+             填写客户基本信息，方便后续客户管理
+            </p>
+         </div>
+         <div class="footer">
+             <p id="holde">稍后填写</p>
+             <p id="immediately">立即填写</p>
+         </div>
+     </div>
+
+ </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script>
+    var holde = document.getElementById('holde')
+    var imme = document.getElementById('immediately')
+    apiready = function(){
+        var pageParams = get_par()
+        holde.addEventListener('click',function(){
+            api.closeFrame({
+                name: 'monitoring'
+            });
+        },false)
+        imme.addEventListener('click',function(){
+            openfillInWin(pageParams)
+            api.closeFrame({
+                name: 'monitoring'
+            });
+        },false)
+    }
+    function openfillInWin(params){
+        if(is_define(params))
+        {
+            var pageParam=params;
+        }
+        else
+        {
+            var pageParam=new Object();
+        }
+        api.openWin({
+            name: 'fillIn',
+            url: './fillIn_win.html',
+            pageParam: pageParam,
+            reload:true
+        });
+    }
+
+
+</script>
+</html>

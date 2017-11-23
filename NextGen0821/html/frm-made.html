@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>呼叫清单</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+    </script>
+</head>
+
+<body>
+    <div class="frm-made">
+        <!--  选择模块-->
+        <div class="module-box">
+            <span>模块</span>
+            <span class="name" id="moduleName" index=0>外呼</span>
+            <span class="icon-go"></span>
+        </div>
+
+        <div>
+            <div class="require">
+                <span>需求建议</span>
+            </div>
+            <div class="require-msg">
+                <textarea placeholder="诚挚欢迎您提出宝贵的意见，我们将尽快纳入优化计划 中！" id="massage"></textarea>
+            </div>
+        </div>
+
+        <div class="submit"><input type="button" value="提  交" class="submit-login" id="submit-require"> </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+
+        //打开选中模块窗口
+        $api.addEvt($api.dom(".module-box"), 'click', function() {
+            openSet();
+        });
+        //提交
+        $api.addEvt($api.byId("submit-require"), 'click', function() {
+            saveRequire();
+        });
+    };
+
+    //提交数据
+    function saveRequire() {
+        var massage = $api.val($api.byId("massage"));
+        massage = $api.trim(massage);
+        if (massage == "") {
+            toastNetErr("请输入您的改进意见，谢谢！");
+            return false;
+        }
+        //获取模块值
+        var index = $api.attr($api.byId("moduleName"), 'index');
+        //请求服务器端api
+        var actionUrl = ajaxAgent.serverAction + '/user/desiredSubmit';
+        var userEntity = sessionAgent.getLoginInfo();
+        //console.log(actionUrl);
+        var body = {
+            id: userEntity.id,
+            token: userEntity.token,
+            version: ajaxAgent.version,
+            data: {
+                "module": index,
+                "suggest": massage
+            }
+        }
+        //console.log(JSON.stringify(body));
+
+        api.ajax({
+            async: false,
+            url: actionUrl,
+            method: 'post',
+            timeout: 30,
+            dataType: 'json',
+            returnAll: false,
+            headers: {
+                "Authorization": "Bearer [accessToken]",
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            data: {
+                body: body
+            }
+        }, function(ret, err) {
+            //console.log(JSON.stringify(ret));
+            if (ret) {
+                if (ret.status == 0) {
+                    toastNetErr('您的建议已经提交，谢谢！');
+                    //初始化
+                    setMoulde(0);
+                    $api.val($api.byId("massage"), "");
+
+                } else {
+                    toastNetErr(ret.msg);
+                }
+            } else {
+                toastNetErr(err.msg);
+            }
+        });
+
+    }
+    //打开模板设置
+    function openSet() {
+        api.openWin({
+            name: 'winModuleSet',
+            url: 'win-module-set.html',
+        });
+
+    }
+
+    //选中模块
+    function setMoulde(index) {
+        var name = '外呼';
+        switch (index) {
+            case 0:
+                name = '外呼';
+                break;
+            case 1:
+                name = '数据分析';
+                break;
+            case 2:
+                name = '我的';
+                break;
+            case 3:
+                name = '其他';
+                break;
+            default:
+
+        }
+        $api.attr($api.byId("moduleName"), 'index', index);
+        $api.text($api.byId("moduleName"), name);
+    }
+</script>
+
+</html>

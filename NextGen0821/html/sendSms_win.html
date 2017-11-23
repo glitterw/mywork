@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>发短信</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        html,body{
+            font-size:0.4rem;
+            background:#f6f6f6;
+        }
+        span.back{
+            width:0.22rem;
+            height:0.22rem;
+            border-right:2px solid #fff;
+            border-bottom:2px solid #fff;
+            transform: rotate(135deg);
+        }
+        header{
+            background:#1177ee;
+
+            /*border-bottom:1px solid #ccc;*/
+            /*box-sizing: border-box;*/
+        }
+        .sms_content{
+            height:0.6rem;
+            padding:0.14rem 0.3rem;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-size:0.36rem;
+            color:#fff;
+        }
+        span.empty{
+            width:0.3rem;
+            height:0.3rem;
+        }
+      .main{
+          padding:0.4rem 0 0.5rem 0;
+      }
+      ul.box_list li{
+          padding:0.3rem;
+          display:flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          font-size:0.28rem;
+      }
+        ul.box_list li:first-child{
+            background:#fff;
+            border-top:1px solid #ccc;
+            box-sizing:border-box;
+        }
+        ul.box_list li:first-child span:first-child{
+            font-size:0.3rem;
+            color:#000;
+        }
+        ul.box_list li:first-child span:last-child{
+            font-size:0.3rem;
+            color:#666;
+        }
+        ul.box_list li:nth-child(2){
+            font-size:0.28rem;
+            color:#000;
+            font-weight: 600;
+            border-top:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+            box-sizing:border-box;
+        }
+        ul.box_list li:last-child{
+            background:#fff;
+        }
+        ul.box_list li:last-child textarea{
+            min-height: 5rem;
+            width:100%;
+            outline: none;
+        }
+       .footer{
+           padding:0 0.3rem;
+       }
+        .footer p{
+            font-size:0.32rem;
+            padding:0.3rem 0;
+            background:#1177ee;
+            text-align: center;
+            color:#fff;
+            border-radius: 0.15rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="sms">
+        <header>
+            <div class="sms_content">
+                <span class="back" id="history"></span>
+                <p>短信</p>
+                <span class="empty"></span>
+            </div>
+        </header>
+        <div class="main">
+            <ul class="box_list">
+                <li>
+                    <span>收件人</span>
+                    <span id="iphoneCode">18368571381</span>
+                </li>
+                <li>
+                    短信内容
+                </li>
+                <li>
+                    <textarea placeholder="请编辑你的短信内容" name="textcont" id="sms_text"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p id="send">
+                发送
+            </p>
+        </div>
+    </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script>
+    apiready = function() {
+        var backhistory = document.getElementById('history');
+        var sendBnt = document.getElementById('send');
+        var sms = document.getElementById('sms_text');
+        var iphonetext = document.getElementById('iphoneCode')
+        var sendurl = getAPI('call/sendSms')
+        fix_android_ios('white')
+        var pageParams = get_par()
+
+        backhistory.addEventListener('click', function () {
+            api.closeWin();
+        }, false)
+
+
+        sendBnt.addEventListener('click', function () {
+            var smsVlue = sms.value;
+            var iphone = iphonetext.textContent
+            var storeuser = sessionAgent.getLoginInfo();
+            storeuser.data = {
+                outCallPhoneId: pageParams.callstates,
+                message: smsVlue
+            }
+
+            //alert(JSON.stringify(storeuser))
+            apiAjax(sendurl, storeuser, function (ret) {
+                if (ret.status == 0) {
+                    api.closeWin();
+                } else {
+                    $toast('发送失败请重试')
+                }
+            })
+
+            //这里调用接口
+            //api.closeWin();
+        }, false)
+    }
+
+</script>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>callList</title>
+    <script src="../script/initsize.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/callList.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myfont/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <style>
+        /*****暂无数据样式提示*********/
+        .notdata{
+            position:absolute;
+            left:0;
+            top:30%;
+            width:100%;
+            display:none;
+        }
+        .not_bg{
+            width:3.6rem;
+            height:1.86rem;
+            background:url(../image/not_data_bg.svg)no-repeat center;
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .content{
+            margin:0 auto;
+        }
+        .content p{
+            font-size:0.36rem;
+            text-align: center;
+            color:#333;
+            padding:0.45rem;
+        }
+
+        /*********加载速度提示************/
+        /*.lodings{*/
+            /*padding:0.3rem 0;*/
+            /*display:flex;*/
+            /*flex-direction: row;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+            /*font-size:0.18rem;*/
+        /*}*/
+        /*.lodings .text_content{*/
+            /*color:#666;*/
+        /*}*/
+        /*.lodings img{*/
+            /*width:0.28rem;*/
+            /*height:0.4rem;*/
+            /*margin-right:0.1rem;*/
+        /*}*/
+        #loadingState{
+            display:none;
+            /*background:#fff;*/
+        }
+
+        .load-process .icon-shan_la>span{
+            width: 8.5em;
+        }
+    </style>
+</head>
+<body>
+ <div class="call_list_box" id="callListse">
+     <ul class="content_list" id="contentList">
+         <!--<li>-->
+             <!--<div class="call-bnt be_dialed">待拨</div>-->
+             <!--<div class="call_details">-->
+                 <!--<p>18368571381</p>-->
+
+             <!--</div>-->
+             <!--<div class="call_enter"></div>-->
+         <!--</li>-->
+         <!--<li>-->
+             <!--<div class="call-bnt dialed">已拨</div>-->
+             <!--<div class="call_details">-->
+                 <!--<p >18368571381</p>-->
+                 <!--<p class="Interestingly">有意向</p>-->
+             <!--</div>-->
+             <!--<div class="call_enter"></div>-->
+         <!--</li>-->
+         <!--<li>-->
+             <!--<div class="call-bnt dialed">已拨</div>-->
+             <!--<div class="call_details">-->
+                 <!--<p >18368571381</p>-->
+                 <!--<p class="Interestingly">有意向</p>-->
+             <!--</div>-->
+             <!--<div class="edit"></div>-->
+         <!--</li>-->
+         <!--<li>-->
+             <!--<div class="call-bnt dialed">已拨</div>-->
+             <!--<div class="call_details">-->
+                 <!--<p>18368571381</p>-->
+                 <!--<p  class="Nointention">无意向</p>-->
+             <!--</div>-->
+             <!--<div class="call_enter"></div>-->
+         <!--</li>-->
+         <!--<li>-->
+             <!--<div class="call-bnt dialed">已拨</div>-->
+             <!--<div class="call_details">-->
+                 <!--<p >18368571381</p>-->
+                 <!--<p class="aboutside">约见面</p>-->
+             <!--</div>-->
+             <!--<div class="call_enter"></div>-->
+         <!--</li>-->
+         <!--<li>-->
+             <!--<div class="call-bnt not_dialed">未接通</div>-->
+             <!--<div class="call_details">-->
+                 <!--<p>18368571381</p>-->
+             <!--</div>-->
+             <!--<div class="call_enter"></div>-->
+         <!--</li>-->
+     </ul>
+
+ </div>
+ <!--loading引入开始-->
+ <div class="load-process">
+     <!-- 页面滑到底部 开始 -->
+     <div class="on-bottom hidden">
+         <p class="icon-shan_la">
+                <span>
+            <i>上滑下载更多数据</i>
+            <i id="showNum">已加载 20/50</i>
+          </span>
+         </p>
+     </div>
+     <!-- 页面滑到底部 结束 -->
+     <!-- 数据加载中 开始 -->
+     <div class="loading hidden">
+         <p>
+              <span class="icon-loading spin">
+                    <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span>
+                    </span>
+             <span>数据载入中...</span></p>
+     </div>
+     <!-- 数据加载中 结束 -->
+     <!-- 数据加载完 开始 -->
+     <div class="the-end  hidden">
+         <p class="icon-stop_la">
+                <span>
+            <i id="showTotalNum">已加载全部50条数据</i>
+
+          </span>
+         </p>
+     </div>
+     <!-- 数据加载完 结束 -->
+ </div>
+ <!--引入结束-->
+<!-----------暂无数据提示------------>
+   <div class="notdata" id="not_bg" >
+       <div class="content">
+       <div class="not_bg"></div>
+       <p>暂无数据</p>
+       </div>
+   </div>
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/yll.util.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script type="text/html" id="callListTemplate">
+    <li tid="Listcall">
+        <div tid="callstate" class="call-bnt">待拨</div>
+        <div class="call_details">
+            <p tid="callCode">18368571381</p>
+            <p  tid="stateShow" ></p>
+        </div>
+        <div class="call_enter" tid="label"></div>
+    </li>
+</script>
+<script>
+
+    apiready = function() {
+        var listBnt = document.getElementsByClassName('call-bnt');
+        var boxList = document.getElementsByClassName('content_list')[0].getElementsByTagName('li')
+        var notData = document.getElementById('not_bg');
+        var callListBox = document.getElementById('callListse')
+        var callTemplate = document.getElementById('callListTemplate').innerHTML;
+        var urls = getAPI('call/getOutCallPhoneList')
+        var container = document.getElementById('contentList');
+        var loading = document.getElementById('loadingState')
+              // alert(JSON.stringify())
+        //var paramsbeas = sessionAgent.getLoginInfo()
+        var storeuser = sessionAgent.getLoginInfo();
+        storeuser.pageSize = 2;
+        storeuser.pageNum = 1;
+        storeuser.data = {userPurpose: 0};
+        var sumNum = 0;
+        var pageParams = get_par()
+        storeuser.data.outCallId = pageParams.pageParams.outCallId
+        var funName = null;
+        r_ajax(urls, storeuser, function (ret) {
+            //alert(JSON.stringify(ret))
+            if (ret.status == 0) {
+                var modeList = ret.data.outCallPhoneList
+                var count = ret.data.count;
+                if (modeList.length == 0 && storeuser.pageNum == 1) {
+                    notData.style.display = 'block'
+                } else {
+                    notData.style.display = 'none'
+                }
+
+                if (modeList.length >= storeuser.pageSize && storeuser.pageNum == 1 && (modeList.length < count && count > 0)) {
+                    sumNum += modeList.length
+                    //showBottomTab(sumNum, count)
+                    //switchButtonShow(0)
+                } else if (storeuser.pageNum == 1 && count == 0) {
+                    return
+                } else if (storeuser.pageNum == 1 && modeList.length == storeuser.pageSize && count == storeuser.pageSize) {
+                    //switchButtonShow(2)
+                   // $toast('已加载完成'+count+'条')
+                }
+
+                for (var i = 0; i < modeList.length; i++) {
+                    var item = modeList[i];
+                   CreatCallTemplate(item, pageParams).appendTo(container);
+                }
+            }
+
+        })
+
+        ajaxType(pageParams)
+
+       pullresh()
+        function pullresh() {
+            var locked = false;
+            api.addEventListener({
+                name: 'scrolltobottom',
+                extra: {
+                    threshold: 20 //设置距离底部多少距离时触发，默认值为0，数字类型
+                }
+            }, function (ret, err) {
+                switchButtonShow(1)
+                storeuser.pageNum++;
+                setTimeout(function () {
+                    if (!locked) {
+
+                        locked = true;
+                    } else {
+                        return
+                    }
+                    apiAjax(urls, storeuser, function (ret) {
+                        if (status == 0) {
+                            if(!ret.data.outCallPhoneList){
+                                return
+                            }
+                            var modeList = ret.data.outCallPhoneList
+                            var count = ret.data.count;
+                            sumNum += modeList.length
+
+                            if (storeuser.pageNum > 1 && sumNum < count) {
+                                //showBottomTab(sumNum, count)
+                               // switchButtonShow(0)
+                            } else {
+                                //switchButtonShow(2)
+                                toastNetErrBottom('已加载完成'+count+'条')
+                            }
+                            for (var i = 0; i < modeList.length; i++) {
+                                var item = modeList[i];
+                                CreatCallTemplate(item, pageParams).appendTo(container);
+                            }
+
+                        }
+                        locked = false;
+                        hiddenAllButon()
+                    })
+                }, 2000)
+
+            })
+        }
+
+
+        //已拨通挂断监听
+        api.addEventListener({
+            name: 'ListenerPhone'
+        }, function (ret, err) {
+            phoneListener(function (data) {
+                //alert(JSON.stringify(ret.state.OFFHOOK ))
+                if (data.state == 'OFFHOOK') {
+                    var callendSeverUrl = getAPI('call/endCall')
+                    var callendbaseParams =sessionAgent.getLoginInfo();
+                    callendbaseParams.data = {bindId: ret.value.bindId,calledOutCallPhoneId:ret.value.calloutcallId}
+                    apiAjax(callendSeverUrl, callendbaseParams, function (datastate) {
+                        pageParams.callstates = ret.value.calloutcallId;
+                        var callbindId = ret.value.calloutcallId
+                              //alert(JSON.stringify(datastate))
+                               //console.log(JSON.stringify(datastate))
+                        if(datastate.status == 0){
+                            var statephone = datastate.data.callState
+                            //alert(statephone)
+                            //modification(statephone,callbindId)
+                            //monitoringFrame(pageParams, pageParams)
+                        }else{
+                            toastNetErrBottom(datastate.msg)
+                        }
+
+                    })
+                }else{
+
+                }
+            })
+
+        });
+
+
+             function modification(int,callId){
+                 var itemCall = document.getElementById(''+callId+'');
+                 var stateCall = callstate(int)
+                 if(int == 0){
+
+                     $api.addCls(itemCall, stateCall.class)
+                     itemCall.textContent = stateCall.value
+                 }
+                 else if(int == 1){
+                     //alert(itemCall)
+                     $api.addCls(itemCall, stateCall.class)
+                     itemCall.textContent = stateCall.value
+
+                 }else if(int == 2){
+                     //alert(int)
+                     $api.addCls(itemCall, stateCall.class)
+                     itemCall.textContent = stateCall.value
+                 }
+             }
+        /**************************类型选择监听请求数据*************************************/
+        function ajaxType(pageParams) {
+            api.addEventListener({
+                name: 'request'
+            }, function (ret, err) {
+                if (ret) {
+                    //alert(JSON.stringify(ret.value.index))
+                    hiddenAllButon();
+                    storeuser.pageNum = 1
+                    sumNum = 0;
+                    storeuser.data.userPurpose = ret.value.index;
+                    r_ajax(urls, storeuser, function (ret) {
+
+                        if (ret.status == 0) {
+                            container.innerHTML = '';
+                           // alert(JSON.stringify(ret))
+                            if(!ret.data.outCallPhoneList){
+                                return
+                            }
+                            var modeList = ret.data.outCallPhoneList;
+                            var count = ret.data.count;
+                            sumNum += modeList.length
+                            if (modeList.length >= storeuser.pageSize && storeuser.pageNum == 1 && (modeList.length < count && count > 0)) {
+
+                                notData.style.display = 'none';
+                                callListBox.style.display = 'block';
+                               // showBottomTab(sumNum, count)
+                                //switchButtonShow(0)
+                            } else if (storeuser.pageNum == 1 && count == 0) {
+                                notData.style.display = 'block';
+                                callListBox.style.display = 'none';
+
+                                return
+                            } else if (storeuser.pageNum == 1 && sumNum == count ) {
+                                notData.style.display = 'none';
+                                callListBox.style.display = 'block';
+
+                                //switchButtonShow(2)
+                                toastNetErrBottom('已加载完成'+count+'条')
+                            }
+
+                            for (var i = 0; i < modeList.length; i++) {
+                                var item = modeList[i];
+                                CreatCallTemplate(item, pageParams).appendTo(container);
+                            }
+                        }
+                    })
+                }
+
+            });
+        }
+
+        /**************************列表拨打状态处理状态处理*************************************/
+
+
+        function callstate(callNumstate) {
+            var textvalue = {value: '', class: ''};
+            switch (callNumstate) {
+                case 0:
+                    textvalue.value = '待拨'
+                    textvalue.class = 'be_dialed'
+                    break;
+                case 1:
+                    textvalue.value = '已拨'
+                    textvalue.class = 'dialed'
+                    break;
+                case 2:
+                    textvalue.value = '未接通'
+                    textvalue.class = 'not_dialed'
+                    break;
+                default:
+                    break;
+
+            }
+            return textvalue
+        }
+
+        function faceLabels(callNumstate) {
+            var textvalue = {value: '', class: ''};
+            switch (callNumstate) {
+                case 0:
+                    textvalue.value = '无意向'
+                    textvalue.class = 'Nointention'
+                    break;
+                case 1:
+                    textvalue.value = '有意向'
+                    textvalue.class = 'Interestingly'
+                    break;
+                case 2:
+                    textvalue.value = '约见面'
+                    textvalue.class = 'aboutside'
+                    break;
+                default:
+                    break;
+
+            }
+            return textvalue
+        }
+
+        /***********************创建列表模板********************************/
+        function CreatCallTemplate(info, pageParams) {
+
+            var stateCallsee = (info.callState == null && info.callState == -1)? 0 : info.callState
+            var stateCall = callstate(stateCallsee)
+            var enterPage = (stateCallsee == 2 || stateCallsee == 0) ? 0 : 1; //1为已拨待查看；0为用户未拨通或未接通返馈窗口
+            var templateCall = new yll.util.HtmlTemplate(callTemplate);
+            //电话状态text
+            templateCall.getElementByTid('callstate').textContent = stateCall.value //状态文本值；
+            templateCall.getElementByTid('callstate').setAttribute('id',info.outCallPhoneId)
+
+            //电话样式
+            $api.addCls(templateCall.getElementByTid('callstate'), stateCall.class)
+
+//            //电话号码
+            templateCall.getElementByTid('callCode').textContent = info.phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+
+
+            //信息填写状态
+            if(stateCallsee == 1){ // 拨打状态 1：已拨；2：未接通；0：待拨；
+                if(info.infoState == 0){ // 0:待填写 ；1：已填写；
+                    if(info.userIntention !== 0 && info.userIntention !== 1 && info.userIntention !== 2 ){
+                        templateCall.getElementByTid('label').className =  'edit'; //显示待填写标签
+                    }
+                }else{
+                    templateCall.getElementByTid('label').className = 'call_enter'; // 显示进入标签
+                }
+            }
+
+
+            //电拨通意向样
+            if(stateCallsee == 1){ //已拨；
+                if(info.userIntention !== -1){ //-1:为没有未知；0：无意向；1：有意向；2：约见面
+                    templateCall.getElementByTid('stateShow').className = faceLabels(info.userIntention).class  //显示意向详情；
+                    templateCall.getElementByTid('stateShow').textContent = faceLabels(info.userIntention).value
+                }
+            }
+
+                function locationType(){
+                    // 如果状态是：已拨，意向有标签　进入了信息窗；
+                    if(stateCallsee == 1){
+                        if(info.infoState == 0){ //0：待填写才能直接进入信息窗；
+                            pageParams.callstates = info.outCallPhoneId;
+                            pageParams.fillType = 0;
+                            openfillInwin(pageParams)
+                        }else{ //否则是已填写的进入底部弹出层；
+                            opentPopBottom(pageParams, {tel: info.phone, callstates: info.outCallPhoneId, loadType: enterPage,fillType:1})
+                        }
+                    }else{//否则未接通或待拨的也进入底部弹出层
+                        opentPopBottom(pageParams, {tel: info.phone, callstates: info.outCallPhoneId, loadType: enterPage,fillType:0})
+                    }
+                }
+            funName = locationType
+            templateCall.getElementByTid('Listcall').addEventListener('click', locationType, false)
+
+            return templateCall
+
+        }
+
+//用户反馈
+        function openfillInwin(params) {
+            //alert('进入填写资料页面')
+            if (is_define(params)) {
+                var pageParam = params;
+            }
+            else {
+                var pageParam = new Object();
+            }
+            api.openWin({
+                name: 'fillIn',
+                url: './fillIn_win.html',
+                pageParam: pageParam
+            });
+        }
+
+//用户详情页面
+        function openusredetails(params) {
+            if (is_define(params)) {
+                var pageParam = params;
+            }
+            else {
+                var pageParam = new Object();
+            }
+            api.openWin({
+                name: 'userDetails',
+                url: './userDetails_win.html',
+                pageParam: pageParam
+            });
+        }
+
+        //打开底部弹框；
+        function opentPopBottom(headHeights, params) {
+            var headHeight = headHeights.headerH;
+            if (is_define(params)) {
+                var pageParam = params;
+                pageParam.headHeight = headHeights
+            }
+            else {
+                var pageParam = new Object();
+                pageParam.headHeight = headHeights
+            }
+            api.openFrame({
+                name: 'popBottom',
+                url: './popBottomList_frame.html',
+                rect: {
+                    x: 0,
+                    y: headHeight,
+                    w: api.winWidth,
+                    h: api.winHeight - headHeight,
+                },
+                bgColor: 'rgba(0,0,0,0.5)',
+                pageParam: pageParam,
+                bounces: false,
+                reload:true
+            });
+        }
+
+        //电话监听弹窗
+        function monitoringFrame(headerHeight, params) {
+            var headHeight = headerHeight.headerH;
+            if (is_define(params)) {
+                var pageParam = params;
+            } else {
+                var pageParam = new Object();
+            }
+            api.openFrame({
+                name: 'monitoring',
+                url: './monitorin_frame.html',
+                rect: {
+                    x: 0,
+                    y: headHeight,
+                    w: api.winWidth,
+                    h: api.winHeight - headHeight,
+                },
+                bgColor: 'rgba(0,0,0,0.5)',
+                pageParam: pageParam,
+                bounces: false,
+                reload:true
+            });
+        }
+
+
+        /*********************loading***************************/
+        function switchButtonShow(index) {
+            var tablebuttom = document.getElementsByClassName('hidden')
+            for (var i = 0; i < tablebuttom.length; i++) {
+                if (index == i) {
+                    tablebuttom[i].style.display = "block";
+                } else {
+                    tablebuttom[i].style.display = "none";
+                }
+            }
+
+        }
+
+        function hiddenAllButon() {
+            var tablebuttom = document.getElementsByClassName('hidden')
+            for (var i = 0; i < tablebuttom.length; i++) {
+                tablebuttom[i].style.display = "none";
+            }
+        }
+
+        /*******************************公用方法的引用***********************************************
+         /**
+         *列表页面公用方法
+         */
+
+
+        //返回顶部
+        function goTop() {
+            $api.addEvt($api.dom(".the-end"), 'click', function () {
+                //var top=document.body.scrollTop;
+                //console.log("top:"+top);
+                document.body.scrollTop = 0;
+            });
+        }
+
+        /*底部tab处理
+     *@thisNum 已加载的数量
+     *@totalNum 总共的数量
+     */
+        function showBottomTab(thisNum,totalNum){
+            var showNum="已加载 "+ thisNum+"/"+ totalNum;
+            $api.text($api.byId("showNum"),
+                    showNum);
+            //$api.removeCls($api.dom(".on-bottom"), 'hidden');
+    }
+
+        /*加载完成显示总量
+     *@totalNum 总共的数量
+     */
+        function showTheEndTab(totalNum){
+        var showTotalNum= "已加载全部"+
+                totalNum+ "条数据";
+        $api.text($api.byId(
+                "showTotalNum"), showTotalNum);
+            //$api.removeCls($api.dom(".the-end"), 'hidden');
+    }
+
+}
+</script
+>
+</html>

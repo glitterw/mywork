@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/saveOption.css" />
+    <title>Title</title>
+</head>
+<body>
+    <div id="save_option">
+        <header>
+            <div class="save_title">
+                 <span class="back"></span>
+                 <p id="title"></p>
+                 <span class="save">保存</span>
+            </div>
+        </header>
+        <div class="main">
+            <div class="save_content saveList">
+                <div class="inpu_box">
+                    <div class="ordinary_input enter_box">
+                        <input type="text" id="sexname" />
+                        <span class="labels" id="clear"></span>
+                    </div>
+                    <div class="textare enter_box">
+
+                        <textarea name="texts" id="textvalue" rows="10" cols="20" placeholder="请描述你的详细内容"></textarea>
+
+                    </div>
+                </div>
+                <p class="matter">
+                    注意：请填写用户姓名，若未告知全名，请填写某某先生or
+                    某某女士
+                </p>
+            </div>
+            <div class="slect_save saveList">
+                <ul  class="select_box" id="selcet_content">
+
+                    <div id="sex" class="box_content">
+
+
+                    </div>
+                    <div id="age" class="box_content">
+                        <!--<li>请选择</li>-->
+
+                    </div>
+                    <div id="isChild" class="box_content">
+                        <!--<li>请选择</li>-->
+
+                    </div>
+                    <div id="childAage" class="box_content">
+                        <!--<li>请选择</li>-->
+
+                    </div>
+                    <div id="intention" class="box_content">
+                        <!--<li>请选择</li>-->
+
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="../script/initsize.js"></script>
+<script type="text/javascript" src="../script/sessions.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/init.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/tools.js"></script>
+<script>
+    var options ={
+        sex:['请选择','女','男'],
+        age:['请选择','18岁以下','18-30岁','31-50岁','51岁以上'],
+        isChild:['请选择','无','有'],
+        childAage:['请选择','18岁以下','18-30岁','31-50岁','51岁以上'],
+        intention:['请选择','无意向','有意向','约见面']
+    } ;
+
+    var UiList = document.getElementsByClassName('saveList');
+    var title = document.getElementById('title')
+    var back = document.getElementsByClassName('back')[0];
+    var save = document.getElementsByClassName('save')[0];
+    var sexName = document.getElementById('sexname');
+    var texts = document.getElementById('textvalue');
+    var header = document.getElementsByTagName('header')[0];
+    var clears = document.getElementById('clear')
+    var saveParams = new Object(); //全局参数对象设置；
+    apiready = function(){
+        fix_android_ios('white')
+        var headerHeight = $api.offset(header).h;
+         var params = get_par();
+        clears.addEventListener('click',function(){
+            sexName.value = '';
+        },false)
+         title.textContent = params.title;
+             if(params.index == 1 || params.index == 7){
+                 UiList[0].style.display = 'block'
+                 UiList[1].style.display = 'none'
+                 showUI(params) //显示相对应的UI列表项；
+
+             }else{
+                 UiList[1].style.display = 'block'
+                 UiList[0].style.display = 'none'
+                 showUI(params) //显示相对应的UI列表项；
+             }
+          back.addEventListener('click',function(){
+              api.closeWin();
+          },false)
+
+        //选择列表项的值；
+        save.addEventListener('click',function(){
+              if(params.index == 1){
+                  if($api.trim(sexName.value) == ''){
+                      toastNetErrBottom('姓名不能为空')
+                      return
+                  }else{
+
+                      saveParams.value = sexName.value ;
+                      saveParams.valuenum = 0;
+                      saveParams.saveIndex = params.index
+                  }
+
+              }else if(params.index == 7){
+                  if($api.trim(texts.value) == ''){
+                      toastNetErrBottom('备注不能为空')
+                       return
+                  }else{
+                      saveParams.value = $api.trim(texts.value);
+                      saveParams.saveIndex = params.index
+                      saveParams.valuenum = 6
+                  }
+
+              }    //执行保存操作；
+                    api.execScript({
+                        name: 'fillIn',
+                        frameName: 'fillDetails',
+                        script: 'getMsg("'+saveParams.value+'","'+saveParams.saveIndex+'","'+saveParams.valuenum+'")'
+                    });
+
+            api.closeWin();
+         })
+    }
+
+      //创建列表模板；
+       function creatTemplate(paramArr,index,saveIndex,initvalue){
+           var parentNode = document.getElementsByClassName('box_content') //获取所有选择列表项；
+           var nodeList = parentNode[index] //根据索引值创建列表项；
+                if( nodeList.children.length > 0){
+                    //alert( nodeList.children.length)
+                    for(var k = 0;k< nodeList.children.length;k++){
+                        var initLi = nodeList.children[k];
+                        var spanValue = initLi.getElementsByTagName('span')[0].textContent;
+                        if(initvalue == spanValue){ //如果初始值与当前的值状态值相等 添加勾选状态；
+                            var spanLastact = initLi.getElementsByTagName('span')[0];
+                            spanLastact.className = 'selected'
+                        }else{
+                            var spanLastact = initLi.getElementsByTagName('span')[0];
+                            spanLastact.className = ''
+                        }
+                    }
+
+                    return
+                }
+
+           for(var i = 0;i<paramArr.length; i++){ //循环动态创建列表；
+               var LI = document.createElement('li')
+               var span_fr = document.createElement('span') //动态创建前一个span
+               var span_end = document.createElement('span') //动态创建后一个span;
+
+               if(initvalue == paramArr[i]){ //如果初始值与当前的值状态值相等 添加勾选状态；
+                   span_end.className='selected'
+                   span_fr.style.color = '#1177ee'
+               }
+                span_fr.textContent = paramArr[i];
+                LI.appendChild(span_fr) //动态插入前一个span
+                LI.appendChild(span_end) //动态插入后一个span;
+                nodeList.appendChild(LI)
+                  bindevent(LI,i,saveIndex) //动态事件绑定；
+           }
+           //闭包事件封状；
+           function bindevent(LI,i,saveIndex){
+               LI.addEventListener('click',function(){
+                   if(i ==0){return}
+
+                    var allChildNodLis = this.parentNode.children;
+                    var active = this.getElementsByTagName('span');
+                        active[0].style.color = '#1177ee'
+                        active[1].className = 'selected';
+                        saveParams.value = active[0].textContent;
+                        saveParams.saveIndex = saveIndex;
+                        saveParams.valuenum = (i-1);
+
+                   for(var c = 0;c < allChildNodLis.length; c++){
+                       if(this !== allChildNodLis[c]){
+                           var noList = allChildNodLis[c].getElementsByTagName('span');
+                           noList[1].className = '';
+                           noList[0].style.color = "#333"
+                       }
+                   }
+
+               },false)
+           }
+            //动态显示隐藏列表项；
+           for(var t = 0; t < parentNode.length;t++){
+               if(t !== index){
+                   parentNode[t].style.display = 'none'
+               }else{
+                   parentNode[t].style.display = 'block'
+               }
+           }
+       }
+    //根据索引显示UI组件；
+    function showUI(params){
+           var enterEles = document.getElementsByClassName('enter_box')
+           var matter = document.getElementsByClassName('matter')[0]
+           var index = params.index;
+           var initvalue = params.value
+           var templateOption = []; //当前选中的动态模板；
+           var optionIndex = null; //当前选项的索引；
+           switch(index){
+               case 1:
+                   enterEles[0].style.display = 'block'
+                   enterEles[1].style.display = 'none'
+                   matter.style.display = 'block'
+                   sexName.value = params.value;
+                   break;
+               case 2:
+                   templateOption = options.sex
+                   optionIndex = 0
+                   break;
+               case 3:
+                   templateOption = options.age
+                   optionIndex = 1
+                   break;
+               case 4:
+                   templateOption = options.isChild
+                   optionIndex = 2
+                   break;
+               case 5:
+                   templateOption = options.childAage
+                   optionIndex = 3
+                   break;
+               case 6:
+                   templateOption = options.intention
+                   optionIndex = 4
+                   break;
+               case 7:
+                   enterEles[1].style.display = 'block'
+                   enterEles[0].style.display = 'none'
+                   matter.style.display = 'none'
+                   texts.value =  params.value
+                   break;
+           }
+
+        if(index !== 1 && index !== 7){
+            creatTemplate(templateOption,optionIndex,index,initvalue) //创建模板项
+        }
+
+    }
+
+</script>
+</html>

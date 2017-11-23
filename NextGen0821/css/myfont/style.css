@@ -1,0 +1,136 @@
+@font-face {
+  font-family: 'nextgen';
+  src:  url('fonts/nextgen.eot?q5figw');
+  src:  url('fonts/nextgen.eot?q5figw#iefix') format('embedded-opentype'),
+    url('fonts/nextgen.ttf?q5figw') format('truetype'),
+    url('fonts/nextgen.woff?q5figw') format('woff'),
+    url('fonts/nextgen.svg?q5figw#nextgen') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'nextgen' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-loading .path1:before {
+  content: "\e904";
+  color: rgb(0, 0, 0);
+  opacity: 0.65;
+}
+.icon-loading .path2:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.35;
+}
+.icon-loading .path3:before {
+  content: "\e906";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.6;
+}
+.icon-loading .path4:before {
+  content: "\e907";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.3;
+}
+.icon-loading .path5:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.55;
+}
+.icon-loading .path6:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.25;
+}
+.icon-loading .path7:before {
+  content: "\e90a";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.5;
+}
+.icon-loading .path8:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.2;
+}
+.icon-loading .path9:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.45;
+}
+.icon-loading .path10:before {
+  content: "\e916";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.15;
+}
+.icon-loading .path11:before {
+  content: "\e917";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.4;
+}
+.icon-loading .path12:before {
+  content: "\e918";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+  opacity: 0.1;
+}
+.icon-shan_la:before {
+  content: "\e900";
+}
+.icon-stop_la:before {
+  content: "\e901";
+}
+.icon-pwd:before {
+  content: "\e902";
+}
+.icon-tel-icon:before {
+  content: "\e903";
+}
+.icon-list:before {
+  content: "\e90d";
+}
+.icon-made:before {
+  content: "\e90e";
+}
+.icon-notice:before {
+  content: "\e90f";
+}
+.icon-go:before {
+  content: "\e910";
+}
+.icon-order:before {
+  content: "\e911";
+}
+.icon-selecte:before {
+  content: "\e912";
+}
+.icon-triangle:before {
+  content: "\e913";
+}
+.icon-yes:before {
+  content: "\e914";
+}
+.icon-like:before {
+  content: "\e915";
+}

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+html,body{
+    font-size:0.24rem;
+    background:#f6f6f6;
+}
+.fill_box{
+    height:0.6rem;
+    padding:0.14rem 0.3rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color:#fff;
+    font-size:0.36rem;
+}
+.fill_box span.back{
+    width:0.22rem;
+    height:0.22rem;
+    border-right:2px solid #fff;
+    border-bottom:2px solid #fff;
+    transform: rotate(135deg);
+}
+header{
+    background:#1177ee;
+}
